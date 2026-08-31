@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acervo — Colección Digital INBAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --guinda:#1e5b4f; --guinda-900:#1E5C3B;
+    --verde:#1e5b4f; --verde-900:#1E5C3B;
+    --oro:#8DC2B7; --arena:#DBD3B6;
+    --tinta:#211a1c; --gris:#6f6a66;
+    --linea:#e8e3da; --papel:#ffffff; --papel-2:#faf7f2;
+    --display:"Fraunces",Georgia,serif;
+    --sans:"Noto Sans",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+  .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);font-weight:500}
+
+  /* ---------- ANIMACIÓN DE ENTRADA ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);padding:13px 0}
+  .nav{display:flex;align-items:center;gap:30px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--sans);font-size:19px;font-weight:500;color:var(--guinda)}
+  .logo-wrap{position:relative;width:81px;height:29px;flex:none}
+  .logo-wrap .logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:brightness(0)}
+  .brand-sep{width:1px;height:20px;background:var(--linea);flex:none}
+  .brand-text{font-style:italic;font-weight:700}
+  .menu{margin-left:auto;display:flex;gap:26px}
+  .menu a{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);position:relative;padding:4px 0}
+  .menu a.active{color:var(--guinda)}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--guinda);transition:width .35s var(--ease)}
+  .menu a:hover::after,.menu a.active::after{width:100%}
+  .lang{font-size:11px;letter-spacing:.1em;color:var(--gris)}
+
+  /* ---------- SEARCH DOCK ---------- */
+  .search-dock{position:relative;flex:none;height:38px}
+  .search-dock__icon{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--linea);color:var(--gris);cursor:pointer;transition:border-color .3s,color .3s,opacity .25s ease,transform .25s ease}
+  .search-dock__icon svg{width:16px;height:16px}
+  .search-dock__icon:hover{border-color:var(--oro)}
+  .search-dock.is-open .search-dock__icon{opacity:0;transform:scale(0);pointer-events:none}
+  .search-dock__form{position:absolute;top:0;right:0;display:flex;align-items:center;height:38px;width:38px;border-radius:30px;border:1px solid var(--linea);overflow:hidden;opacity:0;pointer-events:none;background:rgba(255,255,255,.9);transition:width .4s var(--ease),opacity .25s ease,border-color .3s}
+  .search-dock.is-open .search-dock__form{width:260px;opacity:1;pointer-events:auto}
+  .search-dock__form svg{flex:none;width:15px;height:15px;margin-left:14px;color:var(--gris)}
+  .search-dock__input{flex:1;min-width:0;height:100%;padding:0 8px;background:transparent;border:none;outline:none;color:var(--tinta);font-family:var(--sans);font-size:13px}
+  .search-dock__input::placeholder{color:var(--gris)}
+  .search-dock__close{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;margin-right:6px;flex:none;cursor:pointer;color:var(--gris);transition:background .25s,color .3s}
+  .search-dock__close:hover{background:var(--linea)}
+
+  /* ---------- MENÚ HAMBURGUESA (móvil) ---------- */
+  .menu-toggle{all:unset;box-sizing:border-box;display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;cursor:pointer;flex:none}
+  .menu-toggle span{display:block;width:20px;height:2px;background:var(--tinta);margin:0 auto;transition:background .3s,transform .3s,opacity .3s}
+  .mobile-menu{position:fixed;inset:0;z-index:400;opacity:0;pointer-events:none;transition:opacity .35s}
+  .mobile-menu.is-open{opacity:1;pointer-events:auto}
+  .mobile-menu__backdrop{position:absolute;inset:0;background:rgba(0,20,18,.6);backdrop-filter:blur(3px)}
+  .mobile-menu__panel{position:absolute;top:0;right:0;bottom:0;width:min(78vw,340px);background:var(--verde);display:flex;flex-direction:column;gap:6px;padding:90px 32px 40px;transform:translateX(100%);transition:transform .4s var(--ease)}
+  .mobile-menu.is-open .mobile-menu__panel{transform:translateX(0)}
+  .mobile-menu__panel a{color:#fff;font-family:var(--display);font-size:22px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .mobile-menu__close{all:unset;box-sizing:border-box;position:absolute;top:24px;right:24px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  body.overflow-hidden{overflow:hidden}
+
+  .crumbs{font-size:12px;color:var(--gris);letter-spacing:.04em;margin:26px 0 10px}
+  .crumbs a:hover{color:var(--guinda)} .crumbs b{color:var(--tinta);font-weight:500}
+  .back{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--guinda);cursor:pointer;background:none;border:none;margin-bottom:18px}
+  .back:hover{gap:12px}
+
+  /* ---------- DETALLE ---------- */
+  .mhero{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:stretch;margin-bottom:20px}
+  .mhero .vis{border-radius:12px;overflow:hidden;min-height:340px;position:relative}
+  .mhero .vis canvas,.mhero .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .mhero .vis .sig{position:absolute;left:18px;bottom:16px;background:rgba(0,0,0,.28);color:var(--arena);font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:5px 10px;border-radius:3px}
+  .mhero .info h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,4.4vw,52px);line-height:1.02;letter-spacing:-.01em}
+  .mhero .info .sem{color:var(--tinta);font-size:15px;margin:18px 0}
+  .mhero .info .note{font-size:11.5px;color:var(--gris);font-style:italic}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:22px 0}
+  .stat{background:var(--papel-2);border-radius:10px;padding:16px}
+  .stat b{font-family:var(--display);font-weight:500;font-size:26px;color:var(--guinda);display:block;line-height:1}
+  .stat span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+  .visit{border-top:1px solid var(--linea);padding-top:16px;display:flex;flex-wrap:wrap;gap:6px 26px;font-size:13px;color:var(--tinta)}
+  .visit .k{color:var(--gris);margin-right:6px}
+
+  .section{padding:56px 0}
+  .sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+  .sec-h h3{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.01em}
+  .sec-h a{color:var(--guinda);font-size:13px;letter-spacing:.05em}
+
+  /* filtros de colección */
+  .cfilters{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;margin-bottom:20px}
+  .cfg{display:flex;flex-direction:column;gap:8px}
+  .cfg .lbl{margin-bottom:0}
+  .search{position:relative;min-width:240px;max-width:340px;flex:none}
+  .search input{width:100%;height:38px;box-sizing:border-box;border:1px solid var(--linea);border-radius:30px;padding:0 16px 0 40px;font-family:var(--sans);font-size:14px;outline:none;transition:border-color .3s}
+  .search input:focus{border-color:var(--oro)}
+  .search .mag{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--gris)}
+  .chipset{display:flex;flex-wrap:wrap;gap:8px;max-width:420px}
+  .opt{font-size:12.5px;color:var(--tinta);border:1px solid var(--linea);border-radius:20px;padding:6px 12px;cursor:pointer;transition:.25s var(--ease)}
+  .opt:hover{border-color:var(--oro)}
+  .opt.on{background:var(--guinda);color:#fff;border-color:var(--guinda)}
+  .yearrange{display:flex;align-items:center;gap:8px}
+  .yearrange select{border:1px solid var(--linea);border-radius:8px;padding:8px 10px;font-family:var(--sans);font-size:13px;color:var(--tinta);background:var(--papel);outline:none;cursor:pointer;transition:border-color .25s}
+  .yearrange select:focus{border-color:var(--oro)}
+
+  /* ---------- COMBOBOX MULTISELECT (Artista) ---------- */
+  .combo{position:relative;width:260px}
+  .combo__field{display:flex;flex-wrap:wrap;align-items:center;gap:5px;min-height:38px;border:1px solid var(--linea);border-radius:10px;padding:5px 6px;cursor:text;background:var(--papel);transition:border-color .25s,box-shadow .25s}
+  .combo__field:focus-within{border-color:var(--oro);box-shadow:0 0 0 3px rgba(141,194,183,.18)}
+  .combo__chips{display:contents}
+  .combo__chip{display:inline-flex;align-items:center;gap:5px;background:var(--papel-2);border:1px solid var(--linea);border-radius:20px;padding:3px 6px 3px 10px;font-size:11.5px;color:var(--tinta);white-space:nowrap}
+  .combo__chip button{all:unset;display:flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;color:var(--gris);cursor:pointer;font-size:11px}
+  .combo__chip button:hover{background:var(--linea);color:var(--tinta)}
+  .combo__input{flex:1 1 60px;min-width:60px;border:none;outline:none;background:none;font-family:var(--sans);font-size:12.5px;color:var(--tinta);padding:4px 2px}
+  .combo__input::placeholder{color:var(--gris)}
+  .combo__popup{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;background:var(--papel);border:1px solid var(--linea);border-radius:10px;box-shadow:0 12px 28px -12px rgba(0,0,0,.22);max-height:220px;overflow-y:auto;padding:6px}
+  .combo__item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;font-size:13px;color:var(--tinta);cursor:pointer}
+  .combo__item:hover{background:var(--papel-2)}
+  .combo__item .chk{width:15px;height:15px;border:1.4px solid var(--linea);border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px}
+  .combo__item.sel .chk{background:var(--guinda);border-color:var(--guinda)}
+  .combo__empty{padding:10px;text-align:center;font-size:12.5px;color:var(--gris)}
+  .yearrange__sep{color:var(--gris);font-size:13px;flex:none}
+  .ccount{font-size:13px;color:var(--gris);margin-left:auto;align-self:center}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px}
+  .card{cursor:pointer;opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .card.in{opacity:1;transform:none}
+  .card .art{position:relative;overflow:hidden;border-radius:4px;background:var(--papel-2)}
+  .card canvas{display:block;width:100%;height:auto;transition:transform 1s var(--ease)}
+  .card:hover canvas{transform:scale(1.06)}
+  .card .tag{position:absolute;top:10px;left:10px;background:rgba(30,92,59,.92);color:var(--arena);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:3px}
+  .card .meta{padding:11px 2px 0}
+  .card .meta b{font-family:var(--display);font-weight:500;font-size:15.5px;display:block;line-height:1.2}
+  .card .meta .au{font-size:12px;font-style:italic;color:var(--tinta)}
+  .card .meta .yr{font-size:11px;color:var(--gris)}
+  .empty{grid-column:1/-1;text-align:center;color:var(--gris);padding:50px 0}
+
+  /* ---------- PAGINADOR ---------- */
+  .pager{display:flex;align-items:center;justify-content:center;gap:6px;margin:36px 0 8px}
+  .pager[hidden]{display:none}
+  .pager__arrow{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;color:var(--gris);cursor:pointer;font-size:15px;transition:background .2s,color .2s}
+  .pager__arrow:hover{background:var(--papel-2);color:var(--tinta)}
+  .pager__arrow[disabled]{color:var(--linea);cursor:default;pointer-events:none}
+  .pager__track{position:relative}
+  .pager__thumb{position:absolute;top:0;bottom:0;left:0;border-radius:9px;background:var(--guinda);opacity:0;z-index:0;transition:transform .3s var(--ease),width .3s var(--ease),opacity .2s}
+  .pager__list{position:relative;z-index:1;display:flex;gap:6px;list-style:none}
+  .pager__list li{display:flex}
+  .pager__num{all:unset;box-sizing:border-box;min-width:34px;height:34px;padding:0 6px;display:flex;align-items:center;justify-content:center;border-radius:9px;font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--gris);cursor:pointer;transition:color .2s}
+  .pager__num:hover{color:var(--tinta)}
+  .pager__num.on{color:#fff;font-weight:500}
+  .pager__gap{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--linea);font-size:13px}
+
+  /* banda curaduría */
+  .band{background:var(--guinda-900);color:#fff;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:20px}
+  .band .txt{padding:52px 48px}
+  .band .txt .lbl{color:var(--arena)}
+  .band h3{font-family:var(--display);font-weight:500;font-size:clamp(28px,3.4vw,42px);line-height:1.06;margin:14px 0 16px}
+  .band p{color:#fff;font-size:15px;max-width:44ch}
+  .band .cta{display:inline-flex;align-items:center;gap:12px;margin-top:24px;background:var(--arena);color:var(--guinda-900);padding:14px 24px;border-radius:40px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:.35s var(--ease)}
+  .band .cta:hover{background:#fff;transform:translateY(-2px)}
+  .band .vis{position:relative;min-height:300px}
+  .band .vis canvas{position:absolute;inset:0;width:100%;height:100%}
+  .band .vis .tg{position:absolute;left:22px;bottom:20px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--arena)}
+  .cur-more{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .curc{all:unset;box-sizing:border-box;position:relative;display:block;height:320px;border-radius:20px;overflow:hidden;cursor:pointer;isolation:isolate;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+  .curc:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 28px 54px -20px rgba(var(--card-rgb),.55)}
+  .curc__bg{position:absolute;inset:0;z-index:0;display:block}
+  .curc__bg canvas,.curc__bg img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .curc:hover .curc__bg canvas,.curc:hover .curc__bg img{transform:scale(1.08)}
+  .curc__veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(10,14,13,.94) 0%, rgba(var(--card-rgb),.55) 45%, rgba(var(--card-rgb),0) 78%)}
+  .curc__body{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;justify-content:flex-end;padding:22px;text-align:left;color:#fff}
+  .curc__title{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:6px;line-height:1.15}
+  .curc__desc{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.82)}
+
+  footer{background:var(--guinda-900);color:#fff;padding:40px 0;margin-top:20px}
+  .fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#fff;font-size:12px}
+
+  @media(max-width:860px){
+    .mhero{grid-template-columns:1fr}.mhero .vis{min-height:240px}
+    .band{grid-template-columns:1fr}.band .vis{min-height:200px}
+    .cur-more{grid-template-columns:1fr}
+  }
+  @media(max-width:900px){ .menu,.lang{display:none} .menu-toggle{display:flex} }
+  @media(max-width:640px){ .wrap{padding:0 20px} }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo-wrap"><img class="logo" src="Img/logo-guinda.png" alt="INBAL"></span><span class="brand-sep"></span><span class="brand-text">Colección digital</span></a>
+    <nav class="menu">
+      <a href="colecciones.html">Obras</a><a href="acervos.html" class="active">Acervos</a><a href="#">Fondos</a><a href="curadurias.html">Curadurías</a><a href="investigacion.html">Investigación</a>
+    </nav>
+    <div class="search-dock" id="searchDock">
+      <button type="button" class="search-dock__icon" id="searchDockIcon" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <form class="search-dock__form" id="searchDockForm" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-dock__input" id="searchDockInput" placeholder="Buscar museo…">
+        <button type="button" class="search-dock__close" id="searchDockClose" aria-label="Cerrar búsqueda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </form>
+    </div>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" data-mmclose></div>
+  <nav class="mobile-menu__panel">
+    <button type="button" class="mobile-menu__close" id="mobileMenuClose" aria-label="Cerrar menú">✕</button>
+    <a href="colecciones.html">Obras</a>
+    <a href="acervos.html">Acervos</a>
+    <a href="#">Fondos</a>
+    <a href="curadurias.html">Curadurías</a>
+    <a href="investigacion.html">Investigación</a>
+  </nav>
+</div>
+
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">Inicio</a> &nbsp;›&nbsp; <a href="acervos.html">Acervos</a> &nbsp;›&nbsp; <b id="bcName">Acervo</b></div>
+  <a class="back" href="acervos.html">← Todos los acervos</a>
+
+  <div class="mhero">
+    <div class="vis" id="mHeroVis"><span class="sig" id="mHeroSig"></span></div>
+    <div class="info">
+      <span class="lbl" id="mZona"></span>
+      <h2 id="mName"></h2>
+      <p class="sem" id="mSem"></p>
+      <div class="stats" id="mStats"></div>
+      <div class="visit" id="mVisit"></div>
+      <p class="note" style="margin-top:12px">Texto de muestra e información de visita de ejemplo — pendiente de la versión aprobada por el museo.</p>
+    </div>
+  </div>
+
+  <!-- Colección del museo -->
+  <div class="section">
+    <div class="sec-h">
+      <h3>Las obras</h3>
+      <a href="colecciones.html">Ver todas las obras del acervo →</a>
+    </div>
+    <div class="cfilters">
+      <div class="cfg"><span class="lbl">Buscar</span>
+        <div class="search"><span class="mag">⌕</span><input type="search" id="cq" placeholder="Buscar en este museo…"></div>
+      </div>
+      <div class="cfg"><span class="lbl">Artista</span>
+        <div class="combo" id="comboAutor">
+          <div class="combo__field" id="comboAutorField">
+            <div class="combo__chips" id="comboAutorChips"></div>
+            <input type="text" class="combo__input" id="comboAutorInput" placeholder="Buscar artista…" autocomplete="off">
+          </div>
+          <div class="combo__popup" id="comboAutorPopup" hidden></div>
+        </div>
+      </div>
+      <div class="cfg"><span class="lbl">Año</span>
+        <div class="yearrange">
+          <select id="cYearFrom" aria-label="Año desde"><option value="">Desde</option></select>
+          <span class="yearrange__sep">–</span>
+          <select id="cYearTo" aria-label="Año hasta"><option value="">Hasta</option></select>
+        </div>
+      </div>
+      <div class="cfg"><span class="lbl">Tipo de obra</span><div class="chipset" id="cTipo"></div></div>
+      <span class="ccount" id="cCount"></span>
+    </div>
+    <div class="grid" id="cGrid"></div>
+    <nav class="pager" id="pager" aria-label="Paginación de obras" hidden>
+      <button type="button" class="pager__arrow" id="pagerPrev" aria-label="Página anterior">‹</button>
+      <div class="pager__track">
+        <span class="pager__thumb" id="pagerThumb"></span>
+        <ol class="pager__list" id="pagerList"></ol>
+      </div>
+      <button type="button" class="pager__arrow" id="pagerNext" aria-label="Página siguiente">›</button>
+    </nav>
+  </div>
+
+  <!-- Curaduría del museo -->
+  <div class="section" style="padding-top:0">
+    <div class="sec-h"><h3>Curaduría del museo</h3></div>
+    <div class="band">
+      <div class="txt">
+        <span class="lbl">Recorrido curatorial</span>
+        <h3 id="curTitle"></h3>
+        <p id="curIntro"></p>
+        <a class="cta" href="#">Ver el recorrido →</a>
+      </div>
+      <div class="vis"><canvas id="curCanvas"></canvas><span class="tg" id="curMeta"></span></div>
+    </div>
+    <div class="cur-more" id="curMore"></div>
+  </div>
+</div>
+
+<footer><div class="wrap fbot reveal">
+  <span>© 2026 Instituto Nacional de Bellas Artes y Literatura · Secretaría de Cultura · Gobierno de México</span>
+  <span>Colección Digital INBAL</span>
+</div></footer>
+
+<script>
+  /* ---------------- PALETA / CANVAS ---------------- */
+  const COLORS={
+    guinda:{hex:'#9b2247',ramp:['#9b2247','#611232','#e6d194'],label:'Guinda'},
+    anil:{hex:'#274060',ramp:['#274060','#12233a','#c9d6e5'],label:'Añil'},
+    verde:{hex:'#1e5b4f',ramp:['#1e5b4f','#002f2a','#e6d194'],label:'Verde'},
+    ocre:{hex:'#a57f2c',ramp:['#a57f2c','#5e4713','#f0dca0'],label:'Ocre'},
+    terra:{hex:'#b0532f',ramp:['#b0532f','#5f2814','#e8c9a0'],label:'Terracota'},
+    arena:{hex:'#d9c07a',ramp:['#d9c07a','#a57f2c','#fff7e0'],label:'Arena'},
+    piedra:{hex:'#8a8377',ramp:['#8a8377','#4a463f','#d8d3c8'],label:'Piedra'},
+    tinta:{hex:'#26201f',ramp:['#26201f','#000000','#8a8377'],label:'Tinta'}
+  };
+  const CKEYS=Object.keys(COLORS);
+  const COLOR_RGB={guinda:'155,34,71',anil:'39,64,96',verde:'30,91,79',ocre:'165,127,44',terra:'176,83,47',arena:'217,192,122',piedra:'138,131,119',tinta:'38,32,31'};
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  function paintArt(c,o,fixedH){
+    const rng=mulberry32(o.seed);const w=c.clientWidth||210,h=fixedH||Math.round(w*o.aspect);
+    c.width=w;c.height=h;const x=c.getContext('2d');const p=COLORS[o.color].ramp;
+    const g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,p[0]);g.addColorStop(1,p[1]);x.fillStyle=g;x.fillRect(0,0,w,h);
+    for(let i=0;i<18;i++){x.beginPath();x.strokeStyle=i%4===0?p[2]:(i%2?p[1]:p[0]);x.globalAlpha=.12+rng()*.22;x.lineWidth=2+rng()*13;
+      const sx=rng()*w,sy=rng()*h;x.moveTo(sx,sy);x.bezierCurveTo(sx+(rng()-.5)*w,sy+(rng()-.5)*h,rng()*w,rng()*h,rng()*w,rng()*h);x.stroke();}
+    x.globalAlpha=1;
+  }
+  /* recinto: silueta arquitectónica (barras/columnas) sobre degradado */
+  function paintRecinto(c,key,seed){
+    const rng=mulberry32(seed||7);const w=c.clientWidth||300,h=c.clientHeight||190;
+    c.width=w;c.height=h;const x=c.getContext('2d');const p=COLORS[key].ramp;
+    const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,p[0]);g.addColorStop(1,p[1]);x.fillStyle=g;x.fillRect(0,0,w,h);
+    // cielo/halo
+    const rg=x.createRadialGradient(w*.7,h*.25,10,w*.7,h*.25,h);rg.addColorStop(0,'rgba(230,209,148,.25)');rg.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=rg;x.fillRect(0,0,w,h);
+    // fachada
+    const baseY=h*0.9, bw=w*0.66, bx=(w-bw)/2, bh=h*0.5;
+    x.fillStyle='rgba(0,0,0,.20)';x.fillRect(bx,baseY-bh,bw,bh);
+    // columnas
+    const cols=6, cw=bw/(cols*2);
+    x.fillStyle='rgba(230,209,148,.22)';
+    for(let i=0;i<cols;i++){const cx=bx+cw+i*(bw/cols);x.fillRect(cx,baseY-bh*0.82,cw,bh*0.82);}
+    // frontón
+    x.fillStyle='rgba(230,209,148,.28)';x.beginPath();x.moveTo(bx-6,baseY-bh);x.lineTo(w/2,baseY-bh-h*0.16);x.lineTo(bx+bw+6,baseY-bh);x.closePath();x.fill();
+    // escalinata
+    x.fillStyle='rgba(0,0,0,.15)';x.fillRect(bx-10,baseY,bw+20,h-baseY);
+  }
+
+  /* ---------------- DATOS MUSEOS ---------------- */
+  const MUSEOS=[
+    {slug:'munal',nombre:'Museo Nacional de Arte',sig:'MUNAL',color:'verde',zona:'Centro Histórico, CDMX',total:5200,dig:3450,fund:1982,img:'munal',
+     sem:'Resguarda el panorama del arte producido en México desde la época virreinal hasta la primera mitad del siglo XX, en un antiguo palacio del Centro Histórico. Permite leer la construcción de la identidad artística nacional.',
+     dir:'Tacuba 8, Centro Histórico',cur:{t:'El siglo XIX mexicano',i:'Una lectura del paisaje, el retrato y la pintura de historia que definieron la nación moderna, en 16 obras clave del acervo.',by:'Curaduría MUNAL',n:16},
+     curImages:[{file:'MUNAL_16095',alt:'El descubrimiento del Pulque, José María Obregón'},{file:'MUNAL_14333',alt:'La Nube, Gerardo Murillo Coronado (Dr. Atl)'}]},
+    {slug:'bellas-artes',nombre:'Museo del Palacio de Bellas Artes',sig:'MPBA',color:'guinda',zona:'Alameda Central, CDMX',total:1500,dig:945,fund:1934,img:'bellas-artes',
+     sem:'En el recinto cultural más emblemático del país, custodia el muralismo mexicano en sus muros y una colección de arte de los siglos XX y XXI. Casa de la ópera, la danza y las grandes exposiciones.',
+     dir:'Av. Juárez y Eje Central, Centro',cur:{t:'Muralismo en Bellas Artes',i:'Rivera, Orozco, Siqueiros y Tamayo: los murales que convirtieron al Palacio en un manifiesto plástico, en documentación de alta resolución.',by:'Curaduría MPBA',n:9}},
+    {slug:'arquitectura',nombre:'Museo Nacional de Arquitectura',sig:'MNA',color:'anil',zona:'Alameda Central, CDMX',total:800,dig:260,fund:1984,img:'arquitectura',
+     sem:'Único museo del país dedicado a la arquitectura, en el último piso del Palacio de Bellas Artes. Resguarda planos, maquetas, fotografía y documentos del patrimonio arquitectónico mexicano.',
+     dir:'Palacio de Bellas Artes (último piso), Centro',cur:{t:'La arquitectura como patrimonio',i:'Planos, maquetas y fotografía que narran la construcción del México moderno, del funcionalismo a las utopías urbanas.',by:'Curaduría MNA',n:10}},
+    {slug:'mural-diego-rivera',nombre:'Museo Mural Diego Rivera',sig:'MMDR',color:'ocre',zona:'Centro (Alameda), CDMX',total:320,dig:210,fund:1986,img:'diego-rivera',
+     sem:'Creado para albergar el mural “Sueño de una tarde dominical en la Alameda Central”, de Diego Rivera, tras los sismos de 1985. Un museo alrededor de una sola obra maestra y su contexto.',
+     dir:'Balderas y Colón, Centro',cur:{t:'Un mural, una época',i:'Personaje por personaje: las claves históricas y simbólicas del gran mural de Rivera, con acercamientos de zoom profundo.',by:'Curaduría MMDR',n:12}},
+    {slug:'mam',nombre:'Museo de Arte Moderno',sig:'MAM',color:'arena',zona:'Bosque de Chapultepec, CDMX',total:3200,dig:1892,fund:1964,img:'arte-moderno',
+     sem:'Pintura, escultura y fotografía moderna en el Bosque de Chapultepec. Custodia obras emblemáticas de la Escuela Mexicana y de las vanguardias del siglo XX, en diálogo con el arte internacional.',
+     dir:'Paseo de la Reforma s/n, Bosque de Chapultepec',cur:{t:'Mujeres del arte moderno',i:'Frida Kahlo, María Izquierdo, Remedios Varo y Leonora Carrington: una constelación de miradas que transformaron el arte mexicano.',by:'Curaduría MAM',n:14}},
+    {slug:'saps',nombre:'Sala de Arte Público Siqueiros',sig:'SAPS',color:'piedra',zona:'Polanco, CDMX',total:1100,dig:480,fund:1969,img:'saps',
+     sem:'Antigua casa-estudio de David Alfaro Siqueiros, hoy centro dedicado al muralismo y al arte público. Conserva su archivo, su obra experimental y su legado político y plástico.',
+     dir:'Tres Picos 29, Polanco',cur:{t:'El muralismo público',i:'Siqueiros y la idea del arte como herramienta social: bocetos, murales portátiles y experimentos técnicos.',by:'Curaduría SAPS',n:11}},
+    {slug:'tamayo',nombre:'Museo Tamayo Arte Contemporáneo',sig:'TAMAYO',color:'tinta',zona:'Bosque de Chapultepec, CDMX',total:1800,dig:640,fund:1981,img:'tamayo',
+     sem:'Dedicado al arte contemporáneo internacional, nació de la colección que Rufino Tamayo donó a México. Un diálogo entre la creación actual y los grandes maestros modernos, en Chapultepec.',
+     dir:'Paseo de la Reforma 51, Bosque de Chapultepec',cur:{t:'Tamayo y su tiempo',i:'La colección personal del artista frente a la creación contemporánea: un puente entre generaciones y geografías.',by:'Curaduría Tamayo',n:12}},
+    {slug:'casa-estudio',nombre:'Museo Casa Estudio Diego Rivera y Frida Kahlo',sig:'CASA ESTUDIO',color:'guinda',zona:'San Ángel, CDMX',total:500,dig:300,fund:1986,img:'casa-estudio',
+     sem:'Las casas-estudio funcionalistas que Juan O’Gorman diseñó para Diego Rivera y Frida Kahlo en San Ángel. Un museo de sitio sobre su vida, su obra y la arquitectura moderna mexicana.',
+     dir:'Diego Rivera esq. Altavista, San Ángel',cur:{t:'Dos casas, dos artistas',i:'La vida cotidiana y creativa de Rivera y Kahlo a través de su espacio de trabajo y los objetos que lo habitaron.',by:'Curaduría Casa Estudio',n:10}},
+    {slug:'san-carlos',nombre:'Museo Nacional de San Carlos',sig:'MNSC',color:'verde',zona:'Tabacalera, CDMX',total:2000,dig:1182,fund:1968,img:'san-carlos',
+     sem:'Alberga la colección de arte europeo más importante de México, del gótico al siglo XX, en un palacio neoclásico. Su origen se liga a la Academia de San Carlos, cuna de la enseñanza artística nacional.',
+     dir:'Puente de Alvarado 50, Tabacalera',cur:{t:'Europa en México',i:'Del renacimiento al romanticismo: obras maestras que educaron la mirada de generaciones de artistas mexicanos.',by:'Curaduría MNSC',n:13}},
+    {slug:'munae',nombre:'Museo Nacional de la Estampa',sig:'MUNAE',color:'ocre',zona:'Centro (Alameda), CDMX',total:12000,dig:712,fund:1986,img:'estampa',
+     sem:'Único museo del país dedicado al arte gráfico. Custodia una vasta colección de grabado, litografía y estampa, desde Posada y el Taller de Gráfica Popular hasta la gráfica contemporánea.',
+     dir:'Av. Hidalgo 39, Centro',cur:{t:'La estampa insurgente',i:'De José Guadalupe Posada al Taller de Gráfica Popular: el grabado como herramienta de crítica social y memoria.',by:'Curaduría MUNAE',n:15}},
+    {slug:'plastica-mexicana',nombre:'Salón de la Plástica Mexicana',sig:'SPM',color:'arena',zona:'Roma Norte, CDMX',total:700,dig:300,fund:1949,img:'plastica-mexicana',
+     sem:'Fundado en 1949, reúne a artistas plásticos mexicanos en activo. Un espacio vivo de exposición y diálogo que ha acompañado la historia reciente del arte nacional.',
+     dir:'Colima 196, Roma Norte',cur:{t:'Generaciones vivas',i:'La obra de artistas mexicanos en activo: un retrato del arte que se produce hoy, más allá de los grandes nombres del pasado.',by:'Curaduría SPM',n:12}},
+    {slug:'carrillo-gil',nombre:'Museo de Arte Carrillo Gil',sig:'MACG',color:'piedra',zona:'San Ángel, CDMX',total:1900,dig:1240,fund:1974,img:'carrillo-gil',
+     sem:'Surgido de la colección privada de Álvar y Carmen Carrillo Gil, reúne obra de Orozco, Rivera y Siqueiros junto a arte contemporáneo. Pionero en su vocación experimental y de vanguardia.',
+     dir:'Av. Revolución 1608, San Ángel',cur:{t:'Vanguardia y experimentación',i:'Del expresionismo de Orozco al arte conceptual: un recorrido por la vocación arriesgada de la colección.',by:'Curaduría MACG',n:11}},
+    {slug:'ciudad-juarez',nombre:'Museo de Arte de Ciudad Juárez',sig:'MACJ',color:'tinta',zona:'Ciudad Juárez, Chih.',total:900,dig:360,fund:1964,img:'ciudad-juarez',
+     sem:'El museo del INBAL en la frontera norte, en un edificio de Pedro Ramírez Vázquez en la zona PRONAF. Difunde el arte contemporáneo y acerca el acervo nacional a Ciudad Juárez.',
+     dir:'Av. Lincoln s/n, Zona PRONAF, Ciudad Juárez',cur:{t:'Arte en la frontera',i:'La creación contemporánea del norte de México y su diálogo con el arte binacional en la frontera con Estados Unidos.',by:'Curaduría MACJ',n:10}},
+    {slug:'capilla-alfonsina',nombre:'Capilla Alfonsina',sig:'CAPILLA ALFONSINA',color:'guinda',zona:'Obispado, Monterrey, N.L.',total:300,dig:120,fund:1955,img:'capilla-alfonsina',
+     sem:'Antigua casa de Alfonso Reyes, hoy biblioteca y museo que resguarda su archivo personal, biblioteca y objetos de trabajo. Un homenaje vivo al humanismo mexicano del siglo XX.',
+     dir:'Vicente Suárez 67, Obispado, Monterrey',cur:{t:'El regreso de Alfonso Reyes',i:'Manuscritos, correspondencia y objetos personales que trazan el itinerario intelectual de uno de los grandes humanistas mexicanos.',by:'Curaduría Capilla Alfonsina',n:8}},
+    {slug:'cencropam',nombre:'Centro Nacional de Conservación y Registro del Patrimonio Artístico Mueble',sig:'CENCROPAM',color:'anil',zona:'Churubusco, CDMX',total:250,dig:90,fund:1981,img:'cencropam',
+     sem:'Centro especializado en la conservación, restauración, investigación y registro del patrimonio artístico mueble del país. El laboratorio detrás de la preservación del acervo nacional.',
+     dir:'General Anaya 187, Churubusco',cur:{t:'Detrás de la restauración',i:'Procesos de conservación documentados obra por obra: diagnóstico, intervención y registro técnico del patrimonio mueble.',by:'Curaduría CENCROPAM',n:9}},
+    {slug:'cabanas',nombre:'Instituto Cultural Cabañas',sig:'ICC',color:'verde',zona:'Guadalajara, Jal.',total:1400,dig:520,fund:1980,img:'cabanas',
+     sem:'Alojado en el Hospicio Cabañas, Patrimonio de la Humanidad por la UNESCO. Custodia los murales de José Clemente Orozco, entre ellos el célebre Hombre de fuego, en la cúpula principal.',
+     dir:'Cabañas 8, Las Fresas, Guadalajara',cur:{t:'Orozco y el fuego',i:'Los murales de Orozco en el Hospicio Cabañas: una lectura de su lenguaje visceral y su crítica a la deshumanización.',by:'Curaduría ICC',n:13}},
+    {slug:'iago',nombre:'Instituto de Artes Gráficas de Oaxaca',sig:'IAGO',color:'ocre',zona:'Oaxaca de Juárez, Oax.',total:1800,dig:640,fund:1988,img:'iago',
+     sem:'Fundado por Francisco Toledo, reúne una vasta colección de grabado, fotografía y libros de artista de México y el mundo, con vocación de biblioteca viva y taller abierto.',
+     dir:'Macedonio Alcalá 507, Centro, Oaxaca',cur:{t:'El taller como archivo',i:'Grabado y libro de artista en diálogo: la gráfica oaxaqueña y sus vínculos con la tradición internacional del medio.',by:'Curaduría IAGO',n:11}},
+    {slug:'mam-gomez-palacio',nombre:'Museo de Arte Moderno de Gómez Palacio',sig:'MAMGP',color:'terra',zona:'Gómez Palacio, Dgo.',total:600,dig:210,fund:1981,img:'mam-gomez-palacio',
+     sem:'Recinto lagunero dedicado al arte moderno y contemporáneo mexicano, con especial atención a la producción artística del norte del país.',
+     dir:'Blvd. Miguel Alemán 200, Gómez Palacio',cur:{t:'Arte moderno en el norte',i:'Una revisión de la modernidad artística mexicana desde La Laguna: pintura y escultura del siglo XX en diálogo regional.',by:'Curaduría MAMGP',n:9}},
+    {slug:'casa-diego-rivera-gto',nombre:'Museo Casa Diego Rivera',sig:'MCDR',color:'arena',zona:'Guanajuato, Gto.',total:400,dig:180,fund:1975,img:'casa-diego-rivera-gto',
+     sem:'La casa natal de Diego Rivera en Guanajuato, hoy museo que resguarda obra temprana del artista y recrea el ambiente doméstico porfiriano en que nació.',
+     dir:'Positos 47, Centro, Guanajuato',cur:{t:'Los primeros años de Rivera',i:'Obra de juventud y documentos que narran la formación del muralista antes de su salida a Europa.',by:'Curaduría MCDR',n:10}},
+    {slug:'ciudad-aguascalientes',nombre:'Museo de la Ciudad de Aguascalientes',sig:'MCA',color:'piedra',zona:'Aguascalientes, Ags.',total:700,dig:260,fund:1985,img:'ciudad-aguascalientes',
+     sem:'Instalado en un antiguo palacio del centro histórico, documenta la historia urbana y artística de Aguascalientes junto a exposiciones temporales de arte contemporáneo.',
+     dir:'Venustiano Carranza 118, Centro, Aguascalientes',cur:{t:'Memoria de una ciudad',i:'Pintura, fotografía y documento histórico que reconstruyen la identidad visual de Aguascalientes a través del tiempo.',by:'Curaduría MCA',n:10}},
+    {slug:'jose-luis-cuevas',nombre:'Museo José Luis Cuevas',sig:'MJLC',color:'tinta',zona:'Centro Histórico, CDMX',total:900,dig:340,fund:1992,img:'jose-luis-cuevas',
+     sem:'Antiguo convento de Santa Inés convertido en museo por iniciativa del propio artista. Reúne la obra gráfica y escultórica de José Luis Cuevas junto a su colección personal de arte internacional.',
+     dir:'Academia 13, Centro Histórico',cur:{t:'La Giganta y su tiempo',i:'Dibujo, grabado y escultura de Cuevas en diálogo con su colección: el neofigurativismo frente a la tradición muralista.',by:'Curaduría MJLC',n:12}}
+  ];
+
+  /* ---------------- OBRAS MOCK (por museo) ---------------- */
+  const PERIODOS=['Arte Colonial','Siglo XIX','Arte Moderno','Arte Contemporáneo'];
+  const TIPOS=['Pintura','Escultura','Grabado','Fotografía','Dibujo'];
+  const AUTORES=['Frida Kahlo','Diego Rivera','José María Velasco','María Izquierdo','Raúl Anguiano','J. G. Posada','Remedios Varo','Dr. Atl','Federico Silva','Saturnino Herrán'];
+  const TITULOS=['La molendera','Autorretrato','Paisaje del valle','La ofrenda','Naturaleza muerta','El volcán','Composición','La espina','Vista de la ciudad','Alegoría','Sin título','El sueño'];
+  const rnd=a=>a[Math.floor(Math.random()*a.length)];
+  const OBRAS=[];let uid=0;
+  MUSEOS.forEach((m,mi)=>{
+    const count=14+Math.floor(Math.random()*20);
+    for(let i=0;i<count;i++){
+      const p=rnd(PERIODOS);let anio;
+      if(p==='Arte Colonial')anio=1600+((i*7)%180);
+      else if(p==='Siglo XIX')anio=1810+((i*5)%89);
+      else if(p==='Arte Moderno')anio=1900+((i*3)%60);
+      else anio=1961+((i*4)%63);
+      uid++;
+      OBRAS.push({id:uid,museo:m.slug,titulo:rnd(TITULOS),autor:rnd(AUTORES),anio,periodo:p,tipo:rnd(TIPOS),
+        color:CKEYS[(mi+i)%CKEYS.length],seed:(uid*2654435761+99)>>>0,aspect:0.82+((uid*29)%55)/100});
+    }
+  });
+
+  /* ---------------- CARGA DEL ACERVO ---------------- */
+  const params=new URLSearchParams(location.search);
+  const m=MUSEOS.find(x=>x.slug===params.get('acervo'))||MUSEOS[0];
+  const cState={q:'',tipos:new Set(),autores:new Set(),yearFrom:null,yearTo:null,page:1};
+  const PER_PAGE=12;
+
+  document.title=m.nombre+' — Colección Digital INBAL';
+  document.getElementById('bcName').textContent=m.nombre;
+  document.getElementById('mName').textContent=m.nombre;
+  document.getElementById('mZona').textContent=m.zona;
+  document.getElementById('mSem').textContent=m.sem;
+  document.getElementById('mHeroSig').textContent=m.sig+' · Recinto';
+  document.getElementById('mStats').innerHTML=
+    `<div class="stat"><b>${m.total.toLocaleString('es-MX')}</b><span>Obras del acervo</span></div>
+     <div class="stat"><b>${m.dig.toLocaleString('es-MX')}</b><span>Digitalizadas</span></div>
+     <div class="stat"><b>${m.fund}</b><span>Fundación</span></div>`;
+  document.getElementById('mVisit').innerHTML=
+    `<div><span class="k">Dirección:</span>${m.dir}</div><div><span class="k">Horario:</span>Mar–Dom · 10:00–18:00</div><div><span class="k">Sitio:</span>inba.gob.mx</div>`;
+  const mHeroVis=document.getElementById('mHeroVis');
+  if(m.img){
+    mHeroVis.insertAdjacentHTML('afterbegin',`<picture><source srcset="Img/acervos/${m.img}.webp" type="image/webp"><img src="Img/acervos/${m.img}.jpg" alt="${m.nombre}"></picture>`);
+  } else {
+    mHeroVis.insertAdjacentHTML('afterbegin','<canvas id="mHeroCanvas"></canvas>');
+    paintRecinto(document.getElementById('mHeroCanvas'),m.color,11);
+  }
+  // curaduría
+  document.getElementById('curTitle').textContent=m.cur.t;
+  document.getElementById('curIntro').textContent=m.cur.i;
+  document.getElementById('curMeta').textContent=`${m.cur.n} obras · ${m.cur.by}`;
+  paintRecinto(document.getElementById('curCanvas'),m.color,23);
+  renderCurMore(m);
+  buildCFilters();
+  renderCollection();
+
+  function renderCurMore(m){
+    const box=document.getElementById('curMore');box.innerHTML='';
+    const extra=[{t:'Obra comentada del mes',s:'Análisis en profundidad'},{t:'Colección fundacional',s:'Las piezas de origen del museo'}];
+    extra.forEach((e,i)=>{
+      const d=document.createElement('div');d.className='curc';d.style.setProperty('--card-rgb',COLOR_RGB[m.color]);
+      const obra=m.curImages&&m.curImages[i];
+      let bg;
+      if(obra){
+        bg=`<picture><source srcset="Img/obras/${obra.file}.webp" type="image/webp"><img src="Img/obras/${obra.file}.jpg" alt="${obra.alt}" loading="lazy"></picture>`;
+      } else if(m.img){
+        bg=`<picture><source srcset="Img/acervos/${m.img}.webp" type="image/webp"><img src="Img/acervos/${m.img}.jpg" alt="${e.t}" loading="lazy"></picture>`;
+      } else {
+        bg=`<canvas></canvas>`;
+      }
+      d.innerHTML=`<span class="curc__bg">${bg}</span>
+        <span class="curc__veil"></span>
+        <span class="curc__body">
+          <span class="curc__title">${e.t}</span>
+          <span class="curc__desc">${e.s}</span>
+        </span>`;
+      box.appendChild(d);
+      if(!obra&&!m.img) paintRecinto(d.querySelector('canvas'),m.color,50+i*7);
+    });
+  }
+
+  /* ---------------- COMBOBOX MULTISELECT (genérico) ---------------- */
+  function makeCombo(prefix,items,set,onChange){
+    const field=document.getElementById(prefix+'Field');
+    const input=document.getElementById(prefix+'Input');
+    const chipsBox=document.getElementById(prefix+'Chips');
+    const popup=document.getElementById(prefix+'Popup');
+
+    function renderChipsBox(){
+      chipsBox.innerHTML='';
+      set.forEach(v=>{
+        const c=document.createElement('span');c.className='combo__chip';
+        c.innerHTML=`${v} <button type="button" aria-label="Quitar ${v}">✕</button>`;
+        c.querySelector('button').onclick=e=>{e.stopPropagation();set.delete(v);renderCombo();onChange();};
+        chipsBox.appendChild(c);
+      });
+    }
+    function renderList(){
+      const term=input.value.toLowerCase().trim();
+      const opts=items.filter(t=>t.toLowerCase().includes(term));
+      popup.innerHTML='';
+      if(!opts.length){ popup.innerHTML='<div class="combo__empty">Sin resultados</div>'; return; }
+      opts.forEach(t=>{
+        const sel=set.has(t);
+        const it=document.createElement('div');
+        it.className='combo__item'+(sel?' sel':'');
+        it.innerHTML=`<span class="chk">${sel?'✓':''}</span><span>${t}</span>`;
+        it.onclick=()=>{
+          set.has(t)?set.delete(t):set.add(t);
+          input.value='';renderCombo();input.focus();onChange();
+        };
+        popup.appendChild(it);
+      });
+    }
+    function renderCombo(){ renderChipsBox(); renderList(); }
+    function open(){ popup.hidden=false; renderList(); }
+    function close(){ popup.hidden=true; }
+
+    field.addEventListener('click',()=>{ input.focus(); open(); });
+    input.addEventListener('focus',open);
+    input.addEventListener('input',renderList);
+    input.addEventListener('keydown',e=>{
+      if(e.key==='Backspace'&&!input.value&&set.size){
+        const last=[...set].pop();
+        set.delete(last);renderCombo();onChange();
+      }
+      if(e.key==='Escape'){ close(); input.blur(); }
+    });
+    document.addEventListener('click',e=>{ if(!document.getElementById(prefix).contains(e.target)) close(); });
+
+    renderCombo();
+    return renderCombo;
+  }
+
+  /* filtros de la colección del museo */
+  function buildCFilters(){
+    const misObras=OBRAS.filter(o=>o.museo===m.slug);
+
+    const artistas=[...new Set(misObras.map(o=>o.autor))].sort((a,b)=>a.localeCompare(b));
+    makeCombo('comboAutor',artistas,cState.autores,()=>{cState.page=1;renderCollection();});
+
+    const YEAR_MIN=1900,YEAR_MAX=2026;
+    const fromSel=document.getElementById('cYearFrom'),toSel=document.getElementById('cYearTo');
+    fromSel.innerHTML='<option value="">Desde</option>';toSel.innerHTML='<option value="">Hasta</option>';
+    for(let y=YEAR_MIN;y<=YEAR_MAX;y++){fromSel.appendChild(new Option(y,y));}
+    for(let y=YEAR_MAX;y>=YEAR_MIN;y--){toSel.appendChild(new Option(y,y));}
+    fromSel.onchange=e=>{cState.yearFrom=e.target.value?+e.target.value:null;cState.page=1;renderCollection();};
+    toSel.onchange=e=>{cState.yearTo=e.target.value?+e.target.value:null;cState.page=1;renderCollection();};
+
+    const tip=document.getElementById('cTipo');tip.innerHTML='';
+    TIPOS.forEach(t=>{const b=document.createElement('div');b.className='opt';b.textContent=t;
+      b.onclick=()=>{cState.tipos.has(t)?cState.tipos.delete(t):cState.tipos.add(t);b.classList.toggle('on');cState.page=1;renderCollection();};tip.appendChild(b);});
+
+    document.getElementById('cq').oninput=e=>{cState.q=e.target.value.toLowerCase().trim();cState.page=1;renderCollection();};
+  }
+
+  /* ---------------- PAGINADOR ---------------- */
+  function pageRange(a,b){return Array.from({length:b-a+1},(_,i)=>a+i);}
+  function paginate(page,count,siblings=1,boundaries=1){
+    const total=2*boundaries+2*siblings+3;
+    if(count<=total) return pageRange(1,count);
+    const nearStart=page<boundaries+siblings+2;
+    const nearEnd=page>count-boundaries-siblings-1;
+    if(nearStart) return [...pageRange(1,2*siblings+boundaries+2),'gap-r',...pageRange(count-boundaries+1,count)];
+    if(nearEnd) return [...pageRange(1,boundaries),'gap-l',...pageRange(count-2*siblings-boundaries-1,count)];
+    return [...pageRange(1,boundaries),'gap-l',...pageRange(page-siblings,page+siblings),'gap-r',...pageRange(count-boundaries+1,count)];
+  }
+  const pagerEl=document.getElementById('pager'),pagerList=document.getElementById('pagerList'),pagerThumb=document.getElementById('pagerThumb'),pagerPrev=document.getElementById('pagerPrev'),pagerNext=document.getElementById('pagerNext');
+  function goToPage(p){ cState.page=p; renderCollection(); document.getElementById('cGrid').scrollIntoView({behavior:'smooth',block:'start'}); }
+  pagerPrev.onclick=()=>{ if(cState.page>1) goToPage(cState.page-1); };
+  pagerNext.onclick=()=>{ if(cState.page<pagerNext._count) goToPage(cState.page+1); };
+  function renderPagination(pageCount){
+    pagerNext._count=pageCount;
+    if(pageCount<=1){ pagerEl.hidden=true; return; }
+    pagerEl.hidden=false;
+    pagerPrev.disabled=cState.page<=1;
+    pagerNext.disabled=cState.page>=pageCount;
+    pagerList.innerHTML='';
+    let activeBtn=null;
+    paginate(cState.page,pageCount,1,1).forEach(item=>{
+      const li=document.createElement('li');
+      if(item==='gap-l'||item==='gap-r'){
+        li.innerHTML='<span class="pager__gap">…</span>';
+      } else {
+        const b=document.createElement('button');
+        b.type='button';b.className='pager__num'+(item===cState.page?' on':'');
+        b.textContent=item;b.setAttribute('aria-label','Página '+item);
+        if(item===cState.page)b.setAttribute('aria-current','page');
+        b.onclick=()=>goToPage(item);
+        li.appendChild(b);
+        if(item===cState.page)activeBtn=b;
+      }
+      pagerList.appendChild(li);
+    });
+    if(activeBtn){
+      pagerThumb.style.opacity='1';
+      pagerThumb.style.width=activeBtn.offsetWidth+'px';
+      pagerThumb.style.transform=`translateX(${activeBtn.offsetLeft}px)`;
+    } else {
+      pagerThumb.style.opacity='0';
+    }
+  }
+
+  function renderCollection(){
+    const grid=document.getElementById('cGrid');grid.innerHTML='';
+    let list=OBRAS.filter(o=>o.museo===m.slug);
+    if(cState.q)list=list.filter(o=>(o.titulo+' '+o.autor+' '+o.tipo).toLowerCase().includes(cState.q));
+    if(cState.tipos.size)list=list.filter(o=>cState.tipos.has(o.tipo));
+    if(cState.autores.size)list=list.filter(o=>cState.autores.has(o.autor));
+    if(cState.yearFrom!=null)list=list.filter(o=>o.anio>=cState.yearFrom);
+    if(cState.yearTo!=null)list=list.filter(o=>o.anio<=cState.yearTo);
+    document.getElementById('cCount').textContent=`${list.length} obra${list.length===1?'':'s'}`;
+    const pageCount=Math.max(1,Math.ceil(list.length/PER_PAGE));
+    if(cState.page>pageCount) cState.page=pageCount;
+    if(cState.page<1) cState.page=1;
+    if(!list.length){grid.innerHTML='<div class="empty">Sin obras que coincidan con los filtros.</div>';renderPagination(1);return;}
+    const start=(cState.page-1)*PER_PAGE;
+    list.slice(start,start+PER_PAGE).forEach((o,idx)=>{
+      const card=document.createElement('div');card.className='card';
+      card.innerHTML=`<div class="art"><span class="tag">${o.tipo}</span><canvas></canvas></div>
+        <div class="meta"><b>${o.titulo}</b><div class="au">${o.autor}</div><div class="yr">${o.anio}</div></div>`;
+      grid.appendChild(card);paintArt(card.querySelector('canvas'),o);
+      requestAnimationFrame(()=>setTimeout(()=>card.classList.add('in'),idx*30));
+    });
+    renderPagination(pageCount);
+  }
+
+  window.addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(()=>{
+    const heroCanvas=document.getElementById('mHeroCanvas');
+    if(heroCanvas) paintRecinto(heroCanvas,m.color,11);
+    paintRecinto(document.getElementById('curCanvas'),m.color,23);
+    renderCollection();
+  },250);});
+
+  /* ---------------- SEARCH DOCK (header) ---------------- */
+  (function(){
+    const dock=document.getElementById('searchDock');
+    const iconBtn=document.getElementById('searchDockIcon');
+    const form=document.getElementById('searchDockForm');
+    const input=document.getElementById('searchDockInput');
+    const closeBtn=document.getElementById('searchDockClose');
+    if(!dock)return;
+
+    function openDock(){ dock.classList.add('is-open'); setTimeout(()=>input.focus(),150); }
+    function closeDock(){ dock.classList.remove('is-open'); input.value=''; iconBtn.focus(); }
+    iconBtn.addEventListener('click',openDock);
+    closeBtn.addEventListener('click',e=>{ e.preventDefault(); closeDock(); });
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const q=input.value.trim();
+      if(!q)return;
+      location.href='acervos.html?q='+encodeURIComponent(q);
+    });
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&dock.classList.contains('is-open'))closeDock();
+    });
+  })();
+
+  /* ---------------- MENÚ HAMBURGUESA (móvil) ---------------- */
+  (function(){
+    const toggle=document.getElementById('menuToggle');
+    const mobileMenu=document.getElementById('mobileMenu');
+    const closeBtn=document.getElementById('mobileMenuClose');
+    if(!toggle||!mobileMenu)return;
+
+    function openMenu(){
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden','false');
+      toggle.setAttribute('aria-expanded','true');
+      document.body.classList.add('overflow-hidden');
+    }
+    function closeMenu(){
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden','true');
+      toggle.setAttribute('aria-expanded','false');
+      document.body.classList.remove('overflow-hidden');
+      toggle.focus();
+    }
+    toggle.addEventListener('click',openMenu);
+    closeBtn.addEventListener('click',closeMenu);
+    mobileMenu.querySelectorAll('[data-mmclose]').forEach(e=>e.addEventListener('click',closeMenu));
+    mobileMenu.querySelectorAll('.mobile-menu__panel a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&mobileMenu.classList.contains('is-open'))closeMenu();
+    });
+  })();
+
+  /* ---------------- ANIMACIÓN DE ENTRADA (reveal) ---------------- */
+  (function(){
+    const targets=[...document.querySelectorAll('.reveal')];
+    if(!targets.length) return;
+    targets.forEach((t,i)=>{ t.style.transitionDelay=(Math.min(i%6,5)*0.06)+'s'; });
+    if(!('IntersectionObserver' in window)){ targets.forEach(t=>t.classList.add('in')); return; }
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    targets.forEach(t=>io.observe(t));
+  })();
+</script>
+</body>
+</html>

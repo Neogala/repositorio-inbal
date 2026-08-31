@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colecciones — Colección Digital INBAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --guinda:#1e5b4f; --guinda-900:#1E5C3B;
+    --verde:#1e5b4f; --verde-900:#1E5C3B;
+    --oro:#8DC2B7; --arena:#DBD3B6;
+    --tinta:#211a1c; --gris:#6f6a66;
+    --linea:#e8e3da; --papel:#ffffff; --papel-2:#faf7f2;
+    --display:"Fraunces",Georgia,serif;
+    --sans:"Noto Sans",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,.7,.2,1);
+    --tile:230px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);font-weight:500}
+
+  /* ---------- ANIMACIÓN DE ENTRADA ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);padding:13px 0}
+  .nav{display:flex;align-items:center;gap:30px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--sans);font-size:19px;font-weight:500;color:var(--guinda)}
+  .logo-wrap{position:relative;width:81px;height:29px;flex:none}
+  .logo-wrap .logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:brightness(0)}
+  .brand-sep{width:1px;height:20px;background:var(--linea);flex:none}
+  .brand-text{font-style:italic;font-weight:700}
+  .seal{width:30px;height:30px;border-radius:50%;border:1.6px solid var(--oro);display:flex;align-items:center;justify-content:center;color:var(--guinda);font-size:14px;flex:none}
+  .menu{margin-left:auto;display:flex;gap:26px}
+  .menu a{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);position:relative;padding:4px 0}
+  .menu a.active{color:var(--guinda)}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--guinda);transition:width .35s var(--ease)}
+  .menu a:hover::after,.menu a.active::after{width:100%}
+  .lang{font-size:11px;letter-spacing:.1em;color:var(--gris)}
+
+  /* ---------- SEARCH DOCK ---------- */
+  .search-dock{position:relative;flex:none;height:38px}
+  .search-dock__icon{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--linea);color:var(--gris);cursor:pointer;transition:border-color .3s,color .3s,opacity .25s ease,transform .25s ease}
+  .search-dock__icon svg{width:16px;height:16px}
+  .search-dock__icon:hover{border-color:var(--oro)}
+  .search-dock.is-open .search-dock__icon{opacity:0;transform:scale(0);pointer-events:none}
+  .search-dock__form{position:absolute;top:0;right:0;display:flex;align-items:center;height:38px;width:38px;border-radius:30px;border:1px solid var(--linea);overflow:hidden;opacity:0;pointer-events:none;background:rgba(255,255,255,.9);transition:width .4s var(--ease),opacity .25s ease,border-color .3s}
+  .search-dock.is-open .search-dock__form{width:300px;opacity:1;pointer-events:auto}
+  .search-dock__form svg{flex:none;width:15px;height:15px;margin-left:14px;color:var(--gris)}
+  .search-dock__input{flex:1;min-width:0;height:100%;padding:0 8px;background:transparent;border:none;outline:none;color:var(--tinta);font-family:var(--sans);font-size:13px}
+  .search-dock__input::placeholder{color:var(--gris)}
+  .search-dock__close{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;margin-right:6px;flex:none;cursor:pointer;color:var(--gris);transition:background .25s,color .3s}
+  .search-dock__close:hover{background:var(--linea)}
+
+  /* ---------- MENÚ HAMBURGUESA (móvil) ---------- */
+  .menu-toggle{all:unset;box-sizing:border-box;display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;cursor:pointer;flex:none}
+  .menu-toggle span{display:block;width:20px;height:2px;background:var(--tinta);margin:0 auto;transition:background .3s,transform .3s,opacity .3s}
+  .mobile-menu{position:fixed;inset:0;z-index:400;opacity:0;pointer-events:none;transition:opacity .35s}
+  .mobile-menu.is-open{opacity:1;pointer-events:auto}
+  .mobile-menu__backdrop{position:absolute;inset:0;background:rgba(0,20,18,.6);backdrop-filter:blur(3px)}
+  .mobile-menu__panel{position:absolute;top:0;right:0;bottom:0;width:min(78vw,340px);background:var(--verde);display:flex;flex-direction:column;gap:6px;padding:90px 32px 40px;transform:translateX(100%);transition:transform .4s var(--ease)}
+  .mobile-menu.is-open .mobile-menu__panel{transform:translateX(0)}
+  .mobile-menu__panel a{color:#fff;font-family:var(--display);font-size:22px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .mobile-menu__close{all:unset;box-sizing:border-box;position:absolute;top:24px;right:24px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  body.overflow-hidden{overflow:hidden}
+
+  /* ---------- PAGE HEAD (degradado verde) ---------- */
+  .obras-hero{
+    position:relative;overflow:hidden;
+    background-color:#1E5C3B;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"),
+      linear-gradient(90deg, rgba(10,26,21,.6) 0%, rgba(10,26,21,.28) 30%, rgba(10,26,21,0) 60%),
+      radial-gradient(circle at 18% 50%, rgba(15,38,32,1) 0%, rgba(15,38,32,.84) 19%, rgba(15,38,32,.5) 38%, rgba(15,38,32,.16) 57%, rgba(15,38,32,0) 76%),
+      radial-gradient(circle at 62% 72%, rgba(141,194,183,1) 0%, rgba(141,194,183,.84) 13%, rgba(141,194,183,.5) 26%, rgba(141,194,183,.16) 39%, rgba(141,194,183,0) 52%),
+      radial-gradient(circle at 20% 12%, rgba(15,38,32,1) 0%, rgba(15,38,32,.84) 17%, rgba(15,38,32,.5) 34%, rgba(15,38,32,.16) 50%, rgba(15,38,32,0) 67%),
+      radial-gradient(circle at 90% 85%, rgba(219,211,182,1) 0%, rgba(219,211,182,.84) 10%, rgba(219,211,182,.5) 21%, rgba(219,211,182,.16) 31%, rgba(219,211,182,0) 41%);
+    background-size:120px 120px, auto, auto, auto, auto, auto;
+    background-blend-mode:overlay, normal, normal, normal, normal, normal;
+  }
+  .obras-hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(115deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.03) 35%, rgba(255,255,255,0) 60%, rgba(255,255,255,.07) 100%);
+    border-bottom:1px solid rgba(255,255,255,.28);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .obras-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.4;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");}
+  .obras-hero>.wrap{position:relative;z-index:2}
+  .crumbs{font-size:12px;color:rgba(255,255,255,.72);letter-spacing:.04em;margin:28px 0 14px}
+  .crumbs b{color:#fff;font-weight:500}
+  .head{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:26px}
+  .head h1{font-family:var(--sans);font-weight:700;font-size:clamp(40px,6vw,74px);letter-spacing:-.02em;line-height:.98;color:#fff}
+  .head p{color:rgba(255,255,255,.8);font-size:15px;margin-top:12px}
+
+  .hero-search{position:sticky;top:var(--hdr-h,66px);z-index:30;background:var(--papel);display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:0;padding:22px 0 16px;border-bottom:1px solid var(--linea)}
+  .hero-search__field{position:relative;flex:1 1 320px;min-width:240px}
+  .hero-search__icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);font-size:19px;color:var(--verde);pointer-events:none}
+  .hero-search__field input{width:100%;border:1.5px solid rgba(30,91,79,.22);border-radius:50px;padding:13px 26px 13px 52px;font-family:var(--sans);font-weight:700;font-size:15.5px;color:var(--tinta);background:rgba(30,91,79,.05);outline:none;transition:border-color .3s,box-shadow .3s,background .3s}
+  .hero-search__field input::placeholder{color:transparent}
+  .hero-search__field input:focus{border-color:var(--verde);background:var(--papel);box-shadow:0 0 0 4px rgba(30,91,79,.16)}
+  .hero-search__placeholder{position:absolute;left:52px;right:26px;top:0;bottom:0;display:flex;align-items:center;pointer-events:none;overflow:hidden;white-space:nowrap;font-family:var(--sans);font-weight:700;font-size:15.5px;color:rgba(30,91,79,.78);transition:opacity .2s}
+  .hero-search__placeholder .caret{display:inline-block;width:1px;height:1.05em;background:rgba(30,91,79,.78);margin-left:2px;animation:qCaret .9s linear infinite}
+  @keyframes qCaret{0%,100%{opacity:1}50%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){ .hero-search__placeholder .caret{animation:none} }
+  .hero-search__controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;flex:none}
+  .hero-search__controls label{font-size:12px;color:var(--gris)}
+  @media(max-width:640px){ .hero-search__field input{padding:11px 18px 11px 44px;font-size:14px} .hero-search__icon{left:16px;font-size:16px} .hero-search__placeholder{left:44px;right:18px;font-size:14px} .hero-search__controls{width:100%;justify-content:flex-start} }
+
+  /* ---------- LAYOUT ---------- */
+  .cols{display:grid;grid-template-columns:266px 1fr;gap:44px;margin:30px 0 80px;align-items:start}
+
+  /* ---------- FILTERS ---------- */
+  .filters{position:sticky;top:88px}
+  .filters .ftop{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .filters h2{font-family:var(--display);font-size:22px;font-weight:500}
+  .clear{font-size:11.5px;letter-spacing:.06em;color:var(--guinda);cursor:pointer;border:1px solid var(--guinda);background:none;border-radius:20px;padding:6px 14px;transition:background .25s var(--ease),color .25s var(--ease)}
+  .clear:hover{background:var(--guinda);color:#fff}
+  .fg{border-top:1px solid var(--linea);padding:18px 0}
+  .fg h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--verde);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+  .fg h3 .n{color:var(--oro);font-weight:500}
+  .chipset{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{font-size:12.5px;color:var(--tinta);border:1px solid var(--linea);border-radius:20px;padding:6px 12px;cursor:pointer;transition:.25s var(--ease)}
+  .opt:hover{border-color:var(--oro)}
+  .opt.on{background:var(--guinda);color:#fff;border-color:var(--guinda)}
+  .toggle{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--tinta);cursor:pointer;padding:5px 0}
+  .toggle .box{width:34px;height:20px;border-radius:20px;background:var(--linea);position:relative;transition:background .3s;flex:none}
+  .toggle .box::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .3s}
+  .toggle.on .box{background:var(--verde)}
+  .toggle.on .box::after{transform:translateX(14px)}
+
+  /* ---------- COMBOBOX MULTISELECT (Técnica) ---------- */
+  .combo{position:relative}
+  .combo__field{display:flex;flex-wrap:wrap;align-items:center;gap:5px;min-height:38px;border:1px solid var(--linea);border-radius:10px;padding:5px 6px;cursor:text;background:var(--papel);transition:border-color .25s,box-shadow .25s}
+  .combo__field:focus-within{border-color:var(--oro);box-shadow:0 0 0 3px rgba(141,194,183,.18)}
+  .combo__chips{display:contents}
+  .combo__chip{display:inline-flex;align-items:center;gap:5px;background:var(--papel-2);border:1px solid var(--linea);border-radius:20px;padding:3px 6px 3px 10px;font-size:11.5px;color:var(--tinta);white-space:nowrap}
+  .combo__chip button{all:unset;display:flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;color:var(--gris);cursor:pointer;font-size:11px}
+  .combo__chip button:hover{background:var(--linea);color:var(--tinta)}
+  .combo__input{flex:1 1 60px;min-width:60px;border:none;outline:none;background:none;font-family:var(--sans);font-size:12.5px;color:var(--tinta);padding:4px 2px}
+  .combo__input::placeholder{color:var(--gris)}
+  .combo__popup{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;background:var(--papel);border:1px solid var(--linea);border-radius:10px;box-shadow:0 12px 28px -12px rgba(0,0,0,.22);max-height:220px;overflow-y:auto;padding:6px}
+  .combo__item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;font-size:13px;color:var(--tinta);cursor:pointer}
+  .combo__item:hover{background:var(--papel-2)}
+  .combo__item .chk{width:15px;height:15px;border:1.4px solid var(--linea);border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px}
+  .combo__item.sel .chk{background:var(--guinda);border-color:var(--guinda)}
+  .combo__empty{padding:10px;text-align:center;font-size:12.5px;color:var(--gris)}
+
+  /* ---------- RANGO DE AÑO ---------- */
+  .yearrange{display:flex;align-items:center;gap:8px}
+  .yearrange select{flex:1;min-width:0;border:1px solid var(--linea);border-radius:8px;padding:9px 10px;font-family:var(--sans);font-size:13px;color:var(--tinta);background:var(--papel);outline:none;cursor:pointer;transition:border-color .25s}
+  .yearrange select:focus{border-color:var(--oro)}
+  .yearrange__sep{color:var(--gris);font-size:13px;flex:none}
+
+  /* ---------- TOOLBAR ---------- */
+  .toolbar{position:sticky;top:var(--stick-off,114px);z-index:20;background:var(--papel);display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid var(--linea);margin-bottom:8px}
+  .count{font-size:14px;color:var(--gris)}
+  .count b{color:var(--tinta);font-weight:600}
+  .tb-right{margin-left:auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .tb-right label{font-size:12px;color:var(--gris)}
+  select{font-family:var(--sans);font-size:13px;border:1px solid var(--linea);border-radius:20px;padding:8px 12px;background:var(--papel);color:var(--tinta);cursor:pointer;outline:none}
+  .vtoggle,.size{display:flex;border:1px solid var(--linea);border-radius:20px;overflow:hidden}
+  .vtoggle button,.size button{border:none;background:none;padding:8px 12px;cursor:pointer;color:var(--gris);font-size:14px;transition:.2s}
+  .vtoggle button.on,.size button.on{background:var(--guinda);color:#fff}
+
+  /* active chips */
+  .active-chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px;min-height:0}
+  .achip{display:inline-flex;align-items:center;gap:7px;font-size:12px;background:var(--papel-2);border:1px solid var(--linea);border-radius:20px;padding:5px 10px;color:var(--tinta)}
+  .achip .x{cursor:pointer;color:var(--gris);font-weight:600}
+  .achip .dot{width:11px;height:11px;border-radius:50%}
+
+  /* ---------- GRID ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--tile),1fr));gap:26px;margin-top:20px}
+  .card{cursor:pointer;opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .card.in{opacity:1;transform:none}
+  .card .art{position:relative;overflow:hidden;border-radius:4px;background:var(--papel-2)}
+  .card img{display:block;width:100%;height:auto;transition:transform 1s var(--ease)}
+  .card:hover img{transform:scale(1.06)}
+  .card .tag{position:absolute;top:10px;left:10px;z-index:2;background:rgba(30,92,59,.92);color:var(--arena);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:3px}
+  .card .meta{padding:12px 2px 0}
+  .card .meta b{font-family:var(--display);font-weight:500;font-size:16px;display:block;line-height:1.2}
+  .card .meta .au{color:var(--tinta);font-size:12.5px;font-style:italic}
+  .card .meta .mu{color:var(--guinda);font-size:11px;letter-spacing:.03em;margin-top:5px;display:flex;justify-content:space-between}
+  .card .meta .mu .yr{color:var(--gris);font-style:normal}
+
+  /* list view */
+  .grid.list{grid-template-columns:1fr;gap:0}
+  .grid.list .card{display:grid;grid-template-columns:88px 1fr auto;gap:20px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--linea);transform:none;opacity:1}
+  .grid.list .card .art{border-radius:3px}
+  .grid.list .card img{height:88px;width:88px;object-fit:cover}
+  .grid.list .tag{display:none}
+  .grid.list .meta{padding:0}
+  .grid.list .meta .mu{justify-content:flex-start;gap:12px}
+
+  /* ---------- PAGINADOR ---------- */
+  .pager{display:flex;align-items:center;justify-content:center;gap:6px;margin:44px 0}
+  .pager[hidden]{display:none}
+  .pager__arrow{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;color:var(--gris);cursor:pointer;font-size:15px;transition:background .2s,color .2s}
+  .pager__arrow:hover{background:var(--papel-2);color:var(--tinta)}
+  .pager__arrow[disabled]{color:var(--linea);cursor:default;pointer-events:none}
+  .pager__track{position:relative}
+  .pager__thumb{position:absolute;top:0;bottom:0;left:0;border-radius:9px;background:var(--guinda);opacity:0;z-index:0;transition:transform .3s var(--ease),width .3s var(--ease),opacity .2s}
+  .pager__list{position:relative;z-index:1;display:flex;gap:6px;list-style:none}
+  .pager__list li{display:flex}
+  .pager__num{all:unset;box-sizing:border-box;min-width:34px;height:34px;padding:0 6px;display:flex;align-items:center;justify-content:center;border-radius:9px;font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--gris);cursor:pointer;transition:color .2s}
+  .pager__num:hover{color:var(--tinta)}
+  .pager__num.on{color:#fff;font-weight:500}
+  .pager__gap{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--linea);font-size:13px}
+  .empty{padding:70px 0;text-align:center;color:var(--gris)}
+  .empty b{font-family:var(--display);font-size:22px;color:var(--tinta);display:block;margin-bottom:8px}
+
+  /* mobile filter button */
+  .fbtn{display:none}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--guinda-900);color:#fff;padding:40px 0}
+  .fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#fff;font-size:12px}
+
+  @media(max-width:1000px){
+    .cols{grid-template-columns:1fr}
+    .filters{position:fixed;inset:0;z-index:200;background:var(--papel);padding:24px;overflow:auto;transform:translateX(-100%);transition:transform .4s var(--ease);top:0}
+    .filters.open{transform:none}
+    .filters .close{display:block}
+    .fbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--guinda);color:var(--guinda);background:none;border-radius:20px;padding:8px 14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+  }
+  @media(max-width:900px){ .menu,.lang{display:none} .menu-toggle{display:flex} }
+  @media(max-width:640px){ .wrap{padding:0 20px} }
+  .close{display:none;position:absolute;right:18px;top:18px;font-size:24px;color:var(--gris);cursor:pointer;background:none;border:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo-wrap"><img class="logo" src="Img/logo-guinda.png" alt="INBAL"></span><span class="brand-sep"></span><span class="brand-text">Colección digital</span></a>
+    <nav class="menu">
+      <a href="colecciones.html" class="active">Obras</a><a href="acervos.html">Acervos</a><a href="#">Fondos</a><a href="curadurias.html">Curadurías</a><a href="investigacion.html">Investigación</a>
+    </nav>
+    <div class="search-dock" id="searchDock">
+      <button type="button" class="search-dock__icon" id="searchDockIcon" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <form class="search-dock__form" id="searchDockForm" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-dock__input" id="searchDockInput" placeholder="Buscar obras, artistas, museos…">
+        <button type="button" class="search-dock__close" id="searchDockClose" aria-label="Cerrar búsqueda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </form>
+    </div>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" data-mmclose></div>
+  <nav class="mobile-menu__panel">
+    <button type="button" class="mobile-menu__close" id="mobileMenuClose" aria-label="Cerrar menú">✕</button>
+    <a href="colecciones.html">Obras</a>
+    <a href="acervos.html">Acervos</a>
+    <a href="#">Fondos</a>
+    <a href="curadurias.html">Curadurías</a>
+    <a href="investigacion.html">Investigación</a>
+  </nav>
+</div>
+
+<div class="obras-hero">
+  <div class="wrap">
+    <div class="crumbs reveal"><a href="index.html">Inicio</a> &nbsp;›&nbsp; <b>Colecciones</b></div>
+    <div class="head">
+      <div class="reveal">
+        <h1>Obras</h1>
+        <p>Explora el patrimonio artístico nacional a través del acervo digitalizado de los museos del INBAL.<br>Filtra por época, museo o técnica.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero-search reveal">
+    <div class="hero-search__field">
+      <span class="hero-search__icon">⌕</span>
+      <input type="search" id="qBig" placeholder="" autocomplete="off">
+      <span class="hero-search__placeholder" id="qBigPlaceholder" aria-hidden="true"><span class="txt"></span><span class="caret"></span></span>
+    </div>
+    <div class="hero-search__controls">
+      <label>Orden</label>
+      <select id="sort">
+        <option value="az">Artista (A–Z)</option>
+        <option value="anioAsc">Año ↑</option>
+        <option value="anioDesc">Año ↓</option>
+        <option value="nuevo">Añadidas recientemente</option>
+      </select>
+      <div class="size" id="size">
+        <button data-size="300">▢</button>
+        <button data-size="230" class="on">▤</button>
+        <button data-size="170">▦</button>
+      </div>
+      <div class="vtoggle" id="view">
+        <button data-view="grid" class="on">◫</button>
+        <button data-view="list">☰</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <!-- ============ FILTROS ============ -->
+    <aside class="filters" id="filters">
+      <button class="close" id="closeF">✕</button>
+      <div class="ftop reveal">
+        <h2>Filtros</h2>
+        <button class="clear" id="clear">Limpiar todo</button>
+      </div>
+
+      <div class="fg reveal">
+        <h3>Artista <span class="n" id="artistaCount"></span></h3>
+        <div class="combo" id="comboArtista">
+          <div class="combo__field" id="comboArtistaField">
+            <div class="combo__chips" id="comboArtistaChips"></div>
+            <input type="text" class="combo__input" id="comboArtistaInput" placeholder="Buscar artista…" autocomplete="off">
+          </div>
+          <div class="combo__popup" id="comboArtistaPopup" hidden></div>
+        </div>
+      </div>
+
+      <div class="fg reveal">
+        <h3>Monumentos artísticos</h3>
+        <div class="chipset" id="fDestacados"></div>
+      </div>
+
+      <div class="fg reveal">
+        <h3>Año</h3>
+        <div class="yearrange">
+          <select id="yearFrom" aria-label="Año desde"><option value="">Desde</option></select>
+          <span class="yearrange__sep">–</span>
+          <select id="yearTo" aria-label="Año hasta"><option value="">Hasta</option></select>
+        </div>
+      </div>
+
+      <div class="fg reveal">
+        <h3>Período</h3>
+        <div class="chipset" id="fPeriodo"></div>
+      </div>
+
+      <div class="fg reveal">
+        <h3>Tipo de obra</h3>
+        <div class="chipset" id="fTipo"></div>
+      </div>
+
+      <div class="fg reveal">
+        <h3>Técnica <span class="n" id="tecnicaCount"></span></h3>
+        <div class="combo" id="comboTecnica">
+          <div class="combo__field" id="comboTecnicaField">
+            <div class="combo__chips" id="comboTecnicaChips"></div>
+            <input type="text" class="combo__input" id="comboTecnicaInput" placeholder="Buscar técnica…" autocomplete="off">
+          </div>
+          <div class="combo__popup" id="comboTecnicaPopup" hidden></div>
+        </div>
+      </div>
+
+      <div class="fg reveal">
+        <h3>Acervo</h3>
+        <div class="chipset" id="fMuseo"></div>
+      </div>
+
+      <div class="fg reveal">
+        <div class="toggle" id="tImg"><span class="box"></span> Solo con imagen</div>
+      </div>
+    </aside>
+
+    <!-- ============ RESULTADOS ============ -->
+    <section>
+      <div class="toolbar reveal">
+        <button class="fbtn" id="openF">⚟ Filtros</button>
+        <span class="count">Mostrando <b id="shown">0</b> de <b id="total">0</b> obras</span>
+      </div>
+
+      <div class="active-chips" id="chips"></div>
+      <div class="grid" id="grid"></div>
+      <nav class="pager" id="pager" aria-label="Paginación de resultados" hidden>
+        <button type="button" class="pager__arrow" id="pagerPrev" aria-label="Página anterior">‹</button>
+        <div class="pager__track">
+          <span class="pager__thumb" id="pagerThumb"></span>
+          <ol class="pager__list" id="pagerList"></ol>
+        </div>
+        <button type="button" class="pager__arrow" id="pagerNext" aria-label="Página siguiente">›</button>
+      </nav>
+    </section>
+  </div>
+</div>
+
+<footer><div class="wrap fbot reveal">
+  <span>© 2026 Instituto Nacional de Bellas Artes y Literatura · Secretaría de Cultura · Gobierno de México</span>
+  <span>Colección Digital INBAL</span>
+</div></footer>
+
+<script>
+  /* ---------------- DATOS (Fichas_obras_etiqueta_color.xlsx) ---------------- */
+  const PERIODOS = ['Arte Colonial','Siglo XIX','Arte Moderno','Arte Contemporáneo'];
+  const TIPOS = ['Pintura','Fotografía','Grabado','Escultura'];
+  const TECNICAS = ['Óleo sobre tela','Pintura','Fotografía','Xilografía','Xilografía a color','Linóleo','Madera con laca','Plata sobre gelatina','Atlcolor sobre masonite','Óleo sobre masonite','Buril','Aguafuerte','Artes decorativas','Sin especificar'];
+  const MUSEOS = ['MUNAL','MAM','MUNAE','San Carlos'];
+  const ARTISTAS_DESTACADOS = ['Alfaro Siqueiros, David','Dr. Atl','Herrán, Saturnino','Izquierdo, María','Kahlo, Frida','Orozco, José Clemente','Rivera, Diego','Varo, Remedios','Velasco, José María'];
+
+  const IMG_DIR = 'Img/obras/';
+  const DATA = [
+    {id:1,file:'MUNAL_29013',museo:'MUNAL',titulo:'Al amanecer labores',autor:'Ezequiel Negrete Lira',anio:1955,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Pintura'},
+    {id:2,file:'MUNAL_14333',museo:'MUNAL',titulo:'La Nube',autor:'Gerardo Murillo Coronado',anio:1931,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Pintura'},
+    {id:3,file:'MUNAL_16095',museo:'MUNAL',titulo:'El descubrimiento del Pulque',autor:'José María Obregón',anio:1869,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Pintura'},
+    {id:4,file:'MUNAL_15968',museo:'MUNAL',titulo:'Santo Domingo. Copia Original',autor:'Autor sin identificar',anio:null,periodo:'Siglo XIX',tipo:'Fotografía',tecnica:'Fotografía'},
+    {id:5,file:'MUNAL_52195',museo:'MUNAL',titulo:'Cuadro',autor:'Autor sin identificar',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Artes decorativas',nuevo:true},
+    {id:6,file:'MUNAE_35085',museo:'MUNAE',titulo:'El rebozo de soledad II',autor:'Leopoldo Méndez',anio:null,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Sin especificar'},
+    {id:7,file:'MUNAE_56',museo:'MUNAE',titulo:'El mil cumbres',autor:'Carlos Alvarado Lang',anio:1951,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Xilografía'},
+    {id:8,file:'MUNAE_7856',museo:'MUNAE',titulo:'Desnudo n.º3',autor:'Fernando Castro Pacheco',anio:null,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Xilografía a color'},
+    {id:9,file:'MUNAE_7506',museo:'MUNAE',titulo:'El mezquital',autor:'Adolfo Mexiac',anio:1957,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Linóleo'},
+    {id:10,file:'MAM_18030',museo:'MAM',titulo:'Soporte vital resistencia dinámica',autor:'Francisco Moyao',anio:1976,periodo:'Arte Contemporáneo',tipo:'Escultura',tecnica:'Madera con laca'},
+    {id:11,file:'MAM_59340',img:'Img/img museos/MAM_16575.jpg',museo:'MAM',titulo:'Sin Título',autor:'Graciela Iturbide',anio:1980,periodo:'Arte Contemporáneo',tipo:'Fotografía',tecnica:'Plata sobre gelatina',nuevo:true},
+    {id:12,file:'MAM_19154',museo:'MAM',titulo:'Autorretrato',autor:'Rosa Rolanda de Covarrubias',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {id:13,file:'MAM_59339',museo:'MAM',titulo:'De Esta Tierra del Cielo y los Infiernos la Tempestad',autor:'Gerardo Suter',anio:1987,periodo:'Arte Contemporáneo',tipo:'Fotografía',tecnica:'Plata sobre gelatina',nuevo:true},
+    {id:14,file:'MAM_16575',museo:'MAM',titulo:'Fuego verde en el Paricutín',autor:'Gerardo Murillo Coronado (Dr. Atl)',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Atlcolor sobre masonite'},
+    {id:15,file:'MAM_13154',museo:'MAM',titulo:'Los cocos',autor:'Frida Kahlo Calderón',anio:1951,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre masonite'},
+    {id:16,file:'MNSC_10455',museo:'San Carlos',titulo:'Dominus possedit me in initio viarum suarum',autor:'Carl Ernst Christoph Hess',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Buril',fundacional:true},
+    {id:17,file:'MNSC_19049',museo:'San Carlos',titulo:'Episodio del diluvio universal',autor:'Francesco Coghetti',anio:1852,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {id:18,file:'MNSC_10737',museo:'San Carlos',titulo:'Sin título',autor:'Autor sin identificar',anio:null,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Sin especificar'},
+    {id:19,file:'MNSC_50941',museo:'San Carlos',titulo:'Paisaje (copia Gedovius)',autor:'Germán Gedovius Huerta',anio:1908,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela',nuevo:true},
+    {id:20,file:'MNSC_50942',museo:'San Carlos',titulo:'La niña',autor:'Germán Gedovius Huerta',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela',nuevo:true},
+    {id:21,file:'MNSC_4674',museo:'San Carlos',titulo:'El sueño de la razón produce monstruos (serie Los Caprichos)',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Aguafuerte',fundacional:true},
+    {id:22,file:'MNSC_4633',museo:'San Carlos',titulo:'Las rinde el sueño (serie Los Caprichos)',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Aguafuerte',fundacional:true},
+    {id:23,file:'MNSC_3994',museo:'San Carlos',titulo:'Bacante',autor:'Adolphe René Lefèvre',anio:null,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {id:24,file:'MNSC_3992',museo:'San Carlos',titulo:'La siega',autor:'José Blanco Coris',anio:null,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'}
+  ];
+  DATA.forEach(o=>{ o.conImagen=true; o.fundacional=!!o.fundacional; o.nuevo=!!o.nuevo; });
+  const ARTISTAS = [...new Set(DATA.map(o=>o.autor))].sort((a,b)=>a.localeCompare(b));
+
+  /* ---------------- ESTADO ---------------- */
+  const state = {q:'',periodos:new Set(),tipos:new Set(),tecnicas:new Set(),artistas:new Set(),destacados:new Set(),museos:new Set(),yearFrom:null,yearTo:null,soloImg:false,sort:'az',view:'grid',size:230,page:1};
+  const PER_PAGE = 12;
+
+  /* ---------------- RENDER FILTROS ---------------- */
+  const el = id => document.getElementById(id);
+  function chip(label,set,val){const b=document.createElement('div');b.className='opt';b.textContent=label;b.onclick=()=>{set.has(val)?set.delete(val):set.add(val);b.classList.toggle('on');state.page=1;render();};return b;}
+  const YEAR_MIN=1900,YEAR_MAX=2026;
+  for(let y=YEAR_MIN;y<=YEAR_MAX;y++){ el('yearFrom').appendChild(new Option(y,y)); }
+  for(let y=YEAR_MAX;y>=YEAR_MIN;y--){ el('yearTo').appendChild(new Option(y,y)); }
+  el('yearFrom').onchange=e=>{state.yearFrom=e.target.value?+e.target.value:null;state.page=1;render();};
+  el('yearTo').onchange=e=>{state.yearTo=e.target.value?+e.target.value:null;state.page=1;render();};
+
+  PERIODOS.forEach(p=>el('fPeriodo').appendChild(chip(p,state.periodos,p)));
+  TIPOS.forEach(p=>el('fTipo').appendChild(chip(p,state.tipos,p)));
+  MUSEOS.forEach(p=>el('fMuseo').appendChild(chip(p,state.museos,p)));
+  ARTISTAS_DESTACADOS.forEach(p=>el('fDestacados').appendChild(chip(p,state.destacados,p)));
+
+  /* ---------------- COMBOBOX MULTISELECT (genérico) ---------------- */
+  function makeCombo(prefix,items,set){
+    const field=el(prefix+'Field');
+    const input=el(prefix+'Input');
+    const chipsBox=el(prefix+'Chips');
+    const popup=el(prefix+'Popup');
+    const count=el(prefix+'Count');
+
+    function renderChipsBox(){
+      chipsBox.innerHTML='';
+      set.forEach(v=>{
+        const c=document.createElement('span');c.className='combo__chip';
+        c.innerHTML=`${v} <button type="button" aria-label="Quitar ${v}">✕</button>`;
+        c.querySelector('button').onclick=e=>{e.stopPropagation();set.delete(v);state.page=1;renderCombo();render();};
+        chipsBox.appendChild(c);
+      });
+      if(count) count.textContent=set.size?set.size:'';
+    }
+    function renderList(){
+      const term=input.value.toLowerCase().trim();
+      const opts=items.filter(t=>t.toLowerCase().includes(term));
+      popup.innerHTML='';
+      if(!opts.length){ popup.innerHTML='<div class="combo__empty">Sin resultados</div>'; return; }
+      opts.forEach(t=>{
+        const sel=set.has(t);
+        const it=document.createElement('div');
+        it.className='combo__item'+(sel?' sel':'');
+        it.innerHTML=`<span class="chk">${sel?'✓':''}</span><span>${t}</span>`;
+        it.onclick=()=>{
+          set.has(t)?set.delete(t):set.add(t);
+          state.page=1;input.value='';renderCombo();input.focus();render();
+        };
+        popup.appendChild(it);
+      });
+    }
+    function renderCombo(){ renderChipsBox(); renderList(); }
+    function open(){ popup.hidden=false; renderList(); }
+    function close(){ popup.hidden=true; }
+
+    field.addEventListener('click',()=>{ input.focus(); open(); });
+    input.addEventListener('focus',open);
+    input.addEventListener('input',renderList);
+    input.addEventListener('keydown',e=>{
+      if(e.key==='Backspace'&&!input.value&&set.size){
+        const last=[...set].pop();
+        set.delete(last);state.page=1;renderCombo();render();
+      }
+      if(e.key==='Escape'){ close(); input.blur(); }
+    });
+    document.addEventListener('click',e=>{ if(!el(prefix).contains(e.target)) close(); });
+
+    renderCombo();
+    return renderCombo;
+  }
+  const renderArtistaCombo=makeCombo('comboArtista',ARTISTAS,state.artistas);
+  const renderTecnicaCombo=makeCombo('comboTecnica',TECNICAS,state.tecnicas);
+
+  el('tImg').onclick=function(){state.soloImg=!state.soloImg;this.classList.toggle('on');state.page=1;render();};
+  el('qBig').oninput=e=>{state.q=e.target.value.toLowerCase().trim();state.page=1;render();};
+  el('sort').onchange=e=>{state.sort=e.target.value;render();};
+  el('size').onclick=e=>{const b=e.target.closest('button');if(!b)return;[...el('size').children].forEach(c=>c.classList.remove('on'));b.classList.add('on');state.size=+b.dataset.size;document.documentElement.style.setProperty('--tile',state.size+'px');render();};
+  el('view').onclick=e=>{const b=e.target.closest('button');if(!b)return;[...el('view').children].forEach(c=>c.classList.remove('on'));b.classList.add('on');state.view=b.dataset.view;render();};
+  el('clear').onclick=resetAll;
+  function resetAll(){state.q='';['periodos','tipos','tecnicas','artistas','destacados','museos'].forEach(k=>state[k].clear());state.yearFrom=null;state.yearTo=null;state.soloImg=false;state.page=1;
+    el('qBig').value='';el('yearFrom').value='';el('yearTo').value='';document.querySelectorAll('.opt.on').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.toggle.on').forEach(x=>x.classList.remove('on'));el('comboTecnicaInput').value='';el('comboArtistaInput').value='';renderTecnicaCombo();renderArtistaCombo();render();}
+  el('openF').onclick=()=>el('filters').classList.add('open');
+  el('closeF').onclick=()=>el('filters').classList.remove('open');
+
+  /* ---------------- FILTRO + ORDEN ---------------- */
+  const STOPWORDS=['de','dr','del','y'];
+  function normaliza(s){return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+  function autorCoincide(nombre,autor){
+    const tokens=normaliza(nombre).replace(/\./g,'').split(/[\s,]+/).filter(t=>t&&!STOPWORDS.includes(t));
+    const a=normaliza(autor);
+    return tokens.every(t=>a.includes(t));
+  }
+  function filtered(){
+    let r = DATA.filter(o=>{
+      if(state.q){const hay=(o.titulo+' '+o.autor+' '+o.tecnica+' '+o.museo+' '+o.tipo).toLowerCase();if(!hay.includes(state.q))return false;}
+      if(state.periodos.size && !state.periodos.has(o.periodo))return false;
+      if(state.tipos.size && !state.tipos.has(o.tipo))return false;
+      if(state.tecnicas.size && !state.tecnicas.has(o.tecnica))return false;
+      if(state.artistas.size && !state.artistas.has(o.autor))return false;
+      if(state.destacados.size && ![...state.destacados].some(n=>autorCoincide(n,o.autor)))return false;
+      if(state.museos.size && !state.museos.has(o.museo))return false;
+      if((state.yearFrom!=null||state.yearTo!=null)){
+        if(o.anio==null)return false;
+        if(state.yearFrom!=null && o.anio<state.yearFrom)return false;
+        if(state.yearTo!=null && o.anio>state.yearTo)return false;
+      }
+      if(state.soloImg && !o.conImagen)return false;
+      return true;
+    });
+    const s=state.sort;
+    if(s==='az') r.sort((a,b)=>a.autor.localeCompare(b.autor));
+    else if(s==='anioAsc') r.sort((a,b)=>(a.anio==null?Infinity:a.anio)-(b.anio==null?Infinity:b.anio));
+    else if(s==='anioDesc') r.sort((a,b)=>(b.anio==null?-Infinity:b.anio)-(a.anio==null?-Infinity:a.anio));
+    else if(s==='nuevo') r.sort((a,b)=>b.nuevo-a.nuevo || b.id-a.id);
+    return r;
+  }
+
+  /* ---------------- CHIPS ACTIVOS ---------------- */
+  function renderChips(){
+    const box=el('chips');box.innerHTML='';
+    const add=(txt,onDel,dotHex)=>{const c=document.createElement('span');c.className='achip';
+      c.innerHTML=(dotHex?`<span class="dot" style="background:${dotHex}"></span>`:'')+txt+' <span class="x">✕</span>';
+      c.querySelector('.x').onclick=onDel;box.appendChild(c);};
+    if(state.q) add(`“${state.q}”`,()=>{state.q='';el('qBig').value='';render();});
+    ['periodos','tipos','museos','destacados'].forEach(key=>{state[key].forEach(v=>add(v,()=>{state[key].delete(v);syncOpts();render();}));});
+    state.tecnicas.forEach(v=>add(v,()=>{state.tecnicas.delete(v);renderTecnicaCombo();render();}));
+    state.artistas.forEach(v=>add(v,()=>{state.artistas.delete(v);renderArtistaCombo();render();}));
+    if(state.yearFrom!=null||state.yearTo!=null){
+      const txt=state.yearFrom!=null&&state.yearTo!=null?`${state.yearFrom}–${state.yearTo}`:state.yearFrom!=null?`Desde ${state.yearFrom}`:`Hasta ${state.yearTo}`;
+      add(txt,()=>{state.yearFrom=null;state.yearTo=null;el('yearFrom').value='';el('yearTo').value='';render();});
+    }
+    if(state.soloImg) add('Con imagen',()=>{state.soloImg=false;el('tImg').classList.remove('on');render();});
+  }
+  function syncOpts(){document.querySelectorAll('.opt').forEach(o=>{const on=[...state.periodos,...state.tipos,...state.museos,...state.destacados].includes(o.textContent);o.classList.toggle('on',on);});}
+
+  /* ---------------- PAGINADOR ---------------- */
+  function pageRange(a,b){return Array.from({length:b-a+1},(_,i)=>a+i);}
+  function paginate(page,count,siblings=1,boundaries=1){
+    const total=2*boundaries+2*siblings+3;
+    if(count<=total) return pageRange(1,count);
+    const nearStart=page<boundaries+siblings+2;
+    const nearEnd=page>count-boundaries-siblings-1;
+    if(nearStart) return [...pageRange(1,2*siblings+boundaries+2),'gap-r',...pageRange(count-boundaries+1,count)];
+    if(nearEnd) return [...pageRange(1,boundaries),'gap-l',...pageRange(count-2*siblings-boundaries-1,count)];
+    return [...pageRange(1,boundaries),'gap-l',...pageRange(page-siblings,page+siblings),'gap-r',...pageRange(count-boundaries+1,count)];
+  }
+  const pagerEl=el('pager'),pagerList=el('pagerList'),pagerThumb=el('pagerThumb'),pagerPrev=el('pagerPrev'),pagerNext=el('pagerNext');
+  function goToPage(p){ state.page=p; render(); el('grid').scrollIntoView({behavior:'smooth',block:'start'}); }
+  pagerPrev.onclick=()=>{ if(state.page>1) goToPage(state.page-1); };
+  pagerNext.onclick=()=>{ if(state.page<pagerNext._count) goToPage(state.page+1); };
+  function renderPagination(pageCount){
+    pagerNext._count=pageCount;
+    if(pageCount<=1){ pagerEl.hidden=true; return; }
+    pagerEl.hidden=false;
+    pagerPrev.disabled=state.page<=1;
+    pagerNext.disabled=state.page>=pageCount;
+    pagerList.innerHTML='';
+    let activeBtn=null;
+    paginate(state.page,pageCount,1,1).forEach(item=>{
+      const li=document.createElement('li');
+      if(item==='gap-l'||item==='gap-r'){
+        li.innerHTML='<span class="pager__gap">…</span>';
+      } else {
+        const b=document.createElement('button');
+        b.type='button';b.className='pager__num'+(item===state.page?' on':'');
+        b.textContent=item;b.setAttribute('aria-label','Página '+item);
+        if(item===state.page)b.setAttribute('aria-current','page');
+        b.onclick=()=>goToPage(item);
+        li.appendChild(b);
+        if(item===state.page)activeBtn=b;
+      }
+      pagerList.appendChild(li);
+    });
+    if(activeBtn){
+      pagerThumb.style.opacity='1';
+      pagerThumb.style.width=activeBtn.offsetWidth+'px';
+      pagerThumb.style.transform=`translateX(${activeBtn.offsetLeft}px)`;
+    } else {
+      pagerThumb.style.opacity='0';
+    }
+  }
+
+  /* ---------------- RENDER PRINCIPAL ---------------- */
+  const grid=el('grid');
+  function render(){
+    const all=filtered();
+    const pageCount=Math.max(1,Math.ceil(all.length/PER_PAGE));
+    if(state.page>pageCount) state.page=pageCount;
+    if(state.page<1) state.page=1;
+    el('total').textContent=DATA.length.toLocaleString('es-MX');
+    grid.className='grid'+(state.view==='list'?' list':'');
+    grid.innerHTML='';
+    renderChips();
+    if(all.length===0){
+      grid.innerHTML='<div class="empty" style="grid-column:1/-1"><b>Sin resultados</b>Ajusta o limpia los filtros para ver más obras.</div>';
+      el('shown').textContent='0';
+      renderPagination(1);
+      return;
+    }
+    const start=(state.page-1)*PER_PAGE;
+    const slice=all.slice(start,start+PER_PAGE);
+    el('shown').textContent=slice.length.toLocaleString('es-MX');
+    slice.forEach((o,idx)=>{
+      const card=document.createElement('div');card.className='card';
+      card.innerHTML=`
+        <div class="art">
+          <span class="tag">${o.tipo}</span>
+          <picture>
+            ${o.img ? '' : `<source srcset="${IMG_DIR}${o.file}.webp" type="image/webp">`}
+            <img src="${o.img ? o.img : IMG_DIR+o.file+'.jpg'}" alt="${o.titulo} — ${o.autor}" loading="lazy">
+          </picture>
+        </div>
+        <div class="meta">
+          <b>${o.titulo}</b>
+          <span class="au">${o.autor}</span>
+          <span class="mu">${o.museo} <span class="yr">${o.anio==null?'S/F':o.anio}</span></span>
+        </div>`;
+      card.onclick=()=>location.href='detalle-obra.html?obra='+o.file;
+      grid.appendChild(card);
+      requestAnimationFrame(()=>setTimeout(()=>card.classList.add('in'),idx*35));
+    });
+    renderPagination(pageCount);
+  }
+
+  document.documentElement.style.setProperty('--tile',state.size+'px');
+  render();
+  window.addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(render,250);});
+
+  /* ---------------- OFFSETS STICKY (header + buscador) ---------------- */
+  function updateStickyOffsets(){
+    const hdrH=document.querySelector('header').offsetHeight;
+    const heroH=document.querySelector('.hero-search').offsetHeight;
+    document.documentElement.style.setProperty('--hdr-h',hdrH+'px');
+    document.documentElement.style.setProperty('--stick-off',(hdrH+heroH)+'px');
+  }
+  updateStickyOffsets();
+  window.addEventListener('resize',()=>{clearTimeout(window._so);window._so=setTimeout(updateStickyOffsets,150);});
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(updateStickyOffsets);
+
+  /* ---------------- SEARCH DOCK (header) ---------------- */
+  (function(){
+    const dock=el('searchDock');
+    const iconBtn=el('searchDockIcon');
+    const form=el('searchDockForm');
+    const input=el('searchDockInput');
+    const closeBtn=el('searchDockClose');
+    if(!dock)return;
+
+    function openDock(){ dock.classList.add('is-open'); setTimeout(()=>input.focus(),150); }
+    function closeDock(){ dock.classList.remove('is-open'); input.value=''; iconBtn.focus(); }
+    iconBtn.addEventListener('click',openDock);
+    closeBtn.addEventListener('click',e=>{ e.preventDefault(); closeDock(); });
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const q=input.value.trim();
+      if(!q)return;
+      state.q=q.toLowerCase();
+      el('qBig').value=q;
+      state.page=1;
+      render();
+      closeDock();
+      el('grid').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&dock.classList.contains('is-open'))closeDock();
+    });
+  })();
+
+  /* ---------------- MENÚ HAMBURGUESA (móvil) ---------------- */
+  (function(){
+    const toggle=el('menuToggle');
+    const mobileMenu=el('mobileMenu');
+    const closeBtn=el('mobileMenuClose');
+    if(!toggle||!mobileMenu)return;
+
+    function openMenu(){
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden','false');
+      toggle.setAttribute('aria-expanded','true');
+      document.body.classList.add('overflow-hidden');
+    }
+    function closeMenu(){
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden','true');
+      toggle.setAttribute('aria-expanded','false');
+      document.body.classList.remove('overflow-hidden');
+      toggle.focus();
+    }
+    toggle.addEventListener('click',openMenu);
+    closeBtn.addEventListener('click',closeMenu);
+    mobileMenu.querySelectorAll('[data-mmclose]').forEach(e=>e.addEventListener('click',closeMenu));
+    mobileMenu.querySelectorAll('.mobile-menu__panel a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&mobileMenu.classList.contains('is-open'))closeMenu();
+    });
+  })();
+
+  /* ---------------- PLACEHOLDER ANIMADO (buscador grande) ---------------- */
+  (function(){
+    const phrases=['Busca artistas','Busca obras','Busca técnicas','Busca acervos'];
+    const wrap=el('qBigPlaceholder');
+    const input=el('qBig');
+    if(!wrap||!input)return;
+    const txt=wrap.querySelector('.txt');
+    const reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const TYPE=65,DEL=35,PAUSE=1300,GAP=350;
+    let pi=0,ci=0,deleting=false,timer=null;
+
+    function sync(){
+      const show=!input.value&&document.activeElement!==input;
+      wrap.style.opacity=show?'1':'0';
+    }
+    input.addEventListener('focus',sync);
+    input.addEventListener('blur',sync);
+    input.addEventListener('input',sync);
+    sync();
+
+    if(reduced){ txt.textContent=phrases[0]; return; }
+
+    function tick(){
+      const word=phrases[pi];
+      if(!deleting){
+        ci++;
+        txt.textContent=word.slice(0,ci);
+        if(ci===word.length){ timer=setTimeout(()=>{deleting=true;tick();},PAUSE); return; }
+        timer=setTimeout(tick,TYPE);
+      }else{
+        ci--;
+        txt.textContent=word.slice(0,ci);
+        if(ci===0){ deleting=false; pi=(pi+1)%phrases.length; timer=setTimeout(tick,GAP); return; }
+        timer=setTimeout(tick,DEL);
+      }
+    }
+    tick();
+  })();
+
+  /* ---------------- ANIMACIÓN DE ENTRADA (reveal) ---------------- */
+  (function(){
+    const targets=[...document.querySelectorAll('.reveal')];
+    if(!targets.length) return;
+    targets.forEach((t,i)=>{ t.style.transitionDelay=(Math.min(i%6,5)*0.06)+'s'; });
+    if(!('IntersectionObserver' in window)){ targets.forEach(t=>t.classList.add('in')); return; }
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    targets.forEach(t=>io.observe(t));
+  })();
+</script>
+</body>
+</html>

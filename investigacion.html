@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investigación — Colección Digital INBAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --guinda:#1e5b4f; --guinda-900:#1E5C3B;
+    --verde:#1e5b4f; --verde-900:#1E5C3B;
+    --oro:#8DC2B7; --arena:#DBD3B6;
+    --tinta:#211a1c; --gris:#6f6a66;
+    --linea:#e8e3da; --papel:#ffffff; --papel-2:#faf7f2;
+    --display:"Fraunces",Georgia,serif;
+    --sans:"Noto Sans",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);font-weight:500}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);padding:13px 0}
+  .nav{display:flex;align-items:center;gap:30px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--sans);font-size:19px;font-weight:500;color:var(--guinda)}
+  .logo-wrap{position:relative;width:81px;height:29px;flex:none}
+  .logo-wrap .logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:brightness(0)}
+  .brand-sep{width:1px;height:20px;background:var(--linea);flex:none}
+  .brand-text{font-style:italic;font-weight:700}
+  .menu{margin-left:auto;display:flex;gap:26px}
+  .menu a{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);position:relative;padding:4px 0}
+  .menu a.active{color:var(--guinda)}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--guinda);transition:width .35s var(--ease)}
+  .menu a:hover::after,.menu a.active::after{width:100%}
+  .lang{font-size:11px;letter-spacing:.1em;color:var(--gris)}
+  .search-dock{position:relative;flex:none;height:38px}
+  .search-dock__icon{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--linea);color:var(--gris);cursor:pointer;transition:border-color .3s,color .3s,opacity .25s ease,transform .25s ease}
+  .search-dock__icon svg{width:16px;height:16px}
+  .search-dock__icon:hover{border-color:var(--oro)}
+  .search-dock.is-open .search-dock__icon{opacity:0;transform:scale(0);pointer-events:none}
+  .search-dock__form{position:absolute;top:0;right:0;display:flex;align-items:center;height:38px;width:38px;border-radius:30px;border:1px solid var(--linea);overflow:hidden;opacity:0;pointer-events:none;background:rgba(255,255,255,.9);transition:width .4s var(--ease),opacity .25s ease,border-color .3s}
+  .search-dock.is-open .search-dock__form{width:300px;opacity:1;pointer-events:auto}
+  .search-dock__form svg{flex:none;width:15px;height:15px;margin-left:14px;color:var(--gris)}
+  .search-dock__input{flex:1;min-width:0;height:100%;padding:0 8px;background:transparent;border:none;outline:none;color:var(--tinta);font-family:var(--sans);font-size:13px}
+  .search-dock__input::placeholder{color:var(--gris)}
+  .search-dock__close{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;margin-right:6px;flex:none;cursor:pointer;color:var(--gris);transition:background .25s,color .3s}
+  .search-dock__close:hover{background:var(--linea)}
+  .menu-toggle{all:unset;box-sizing:border-box;display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;cursor:pointer;flex:none}
+  .menu-toggle span{display:block;width:20px;height:2px;background:var(--tinta);margin:0 auto;transition:.3s}
+  .mobile-menu{position:fixed;inset:0;z-index:400;opacity:0;pointer-events:none;transition:opacity .35s}
+  .mobile-menu.is-open{opacity:1;pointer-events:auto}
+  .mobile-menu__backdrop{position:absolute;inset:0;background:rgba(0,20,18,.6);backdrop-filter:blur(3px)}
+  .mobile-menu__panel{position:absolute;top:0;right:0;bottom:0;width:min(78vw,340px);background:var(--verde);display:flex;flex-direction:column;gap:6px;padding:90px 32px 40px;transform:translateX(100%);transition:transform .4s var(--ease)}
+  .mobile-menu.is-open .mobile-menu__panel{transform:translateX(0)}
+  .mobile-menu__panel a{color:#fff;font-family:var(--display);font-size:22px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .mobile-menu__close{all:unset;box-sizing:border-box;position:absolute;top:24px;right:24px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  body.overflow-hidden{overflow:hidden}
+
+  .crumbs{font-size:12px;color:var(--gris);letter-spacing:.04em;margin:26px 0 10px}
+  .crumbs a:hover{color:var(--guinda)} .crumbs b{color:var(--tinta);font-weight:500}
+
+  /* ---------- ENCABEZADO CON DEGRADADO ---------- */
+  .inv-hero{
+    position:relative;overflow:hidden;
+    background-color:#1E5C3B;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"),
+      linear-gradient(90deg, rgba(10,26,21,.6) 0%, rgba(10,26,21,.28) 30%, rgba(10,26,21,0) 60%),
+      radial-gradient(circle at 18% 50%, rgba(15,38,32,1) 0%, rgba(15,38,32,.84) 19%, rgba(15,38,32,.5) 38%, rgba(15,38,32,.16) 57%, rgba(15,38,32,0) 76%),
+      radial-gradient(circle at 62% 72%, rgba(141,194,183,1) 0%, rgba(141,194,183,.84) 13%, rgba(141,194,183,.5) 26%, rgba(141,194,183,.16) 39%, rgba(141,194,183,0) 52%),
+      radial-gradient(circle at 20% 12%, rgba(15,38,32,1) 0%, rgba(15,38,32,.84) 17%, rgba(15,38,32,.5) 34%, rgba(15,38,32,.16) 50%, rgba(15,38,32,0) 67%),
+      radial-gradient(circle at 90% 85%, rgba(219,211,182,1) 0%, rgba(219,211,182,.84) 10%, rgba(219,211,182,.5) 21%, rgba(219,211,182,.16) 31%, rgba(219,211,182,0) 41%);
+    background-size:120px 120px, auto, auto, auto, auto, auto;
+    background-blend-mode:overlay, normal, normal, normal, normal, normal;
+  }
+  .inv-hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(115deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.03) 35%, rgba(255,255,255,0) 60%, rgba(255,255,255,.07) 100%);
+    border-bottom:1px solid rgba(255,255,255,.28);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+  }
+  .inv-hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.4;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");}
+  .inv-hero>.wrap{position:relative;z-index:2}
+  .inv-hero .crumbs{font-size:12px;color:rgba(255,255,255,.72);letter-spacing:.04em;margin:28px 0 14px}
+  .inv-hero .crumbs b{color:#fff;font-weight:500}
+  .inv-hero .crumbs a:hover{color:var(--arena)}
+
+  /* ---------- PAGE HEAD + ANCLAS ---------- */
+  .phead{border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:26px;margin:0 0 0}
+  .phead h1{font-family:var(--sans);font-weight:700;font-size:clamp(40px,6vw,74px);letter-spacing:-.02em;line-height:.98;color:#fff}
+  .phead p{color:rgba(255,255,255,.8);font-size:15px;margin-top:12px;max-width:66ch}
+  .jump{position:relative;isolation:isolate;display:inline-flex;flex-wrap:wrap;gap:2px;margin:20px 0 8px;border:1.5px solid rgba(255,255,255,.55);border-radius:999px;padding:4px}
+  .jump a{position:relative;z-index:2;font-size:12px;letter-spacing:.04em;padding:8px 16px;border-radius:999px;color:#fff;white-space:nowrap;transition:color .25s var(--ease)}
+  .jump a.on-cursor{color:var(--verde-900)}
+  .jump-cursor{position:absolute;z-index:1;top:4px;bottom:4px;left:0;width:0;border-radius:999px;background:#fff;opacity:0;transition:left .35s var(--ease),width .35s var(--ease),opacity .25s ease}
+  .jump-cursor.show{opacity:1}
+
+  section.mod{padding:44px 0;border-top:1px solid var(--linea);scroll-margin-top:80px}
+  .mod-h{margin-bottom:20px}
+  .mod-h .title-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .mod-h .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--oro);font-weight:600}
+  .mod-h h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.01em}
+  .mod-h p{color:var(--gris);font-size:14px;max-width:70ch;margin-top:8px}
+
+  /* ---------- BÚSQUEDA AVANZADA ---------- */
+  .adv{border:1px solid var(--linea);border-radius:16px;padding:26px;background:var(--papel-2)}
+  .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+  .field input,.field select{font-family:var(--sans);font-size:13.5px;border:1px solid var(--linea);border-radius:8px;padding:10px 12px;background:var(--papel);color:var(--tinta);outline:none;transition:border-color .25s}
+  .field input:focus,.field select:focus{border-color:var(--oro)}
+  .yearrow{display:flex;gap:8px}.yearrow input{width:100%}
+  .advbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:18px}
+  .op{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--gris)}
+  .op label{display:inline-flex;align-items:center;gap:5px;cursor:pointer;color:var(--tinta)}
+  .btn{border:1px solid var(--guinda);background:none;color:var(--guinda);border-radius:30px;padding:11px 22px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.3s var(--ease)}
+  .btn:hover{background:var(--guinda);color:#fff}
+  .btn.primary{background:var(--guinda);color:#fff}
+  .btn.primary:hover{background:var(--guinda-900)}
+  .btn.ghost{border-color:var(--linea);color:var(--tinta)}
+  .btn.ghost:hover{border-color:var(--guinda);color:var(--guinda);background:none}
+
+  .resbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:24px 0 10px}
+  .resbar .rc{font-size:14px;color:var(--gris)}.resbar .rc b{color:var(--tinta)}
+  .resbar .exp{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+  .tablewrap{overflow-x:auto;border:1px solid var(--linea);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:760px}
+  thead th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);font-weight:600;padding:12px 14px;border-bottom:1px solid var(--linea);cursor:pointer;white-space:nowrap;user-select:none}
+  thead th:hover{color:var(--guinda)}
+  thead th .ar{color:var(--oro);font-size:10px}
+  th.chk,td.chk{width:36px;padding:11px 10px!important;cursor:default}
+  th.chk input,td.chk input{width:15px;height:15px;cursor:pointer;accent-color:var(--guinda)}
+  tbody td{padding:11px 14px;border-bottom:1px solid var(--linea);vertical-align:top}
+  tbody tr:hover{background:var(--papel-2)}
+  tbody tr:last-child td{border-bottom:none}
+  td .ti{font-family:var(--display);font-weight:500}
+  td .au{font-style:italic;color:var(--gris)}
+  td a.ver{color:var(--guinda);font-size:12px;white-space:nowrap}
+  .inv{background:var(--papel-2);border:1px solid var(--linea);border-radius:6px;padding:1px 7px;font-size:12px}
+  .nores{padding:40px;text-align:center;color:var(--gris)}
+
+  /* ---------- CITACIÓN ---------- */
+  .cite-empty{border:1px dashed var(--linea);border-radius:12px;padding:26px;color:var(--gris);font-size:14px;max-width:60ch}
+  .cite-empty a{color:var(--guinda);text-decoration:underline}
+  .cite-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+  .cite-bar .rc{font-size:14px;color:var(--gris)}.cite-bar .rc b{color:var(--tinta)}
+  .cite-list{display:flex;flex-direction:column;gap:16px}
+  .cite-card{border:1px solid var(--linea);border-radius:12px;padding:20px}
+  .cite-card .cc-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:2px}
+  .cite-card .ti{font-family:var(--display);font-weight:500;font-size:16px}
+  .cite-card .meta{font-size:12.5px;color:var(--gris);font-style:italic;margin-bottom:12px}
+  .cite-box h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin:14px 0 6px}
+  .cite-box h4:first-child{margin-top:0}
+  .cite-box p{font-size:13px;background:var(--papel-2);border:1px solid var(--linea);border-radius:8px;padding:11px 13px;line-height:1.55}
+  .cite-box .cp{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--guinda);cursor:pointer;margin-top:6px;background:none;border:none}
+
+  /* ---------- ÍNDICE DE AUTORES ---------- */
+  .az-bar{display:flex;flex-wrap:wrap;gap:6px}
+  .az-btn{all:unset;box-sizing:border-box;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid var(--linea);border-radius:8px;font-family:var(--display);font-size:14px;font-weight:500;color:var(--tinta);cursor:pointer;transition:.25s var(--ease)}
+  .az-btn:hover{border-color:var(--guinda);color:var(--guinda)}
+  .az-btn.empty{color:var(--linea);border-color:var(--linea);cursor:default}
+  .az-btn.active{background:var(--guinda);border-color:var(--guinda);color:#fff}
+  .az-panel{margin-top:18px;border:1px solid var(--linea);border-radius:12px;padding:20px 22px}
+  .az-panel h3{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:4px}
+  .az-panel .hint{font-size:12.5px;color:var(--gris);margin-bottom:14px}
+  .az-authors{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 24px}
+  .az-authors button{all:unset;box-sizing:border-box;display:block;width:100%;padding:8px 6px;font-family:var(--sans);font-size:13.5px;color:var(--tinta);cursor:pointer;border-radius:6px;transition:background .2s,color .2s}
+  .az-authors button:hover{background:var(--papel-2);color:var(--guinda)}
+
+  /* ---------- METADATOS ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+  .stat{background:var(--papel-2);border-radius:12px;padding:18px}
+  .stat b{font-family:var(--display);font-weight:500;font-size:32px;color:var(--guinda);display:block;line-height:1}
+  .stat span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+  .cov{display:flex;flex-direction:column;gap:10px;max-width:640px}
+  .covrow{display:grid;grid-template-columns:130px 1fr 54px;gap:12px;align-items:center;font-size:13px}
+  .covbar{height:8px;background:var(--linea);border-radius:6px;overflow:hidden}
+  .covbar i{display:block;height:100%;background:var(--guinda);border-radius:6px}
+
+  /* ---------- LICENCIAS ---------- */
+  .lic2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+  .lic-card{border:1px solid var(--linea);border-radius:12px;padding:22px}
+  .lic-card .pill{display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:10px}
+  .lic-card.dp .pill{background:#e6f0ec;color:var(--guinda-900)}
+  .lic-card.dr .pill{background:#f3ece0;color:#7a5a12}
+  .lic-card h4{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:6px}
+  .lic-card p{color:var(--gris);font-size:13.5px}
+
+  /* ---------- CONTACTO ---------- */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:820px}
+  .contact .full{grid-column:1/-1}
+  .contact input,.contact select,.contact textarea{font-family:var(--sans);font-size:13.5px;border:1px solid var(--linea);border-radius:8px;padding:11px 12px;background:var(--papel);color:var(--tinta);outline:none;width:100%}
+  .contact textarea{min-height:110px;resize:vertical}
+  .contact input:focus,.contact select:focus,.contact textarea:focus{border-color:var(--oro)}
+
+  .note{font-size:11.5px;color:var(--gris);font-style:italic;margin-top:10px}
+
+  footer{background:var(--guinda-900);color:#fff;padding:40px 0;margin-top:20px}
+  .fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#fff;font-size:12px}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--tinta);color:#fff;font-size:13px;padding:11px 18px;border-radius:30px;opacity:0;pointer-events:none;transition:.35s var(--ease);z-index:300}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:900px){ .menu,.lang{display:none} .menu-toggle{display:flex}
+    .fgrid{grid-template-columns:1fr 1fr} .stats{grid-template-columns:1fr 1fr}
+    .az-authors{grid-template-columns:1fr} .lic2,.contact{grid-template-columns:1fr} }
+  @media(max-width:640px){ .wrap{padding:0 20px} .fgrid{grid-template-columns:1fr} }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  @media print{ .print-hide{display:none!important} th.chk,td.chk{display:none} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo-wrap"><img class="logo" src="Img/logo-guinda.png" alt="INBAL"></span><span class="brand-sep"></span><span class="brand-text">Colección digital</span></a>
+    <nav class="menu">
+      <a href="colecciones.html">Obras</a><a href="acervos.html">Acervos</a><a href="#">Fondos</a><a href="curadurias.html">Curadurías</a><a href="investigacion.html" class="active">Investigación</a>
+    </nav>
+    <div class="search-dock" id="searchDock">
+      <button type="button" class="search-dock__icon" id="searchDockIcon" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <form class="search-dock__form" id="searchDockForm" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-dock__input" id="searchDockInput" placeholder="Buscar obras, artistas, museos…">
+        <button type="button" class="search-dock__close" id="searchDockClose" aria-label="Cerrar búsqueda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </form>
+    </div>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" data-mmclose></div>
+  <nav class="mobile-menu__panel">
+    <button type="button" class="mobile-menu__close" id="mobileMenuClose" aria-label="Cerrar menú">✕</button>
+    <a href="colecciones.html">Obras</a><a href="acervos.html">Acervos</a><a href="#">Fondos</a><a href="curadurias.html">Curadurías</a><a href="investigacion.html">Investigación</a>
+  </nav>
+</div>
+
+<div class="inv-hero">
+  <div class="wrap">
+    <div class="crumbs reveal"><a href="index.html">Inicio</a> &nbsp;›&nbsp; <b>Investigación</b></div>
+    <div class="phead reveal">
+      <h1>Investigación</h1>
+      <p>Herramientas para investigadores, estudiantes y público especializado: busca con precisión en todo el acervo, cita obras correctamente y conoce cómo está catalogado y licenciado el repositorio.</p>
+      <div class="jump">
+        <a href="#busqueda">Búsqueda avanzada</a><a href="#citacion">Citación</a><a href="#autores">Índice</a><a href="#metadatos">Metadatos</a><a href="#licencias">Licencias</a><a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- 1. BÚSQUEDA AVANZADA -->
+  <section class="mod reveal" id="busqueda" style="border-top:none">
+    <div class="mod-h"><div class="title-row"><span class="k">01</span><h2>Búsqueda avanzada</h2></div>
+      <p>Cruza varios campos a la vez con operadores booleanos, ordena los resultados, expórtalos y guarda la búsqueda como enlace permanente.</p></div>
+    <div class="adv">
+      <div class="fgrid">
+        <div class="field"><label>Título o palabra clave</label><input id="fq" type="text" placeholder="p. ej. paisaje"></div>
+        <div class="field"><label>Autor</label><input id="fautor" type="text" placeholder="p. ej. Murillo"></div>
+        <div class="field"><label>Técnica</label><select id="ftecnica"></select></div>
+        <div class="field"><label>Acervo / museo</label><select id="fmuseo"></select></div>
+        <div class="field"><label>Tipo de obra</label><select id="ftipo"></select></div>
+        <div class="field"><label>Etiqueta cronológica</label><select id="fperiodo"></select></div>
+        <div class="field"><label>Año (rango)</label><div class="yearrow"><input id="fmin" type="number" placeholder="desde"><input id="fmax" type="number" placeholder="hasta"></div></div>
+        <div class="field"><label>ID CENCROPAM</label><input id="fcen" type="text" placeholder="p. ej. MUNAL-14333"></div>
+      </div>
+      <div class="advbar">
+        <span class="op">Combinar campos con:
+          <label><input type="radio" name="op" value="AND" checked> Y (AND)</label>
+          <label><input type="radio" name="op" value="OR"> O (OR)</label>
+        </span>
+        <button class="btn primary" id="doSearch">Buscar</button>
+        <button class="btn ghost" id="doClear">Limpiar</button>
+      </div>
+    </div>
+
+    <div class="resbar" id="resbar" hidden>
+      <span class="rc"><b id="rcount">0</b> resultados · <b id="selcount">0</b> seleccionados</span>
+      <div class="exp">
+        <button class="btn ghost" id="permalink">⧉ Copiar enlace de búsqueda</button>
+        <button class="btn ghost" id="expCsv">⬇ Exportar CSV</button>
+        <button class="btn ghost" id="expPdf">⬇ Exportar PDF</button>
+      </div>
+    </div>
+    <div class="tablewrap" id="tablewrap" hidden>
+      <table id="tbl">
+        <thead><tr>
+          <th class="chk"><input type="checkbox" id="selAll" aria-label="Seleccionar todos"></th>
+          <th data-k="titulo">Título <span class="ar"></span></th>
+          <th data-k="autor">Autor <span class="ar"></span></th>
+          <th data-k="anio">Año <span class="ar"></span></th>
+          <th data-k="tecnica">Técnica <span class="ar"></span></th>
+          <th data-k="tipo">Tipo <span class="ar"></span></th>
+          <th data-k="museo">Acervo <span class="ar"></span></th>
+          <th data-k="ubicacion">Ubicación <span class="ar"></span></th>
+          <th data-k="reg">No. Sigropam <span class="ar"></span></th>
+          <th></th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 2. CITACIÓN -->
+  <section class="mod reveal" id="citacion">
+    <div class="mod-h"><div class="title-row"><span class="k">02</span><h2>Generador de citación</h2></div>
+      <p>Marca las casillas de los registros que te interesen en la tabla de <a href="#busqueda">Búsqueda avanzada</a> y aquí aparecerá, para cada uno, su referencia lista en formato APA y Chicago, con permalink permanente.</p></div>
+    <div class="cite-empty" id="citeEmpty">Aún no has seleccionado ningún registro. Ve a <a href="#busqueda">Búsqueda avanzada</a>, realiza una búsqueda y marca la casilla de las obras que quieras citar.</div>
+    <div class="cite-bar" id="citeBar" hidden>
+      <span class="rc"><b id="citeCount">0</b> obra(s) seleccionada(s)</span>
+      <button class="btn ghost" id="citeCopyAll">⧉ Copiar todas las citas</button>
+    </div>
+    <div class="cite-list" id="citeList"></div>
+  </section>
+
+  <!-- 3. ÍNDICE DE AUTORES -->
+  <section class="mod reveal" id="autores">
+    <div class="mod-h"><div class="title-row"><span class="k">03</span><h2>Índice de autores</h2></div>
+      <p>Explora el acervo por autor. Elige una letra para ver los nombres disponibles (ordenados por apellido) y haz clic en un autor para filtrar sus obras en la Búsqueda avanzada.</p></div>
+    <div class="az-bar" id="azBar"></div>
+    <div class="az-panel" id="azPanel" hidden></div>
+  </section>
+
+  <!-- 4. METADATOS -->
+  <section class="mod reveal" id="metadatos">
+    <div class="mod-h"><div class="title-row"><span class="k">04</span><h2>Estado del repositorio</h2></div>
+      <p>Cifras del acervo digitalizado y su cobertura por museo.</p></div>
+    <div class="stats" id="stats"></div>
+    <div class="cov" id="cov"></div>
+    <p class="note">La fecha de última actualización y las cifras totales del acervo completo son datos de muestra; las de esta demo se calculan sobre el conjunto de obras cargado.</p>
+  </section>
+
+  <!-- 5. LICENCIAS -->
+  <section class="mod reveal" id="licencias">
+    <div class="mod-h"><div class="title-row"><span class="k">05</span><h2>Licencias y reutilización</h2></div>
+      <p>Cómo puedes usar imágenes y metadatos, y cómo dar el crédito adecuado.</p></div>
+    <div class="lic2">
+      <div class="lic-card dp"><span class="pill">Dominio público</span><h4>Uso libre</h4><p>Obras cuyos derechos patrimoniales han expirado. Imágenes en alta resolución descargables y reutilizables, incluso con fines comerciales, citando la fuente.</p></div>
+      <div class="lic-card dr"><span class="pill">Derechos reservados</span><h4>Uso conforme a política</h4><p>Obras aún protegidas (en México, vida del autor más 100 años). Consulta disponible en línea; la reutilización requiere autorización. La ficha de cada obra indica su condición.</p></div>
+    </div>
+    <p class="note">Los metadatos del repositorio se publican bajo el estándar CENCROPAM para su reutilización académica. Da crédito con la cita generada en el módulo de Citación.</p>
+  </section>
+
+  <!-- 6. CONTACTO -->
+  <section class="mod reveal" id="contacto">
+    <div class="mod-h"><div class="title-row"><span class="k">06</span><h2>Contacto con curadurías</h2></div>
+      <p>Para consultas académicas, solicitudes de uso o para reportar datos y nuevos hallazgos sobre una obra.</p></div>
+    <form class="contact" id="contactForm">
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <select id="cMuseo"></select>
+      <input type="text" placeholder="Obra o No. de registro (opcional)">
+      <textarea class="full" placeholder="Tu mensaje" required></textarea>
+      <div class="full"><button class="btn primary" type="submit">Enviar consulta</button></div>
+    </form>
+    <p class="note">Formulario de muestra: en esta demo no envía datos.</p>
+  </section>
+</div>
+
+<footer><div class="wrap fbot">
+  <span>© 2026 Instituto Nacional de Bellas Artes y Literatura · Secretaría de Cultura · Gobierno de México</span>
+  <span>Colección Digital INBAL</span>
+</div></footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const IMG_DIR='Img/obras/';
+  const INST={MUNAL:'Museo Nacional de Arte (MUNAL)',MAM:'Museo de Arte Moderno (MAM)',MUNAE:'Museo Nacional de la Estampa (MUNAE)','San Carlos':'Museo Nacional de San Carlos'};
+  const UBICACION={MUNAL:'Centro Histórico, CDMX',MAM:'Bosque de Chapultepec, CDMX',MUNAE:'Centro (Alameda), CDMX','San Carlos':'Tabacalera, CDMX'};
+  const DATA=[
+    {file:'MUNAL_29013',museo:'MUNAL',titulo:'Al amanecer labores',autor:'Ezequiel Negrete Lira',anio:1955,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_14333',museo:'MUNAL',titulo:'La Nube',autor:'Gerardo Murillo Coronado',anio:1931,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_16095',museo:'MUNAL',titulo:'El descubrimiento del Pulque',autor:'José María Obregón',anio:1869,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_15968',museo:'MUNAL',titulo:'Santo Domingo. Copia Original',autor:'Autor sin identificar',anio:null,periodo:'Siglo XIX',tipo:'Fotografía',tecnica:'Fotografía'},
+    {file:'MUNAL_52195',museo:'MUNAL',titulo:'Cuadro',autor:'Autor sin identificar',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Artes decorativas'},
+    {file:'MUNAE_35085',museo:'MUNAE',titulo:'El rebozo de soledad II',autor:'Leopoldo Méndez',anio:null,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Sin especificar'},
+    {file:'MUNAE_56',museo:'MUNAE',titulo:'El mil cumbres',autor:'Carlos Alvarado Lang',anio:1951,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Xilografía'},
+    {file:'MUNAE_7856',museo:'MUNAE',titulo:'Desnudo n.º3',autor:'Fernando Castro Pacheco',anio:null,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Xilografía a color'},
+    {file:'MUNAE_7506',museo:'MUNAE',titulo:'El mezquital',autor:'Adolfo Mexiac',anio:1957,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Linóleo'},
+    {file:'MAM_18030',museo:'MAM',titulo:'Soporte vital resistencia dinámica',autor:'Francisco Moyao',anio:1976,periodo:'Arte Contemporáneo',tipo:'Escultura',tecnica:'Madera con laca'},
+    {file:'MAM_59340',museo:'MAM',titulo:'Sin Título',autor:'Graciela Iturbide',anio:1980,periodo:'Arte Contemporáneo',tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
+    {file:'MAM_19154',museo:'MAM',titulo:'Autorretrato',autor:'Rosa Rolanda de Covarrubias',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_59339',museo:'MAM',titulo:'De Esta Tierra del Cielo y los Infiernos la Tempestad',autor:'Gerardo Suter',anio:1987,periodo:'Arte Contemporáneo',tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
+    {file:'MAM_16575',museo:'MAM',titulo:'Fuego verde en el Paricutín',autor:'Gerardo Murillo Coronado (Dr. Atl)',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Atlcolor sobre masonite'},
+    {file:'MAM_13154',museo:'MAM',titulo:'Los cocos',autor:'Frida Kahlo Calderón',anio:1951,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre masonite'},
+    {file:'MNSC_10455',museo:'San Carlos',titulo:'Dominus possedit me in initio viarum suarum',autor:'Carl Ernst Christoph Hess',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Buril'},
+    {file:'MNSC_19049',museo:'San Carlos',titulo:'Episodio del diluvio universal',autor:'Francesco Coghetti',anio:1852,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_50941',museo:'San Carlos',titulo:'Paisaje (copia Gedovius)',autor:'Germán Gedovius Huerta',anio:1908,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_50942',museo:'San Carlos',titulo:'La niña',autor:'Germán Gedovius Huerta',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_4674',museo:'San Carlos',titulo:'El sueño de la razón produce monstruos (serie Los Caprichos)',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4633',museo:'San Carlos',titulo:'Las rinde el sueño (serie Los Caprichos)',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_3994',museo:'San Carlos',titulo:'Bacante',autor:'Adolphe René Lefèvre',anio:null,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_3992',museo:'San Carlos',titulo:'La siega',autor:'José Blanco Coris',anio:null,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'}
+  ];
+  DATA.forEach(o=>{o.reg=o.file.split('_')[1];o.ubicacion=UBICACION[o.museo]||'';});
+  const uniq=k=>[...new Set(DATA.map(o=>o[k]))].sort();
+
+  const $=id=>document.getElementById(id);
+  const toast=$('toast');let tt;function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),1800);}
+
+  /* selects */
+  function fill(sel,arr,all){sel.innerHTML='<option value="">'+all+'</option>'+arr.map(v=>`<option>${v}</option>`).join('');}
+  fill($('ftecnica'),uniq('tecnica'),'Todas');
+  fill($('fmuseo'),uniq('museo'),'Todos');
+  fill($('ftipo'),uniq('tipo'),'Todos');
+  fill($('fperiodo'),uniq('periodo'),'Todas');
+  $('cMuseo').innerHTML='<option value="">Selecciona un acervo…</option>'+uniq('museo').map(v=>`<option>${INST[v]||v}</option>`).join('');
+
+  /* ---- BÚSQUEDA AVANZADA ---- */
+  let sortK='titulo',sortDir=1,lastResults=DATA.slice(),selected=new Set();
+  function getForm(){return {q:$('fq').value.trim().toLowerCase(),autor:$('fautor').value.trim().toLowerCase(),tecnica:$('ftecnica').value,museo:$('fmuseo').value,tipo:$('ftipo').value,periodo:$('fperiodo').value,min:$('fmin').value,max:$('fmax').value,cen:$('fcen').value.trim().toLowerCase(),op:document.querySelector('input[name=op]:checked').value};}
+  function crit(f){
+    const c=[];
+    if(f.q)c.push(o=>(o.titulo+' '+o.autor).toLowerCase().includes(f.q));
+    if(f.autor)c.push(o=>o.autor.toLowerCase().includes(f.autor));
+    if(f.tecnica)c.push(o=>o.tecnica===f.tecnica);
+    if(f.museo)c.push(o=>o.museo===f.museo);
+    if(f.tipo)c.push(o=>o.tipo===f.tipo);
+    if(f.periodo)c.push(o=>o.periodo===f.periodo);
+    if(f.min)c.push(o=>o.anio!=null&&o.anio>=+f.min);
+    if(f.max)c.push(o=>o.anio!=null&&o.anio<=+f.max);
+    if(f.cen)c.push(o=>(o.museo+'-'+o.reg).toLowerCase().includes(f.cen)||o.reg.toLowerCase().includes(f.cen));
+    return c;
+  }
+  function updateSelCount(){
+    $('selcount').textContent=selected.size;
+    const visible=lastResults.filter(o=>selected.has(o.file)).length;
+    const selAll=$('selAll');
+    selAll.checked=lastResults.length>0&&visible===lastResults.length;
+    selAll.indeterminate=visible>0&&visible<lastResults.length;
+    if(typeof renderCitas==='function')renderCitas();
+  }
+  function runSearch(){
+    const f=getForm();const c=crit(f);
+    let res=DATA.filter(o=>{if(!c.length)return true;return f.op==='OR'?c.some(fn=>fn(o)):c.every(fn=>fn(o));});
+    res.sort((a,b)=>{let x=a[sortK],y=b[sortK];if(x==null)x=sortK==='anio'?-Infinity:'';if(y==null)y=sortK==='anio'?-Infinity:'';return (typeof x==='number'?x-y:(''+x).localeCompare(''+y))*sortDir;});
+    lastResults=res;
+    $('rcount').textContent=res.length;
+    const tb=$('tbody');tb.innerHTML='';
+    if(!res.length){tb.innerHTML='<tr><td colspan="10" class="nores">Sin resultados. Ajusta los campos o cambia el operador a O (OR).</td></tr>';updateSelCount();return;}
+    res.forEach(o=>{const tr=document.createElement('tr');
+      tr.innerHTML=`<td class="chk"><input type="checkbox" class="rowchk" data-file="${o.file}" ${selected.has(o.file)?'checked':''} aria-label="Seleccionar ${o.titulo}"></td><td class="ti">${o.titulo}</td><td class="au">${o.autor}</td><td>${o.anio==null?'S/F':o.anio}</td><td>${o.tecnica}</td><td>${o.tipo}</td><td>${o.museo}</td><td>${o.ubicacion}</td><td><span class="inv">${o.reg}</span></td><td><a class="ver" href="detalle-obra.html?obra=${o.file}">Ver ficha →</a></td>`;
+      tb.appendChild(tr);});
+    tb.querySelectorAll('.rowchk').forEach(cb=>cb.onchange=()=>{
+      if(cb.checked)selected.add(cb.dataset.file);else selected.delete(cb.dataset.file);
+      updateSelCount();});
+    updateSelCount();
+  }
+  $('selAll').onchange=()=>{
+    const on=$('selAll').checked;
+    lastResults.forEach(o=>on?selected.add(o.file):selected.delete(o.file));
+    document.querySelectorAll('#tbody .rowchk').forEach(cb=>cb.checked=on);
+    updateSelCount();
+  };
+  function showResults(){$('resbar').hidden=false;$('tablewrap').hidden=false;}
+  function hideResults(){$('resbar').hidden=true;$('tablewrap').hidden=true;}
+  document.querySelectorAll('#tbl thead th[data-k]').forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k;if(sortK===k)sortDir*=-1;else{sortK=k;sortDir=1;}
+    document.querySelectorAll('#tbl thead th .ar').forEach(a=>a.textContent='');
+    th.querySelector('.ar').textContent=sortDir>0?'▲':'▼';runSearch();});
+  $('doSearch').onclick=()=>{selected.clear();runSearch();writeUrl();showResults();};
+  $('doClear').onclick=()=>{['fq','fautor','fcen','fmin','fmax'].forEach(id=>$(id).value='');['ftecnica','fmuseo','ftipo','fperiodo'].forEach(id=>$(id).value='');document.querySelector('input[name=op][value=AND]').checked=true;selected.clear();hideResults();renderCitas();history.replaceState(null,'',location.pathname+'#busqueda');};
+
+  /* permalink */
+  function writeUrl(){const f=getForm();const p=new URLSearchParams();Object.entries({q:f.q,autor:f.autor,tecnica:f.tecnica,museo:f.museo,tipo:f.tipo,periodo:f.periodo,min:f.min,max:f.max,cen:f.cen,op:f.op!=='AND'?f.op:''}).forEach(([k,v])=>{if(v)p.set(k,v);});history.replaceState(null,'',location.pathname+(p.toString()?'?'+p:'')+'#busqueda');}
+  function readUrl(){const p=new URLSearchParams(location.search);if(![...p.keys()].length)return false;
+    const map={q:'fq',autor:'fautor',tecnica:'ftecnica',museo:'fmuseo',tipo:'ftipo',periodo:'fperiodo',min:'fmin',max:'fmax',cen:'fcen'};
+    Object.entries(map).forEach(([k,id])=>{if(p.get(k))$(id).value=p.get(k);});
+    if(p.get('op')==='OR')document.querySelector('input[name=op][value=OR]').checked=true;
+    return true;}
+  $('permalink').onclick=()=>{writeUrl();navigator.clipboard&&navigator.clipboard.writeText(location.href);say('Enlace de búsqueda copiado');};
+
+  /* export */
+  function csvEsc(v){v=(v==null?'':''+v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
+  function exportSet(){return selected.size?lastResults.filter(o=>selected.has(o.file)):lastResults;}
+  $('expCsv').onclick=()=>{
+    const set=exportSet();if(!set.length){say('No hay registros que exportar');return;}
+    const head=['Título','Autor','Año','Periodo','Técnica','Tipo','Acervo','Ubicación','No. Sigropam'];
+    const rows=set.map(o=>[o.titulo,o.autor,o.anio==null?'':o.anio,o.periodo,o.tecnica,o.tipo,o.museo,o.ubicacion,o.reg].map(csvEsc).join(','));
+    const csv='﻿'+head.join(',')+'\n'+rows.join('\n');
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='inbal-busqueda.csv';a.click();say(set.length+' registro(s) exportados a CSV');};
+  $('expPdf').onclick=()=>{
+    const set=exportSet();if(!set.length){say('No hay registros que exportar');return;}
+    const files=new Set(set.map(o=>o.file));
+    const hidden=[];
+    if(selected.size){
+      document.querySelectorAll('#tbody tr').forEach(tr=>{
+        const cb=tr.querySelector('.rowchk');
+        if(cb&&!files.has(cb.dataset.file)){tr.classList.add('print-hide');hidden.push(tr);}
+      });
+    }
+    window.print();
+    hidden.forEach(tr=>tr.classList.remove('print-hide'));
+  };
+
+  /* ---- CITACIÓN ---- */
+  function cita(o){const inst=INST[o.museo]||o.museo;const y=o.anio==null?'s.f.':o.anio;const url='https://coleccion.inbal.gob.mx/obra/'+o.reg;
+    const an=(a=>{const p=a.replace(/\s*\(.*?\)\s*/,'').trim().split(' ');return p.length>1?p.slice(-1)+', '+p.slice(0,-1).join(' '):a;})(o.autor);
+    return {apa:`${an} (${y}). ${o.titulo} [${o.tecnica}]. ${inst}, Ciudad de México. Colección Digital INBAL. ${url}`,
+            chi:`${an}. ${o.titulo}. ${y}. ${o.tecnica}. ${inst}, Ciudad de México. Colección Digital INBAL. ${url}`};}
+  function renderCitas(){
+    const obras=[...selected].map(f=>DATA.find(o=>o.file===f)).filter(Boolean);
+    $('citeCount').textContent=obras.length;
+    $('citeEmpty').hidden=obras.length>0;
+    $('citeBar').hidden=obras.length===0;
+    const list=$('citeList');list.innerHTML='';
+    obras.forEach(o=>{
+      const c=cita(o);
+      const card=document.createElement('div');card.className='cite-card';
+      card.innerHTML=`<div class="cc-h"><span class="ti">${o.titulo}</span><span class="meta">${o.autor} · ${o.anio==null?'s.f.':o.anio}</span></div>
+        <div class="cite-box">
+          <h4>APA</h4><p class="apa">${c.apa}</p><button class="cp" data-fmt="apa">⧉ Copiar</button>
+          <h4>Chicago</h4><p class="chi">${c.chi}</p><button class="cp" data-fmt="chi">⧉ Copiar</button>
+        </div>`;
+      card.querySelectorAll('.cp').forEach(b=>b.onclick=()=>{
+        const txt=card.querySelector('.'+b.dataset.fmt).textContent;
+        navigator.clipboard&&navigator.clipboard.writeText(txt);say('Cita copiada');});
+      list.appendChild(card);
+    });
+  }
+  $('citeCopyAll').onclick=()=>{
+    const obras=[...selected].map(f=>DATA.find(o=>o.file===f)).filter(Boolean);
+    if(!obras.length)return;
+    const txt=obras.map(o=>{const c=cita(o);return `${o.titulo}\nAPA: ${c.apa}\nChicago: ${c.chi}`;}).join('\n\n');
+    navigator.clipboard&&navigator.clipboard.writeText(txt);say('Citas copiadas');
+  };
+  renderCitas();
+
+  /* ---- ÍNDICE DE AUTORES ---- */
+  const UNKNOWN_AUTOR='Autor sin identificar';
+  function surnameOf(a){
+    if(a===UNKNOWN_AUTOR)return null;
+    const p=a.replace(/\s*\(.*?\)\s*/,'').trim().split(' ');
+    return p.length>1?p.slice(-1)[0]:a;
+  }
+  const AUTHOR_LETTERS=(()=>{
+    const map={};
+    [...new Set(DATA.map(o=>o.autor))].forEach(a=>{
+      const sn=surnameOf(a);
+      const letter=sn?sn.charAt(0).toUpperCase():'?';
+      (map[letter]=map[letter]||[]).push({full:a,surname:sn||a});
+    });
+    Object.values(map).forEach(list=>list.sort((x,y)=>x.surname.localeCompare(y.surname,'es')));
+    return map;
+  })();
+  const AZ='ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('').concat(['?']);
+  let azActive=null;
+  function renderAzBar(){
+    $('azBar').innerHTML=AZ.map(l=>{
+      const has=AUTHOR_LETTERS[l]&&AUTHOR_LETTERS[l].length;
+      return `<button type="button" class="az-btn${has?'':' empty'}${l===azActive?' active':''}" data-l="${l}" ${has?'':'disabled aria-disabled="true"'}>${l}</button>`;
+    }).join('');
+    $('azBar').querySelectorAll('.az-btn:not(.empty)').forEach(b=>b.onclick=()=>toggleLetter(b.dataset.l));
+  }
+  function toggleLetter(l){azActive=(azActive===l)?null:l;renderAzBar();renderAzPanel();}
+  function renderAzPanel(){
+    const panel=$('azPanel');
+    if(!azActive){panel.hidden=true;panel.innerHTML='';return;}
+    const list=AUTHOR_LETTERS[azActive]||[];
+    const label=azActive==='?'?'Autoría no identificada':'Autores — '+azActive;
+    panel.innerHTML=`<h3>${label}</h3><p class="hint">Haz clic en un nombre para ver y seleccionar sus obras en la Búsqueda avanzada.</p>
+      <div class="az-authors">${list.map(a=>`<button type="button" data-a="${a.full.replace(/"/g,'&quot;')}">${a.full}</button>`).join('')}</div>`;
+    panel.hidden=false;
+    panel.querySelectorAll('button[data-a]').forEach(b=>b.onclick=()=>goToAuthor(b.dataset.a));
+  }
+  function goToAuthor(autor){
+    ['fq','fcen','fmin','fmax'].forEach(id=>$(id).value='');
+    ['ftecnica','fmuseo','ftipo','fperiodo'].forEach(id=>$(id).value='');
+    document.querySelector('input[name=op][value=AND]').checked=true;
+    $('fautor').value=autor;
+    selected.clear();
+    runSearch();writeUrl();showResults();
+    document.getElementById('busqueda').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  renderAzBar();
+
+  /* ---- METADATOS ---- */
+  (function(){
+    const total=DATA.length,conImg=DATA.length,acervos=uniq('museo');
+    $('stats').innerHTML=`
+      <div class="stat"><b>${total}</b><span>Obras en la demo</span></div>
+      <div class="stat"><b>${conImg}</b><span>Con imagen</span></div>
+      <div class="stat"><b>${acervos.length}</b><span>Acervos</span></div>
+      <div class="stat"><b>ago 2026</b><span>Última actualización</span></div>`;
+    const counts=acervos.map(m=>[m,DATA.filter(o=>o.museo===m).length]);const mx=Math.max(...counts.map(c=>c[1]));
+    $('cov').innerHTML=counts.map(([m,n])=>`<div class="covrow"><span>${m}</span><span class="covbar"><i style="width:${Math.round(n/mx*100)}%"></i></span><span style="text-align:right;color:var(--gris)">${n}</span></div>`).join('');
+  })();
+
+  /* contacto (muestra) */
+  $('contactForm').addEventListener('submit',e=>{e.preventDefault();say('Gracias. Este formulario es de muestra en la demo.');e.target.reset();});
+
+  /* reveal */
+  const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),(i%4)*60);io.unobserve(e.target);}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* chips de anclas con cursor deslizante */
+  (function(){
+    const jump=document.querySelector('.jump');if(!jump)return;
+    const tabs=[...jump.querySelectorAll('a')];
+    const cursor=document.createElement('span');cursor.className='jump-cursor';jump.appendChild(cursor);
+    function moveTo(el){
+      cursor.style.left=el.offsetLeft+'px';cursor.style.width=el.offsetWidth+'px';cursor.classList.add('show');
+      tabs.forEach(a=>a.classList.toggle('on-cursor',a===el));
+    }
+    function hide(){cursor.classList.remove('show');tabs.forEach(a=>a.classList.remove('on-cursor'));}
+    tabs.forEach(a=>a.addEventListener('mouseenter',()=>moveTo(a)));
+    jump.addEventListener('mouseleave',hide);
+  })();
+
+  /* buscador + hamburguesa */
+  (function(){const dock=$('searchDock'),ic=$('searchDockIcon'),form=$('searchDockForm'),inp=$('searchDockInput'),cl=$('searchDockClose');if(!dock)return;
+    const open=()=>{dock.classList.add('is-open');setTimeout(()=>inp.focus(),150);};const close=()=>{dock.classList.remove('is-open');inp.value='';ic.focus();};
+    ic.addEventListener('click',open);cl.addEventListener('click',e=>{e.preventDefault();close();});
+    form.addEventListener('submit',e=>{e.preventDefault();const q=inp.value.trim();if(q)location.href='colecciones.html?q='+encodeURIComponent(q);});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dock.classList.contains('is-open'))close();});})();
+  (function(){const t=$('menuToggle'),mm=$('mobileMenu'),cl=$('mobileMenuClose');if(!t||!mm)return;
+    const open=()=>{mm.classList.add('is-open');mm.setAttribute('aria-hidden','false');t.setAttribute('aria-expanded','true');document.body.classList.add('overflow-hidden');};
+    const close=()=>{mm.classList.remove('is-open');mm.setAttribute('aria-hidden','true');t.setAttribute('aria-expanded','false');document.body.classList.remove('overflow-hidden');t.focus();};
+    t.addEventListener('click',open);cl.addEventListener('click',close);
+    mm.querySelectorAll('[data-mmclose]').forEach(el=>el.addEventListener('click',close));
+    mm.querySelectorAll('.mobile-menu__panel a').forEach(a=>a.addEventListener('click',close));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mm.classList.contains('is-open'))close();});})();
+
+  /* init: lee permalink y corre búsqueda */
+  if(readUrl()){runSearch();showResults();}
+</script>
+</body>
+</html>

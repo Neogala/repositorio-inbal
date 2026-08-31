@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colección Digital INBAL — Inicio (v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --guinda:#1e5b4f; --guinda-900:#1E5C3B;
+    --verde:#1e5b4f; --verde-900:#1E5C3B;
+    --oro:#8DC2B7; --arena:#DBD3B6;
+    --tinta:#211a1c; --gris:#6f6a66;
+    --linea:#e8e3da; --papel:#ffffff; --papel-2:#faf7f2;
+    --display:"Fraunces",Georgia,serif;
+    --sans:"Noto Sans",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body.overflow-hidden{overflow:hidden}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);font-weight:500}
+  a{color:inherit;text-decoration:none}
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--guinda);z-index:200;transition:width .1s linear}
+
+  /* ---------- HEADER ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,box-shadow .4s,padding .4s;padding:24px 0}
+  header.solid{background:rgba(255,255,255,.93);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--linea);padding:13px 0}
+  .nav{display:flex;align-items:center;gap:30px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-size:19px;font-weight:500;color:#fff;transition:color .4s}
+  .nav .brand,.footer-brand{font-family:var(--sans)}
+  .brand-sep{width:1px;height:20px;background:rgba(255,255,255,.4);flex:none;transition:background .4s}
+  header.solid .brand-sep{background:var(--linea)}
+  .brand-text{font-style:italic;font-weight:700}
+  .logo-wrap{position:relative;width:81px;height:29px;flex:none}
+  .logo-wrap .logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s}
+  .logo-wrap .logo-guinda{opacity:0;filter:brightness(0)}
+  header.solid .logo-wrap .logo-white{opacity:0}
+  header.solid .logo-wrap .logo-guinda{opacity:1}
+  .seal{width:30px;height:30px;border-radius:50%;border:1.6px solid var(--arena);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex:none;transition:color .4s,border-color .4s}
+  .menu{margin-left:auto;display:flex;gap:26px}
+  .menu a{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;position:relative;padding:4px 0;transition:color .4s}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--arena);transition:width .35s cubic-bezier(.2,.7,.2,1)}
+  .menu a:hover::after{width:100%}
+  .lang{font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.85);transition:color .4s}
+  header.solid .brand{color:var(--guinda)}
+  header.solid .seal{border-color:var(--oro);color:var(--guinda)}
+  header.solid .menu a{color:var(--tinta)}
+  header.solid .lang{color:var(--gris)}
+
+  /* ---------- BUSCADOR EXPANSIVO (search dock) ---------- */
+  .search-dock{position:relative;flex:none;height:38px}
+  .search-dock__icon{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);color:#fff;cursor:pointer;transition:border-color .3s,color .3s,opacity .25s ease,transform .25s ease}
+  .search-dock__icon svg{width:16px;height:16px}
+  .search-dock__icon:hover{border-color:#fff}
+  header.solid .search-dock__icon{border-color:var(--linea);color:var(--gris)}
+  header.solid .search-dock__icon:hover{border-color:var(--oro)}
+  .search-dock.is-open .search-dock__icon{opacity:0;transform:scale(0);pointer-events:none}
+  .search-dock__form{position:absolute;top:0;right:0;display:flex;align-items:center;height:38px;width:38px;border-radius:30px;border:1px solid rgba(255,255,255,.4);overflow:hidden;opacity:0;pointer-events:none;background:rgba(0,32,28,.35);-webkit-backdrop-filter:blur(0px);backdrop-filter:blur(0px);transition:width .4s cubic-bezier(.2,.7,.2,1),opacity .25s ease,border-color .3s,background .3s}
+  .search-dock.is-open .search-dock__form{width:300px;opacity:1;pointer-events:auto;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  header.solid .search-dock__form{border-color:var(--linea);background:rgba(255,255,255,.9)}
+  .search-dock__form svg{flex:none;width:15px;height:15px;margin-left:14px;color:#fff;transition:color .3s}
+  header.solid .search-dock__form svg{color:var(--gris)}
+  .search-dock__input{flex:1;min-width:0;height:100%;padding:0 8px;background:transparent;border:none;outline:none;color:#fff;font-family:var(--sans);font-size:13px}
+  .search-dock__input::placeholder{color:rgba(255,255,255,.6)}
+  header.solid .search-dock__input{color:var(--tinta)}
+  header.solid .search-dock__input::placeholder{color:var(--gris)}
+  .search-dock__close{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;margin-right:6px;flex:none;cursor:pointer;color:#fff;transition:background .25s,color .3s}
+  .search-dock__close:hover{background:rgba(255,255,255,.18)}
+  .search-dock__close svg{width:14px;height:14px}
+  header.solid .search-dock__close{color:var(--gris)}
+  header.solid .search-dock__close:hover{background:var(--linea)}
+
+  /* ---------- MENÚ HAMBURGUESA (móvil) ---------- */
+  .menu-toggle{all:unset;box-sizing:border-box;display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;cursor:pointer;flex:none}
+  .menu-toggle span{display:block;width:20px;height:2px;background:#fff;margin:0 auto;transition:background .3s,transform .3s,opacity .3s}
+  header.solid .menu-toggle span{background:var(--tinta)}
+  .mobile-menu{position:fixed;inset:0;z-index:400;opacity:0;pointer-events:none;transition:opacity .35s}
+  .mobile-menu.is-open{opacity:1;pointer-events:auto}
+  .mobile-menu__backdrop{position:absolute;inset:0;background:rgba(0,20,18,.6);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+  .mobile-menu__panel{position:absolute;top:0;right:0;bottom:0;width:min(78vw,340px);background:var(--verde);display:flex;flex-direction:column;gap:6px;padding:90px 32px 40px;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  .mobile-menu.is-open .mobile-menu__panel{transform:translateX(0)}
+  .mobile-menu__panel a{color:#fff;font-family:var(--display);font-size:22px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .mobile-menu__close{all:unset;box-sizing:border-box;position:absolute;top:24px;right:24px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+
+  /* ================= HERO INMERSIVO — scroll morph (v3) ================= */
+  .hero2{position:relative;height:100vh;min-height:660px;overflow:hidden;background:var(--verde)}
+  .hero-bg-select{position:absolute;inset:0;z-index:1;background-color:#1e5b4f;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity .6s ease,transform 1.4s ease;pointer-events:none}
+  .hero-bg-select.is-active{opacity:1;transform:scale(1)}
+  .hero-bg-veil{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .55s ease;
+    background:linear-gradient(180deg, rgba(0,20,18,.7) 0%, rgba(0,20,18,.32) 42%, rgba(0,20,18,.78) 100%)}
+  .hero-bg-veil.is-active{opacity:1}
+  .h2-veil{position:absolute;inset:0;z-index:2;
+    background:
+      radial-gradient(120% 80% at 50% 22%, rgba(0,0,0,0) 40%, rgba(0,20,18,.35) 100%),
+      linear-gradient(180deg, rgba(0,20,18,.45) 0%, rgba(0,20,18,0) 26%, rgba(0,20,18,0) 55%, rgba(0,20,18,.65) 100%)}
+  .grain{position:absolute;inset:0;z-index:3;opacity:.06;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay}
+
+  /* stage where the artwork cards scatter / line-up / circle / morph into an arc */
+  .hero-morph-stage{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;perspective:1000px}
+  .morph-card{position:absolute;top:50%;left:50%;width:66px;height:92px;margin:-46px 0 0 -33px;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .6s ease}
+  .morph-card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.7,.2,1);cursor:pointer}
+  .morph-card:hover .morph-card-inner{transform:rotateY(180deg)}
+  .morph-card-front,.morph-card-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;overflow:hidden;box-shadow:0 14px 34px -14px rgba(0,0,0,.6)}
+  .morph-card-front img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+  .morph-card-front::after{content:"";position:absolute;inset:0;background:rgba(0,20,18,.14)}
+  .morph-card-back{background:linear-gradient(160deg,#8DC2B7,#1E5C3B);transform:rotateY(180deg);display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;border:1px solid rgba(230,209,148,.35)}
+  .morph-card-back span{color:var(--arena);font-size:9.35px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.5}
+  .morph-card.is-picked{opacity:0!important;pointer-events:none}
+
+  .hero-morph-text{position:absolute;left:0;right:0;z-index:6;text-align:center;pointer-events:none;padding:0 6vw;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .hero-morph-intro{top:50%;transform:translate(0,-50%)}
+  .hero-morph-intro.is-hidden{opacity:0;transform:translate(0,-58%)}
+  .kick2{display:flex;flex-direction:column;align-items:center;gap:6px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.85),0 0 2px rgba(0,0,0,.9);font-size:12.96px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px;opacity:0}
+  .kick2-line:first-child{color:var(--arena);font-size:15.6px}
+  .hero-morph-intro.is-ready .kick2{animation:fadeIn 1s .1s forwards}
+  .mega{font-family:var(--sans);color:#fff;font-weight:700;line-height:.98;letter-spacing:-.02em;text-align:center;
+    font-size:clamp(21.6px,5.76vw,70.2px);text-shadow:0 8px 40px rgba(0,0,0,.35)}
+  .mega em{font-style:italic;font-weight:700;color:var(--arena)}
+  .mega .ln{display:block;overflow:hidden}
+  .mega .ln>span{display:inline-block;transform:translateY(112%)}
+  .hero-morph-intro.is-ready .mega .ln>span{animation:rise 1.05s cubic-bezier(.16,1,.3,1) forwards}
+  .mega .ln:nth-child(2)>span{animation-delay:.1s}
+  .mega .ln:nth-child(3)>span{animation-delay:.2s}
+  @keyframes rise{to{transform:translateY(0)}}
+  @keyframes fadeIn{to{opacity:1}}
+
+  .hero-morph-arc{top:9%;opacity:0;transform:translate(0,16px)}
+  .hero-morph-arc.is-visible{opacity:1;transform:translate(0,0)}
+  .hero-morph-arc h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.4vw,42px);color:#fff;letter-spacing:-.01em;margin-bottom:12px}
+  .hero-morph-arc p{color:rgba(255,255,255,.78);font-size:14px;max-width:46ch;margin:0 auto;line-height:1.6}
+
+  .scroll-ind{position:absolute;z-index:6;right:38px;bottom:34px;writing-mode:vertical-rl;font-size:11px;letter-spacing:.34em;color:#fff;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+  .scroll-ind::after{content:"";width:1px;height:50px;background:linear-gradient(var(--arena),transparent);animation:scrollLine 1.8s ease-in-out infinite}
+  @keyframes scrollLine{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(.2);transform-origin:bottom}}
+
+  /* ---------- MARQUEE ---------- */
+
+  /* ---------- GENERIC SECTIONS ---------- */
+  .section{padding:96px 0}
+  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .eyebrow::before{content:"";width:34px;height:1.5px;background:var(--oro)}
+  .h2t{font-family:var(--sans);font-weight:700;font-size:clamp(30px,4vw,46px);letter-spacing:-.01em;line-height:1.05}
+
+  .access{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .access-card{all:unset;box-sizing:border-box;position:relative;display:block;height:420px;border-radius:20px;overflow:hidden;cursor:pointer;isolation:isolate;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+  .access-card:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 28px 54px -20px rgba(var(--card-rgb),.55)}
+  .access-card:focus-visible{outline:2px solid var(--guinda);outline-offset:3px}
+  .access-card__bg{position:absolute;inset:0;z-index:0;display:block}
+  .access-card__bg picture,.access-card__bg img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .access-card:hover .access-card__bg img{transform:scale(1.08)}
+  .access-card__veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(10,14,13,.94) 0%, rgba(var(--card-rgb),.55) 45%, rgba(var(--card-rgb),0) 78%)}
+  .access-card__body{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;justify-content:flex-end;padding:26px;text-align:left;color:#fff}
+  .access-card__num{font-family:var(--display);font-size:14px;color:rgba(255,255,255,.7);letter-spacing:.08em;margin-bottom:8px}
+  .access-card__title{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.2vw,28px);margin-bottom:8px;line-height:1.1}
+  .access-card__desc{font-size:13px;line-height:1.55;color:rgba(255,255,255,.82);margin-bottom:22px}
+  .access-card__cta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-radius:999px;background:rgba(var(--card-rgb),.22);border:1px solid rgba(var(--card-rgb),.4);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:background .3s,border-color .3s}
+  .access-card__cta i{transition:transform .3s;font-style:normal}
+  .access-card:hover .access-card__cta{background:rgba(var(--card-rgb),.42);border-color:rgba(var(--card-rgb),.65)}
+  .access-card:hover .access-card__cta i{transform:translateX(4px)}
+
+  .band{background:var(--guinda-900);color:#fff;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+  .band .txt{padding:56px 52px}
+  .band .lbl{color:var(--arena)}
+  .band h3{font-family:var(--display);font-weight:500;font-size:clamp(30px,3.6vw,44px);line-height:1.06;margin:16px 0 18px}
+  .band p{color:#fff;font-size:15px;max-width:42ch}
+  .cta{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--arena);color:var(--guinda-900);padding:15px 26px;border-radius:40px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:transform .35s,background .35s}
+  .cta:hover{background:#fff;transform:translateY(-2px)}
+  .cta i{transition:transform .35s}.cta:hover i{transform:translateX(6px)}
+  .band .vis{position:relative;min-height:320px}
+  .band .vis canvas{position:absolute;inset:0;width:100%;height:100%}
+  .band .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .band .tag{position:absolute;left:24px;bottom:22px;z-index:2;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--arena)}
+
+  .grid-art{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+  .card{display:block;cursor:pointer}
+  .card .art{position:relative;overflow:hidden;border-radius:4px}
+  .card img{display:block;width:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+  .card:hover img{transform:scale(1.05)}
+  .card .tagline{position:absolute;top:12px;left:12px;z-index:3;background:rgba(30,91,79,.9);color:var(--arena);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:4px 9px;border-radius:3px}
+  .card .meta{margin-top:12px}
+  .card .meta b{font-family:var(--display);font-weight:500;font-size:17px;display:block}
+  .card .meta span{color:var(--gris);font-size:12.5px}
+  .c-tall img{height:420px}.c-med img{height:300px}.c-wide img{height:300px}
+
+  /* ---------- MUSEOS — galería elástica ---------- */
+  .elastic-gallery{display:flex;flex-direction:row;gap:12px;height:560px}
+  .elastic-item{position:relative;flex:1;border-radius:16px;overflow:hidden;cursor:pointer;min-height:64px;transition:flex 700ms cubic-bezier(.25,1,.5,1);-webkit-tap-highlight-color:transparent}
+  .elastic-item.active{flex:5}
+  .elastic-item picture,.elastic-item img{position:absolute;inset:0;width:100%;height:100%}
+  .elastic-item img{object-fit:cover;filter:brightness(.55);transition:filter .6s,transform 1s cubic-bezier(.25,1,.5,1)}
+  .elastic-item.active img{filter:brightness(1)}
+  @media(hover:hover){.elastic-item:not(.active):hover img{filter:brightness(.78)}}
+  .elastic-item .elastic-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,15,.9),rgba(20,14,15,.15) 55%,transparent);opacity:0;transition:opacity .5s}
+  .elastic-item.active .elastic-overlay{opacity:1}
+  .elastic-item .elastic-content{position:absolute;left:0;right:0;bottom:0;padding:22px 26px;display:flex;flex-direction:column;gap:9px;transform:translateY(22px);opacity:0;transition:transform .5s,opacity .5s}
+  .elastic-item.active .elastic-content{transform:translateY(0);opacity:1;transition-delay:.15s}
+  .elastic-tag{align-self:flex-start;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);backdrop-filter:blur(6px);color:#fff;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;border-radius:20px;white-space:nowrap}
+  .elastic-title{font-family:var(--display);color:#fff;font-weight:500;font-size:clamp(19px,2.3vw,30px);line-height:1.08;white-space:normal}
+  .elastic-cta{color:rgba(255,255,255,.88);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+  .elastic-cta i{transition:transform .35s}
+  @media(hover:hover){.elastic-item:hover .elastic-cta i{transform:translateX(4px)}}
+  .elastic-collapsed{position:absolute;left:0;right:0;bottom:18px;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:1;transition:opacity .35s}
+  .elastic-item.active .elastic-collapsed{opacity:0;pointer-events:none}
+  .elastic-vertical{display:block;writing-mode:vertical-rl;color:#fff;font-family:var(--display);font-size:13px;letter-spacing:.06em;white-space:nowrap}
+  .elastic-num{color:var(--arena);font-family:var(--display);font-size:12px}
+  .elastic-short{display:none;color:#fff;font-family:var(--sans);font-size:11px;letter-spacing:.03em;text-align:center;padding:0 10px}
+
+  .res{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .res .r{border:1px solid var(--linea);border-radius:14px;padding:30px 26px;transition:border-color .35s,transform .35s}
+  .res .r:hover{border-color:var(--oro);transform:translateY(-4px)}
+  .res .ic{width:46px;height:46px;border-radius:12px;background:var(--papel-2);color:var(--verde);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+  .res .r h4{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:8px}
+  .res .r p{color:var(--gris);font-size:13.5px}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;border-top:1px solid var(--linea);padding-top:40px}
+  .stat .n{font-family:var(--display);font-weight:500;font-size:clamp(34px,4vw,52px);color:var(--guinda);line-height:1}
+  .stat .t{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-top:8px}
+
+  footer{background:var(--guinda-900);color:#fff;padding:70px 0 34px;margin-top:40px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
+  footer .brand{color:#fff}
+  footer p.tag{color:#fff;font-size:13px;max-width:34ch;margin-top:16px}
+  .fcol h5{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin-bottom:16px}
+  .fcol a{display:block;color:#fff;font-size:14px;padding:5px 0;transition:opacity .25s}
+  .fcol a:hover{opacity:.75}
+  .fbot{border-top:1px solid rgba(255,255,255,.15);margin-top:48px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#fff;font-size:12px}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:1100px){
+    .access{grid-template-columns:1fr 1fr}
+    .access-card{height:360px}
+  }
+  @media(max-width:900px){
+    .wrap{padding:0 22px}
+    .menu,.lang{display:none}
+    .menu-toggle{display:flex}
+    .mega{font-size:clamp(18px,9.45vw,39.6px)}
+    .morph-card{width:46px;height:64px;margin:-32px 0 0 -23px}
+    .band{grid-template-columns:1fr}.band .vis{min-height:220px}
+    .res{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}
+    .access{grid-template-columns:1fr}
+    .access-card{height:340px}
+    .fgrid{grid-template-columns:1fr}
+    .grid-art{gap:16px;grid-template-columns:1fr 1fr}
+    .grid-art .card{grid-column:span 1 !important;margin-top:0 !important}
+    .c-tall img,.c-med img,.c-wide img{height:230px}
+    .elastic-gallery{flex-direction:column;height:auto}
+    .elastic-item{flex:0 0 64px;min-height:64px;transition:flex-basis 700ms cubic-bezier(.25,1,.5,1)}
+    .elastic-item.active{flex:0 0 340px;min-height:340px}
+    .elastic-vertical{display:none}
+    .elastic-short{display:block}
+    .elastic-item.active .elastic-short{display:none}
+    .elastic-title{font-size:20px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo-wrap"><img class="logo logo-white" src="Img/logo-white.png" alt="INBAL"><img class="logo logo-guinda" src="Img/logo-guinda.png" alt=""></span><span class="brand-sep"></span><span class="brand-text">Colección digital</span></a>
+    <nav class="menu">
+      <a href="colecciones.html">Obras</a><a href="acervos.html">Acervos</a><a href="#">Fondos</a><a href="curadurias.html">Curadurías</a><a href="investigacion.html">Investigación</a>
+    </nav>
+    <div class="search-dock" id="searchDock">
+      <button type="button" class="search-dock__icon" id="searchDockIcon" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <form class="search-dock__form" id="searchDockForm" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-dock__input" id="searchDockInput" placeholder="Buscar obras, artistas, museos…">
+        <button type="button" class="search-dock__close" id="searchDockClose" aria-label="Cerrar búsqueda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </form>
+    </div>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" data-mmclose></div>
+  <nav class="mobile-menu__panel">
+    <button type="button" class="mobile-menu__close" id="mobileMenuClose" aria-label="Cerrar menú">✕</button>
+    <a href="colecciones.html">Obras</a>
+    <a href="acervos.html">Acervos</a>
+    <a href="#">Fondos</a>
+    <a href="curadurias.html">Curadurías</a>
+    <a href="investigacion.html">Investigación</a>
+  </nav>
+</div>
+
+<!-- ================= HERO INMERSIVO — scroll morph ================= -->
+<section class="hero2" id="hero2">
+  <div class="hero-bg-select" id="heroBgSelect"></div>
+  <div class="hero-bg-veil" id="heroBgVeil"></div>
+  <div class="h2-veil"></div>
+  <div class="grain"></div>
+
+  <div class="hero-morph-text hero-morph-intro" id="heroIntroText">
+    <span class="kick2"><span class="kick2-line">80 años</span><span class="kick2-line">Instituto Nacional de Bellas Artes y Literatura</span></span>
+    <h1 class="mega">
+      <span class="ln"><span>Patrimonio</span></span>
+      <span class="ln"><span><em>artístico</em></span></span>
+      <span class="ln"><span>de México</span></span>
+    </h1>
+  </div>
+
+  <div class="hero-morph-text hero-morph-arc" id="heroArcText">
+    <h2>Ochenta años de patrimonio en movimiento</h2>
+    <p>Miles de obras de la red de museos del INBAL, catalogadas y abiertas al mundo entero.</p>
+  </div>
+
+  <div class="hero-morph-stage" id="heroMorphStage" aria-hidden="true"></div>
+
+  <div class="scroll-ind">Desliza</div>
+</section>
+
+<!-- ---------- ACCESO RÁPIDO ---------- -->
+<section class="section"><div class="wrap">
+  <div class="eyebrow reveal"><span class="lbl">Explora el repositorio</span></div>
+  <h2 class="h2t reveal" style="margin-bottom:26px">Recorre las obras</h2>
+  <div class="access">
+    <a href="colecciones.html" class="access-card reveal" style="--card-rgb:30,91,79">
+      <span class="access-card__bg"><picture><source srcset="Img/obras/MNSC_19049.webp" type="image/webp"><img src="Img/obras/MNSC_19049.jpg" alt="Episodio del diluvio universal, Francesco Coghetti" loading="lazy"></picture></span>
+      <span class="access-card__veil"></span>
+      <span class="access-card__body">
+        <span class="access-card__num">01</span>
+        <span class="access-card__title">Obras</span>
+        <span class="access-card__desc">Busca en todo el acervo con filtros por museo, período, técnica y tipo de obra.</span>
+        <span class="access-card__cta"><span>Explorar</span><i>→</i></span>
+      </span>
+    </a>
+    <a href="acervos.html" class="access-card reveal" style="--card-rgb:141,194,183">
+      <span class="access-card__bg"><picture><source srcset="Img/bellas-artes.webp" type="image/webp"><img src="Img/bellas-artes.jpg" alt="Palacio de Bellas Artes" loading="lazy" width="700" height="393"></picture></span>
+      <span class="access-card__veil"></span>
+      <span class="access-card__body">
+        <span class="access-card__num">02</span>
+        <span class="access-card__title">Acervos</span>
+        <span class="access-card__desc">Explora la red de recintos del INBAL y su colección digitalizada.</span>
+        <span class="access-card__cta"><span>Explorar</span><i>→</i></span>
+      </span>
+    </a>
+    <a href="#" class="access-card reveal" style="--card-rgb:219,211,182">
+      <span class="access-card__bg"><picture><source srcset="Img/obras/MUNAL_16095.webp" type="image/webp"><img src="Img/obras/MUNAL_16095.jpg" alt="El descubrimiento del Pulque, José María Obregón" loading="lazy"></picture></span>
+      <span class="access-card__veil"></span>
+      <span class="access-card__body">
+        <span class="access-card__num">03</span>
+        <span class="access-card__title">Fondos</span>
+        <span class="access-card__desc">Catálogo razonado por fondos especiales, cronología y series.</span>
+        <span class="access-card__cta"><span>Explorar</span><i>→</i></span>
+      </span>
+    </a>
+    <a href="#" class="access-card reveal" style="--card-rgb:30,92,59">
+      <span class="access-card__bg"><picture><source srcset="Img/obras/MAM_19154.webp" type="image/webp"><img src="Img/obras/MAM_19154.jpg" alt="Autorretrato, Rosa Rolanda de Covarrubias" loading="lazy"></picture></span>
+      <span class="access-card__veil"></span>
+      <span class="access-card__body">
+        <span class="access-card__num">04</span>
+        <span class="access-card__title">Curadurías</span>
+        <span class="access-card__desc">Recorridos temáticos comentados por el equipo curatorial.</span>
+        <span class="access-card__cta"><span>Explorar</span><i>→</i></span>
+      </span>
+    </a>
+  </div>
+</div></section>
+
+<!-- ---------- BANDA GUINDA ---------- -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="band reveal">
+    <div class="txt">
+      <span class="lbl">Curaduría inaugural</span>
+      <h3>La mujer en el arte mexicano</h3>
+      <p>Un recorrido de 18 obras que cruzan cuatro siglos y seis museos de la red, con texto interpretativo obra por obra. Una sala sin muros.</p>
+      <a class="cta" href="#">Ver el recorrido <i>→</i></a>
+    </div>
+    <div class="vis">
+      <picture>
+        <source srcset="Img/mujer-arte-mexicano.webp" type="image/webp">
+        <img src="Img/mujer-arte-mexicano.jpg" alt="Obra de la curaduría La mujer en el arte mexicano, MAM" loading="lazy" width="1400" height="971">
+      </picture>
+    </div>
+  </div>
+</div></section>
+
+<!-- ---------- OBRAS DESTACADAS ---------- -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow reveal"><span class="lbl">Selección curada</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:12px">
+    <h2 class="h2t reveal">Obras destacadas</h2>
+    <a class="reveal" href="colecciones.html" style="color:var(--guinda);font-size:13px;letter-spacing:.06em">Ver galería completa →</a>
+  </div>
+  <div class="grid-art">
+    <a class="card c-tall reveal" style="grid-column:span 4" href="detalle-obra.html?obra=MAM_13154"><div class="art"><span class="tagline">Pintura</span><picture><source srcset="Img/obras/MAM_13154.webp" type="image/webp"><img src="Img/obras/MAM_13154.jpg" alt="Los cocos, Frida Kahlo Calderón" loading="lazy"></picture></div><div class="meta"><b>Los cocos</b><span>Frida Kahlo Calderón · 1951 · MAM</span></div></a>
+    <a class="card c-med reveal" style="grid-column:span 4;align-self:start" href="detalle-obra.html?obra=MUNAL_29013"><div class="art"><span class="tagline">Pintura</span><picture><source srcset="Img/obras/MUNAL_29013.webp" type="image/webp"><img src="Img/obras/MUNAL_29013.jpg" alt="Al amanecer labores, Ezequiel Negrete Lira" loading="lazy"></picture></div><div class="meta"><b>Al amanecer labores</b><span>Ezequiel Negrete Lira · 1955 · MUNAL</span></div></a>
+    <a class="card c-med reveal" style="grid-column:span 4;align-self:start" href="detalle-obra.html?obra=MAM_18030"><div class="art"><span class="tagline">Escultura</span><picture><source srcset="Img/obras/MAM_18030.webp" type="image/webp"><img src="Img/obras/MAM_18030.jpg" alt="Soporte vital resistencia dinámica, Francisco Moyao" loading="lazy"></picture></div><div class="meta"><b>Soporte vital resistencia dinámica</b><span>Francisco Moyao · 1976 · MAM</span></div></a>
+    <a class="card c-wide reveal" style="grid-column:span 5" href="detalle-obra.html?obra=MAM_16575"><div class="art"><span class="tagline">Fotografía</span><picture><img src="Img/img museos/MAM_16575.jpg" alt="Sin Título, Graciela Iturbide" loading="lazy"></picture></div><div class="meta"><b>Sin Título</b><span>Graciela Iturbide · 1980 · MAM</span></div></a>
+    <a class="card c-wide reveal" style="grid-column:span 7" href="detalle-obra.html?obra=MUNAE_56"><div class="art"><span class="tagline">Grabado</span><picture><source srcset="Img/obras/MUNAE_56.webp" type="image/webp"><img src="Img/obras/MUNAE_56.jpg" alt="El mil cumbres, Carlos Alvarado Lang" loading="lazy"></picture></div><div class="meta"><b>El mil cumbres</b><span>Carlos Alvarado Lang · 1951 · MUNAE</span></div></a>
+  </div>
+</div></section>
+
+<!-- ---------- MUSEOS ---------- -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow reveal"><span class="lbl">Del espacio físico al acervo digital</span></div>
+  <h2 class="h2t reveal" style="margin-bottom:30px">Explora por acervo</h2>
+  <div class="elastic-gallery reveal">
+    <a class="elastic-item active" data-idx="0" href="detalle-acervo.html?acervo=munal">
+      <picture><source srcset="Img/acervos/munal.webp" type="image/webp"><img src="Img/acervos/munal.jpg" alt="Museo Nacional de Arte" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo Nacional de Arte</h3>
+        <div class="elastic-cta">3,450 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Nacional de Arte</span><span class="elastic-short">01 · MUNAL</span></div>
+    </a>
+    <a class="elastic-item" data-idx="1" href="detalle-acervo.html?acervo=bellas-artes">
+      <picture><source srcset="Img/acervos/bellas-artes.webp" type="image/webp"><img src="Img/acervos/bellas-artes.jpg" alt="Museo del Palacio de Bellas Artes" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo del Palacio de Bellas Artes</h3>
+        <div class="elastic-cta">945 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo del Palacio de Bellas Artes</span><span class="elastic-short">02 · MPBA</span></div>
+    </a>
+    <a class="elastic-item" data-idx="2" href="detalle-acervo.html?acervo=mural-diego-rivera">
+      <picture><source srcset="Img/acervos/diego-rivera.webp" type="image/webp"><img src="Img/acervos/diego-rivera.jpg" alt="Museo Mural Diego Rivera" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo Mural Diego Rivera</h3>
+        <div class="elastic-cta">46 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Mural Diego Rivera</span><span class="elastic-short">03 · MMDR</span></div>
+    </a>
+    <a class="elastic-item" data-idx="3" href="detalle-acervo.html?acervo=mam">
+      <picture><source srcset="Img/acervos/arte-moderno.webp" type="image/webp"><img src="Img/acervos/arte-moderno.jpg" alt="Museo de Arte Moderno" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Bosque de Chapultepec</span>
+        <h3 class="elastic-title">Museo de Arte Moderno</h3>
+        <div class="elastic-cta">1,892 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo de Arte Moderno</span><span class="elastic-short">04 · MAM</span></div>
+    </a>
+    <a class="elastic-item" data-idx="4" href="detalle-acervo.html?acervo=tamayo">
+      <picture><source srcset="Img/acervos/tamayo.webp" type="image/webp"><img src="Img/acervos/tamayo.jpg" alt="Museo Tamayo Arte Contemporáneo" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Bosque de Chapultepec</span>
+        <h3 class="elastic-title">Museo Tamayo Arte Contemporáneo</h3>
+        <div class="elastic-cta">386 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Tamayo Arte Contemporáneo</span><span class="elastic-short">05 · MTAC</span></div>
+    </a>
+    <a class="elastic-item" data-idx="5" href="detalle-acervo.html?acervo=san-carlos">
+      <picture><source srcset="Img/acervos/san-carlos.webp" type="image/webp"><img src="Img/acervos/san-carlos.jpg" alt="Museo Nacional de San Carlos" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo Nacional de San Carlos</h3>
+        <div class="elastic-cta">1,182 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Nacional de San Carlos</span><span class="elastic-short">06 · MNSC</span></div>
+    </a>
+    <a class="elastic-item" data-idx="6" href="detalle-acervo.html?acervo=munae">
+      <picture><source srcset="Img/acervos/estampa.webp" type="image/webp"><img src="Img/acervos/estampa.jpg" alt="Museo Nacional de la Estampa" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo Nacional de la Estampa</h3>
+        <div class="elastic-cta">712 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Nacional de la Estampa</span><span class="elastic-short">07 · MUNAE</span></div>
+    </a>
+    <a class="elastic-item" data-idx="7" href="detalle-acervo.html?acervo=carrillo-gil">
+      <picture><source srcset="Img/acervos/carrillo-gil.webp" type="image/webp"><img src="Img/acervos/carrillo-gil.jpg" alt="Museo de Arte Carrillo Gil" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">San Ángel</span>
+        <h3 class="elastic-title">Museo de Arte Carrillo Gil</h3>
+        <div class="elastic-cta">1,240 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo de Arte Carrillo Gil</span><span class="elastic-short">08 · MACG</span></div>
+    </a>
+    <a class="elastic-item" data-idx="8" href="detalle-acervo.html?acervo=arquitectura">
+      <picture><source srcset="Img/acervos/arquitectura.webp" type="image/webp"><img src="Img/acervos/arquitectura.jpg" alt="Museo Nacional de Arquitectura" loading="lazy"></picture>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo Nacional de Arquitectura</h3>
+        <div class="elastic-cta">318 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Nacional de Arquitectura</span><span class="elastic-short">09 · MNARQ</span></div>
+    </a>
+  </div>
+</div></section>
+
+<!-- ---------- RECURSOS ---------- -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow reveal"><span class="lbl">Para investigadores y público</span></div>
+  <h2 class="h2t reveal" style="margin-bottom:34px">Recursos para investigación</h2>
+  <div class="res">
+    <div class="r reveal"><div class="ic">⌕</div><h4>Búsqueda avanzada</h4><p>Cruza autor, técnica, fecha, inventario y museo con operadores booleanos. Exporta en CSV o PDF.</p></div>
+    <div class="r reveal"><div class="ic">❝</div><h4>Guía de citación</h4><p>Cita cada obra en formato APA y Chicago con un clic, con permalink permanente.</p></div>
+    <div class="r reveal"><div class="ic">◈</div><h4>Licencias y reutilización</h4><p>Metadatos abiertos bajo estándar CENCROPAM e imágenes de dominio público en alta resolución.</p></div>
+  </div>
+  <div class="stats">
+    <div class="stat reveal"><div class="n count" data-to="70000">0</div><div class="t">Obras catalogadas</div></div>
+    <div class="stat reveal"><div class="n count" data-to="12">0</div><div class="t">Acervos</div></div>
+    <div class="stat reveal"><div class="n count" data-to="5">0</div><div class="t">Fondos</div></div>
+    <div class="stat reveal"><div class="n count" data-to="12">0</div><div class="t">Curadurías activas</div></div>
+  </div>
+</div></section>
+
+<!-- ---------- FOOTER ---------- -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <a class="brand footer-brand" href="index.html"><span class="logo-wrap"><img class="logo" src="Img/logo-white.png" alt="INBAL"></span><span class="brand-sep"></span><span class="brand-text">Colección digital</span></a>
+      <p class="tag">Preservar, organizar y difundir el patrimonio artístico de México. Un proyecto de la Coordinación de Artes Visuales.</p>
+    </div>
+    <div class="fcol"><h5>Explorar</h5><a href="colecciones.html">Colecciones</a><a href="#">Museos</a><a href="#">Fondos</a><a href="curadurias.html">Curadurías</a></div>
+    <div class="fcol"><h5>Instituto</h5><a href="#">Acerca del proyecto</a><a href="investigacion.html">Investigación</a><a href="#">Aviso legal</a><a href="#">Accesibilidad</a></div>
+  </div>
+  <div class="fbot"><span>© 2026 Instituto Nacional de Bellas Artes y Literatura · Secretaría de Cultura · Gobierno de México</span><span>Colección Digital INBAL · v1.0</span></div>
+</div></footer>
+
+<script>
+  const palettes={
+    guinda:['#1e5b4f','#1E5C3B','#DBD3B6'], guinda2:['#1E5C3B','#1e5b4f','#8DC2B7'],
+    verde:['#1e5b4f','#1E5C3B','#8DC2B7'], verde2:['#1E5C3B','#1e5b4f','#DBD3B6'],
+    oro:['#8DC2B7','#1E5C3B','#DBD3B6'], oro2:['#1E5C3B','#8DC2B7','#DBD3B6']
+  };
+  function swirls(x,w,h,p,n){
+    for(let i=0;i<n;i++){
+      x.beginPath();
+      x.strokeStyle=i%4===0?p[2]:(i%2?p[1]:p[0]);
+      x.globalAlpha=.12+Math.random()*.24; x.lineWidth=2+Math.random()*16;
+      const sx=Math.random()*w, sy=Math.random()*h;
+      x.moveTo(sx,sy);
+      x.bezierCurveTo(sx+(Math.random()-.5)*w,sy+(Math.random()-.5)*h,Math.random()*w,Math.random()*h,Math.random()*w,Math.random()*h);
+      x.stroke();
+    }
+    x.globalAlpha=1;
+  }
+  function paintCard(c){
+    const p=palettes[c.dataset.art]||palettes.guinda;
+    const w=c.clientWidth||300,h=c.clientHeight||300; c.width=w;c.height=h;
+    const x=c.getContext('2d'); const g=x.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,p[0]);g.addColorStop(1,p[1]); x.fillStyle=g;x.fillRect(0,0,w,h);
+    swirls(x,w,h,p,26);
+  }
+  document.querySelectorAll('canvas[data-art]').forEach(c=>{ if(!c.closest('.elastic-item')) paintCard(c); });
+
+  // header + progress + scroll value
+  const hdr=document.getElementById('hdr'),prog=document.getElementById('progress');
+  let scrollY=0;
+  let renderMorphHero=function(){};
+  function onScroll(){
+    scrollY=window.scrollY;
+    hdr.classList.toggle('solid',scrollY>window.innerHeight*0.72);
+    const max=document.body.scrollHeight-window.innerHeight;
+    prog.style.width=(scrollY/max*100)+'%';
+    renderMorphHero();
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // ---- HERO — scroll morph de obras (scatter → línea → círculo → arco) ----
+  (function(){
+    const stage=document.getElementById('heroMorphStage');
+    const heroSection=document.getElementById('hero2');
+    const introText=document.getElementById('heroIntroText');
+    const arcText=document.getElementById('heroArcText');
+    if(!stage||!heroSection)return;
+
+    const OBRAS=['10252','10494','12432','13157','13173','13727','24089','52814','5379','59834','8688','8712','8883','MAM_13154','MAM_18030','MAM_19154','MAM_59340','MNSC_10737','MNSC_19049','MNSC_3992','MNSC_3994','MNSC_50941','MUNAL_14333','MUNAL_16095'];
+    const TOTAL=OBRAS.length;
+    const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const cards=OBRAS.map((id,i)=>{
+      const el=document.createElement('div');
+      el.className='morph-card';
+      el.innerHTML=`<div class="morph-card-inner">
+        <div class="morph-card-front"><picture><source srcset="img_heroe/${id}.webp" type="image/webp"><img src="img_heroe/${id}.jpg" alt="Obra ${id.replace('_',' ')}, acervo INBAL" loading="lazy"></picture></div>
+        <div class="morph-card-back"><span>${id.split('_')[0]}</span></div>
+      </div>`;
+      stage.appendChild(el);
+      return { el, id, scatter:{x:(Math.random()-0.5)*900,y:(Math.random()-0.5)*600,rotation:(Math.random()-0.5)*180} };
+    });
+
+    let phase='scatter'; // scatter -> line -> circle (morph handled continuously via scroll after "circle")
+    let mouseX=0;
+
+    // ---- Selección de fondo: clic en una tarjeta la manda al fondo con degradado ----
+    const bgSelect=document.getElementById('heroBgSelect');
+    const bgVeil=document.getElementById('heroBgVeil');
+
+    let pickedCard=null;
+    function pickBackground(card){
+      if(card===pickedCard)return;
+      pickedCard=card;
+      const url=`url('img_heroe/${card.id}.jpg')`;
+      const wasActive=bgSelect.classList.contains('is-active');
+      cards.forEach(c=>c.el.classList.toggle('is-picked',c===card));
+      if(!wasActive){
+        bgSelect.style.backgroundImage=url;
+        bgSelect.classList.add('is-active');
+        bgVeil.classList.add('is-active');
+      } else {
+        bgSelect.classList.remove('is-active'); // fade out la imagen anterior
+        bgVeil.classList.remove('is-active'); // durante el hueco se ve el verde #1e5b4f, sin oscurecer
+        setTimeout(()=>{
+          if(pickedCard!==card)return; // se seleccionó otra obra mientras se desvanecía
+          bgSelect.style.backgroundImage=url;
+          bgSelect.classList.add('is-active'); // fade in la nueva imagen
+          bgVeil.classList.add('is-active');
+        },620);
+      }
+    }
+    let autoplayTimer=null;
+    function autoplayNext(){
+      const others=cards.filter(c=>c!==pickedCard);
+      const next=others[Math.floor(Math.random()*others.length)];
+      pickBackground(next);
+    }
+    function startAutoplay(){
+      if(autoplayTimer)clearInterval(autoplayTimer);
+      autoplayTimer=setInterval(autoplayNext,5000);
+    }
+
+    cards.forEach(c=>{
+      c.el.addEventListener('click',(e)=>{ e.stopPropagation(); pickBackground(c); startAutoplay(); });
+    });
+
+    heroSection.addEventListener('mousemove',(e)=>{
+      const r=heroSection.getBoundingClientRect();
+      mouseX=((e.clientX-r.left)/r.width*2-1)*60;
+      if(phase==='circle')renderMorphHero();
+    });
+
+    function lerp(a,b,t){return a*(1-t)+b*t;}
+
+    renderMorphHero=function(){
+      const rect=heroSection.getBoundingClientRect();
+      const w=rect.width,h=rect.height;
+      const isMobile=w<768;
+
+      // morph progress 0 (círculo) -> 1 (arco inferior), driven by page scroll
+      const morph=reduceMotion?1:Math.min(Math.max(scrollY/520,0),1);
+      arcText.classList.toggle('is-visible',morph>0.75);
+      introText.classList.toggle('is-hidden',morph>0.25);
+
+      cards.forEach((c,i)=>{
+        let x=0,y=0,rotation=0,scale=1,opacity=1;
+
+        if(phase==='scatter'){
+          x=c.scatter.x;y=c.scatter.y;rotation=c.scatter.rotation;scale=.6;opacity=0;
+        } else if(phase==='line'){
+          const spacing=isMobile?36:56;
+          x=i*spacing-(TOTAL*spacing)/2;y=0;rotation=0;scale=1;opacity=1;
+        } else {
+          const circleRadius=Math.min(w,h)*(isMobile?0.32:0.34);
+          const circleAngle=(i/TOTAL)*360;
+          const circleRad=circleAngle*Math.PI/180;
+          const circlePos={x:Math.cos(circleRad)*circleRadius,y:Math.sin(circleRad)*circleRadius,rotation:circleAngle+90};
+
+          const arcRadius=Math.min(w,h*1.5)*(isMobile?1.35:1.05);
+          const arcApexY=h*(isMobile?0.32:0.22);
+          const arcCenterY=arcApexY+arcRadius;
+          const spread=isMobile?110:150;
+          const startAngle=-90-spread/2;
+          const step=spread/(TOTAL-1);
+          const arcAngle=startAngle+i*step;
+          const arcRad=arcAngle*Math.PI/180;
+          const arcPos={
+            x:Math.cos(arcRad)*arcRadius+mouseX,
+            y:Math.sin(arcRad)*arcRadius+arcCenterY,
+            rotation:arcAngle+90,
+            scale:isMobile?1.05:1.5
+          };
+
+          x=lerp(circlePos.x,arcPos.x,morph);
+          y=lerp(circlePos.y,arcPos.y,morph);
+          rotation=lerp(circlePos.rotation,arcPos.rotation,morph);
+          scale=lerp(1,arcPos.scale,morph);
+          opacity=1;
+        }
+
+        c.el.style.transform=`translate(${x}px, ${y}px) rotate(${rotation}deg) scale(${scale})`;
+        c.el.style.opacity=opacity;
+        c.el.style.zIndex=1000-Math.round(y);
+      });
+    };
+
+    window.addEventListener('resize',renderMorphHero);
+
+    function beginAutoplay(){
+      const first=cards.find(c=>c.id==='MAM_13154')||cards[0];
+      pickBackground(first);
+      startAutoplay();
+    }
+
+    if(reduceMotion){
+      phase='circle';
+      introText.classList.add('is-hidden');
+      renderMorphHero();
+      beginAutoplay();
+    } else {
+      renderMorphHero();
+      setTimeout(()=>{phase='line';renderMorphHero();},500);
+      setTimeout(()=>{
+        phase='circle';
+        renderMorphHero();
+        introText.classList.add('is-ready'); // texto aparece hasta que las tarjetas terminan su animación inicial
+      },2200);
+      setTimeout(beginAutoplay,2200);
+    }
+  })();
+
+  // reveal + counters
+  const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),(i%4)*70);io.unobserve(e.target);}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  function countUp(el){const to=+el.dataset.to;let s=null;const dur=1400;
+    function step(t){if(!s)s=t;const p=Math.min((t-s)/dur,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString('es-MX');if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);}
+  const sio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target);sio.unobserve(e.target);}})},{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>sio.observe(el));
+
+  // ---- "Explora por acervo" — galería elástica ----
+  const elasticItems=[...document.querySelectorAll('.elastic-item')];
+  function setActiveElastic(item){
+    elasticItems.forEach(i=>i.classList.toggle('active',i===item));
+  }
+  const elasticHasHover=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  elasticItems.forEach(item=>{
+    if(elasticHasHover)item.addEventListener('mouseenter',()=>setActiveElastic(item));
+    item.addEventListener('click',()=>setActiveElastic(item));
+    item.addEventListener('focus',()=>setActiveElastic(item));
+  });
+
+  // ---- BUSCADOR EXPANSIVO (search dock) ----
+  (function(){
+    const dock=document.getElementById('searchDock');
+    const iconBtn=document.getElementById('searchDockIcon');
+    const form=document.getElementById('searchDockForm');
+    const input=document.getElementById('searchDockInput');
+    const closeBtn=document.getElementById('searchDockClose');
+    if(!dock)return;
+
+    function openDock(){
+      dock.classList.add('is-open');
+      setTimeout(()=>input.focus(),150);
+    }
+    function closeDock(){
+      dock.classList.remove('is-open');
+      input.value='';
+      iconBtn.focus();
+    }
+    iconBtn.addEventListener('click',openDock);
+    closeBtn.addEventListener('click',(e)=>{ e.preventDefault(); closeDock(); });
+    form.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const q=input.value.trim();
+      if(q) window.location.href='colecciones.html?q='+encodeURIComponent(q);
+    });
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&dock.classList.contains('is-open'))closeDock();
+    });
+  })();
+
+  // ---- MENÚ HAMBURGUESA (móvil) ----
+  (function(){
+    const toggle=document.getElementById('menuToggle');
+    const mobileMenu=document.getElementById('mobileMenu');
+    const closeBtn=document.getElementById('mobileMenuClose');
+    if(!toggle||!mobileMenu)return;
+
+    function openMenu(){
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden','false');
+      toggle.setAttribute('aria-expanded','true');
+      document.body.classList.add('overflow-hidden');
+    }
+    function closeMenu(){
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden','true');
+      toggle.setAttribute('aria-expanded','false');
+      document.body.classList.remove('overflow-hidden');
+      toggle.focus();
+    }
+    toggle.addEventListener('click',openMenu);
+    closeBtn.addEventListener('click',closeMenu);
+    mobileMenu.querySelectorAll('[data-mmclose]').forEach(el=>el.addEventListener('click',closeMenu));
+    mobileMenu.querySelectorAll('.mobile-menu__panel a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&mobileMenu.classList.contains('is-open'))closeMenu();
+    });
+  })();
+</script>
+</body>
+</html>

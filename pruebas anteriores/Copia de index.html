@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colección Digital INBAL — Inicio (v2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --guinda:#9b2247; --guinda-900:#611232;
+    --verde:#1e5b4f; --verde-900:#002f2a;
+    --oro:#a57f2c; --arena:#e6d194;
+    --tinta:#211a1c; --gris:#6f6a66;
+    --linea:#e8e3da; --papel:#ffffff; --papel-2:#faf7f2;
+    --display:"Fraunces",Georgia,serif;
+    --sans:"Noto Sans",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body.overflow-hidden{overflow:hidden}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+  .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);font-weight:500}
+  a{color:inherit;text-decoration:none}
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--guinda);z-index:200;transition:width .1s linear}
+
+  /* ---------- HEADER ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,box-shadow .4s,padding .4s;padding:24px 0}
+  header.solid{background:rgba(255,255,255,.93);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--linea);padding:13px 0}
+  .nav{display:flex;align-items:center;gap:30px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-size:19px;font-weight:500;color:#fff;transition:color .4s}
+  .logo-wrap{position:relative;width:74px;height:26px;flex:none}
+  .logo-wrap .logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .4s}
+  .logo-wrap .logo-guinda{opacity:0}
+  header.solid .logo-wrap .logo-white{opacity:0}
+  header.solid .logo-wrap .logo-guinda{opacity:1}
+  .seal{width:30px;height:30px;border-radius:50%;border:1.6px solid var(--arena);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;flex:none;transition:color .4s,border-color .4s}
+  .menu{margin-left:auto;display:flex;gap:26px}
+  .menu a{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;position:relative;padding:4px 0;transition:color .4s}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--arena);transition:width .35s cubic-bezier(.2,.7,.2,1)}
+  .menu a:hover::after{width:100%}
+  .searchbtn{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.4);border-radius:30px;padding:7px 15px;font-size:12px;color:#fff;cursor:pointer;transition:border-color .3s,color .3s}
+  .lang{font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,.85);transition:color .4s}
+  header.solid .brand{color:var(--guinda)}
+  header.solid .seal{border-color:var(--oro);color:var(--guinda)}
+  header.solid .menu a{color:var(--tinta)}
+  header.solid .searchbtn{color:var(--gris);border-color:var(--linea)}
+  header.solid .lang{color:var(--gris)}
+
+  /* ================= HERO INMERSIVO (v2) ================= */
+  .hero2{position:relative;height:100vh;min-height:660px;overflow:hidden;background:var(--verde-900)}
+  .h2-layer{position:absolute;inset:0;will-change:transform}
+  .h2-bg{inset:-10%}
+  .h2-bg canvas{width:100%;height:100%;display:block}
+  .h2-veil{position:absolute;inset:0;z-index:2;
+    background:
+      radial-gradient(120% 80% at 50% 22%, rgba(0,0,0,0) 40%, rgba(0,20,18,.35) 100%),
+      linear-gradient(180deg, rgba(0,20,18,.45) 0%, rgba(0,20,18,0) 26%, rgba(0,20,18,0) 55%, rgba(0,20,18,.65) 100%)}
+  .grain{position:absolute;inset:0;z-index:3;opacity:.06;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.9) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay}
+
+  .swirl{position:absolute;z-index:4;will-change:transform;pointer-events:none;opacity:.9}
+  .s-tl{top:-40px;left:-30px;width:340px;color:var(--arena)}
+  .s-br{bottom:-60px;right:-40px;width:420px;color:var(--oro)}
+  .s-ml{top:44%;left:-70px;width:230px;color:var(--guinda);opacity:.7}
+
+  .h2-content{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;will-change:transform;padding:0 24px}
+  .kick2{color:var(--arena);font-size:12px;letter-spacing:.32em;text-transform:uppercase;margin-bottom:22px;opacity:0;animation:fadeIn 1s .2s forwards}
+  .mega{font-family:var(--display);color:#fff;font-weight:500;line-height:.9;letter-spacing:-.02em;
+    font-size:clamp(52px,9.2vw,138px);text-shadow:0 8px 40px rgba(0,0,0,.35)}
+  .mega em{font-style:italic;font-weight:500;color:var(--arena)}
+  .mega .ln{display:block;overflow:hidden}
+  .mega .ln>span{display:inline-block;transform:translateY(112%);animation:rise 1.05s cubic-bezier(.16,1,.3,1) forwards}
+  .mega .ln:nth-child(2)>span{animation-delay:.1s}
+  .mega .ln:nth-child(3)>span{animation-delay:.2s}
+  @keyframes rise{to{transform:translateY(0)}}
+  @keyframes fadeIn{to{opacity:1}}
+
+  /* foreground "sujeto" — obra enmarcada que se interpone al texto */
+  .obra-wrap{position:absolute;inset:0;z-index:6;display:flex;align-items:flex-end;justify-content:center;pointer-events:none;will-change:transform}
+  .hero-obra{position:relative;width:210px;margin-bottom:7vh;animation:floatObra 7s ease-in-out infinite}
+  .hero-obra .fr{border:8px solid var(--arena);border-radius:2px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+  .hero-obra canvas{display:block;width:100%;height:270px}
+  .hero-obra figcaption{margin-top:12px;text-align:center;color:#fff}
+  .hero-obra figcaption b{font-family:var(--display);font-weight:500;font-size:14px;display:block}
+  .hero-obra figcaption span{font-size:11px;color:rgba(255,255,255,.75)}
+  @keyframes floatObra{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+  .scroll-ind{position:absolute;z-index:6;right:38px;bottom:34px;writing-mode:vertical-rl;font-size:11px;letter-spacing:.34em;color:#fff;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+  .scroll-ind::after{content:"";width:1px;height:50px;background:linear-gradient(var(--arena),transparent);animation:scrollLine 1.8s ease-in-out infinite}
+  @keyframes scrollLine{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(.2);transform-origin:bottom}}
+
+  /* ---------- MARQUEE ---------- */
+
+  /* ---------- GENERIC SECTIONS ---------- */
+  .section{padding:96px 0}
+  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+  .eyebrow::before{content:"";width:34px;height:1.5px;background:var(--oro)}
+  .h2t{font-family:var(--display);font-weight:500;font-size:clamp(30px,4vw,46px);letter-spacing:-.01em;line-height:1.05}
+
+  .access{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .access button{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;padding:0 0 26px;border:1px solid var(--linea);border-radius:16px;background:var(--papel);transition:transform .35s,box-shadow .35s,border-color .35s;cursor:pointer;overflow:hidden}
+  .access button:hover{transform:translateY(-6px);box-shadow:0 20px 40px -20px rgba(33,26,28,.18)}
+  .access button:focus-visible{outline:2px solid var(--guinda);outline-offset:2px}
+  .access .thumb{display:block;width:100%;height:150px;overflow:hidden;background:var(--papel-2)}
+  .access .thumb canvas,.access .thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .access button:hover .thumb canvas,.access button:hover .thumb img{transform:scale(1.06)}
+  .access .num{font-family:var(--display);color:var(--oro);font-size:15px;padding:0 26px}
+  .access .name{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);font-weight:500;padding:0 26px}
+  .access .desc{color:var(--gris);font-size:13px;flex:1;padding:0 26px;text-align:left}
+  .access .go{width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);display:flex;align-items:center;justify-content:center;color:var(--guinda);transition:background .35s,color .35s,transform .35s;margin:0 26px}
+  .access button:hover .go{background:var(--guinda);color:#fff;transform:translateX(4px)}
+
+  /* ---------- ACCESO RÁPIDO — MODAL ---------- */
+  .access-modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .35s}
+  .access-modal.open{opacity:1;pointer-events:auto}
+  .access-modal__backdrop{position:absolute;inset:0;background:rgba(33,26,28,.55);backdrop-filter:blur(3px)}
+  .access-modal__panel{position:relative;background:var(--papel);border-radius:20px;max-width:640px;width:100%;max-height:86vh;overflow-y:auto;transform:translateY(18px) scale(.98);opacity:0;transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .4s}
+  .access-modal.open .access-modal__panel{transform:translateY(0) scale(1);opacity:1}
+  .access-modal__close{all:unset;box-sizing:border-box;position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--tinta);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:background .3s}
+  .access-modal__close:hover{background:#fff}
+  .access-modal__img{position:relative;height:220px}
+  .access-modal__img canvas{display:block;width:100%;height:100%}
+  .access-modal__num{position:absolute;left:26px;bottom:16px;font-family:var(--display);color:var(--arena);font-size:14px;letter-spacing:.08em}
+  .access-modal__body{padding:30px 32px 36px}
+  .access-modal__body h3{font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,32px);margin-bottom:16px}
+  .access-modal__body p{color:var(--gris);font-size:14.5px;line-height:1.75}
+
+  .band{background:var(--guinda-900);color:#fff;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+  .band .txt{padding:56px 52px}
+  .band .lbl{color:var(--arena)}
+  .band h3{font-family:var(--display);font-weight:500;font-size:clamp(30px,3.6vw,44px);line-height:1.06;margin:16px 0 18px}
+  .band p{color:#e9c9d3;font-size:15px;max-width:42ch}
+  .cta{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--arena);color:var(--guinda-900);padding:15px 26px;border-radius:40px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:transform .35s,background .35s}
+  .cta:hover{background:#fff;transform:translateY(-2px)}
+  .cta i{transition:transform .35s}.cta:hover i{transform:translateX(6px)}
+  .band .vis{position:relative;min-height:320px}
+  .band .vis canvas{position:absolute;inset:0;width:100%;height:100%}
+  .band .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .band .tag{position:absolute;left:24px;bottom:22px;z-index:2;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--arena)}
+
+  .grid-art{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+  .card{cursor:pointer}
+  .card .art{position:relative;overflow:hidden;border-radius:4px}
+  .card canvas{display:block;width:100%;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+  .card:hover canvas{transform:scale(1.05)}
+  .card .tagline{position:absolute;top:12px;left:12px;z-index:3;background:rgba(97,18,50,.9);color:var(--arena);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:4px 9px;border-radius:3px}
+  .card .meta{margin-top:12px}
+  .card .meta b{font-family:var(--display);font-weight:500;font-size:17px;display:block}
+  .card .meta span{color:var(--gris);font-size:12.5px}
+  .c-tall canvas{height:420px}.c-med canvas{height:300px}.c-wide canvas{height:300px}
+
+  /* ---------- MUSEOS — galería elástica ---------- */
+  .elastic-gallery{display:flex;flex-direction:row;gap:12px;height:560px}
+  .elastic-item{position:relative;flex:1;border-radius:16px;overflow:hidden;cursor:pointer;min-height:64px;transition:flex 700ms cubic-bezier(.25,1,.5,1)}
+  .elastic-item.active{flex:5}
+  .elastic-item canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55);transition:filter .6s,transform 1s cubic-bezier(.25,1,.5,1)}
+  .elastic-item.active canvas{filter:brightness(1)}
+  @media(hover:hover){.elastic-item:not(.active):hover canvas{filter:brightness(.78)}}
+  .elastic-item .elastic-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,15,.9),rgba(20,14,15,.15) 55%,transparent);opacity:0;transition:opacity .5s}
+  .elastic-item.active .elastic-overlay{opacity:1}
+  .elastic-item .elastic-content{position:absolute;left:0;right:0;bottom:0;padding:22px 26px;display:flex;flex-direction:column;gap:9px;transform:translateY(22px);opacity:0;transition:transform .5s,opacity .5s}
+  .elastic-item.active .elastic-content{transform:translateY(0);opacity:1;transition-delay:.15s}
+  .elastic-tag{align-self:flex-start;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);backdrop-filter:blur(6px);color:#fff;font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;border-radius:20px;white-space:nowrap}
+  .elastic-title{font-family:var(--display);color:#fff;font-weight:500;font-size:clamp(19px,2.3vw,30px);line-height:1.08;white-space:nowrap}
+  .elastic-cta{color:rgba(255,255,255,.88);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+  .elastic-cta i{transition:transform .35s}
+  @media(hover:hover){.elastic-item:hover .elastic-cta i{transform:translateX(4px)}}
+  .elastic-collapsed{position:absolute;left:0;right:0;bottom:18px;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:1;transition:opacity .35s}
+  .elastic-item.active .elastic-collapsed{opacity:0;pointer-events:none}
+  .elastic-vertical{display:block;writing-mode:vertical-rl;color:#fff;font-family:var(--display);font-size:13px;letter-spacing:.06em;white-space:nowrap}
+  .elastic-num{color:var(--arena);font-family:var(--display);font-size:12px}
+  .elastic-short{display:none;color:#fff;font-family:var(--sans);font-size:11px;letter-spacing:.03em;text-align:center;padding:0 10px}
+
+  .res{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .res .r{border:1px solid var(--linea);border-radius:14px;padding:30px 26px;transition:border-color .35s,transform .35s}
+  .res .r:hover{border-color:var(--oro);transform:translateY(-4px)}
+  .res .ic{width:46px;height:46px;border-radius:12px;background:var(--papel-2);color:var(--verde);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+  .res .r h4{font-family:var(--display);font-weight:500;font-size:20px;margin-bottom:8px}
+  .res .r p{color:var(--gris);font-size:13.5px}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px;border-top:1px solid var(--linea);padding-top:40px}
+  .stat .n{font-family:var(--display);font-weight:500;font-size:clamp(34px,4vw,52px);color:var(--guinda);line-height:1}
+  .stat .t{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);margin-top:8px}
+
+  footer{background:var(--guinda-900);color:#fff;padding:70px 0 34px;margin-top:40px}
+  .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
+  footer .brand{color:#fff}
+  footer .seal{border-color:var(--arena);color:var(--arena)}
+  footer p.tag{color:#e0b4c2;font-size:13px;max-width:34ch;margin-top:16px}
+  .fcol h5{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--arena);margin-bottom:16px}
+  .fcol a{display:block;color:#f2dfe6;font-size:14px;padding:5px 0;transition:color .25s}
+  .fcol a:hover{color:#fff}
+  .news{display:flex;gap:8px;margin-top:14px}
+  .news input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(230,209,148,.4);border-radius:30px;padding:11px 16px;color:#fff;font-family:var(--sans);font-size:13px;outline:none}
+  .news input::placeholder{color:#cf9fae}
+  .news button{background:var(--arena);color:var(--guinda-900);border:none;border-radius:30px;padding:0 18px;cursor:pointer;font-size:16px}
+  .fbot{border-top:1px solid rgba(255,255,255,.15);margin-top:48px;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#cf9fae;font-size:12px}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:1100px){
+    .access{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:900px){
+    .wrap{padding:0 22px}
+    .menu,.lang{display:none}
+    .mega{font-size:clamp(40px,13vw,74px)}
+    .hero-obra{width:150px}.hero-obra canvas{height:190px}
+    .band{grid-template-columns:1fr}.band .vis{min-height:220px}
+    .res{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}
+    .access{grid-template-columns:1fr}
+    .fgrid{grid-template-columns:1fr}
+    .grid-art{gap:16px;grid-template-columns:1fr 1fr}
+    .grid-art .card{grid-column:span 1 !important;margin-top:0 !important}
+    .c-tall canvas,.c-med canvas,.c-wide canvas{height:230px}
+    .elastic-gallery{flex-direction:column;height:auto}
+    .elastic-item{height:64px;flex:none;transition:height 700ms cubic-bezier(.25,1,.5,1)}
+    .elastic-item.active{height:340px}
+    .elastic-vertical{display:none}
+    .elastic-short{display:block}
+    .elastic-item.active .elastic-short{display:none}
+    .elastic-title{font-size:20px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo-wrap"><img class="logo logo-white" src="Img/logo-white.png" alt="INBAL"><img class="logo logo-guinda" src="Img/logo-guinda.png" alt=""></span> Colección Digital</a>
+    <nav class="menu">
+      <a href="colecciones.html">Colecciones</a><a href="#">Museos</a><a href="#">Fondos</a><a href="#">Curadurías</a><a href="#">Investigación</a>
+    </nav>
+    <div class="searchbtn"><i>⌕</i> Buscar…</div>
+    <span class="lang">ES · EN</span>
+  </div>
+</header>
+
+<!-- ================= HERO INMERSIVO ================= -->
+<section class="hero2" id="hero2">
+  <div class="h2-layer h2-bg" data-depth="0.10" id="heroBg"><canvas id="heroCanvas"></canvas></div>
+  <div class="h2-veil"></div>
+  <div class="grain"></div>
+
+  <svg class="swirl s-tl" data-depth="0.9" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M40 150 C10 110 30 60 90 55 C60 80 70 120 110 120 C90 140 60 160 40 150Z" fill="currentColor" opacity=".55"/>
+    <path d="M120 40 C160 30 185 70 170 110 C165 80 135 70 120 95 C130 70 115 55 120 40Z" fill="currentColor" opacity=".4"/>
+  </svg>
+  <svg class="swirl s-br" data-depth="1.15" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M160 60 C190 100 170 160 110 165 C145 140 135 100 95 100 C120 78 145 70 160 60Z" fill="currentColor" opacity=".5"/>
+    <path d="M70 170 C30 175 10 130 30 95 C33 128 63 138 80 112 C68 138 78 155 70 170Z" fill="currentColor" opacity=".35"/>
+  </svg>
+  <svg class="swirl s-ml" data-depth="1.4" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M60 40 C110 45 120 110 70 140 C95 105 80 70 45 78 C55 60 55 48 60 40Z" fill="currentColor" opacity=".6"/>
+  </svg>
+
+  <div class="h2-content" data-depth="0.35" id="heroContent">
+    <span class="kick2">Instituto Nacional de Bellas Artes y Literatura · 80 años</span>
+    <h1 class="mega">
+      <span class="ln"><span>El patrimonio</span></span>
+      <span class="ln"><span><em>artístico</em> de México,</span></span>
+      <span class="ln"><span>abierto al mundo</span></span>
+    </h1>
+  </div>
+
+  <div class="obra-wrap" data-depth="1.0">
+    <figure class="hero-obra">
+      <div class="fr"><canvas id="obraCanvas"></canvas></div>
+      <figcaption><b>La Molendera</b><span>Diego Rivera · 1924 · MUNAL</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="scroll-ind">Desliza</div>
+</section>
+
+<!-- ---------- ACCESO RÁPIDO ---------- -->
+<section class="section"><div class="wrap">
+  <div class="eyebrow reveal"><span class="lbl">Explora el repositorio</span></div>
+  <h2 class="h2t reveal" style="margin-bottom:26px">Cuatro maneras de recorrer el acervo</h2>
+  <div class="access">
+    <button type="button" class="reveal" data-art="guinda" data-modal="0" data-href="colecciones.html"><span class="thumb"><canvas data-art="guinda"></canvas></span><span class="num">01</span><span class="name">Colecciones</span><span class="desc">Busca en todo el acervo con filtros por museo, período, técnica y tipo de obra.</span><span class="go">→</span></button>
+    <button type="button" class="reveal" data-art="verde" data-modal="1"><span class="thumb"><picture><source srcset="Img/bellas-artes.webp" type="image/webp"><img src="Img/bellas-artes.jpg" alt="Palacio de Bellas Artes" loading="lazy" width="700" height="393"></picture></span><span class="num">02</span><span class="name">Museos</span><span class="desc">Explora la red de recintos del INBAL y su colección digitalizada.</span><span class="go">→</span></button>
+    <button type="button" class="reveal" data-art="oro" data-modal="2"><span class="thumb"><canvas data-art="oro"></canvas></span><span class="num">03</span><span class="name">Fondos</span><span class="desc">Catálogos razonados por artista: obra, cronología y series.</span><span class="go">→</span></button>
+    <button type="button" class="reveal" data-art="verde2" data-modal="3"><span class="thumb"><canvas data-art="verde2"></canvas></span><span class="num">04</span><span class="name">Curadurías</span><span class="desc">Recorridos temáticos comentados por el equipo curatorial.</span><span class="go">→</span></button>
+  </div>
+</div></section>
+
+<!-- ---------- MODAL ACCESO RÁPIDO ---------- -->
+<div class="access-modal" id="accessModal" aria-hidden="true">
+  <div class="access-modal__backdrop" data-close="1"></div>
+  <div class="access-modal__panel" role="dialog" aria-modal="true" aria-labelledby="accessModalTitle">
+    <button type="button" class="access-modal__close" data-close="1" aria-label="Cerrar">✕</button>
+    <div class="access-modal__img"><canvas id="accessModalCanvas"></canvas><span class="access-modal__num" id="accessModalNum"></span></div>
+    <div class="access-modal__body">
+      <h3 id="accessModalTitle"></h3>
+      <p id="accessModalText"></p>
+      <a class="cta" href="#" id="accessModalCta">Ir a la sección <i>→</i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ---------- BANDA GUINDA ---------- -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="band reveal">
+    <div class="txt">
+      <span class="lbl">Curaduría inaugural</span>
+      <h3>La mujer en el arte mexicano</h3>
+      <p>Un recorrido de 18 obras que cruzan cuatro siglos y seis museos de la red, con texto interpretativo obra por obra. Una sala sin muros.</p>
+      <a class="cta" href="#">Ver el recorrido <i>→</i></a>
+    </div>
+    <div class="vis">
+      <picture>
+        <source srcset="Img/mujer-arte-mexicano.webp" type="image/webp">
+        <img src="Img/mujer-arte-mexicano.jpg" alt="Obra de la curaduría La mujer en el arte mexicano, MAM" loading="lazy" width="1400" height="971">
+      </picture>
+      <span class="tag">18 obras · 6 museos · Curaduría A. Torres</span>
+    </div>
+  </div>
+</div></section>
+
+<!-- ---------- OBRAS DESTACADAS ---------- -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow reveal"><span class="lbl">Selección curada</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:12px">
+    <h2 class="h2t reveal">Obras destacadas</h2>
+    <a class="reveal" href="colecciones.html" style="color:var(--guinda);font-size:13px;letter-spacing:.06em">Ver galería completa →</a>
+  </div>
+  <div class="grid-art">
+    <div class="card c-tall reveal" style="grid-column:span 4"><div class="art"><span class="tagline">Pintura</span><canvas data-art="guinda"></canvas></div><div class="meta"><b>Las dos Fridas</b><span>Frida Kahlo · 1939 · MAM</span></div></div>
+    <div class="card c-med reveal" style="grid-column:span 4;align-self:start"><div class="art"><span class="tagline">Muralismo</span><canvas data-art="verde"></canvas></div><div class="meta"><b>El hombre en el cruce de caminos</b><span>Diego Rivera · 1934</span></div></div>
+    <div class="card c-med reveal" style="grid-column:span 4;align-self:start"><div class="art"><span class="tagline">Escultura</span><canvas data-art="oro"></canvas></div><div class="meta"><b>Cabeza de Quetzalcóatl</b><span>Federico Silva · 1968</span></div></div>
+    <div class="card c-wide reveal" style="grid-column:span 5"><div class="art"><span class="tagline">Pintura</span><canvas data-art="guinda2"></canvas></div><div class="meta"><b>La espina</b><span>Raúl Anguiano · 1953</span></div></div>
+    <div class="card c-wide reveal" style="grid-column:span 7"><div class="art"><span class="tagline">Grabado</span><canvas data-art="verde2"></canvas></div><div class="meta"><b>Calavera catrina</b><span>José Guadalupe Posada · c. 1912 · MUNAE</span></div></div>
+  </div>
+</div></section>
+
+<!-- ---------- MUSEOS ---------- -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow reveal"><span class="lbl">Del espacio físico al acervo digital</span></div>
+  <h2 class="h2t reveal" style="margin-bottom:30px">Explora por museo</h2>
+  <div class="elastic-gallery reveal">
+    <div class="elastic-item active" data-idx="0" role="button" tabindex="0">
+      <canvas data-art="guinda"></canvas>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo Nacional de Arte</h3>
+        <div class="elastic-cta">3,450 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Nacional de Arte</span><span class="elastic-short">01 · MUNAL</span></div>
+    </div>
+    <div class="elastic-item" data-idx="1" role="button" tabindex="0">
+      <canvas data-art="verde"></canvas>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Bosque de Chapultepec</span>
+        <h3 class="elastic-title">Museo de Arte Moderno</h3>
+        <div class="elastic-cta">1,892 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo de Arte Moderno</span><span class="elastic-short">02 · MAM</span></div>
+    </div>
+    <div class="elastic-item" data-idx="2" role="button" tabindex="0">
+      <canvas data-art="oro"></canvas>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Palacio de Bellas Artes</h3>
+        <div class="elastic-cta">945 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Palacio de Bellas Artes</span><span class="elastic-short">03 · PBA</span></div>
+    </div>
+    <div class="elastic-item" data-idx="3" role="button" tabindex="0">
+      <canvas data-art="guinda2"></canvas>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">San Ángel</span>
+        <h3 class="elastic-title">Museo Carrillo Gil</h3>
+        <div class="elastic-cta">1,240 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Carrillo Gil</span><span class="elastic-short">04 · MACG</span></div>
+    </div>
+    <div class="elastic-item" data-idx="4" role="button" tabindex="0">
+      <canvas data-art="verde2"></canvas>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo Nacional de la Estampa</h3>
+        <div class="elastic-cta">712 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Nacional de la Estampa</span><span class="elastic-short">05 · MUNAE</span></div>
+    </div>
+    <div class="elastic-item" data-idx="5" role="button" tabindex="0">
+      <canvas data-art="oro2"></canvas>
+      <div class="elastic-overlay"></div>
+      <div class="elastic-content">
+        <span class="elastic-tag">Centro Histórico</span>
+        <h3 class="elastic-title">Museo Nacional de San Carlos</h3>
+        <div class="elastic-cta">1,182 obras <i>→</i></div>
+      </div>
+      <div class="elastic-collapsed"><span class="elastic-vertical">Museo Nacional de San Carlos</span><span class="elastic-short">06 · MNSC</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ---------- RECURSOS ---------- -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow reveal"><span class="lbl">Para investigadores y público</span></div>
+  <h2 class="h2t reveal" style="margin-bottom:34px">Recursos para investigación</h2>
+  <div class="res">
+    <div class="r reveal"><div class="ic">⌕</div><h4>Búsqueda avanzada</h4><p>Cruza autor, técnica, fecha, inventario y museo con operadores booleanos. Exporta en CSV o PDF.</p></div>
+    <div class="r reveal"><div class="ic">❝</div><h4>Guía de citación</h4><p>Cita cada obra en formato APA y Chicago con un clic, con permalink permanente.</p></div>
+    <div class="r reveal"><div class="ic">◈</div><h4>Licencias y reutilización</h4><p>Metadatos abiertos bajo estándar CENCROPAM e imágenes de dominio público en alta resolución.</p></div>
+  </div>
+  <div class="stats">
+    <div class="stat reveal"><div class="n count" data-to="8421">0</div><div class="t">Obras catalogadas</div></div>
+    <div class="stat reveal"><div class="n count" data-to="8">0</div><div class="t">Museos de la red</div></div>
+    <div class="stat reveal"><div class="n count" data-to="24">0</div><div class="t">Fondos de artista</div></div>
+    <div class="stat reveal"><div class="n count" data-to="6">0</div><div class="t">Curadurías activas</div></div>
+  </div>
+</div></section>
+
+<!-- ---------- FOOTER ---------- -->
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <a class="brand" href="#"><span class="seal">✦</span> Colección Digital <b style="font-weight:600">INBAL</b></a>
+      <p class="tag">Preservar, organizar y difundir el patrimonio artístico de México. Un proyecto de la Coordinación de Artes Visuales.</p>
+      <div class="news"><input type="email" placeholder="Tu correo — boletín mensual"><button>→</button></div>
+    </div>
+    <div class="fcol"><h5>Explorar</h5><a href="colecciones.html">Colecciones</a><a href="#">Museos</a><a href="#">Fondos</a><a href="#">Curadurías</a></div>
+    <div class="fcol"><h5>Instituto</h5><a href="#">Acerca del proyecto</a><a href="#">Investigación</a><a href="#">Aviso legal</a><a href="#">Accesibilidad</a></div>
+  </div>
+  <div class="fbot"><span>© 2026 Instituto Nacional de Bellas Artes y Literatura · Secretaría de Cultura · Gobierno de México</span><span>Colección Digital INBAL · v1.0</span></div>
+</div></footer>
+
+<script>
+  const palettes={
+    guinda:['#9b2247','#611232','#e6d194'], guinda2:['#611232','#9b2247','#a57f2c'],
+    verde:['#1e5b4f','#002f2a','#e6d194'], verde2:['#002f2a','#1e5b4f','#a57f2c'],
+    oro:['#a57f2c','#611232','#e6d194'], oro2:['#611232','#a57f2c','#e6d194']
+  };
+  function swirls(x,w,h,p,n){
+    for(let i=0;i<n;i++){
+      x.beginPath();
+      x.strokeStyle=i%4===0?p[2]:(i%2?p[1]:p[0]);
+      x.globalAlpha=.12+Math.random()*.24; x.lineWidth=2+Math.random()*16;
+      const sx=Math.random()*w, sy=Math.random()*h;
+      x.moveTo(sx,sy);
+      x.bezierCurveTo(sx+(Math.random()-.5)*w,sy+(Math.random()-.5)*h,Math.random()*w,Math.random()*h,Math.random()*w,Math.random()*h);
+      x.stroke();
+    }
+    x.globalAlpha=1;
+  }
+  function paintCard(c){
+    const p=palettes[c.dataset.art]||palettes.guinda;
+    const w=c.clientWidth||300,h=c.clientHeight||300; c.width=w;c.height=h;
+    const x=c.getContext('2d'); const g=x.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,p[0]);g.addColorStop(1,p[1]); x.fillStyle=g;x.fillRect(0,0,w,h);
+    swirls(x,w,h,p,26);
+  }
+  document.querySelectorAll('canvas[data-art]').forEach(c=>{ if(!c.closest('.elastic-item')) paintCard(c); });
+
+  // paneles de "Explora por museo" — resolución fija para que el lienzo
+  // no se distorsione mientras cambia de ancho con la transición flex
+  function paintPanel(c){
+    const p=palettes[c.dataset.art]||palettes.guinda;
+    const w=900,h=700; c.width=w;c.height=h;
+    const x=c.getContext('2d'); const g=x.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,p[0]);g.addColorStop(1,p[1]); x.fillStyle=g;x.fillRect(0,0,w,h);
+    swirls(x,w,h,p,34);
+  }
+  document.querySelectorAll('.elastic-item canvas').forEach(paintPanel);
+
+  // hero background canvas — composición amplia estilo mural abstracto
+  function paintHero(){
+    const c=document.getElementById('heroCanvas'); const w=c.clientWidth,h=c.clientHeight;
+    c.width=w;c.height=h; const x=c.getContext('2d');
+    const g=x.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,'#002f2a');g.addColorStop(.5,'#0d3d34');g.addColorStop(1,'#611232');
+    x.fillStyle=g;x.fillRect(0,0,w,h);
+    const rg=x.createRadialGradient(w*.5,h*.32,40,w*.5,h*.32,h*.9);
+    rg.addColorStop(0,'rgba(165,127,44,.28)');rg.addColorStop(1,'rgba(0,0,0,0)');
+    x.fillStyle=rg;x.fillRect(0,0,w,h);
+    swirls(x,w,h,['#9b2247','#1e5b4f','#e6d194'],46);
+  }
+  function paintObra(){
+    const c=document.getElementById('obraCanvas'); const w=c.clientWidth||210,h=c.clientHeight||270;
+    c.width=w;c.height=h; const x=c.getContext('2d'); const p=palettes.guinda;
+    const g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,'#9b2247');g.addColorStop(1,'#611232');
+    x.fillStyle=g;x.fillRect(0,0,w,h); swirls(x,w,h,p,22);
+  }
+  paintHero();paintObra();
+  window.addEventListener('resize',()=>{paintHero();paintObra();});
+
+  // ---- PARALLAX (scroll) ----
+  const layers=[...document.querySelectorAll('[data-depth]')];
+  let scrollY=0;
+  function renderParallax(){
+    layers.forEach(l=>{
+      const d=parseFloat(l.dataset.depth)||0;
+      const sy=scrollY*d*0.35;
+      l.style.transform=`translate3d(0, ${-sy}px, 0)`;
+    });
+  }
+
+  // header + progress + scroll value
+  const hdr=document.getElementById('hdr'),prog=document.getElementById('progress');
+  function onScroll(){
+    scrollY=window.scrollY;
+    hdr.classList.toggle('solid',scrollY>window.innerHeight*0.72);
+    const max=document.body.scrollHeight-window.innerHeight;
+    prog.style.width=(scrollY/max*100)+'%';
+    renderParallax();
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal + counters
+  const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),(i%4)*70);io.unobserve(e.target);}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  function countUp(el){const to=+el.dataset.to;let s=null;const dur=1400;
+    function step(t){if(!s)s=t;const p=Math.min((t-s)/dur,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3))).toLocaleString('es-MX');if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);}
+  const sio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target);sio.unobserve(e.target);}})},{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>sio.observe(el));
+
+  // ---- "Explora por museo" — galería elástica ----
+  const elasticItems=[...document.querySelectorAll('.elastic-item')];
+  function setActiveElastic(item){
+    elasticItems.forEach(i=>i.classList.toggle('active',i===item));
+  }
+  const elasticHasHover=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  elasticItems.forEach(item=>{
+    if(elasticHasHover)item.addEventListener('mouseenter',()=>setActiveElastic(item));
+    item.addEventListener('click',()=>setActiveElastic(item));
+    item.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();setActiveElastic(item);}
+    });
+  });
+
+  // ---- ACCESO RÁPIDO — modal con texto simulado ----
+  const accessInfo=[
+    {
+      num:'01 — Colecciones',
+      title:'Colecciones',
+      text:'Este es un texto de ejemplo. Aquí vivirá el buscador completo del acervo: filtros combinables por museo, período histórico, técnica y tipo de obra, con resultados en vista de cuadrícula o lista y exportación de fichas técnicas. Contenido simulado mientras se conecta la base de datos real.',
+      cta:'Ir a Colecciones'
+    },
+    {
+      num:'02 — Museos',
+      title:'Museos',
+      text:'Este es un texto de ejemplo. En esta sección se listará la red de recintos del INBAL con su colección digitalizada por sede, mapa de ubicaciones y acceso directo al acervo de cada museo. Contenido simulado mientras se conecta la base de datos real.',
+      cta:'Ir a Museos'
+    },
+    {
+      num:'03 — Fondos',
+      title:'Fondos',
+      text:'Este es un texto de ejemplo. Aquí se mostrarán los catálogos razonados por artista, con cronología de obra, series completas y documentación de procedencia. Contenido simulado mientras se conecta la base de datos real.',
+      cta:'Ir a Fondos'
+    },
+    {
+      num:'04 — Curadurías',
+      title:'Curadurías',
+      text:'Este es un texto de ejemplo. En esta sección vivirán los recorridos temáticos comentados por el equipo curatorial, con texto interpretativo obra por obra y rutas sugeridas de lectura. Contenido simulado mientras se conecta la base de datos real.',
+      cta:'Ir a Curadurías'
+    }
+  ];
+  const accessModal=document.getElementById('accessModal');
+  const accessModalCanvas=document.getElementById('accessModalCanvas');
+  const accessModalNum=document.getElementById('accessModalNum');
+  const accessModalTitle=document.getElementById('accessModalTitle');
+  const accessModalText=document.getElementById('accessModalText');
+  const accessModalCta=document.getElementById('accessModalCta');
+  let accessLastTrigger=null;
+
+  function openAccessModal(btn){
+    const idx=+btn.dataset.modal;
+    const data=accessInfo[idx];
+    accessModalNum.textContent=data.num;
+    accessModalTitle.textContent=data.title;
+    accessModalText.textContent=data.text;
+    accessModalCta.innerHTML=data.cta+' <i>→</i>';
+    accessModalCta.href=btn.dataset.href||'#';
+    const p=palettes[btn.dataset.art]||palettes.guinda;
+    const w=accessModalCanvas.clientWidth||600,h=accessModalCanvas.clientHeight||220;
+    accessModalCanvas.width=w;accessModalCanvas.height=h;
+    const x=accessModalCanvas.getContext('2d');
+    const g=x.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,p[0]);g.addColorStop(1,p[1]);
+    x.fillStyle=g;x.fillRect(0,0,w,h);
+    swirls(x,w,h,p,30);
+    accessLastTrigger=btn;
+    accessModal.classList.add('open');
+    accessModal.setAttribute('aria-hidden','false');
+    document.body.classList.add('overflow-hidden');
+    accessModal.querySelector('.access-modal__close').focus();
+  }
+  function closeAccessModal(){
+    accessModal.classList.remove('open');
+    accessModal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('overflow-hidden');
+    if(accessLastTrigger)accessLastTrigger.focus();
+  }
+  document.querySelectorAll('.access button[data-modal]').forEach(btn=>{
+    btn.addEventListener('click',()=>openAccessModal(btn));
+  });
+  accessModal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeAccessModal));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&accessModal.classList.contains('open'))closeAccessModal();});
+</script>
+</body>
+</html>

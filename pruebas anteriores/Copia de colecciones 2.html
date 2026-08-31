@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colecciones — Colección Digital INBAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --guinda:#9b2247; --guinda-900:#611232;
+    --verde:#1e5b4f; --verde-900:#002f2a;
+    --oro:#a57f2c; --arena:#e6d194;
+    --tinta:#211a1c; --gris:#6f6a66;
+    --linea:#e8e3da; --papel:#ffffff; --papel-2:#faf7f2;
+    --display:"Fraunces",Georgia,serif;
+    --sans:"Noto Sans",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,.7,.2,1);
+    --tile:230px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);font-weight:500}
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+  .nav{display:flex;align-items:center;gap:30px;height:66px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-size:19px;font-weight:500;color:var(--guinda)}
+  .brand .logo{width:74px;height:26px;flex:none;object-fit:contain}
+  .seal{width:30px;height:30px;border-radius:50%;border:1.6px solid var(--oro);display:flex;align-items:center;justify-content:center;color:var(--guinda);font-size:14px;flex:none}
+  .menu{margin-left:auto;display:flex;gap:26px}
+  .menu a{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);position:relative;padding:4px 0}
+  .menu a.active{color:var(--guinda)}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--guinda);transition:width .35s var(--ease)}
+  .menu a:hover::after,.menu a.active::after{width:100%}
+  .lang{font-size:11px;letter-spacing:.1em;color:var(--gris)}
+
+  /* ---------- PAGE HEAD ---------- */
+  .crumbs{font-size:12px;color:var(--gris);letter-spacing:.04em;margin:28px 0 14px}
+  .crumbs b{color:var(--tinta);font-weight:500}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;border-bottom:1px solid var(--linea);padding-bottom:26px}
+  .head h1{font-family:var(--display);font-weight:500;font-size:clamp(40px,6vw,74px);letter-spacing:-.02em;line-height:.98}
+  .head p{color:var(--gris);font-size:15px;margin-top:12px}
+  .head .surprise{border:1px solid var(--linea);border-radius:40px;padding:12px 20px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--guinda);cursor:pointer;transition:.35s var(--ease);white-space:nowrap;background:none}
+  .head .surprise:hover{background:var(--guinda);color:#fff;border-color:var(--guinda)}
+
+  /* ---------- LAYOUT ---------- */
+  .cols{display:grid;grid-template-columns:266px 1fr;gap:44px;margin:30px 0 80px;align-items:start}
+
+  /* ---------- FILTERS ---------- */
+  .filters{position:sticky;top:88px}
+  .filters .ftop{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .filters h2{font-family:var(--display);font-size:22px;font-weight:500}
+  .clear{font-size:12px;color:var(--guinda);cursor:pointer;border:none;background:none}
+  .search{position:relative;margin-bottom:26px}
+  .search input{width:100%;border:1px solid var(--linea);border-radius:30px;padding:12px 16px 12px 40px;font-family:var(--sans);font-size:14px;outline:none;transition:border-color .3s}
+  .search input:focus{border-color:var(--oro)}
+  .search .mag{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--gris)}
+
+  .fg{border-top:1px solid var(--linea);padding:18px 0}
+  .fg h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+  .fg h3 .n{color:var(--oro);font-weight:500}
+  .chipset{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{font-size:12.5px;color:var(--tinta);border:1px solid var(--linea);border-radius:20px;padding:6px 12px;cursor:pointer;transition:.25s var(--ease)}
+  .opt:hover{border-color:var(--oro)}
+  .opt.on{background:var(--guinda);color:#fff;border-color:var(--guinda)}
+  .toggle{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--tinta);cursor:pointer;padding:5px 0}
+  .toggle .box{width:34px;height:20px;border-radius:20px;background:var(--linea);position:relative;transition:background .3s;flex:none}
+  .toggle .box::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .3s}
+  .toggle.on .box{background:var(--verde)}
+  .toggle.on .box::after{transform:translateX(14px)}
+
+  /* ---------- TOOLBAR ---------- */
+  .toolbar{position:sticky;top:66px;z-index:20;background:var(--papel);display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid var(--linea);margin-bottom:8px}
+  .count{font-size:14px;color:var(--gris)}
+  .count b{color:var(--tinta);font-weight:600}
+  .tb-right{margin-left:auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .tb-right label{font-size:12px;color:var(--gris)}
+  select{font-family:var(--sans);font-size:13px;border:1px solid var(--linea);border-radius:20px;padding:8px 12px;background:var(--papel);color:var(--tinta);cursor:pointer;outline:none}
+  .vtoggle,.size{display:flex;border:1px solid var(--linea);border-radius:20px;overflow:hidden}
+  .vtoggle button,.size button{border:none;background:none;padding:8px 12px;cursor:pointer;color:var(--gris);font-size:14px;transition:.2s}
+  .vtoggle button.on,.size button.on{background:var(--guinda);color:#fff}
+
+  /* active chips */
+  .active-chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px;min-height:0}
+  .achip{display:inline-flex;align-items:center;gap:7px;font-size:12px;background:var(--papel-2);border:1px solid var(--linea);border-radius:20px;padding:5px 10px;color:var(--tinta)}
+  .achip .x{cursor:pointer;color:var(--gris);font-weight:600}
+  .achip .dot{width:11px;height:11px;border-radius:50%}
+
+  /* ---------- GRID ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--tile),1fr));gap:26px;margin-top:20px}
+  .card{cursor:pointer;opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .card.in{opacity:1;transform:none}
+  .card .art{position:relative;overflow:hidden;border-radius:4px;background:var(--papel-2)}
+  .card img{display:block;width:100%;height:auto;transition:transform 1s var(--ease)}
+  .card:hover img{transform:scale(1.06)}
+  .card .tag{position:absolute;top:10px;left:10px;z-index:2;background:rgba(97,18,50,.92);color:var(--arena);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:3px}
+  .card .actions{position:absolute;right:10px;top:10px;z-index:2;display:flex;flex-direction:column;gap:7px;opacity:0;transform:translateX(8px);transition:.3s var(--ease)}
+  .card:hover .actions{opacity:1;transform:none}
+  .card .actions span{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;color:var(--guinda);font-size:15px;box-shadow:0 4px 12px -4px rgba(0,0,0,.4)}
+  .card .actions span:hover{background:var(--guinda);color:#fff}
+  .card .meta{padding:12px 2px 0}
+  .card .meta b{font-family:var(--display);font-weight:500;font-size:16px;display:block;line-height:1.2}
+  .card .meta .au{color:var(--tinta);font-size:12.5px;font-style:italic}
+  .card .meta .mu{color:var(--guinda);font-size:11px;letter-spacing:.03em;margin-top:5px;display:flex;justify-content:space-between}
+  .card .meta .mu .yr{color:var(--gris);font-style:normal}
+
+  /* list view */
+  .grid.list{grid-template-columns:1fr;gap:0}
+  .grid.list .card{display:grid;grid-template-columns:88px 1fr auto;gap:20px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--linea);transform:none;opacity:1}
+  .grid.list .card .art{border-radius:3px}
+  .grid.list .card img{height:88px;width:88px;object-fit:cover}
+  .grid.list .tag,.grid.list .actions{display:none}
+  .grid.list .meta{padding:0}
+  .grid.list .meta .mu{justify-content:flex-start;gap:12px}
+
+  .more{display:flex;justify-content:center;margin:44px 0}
+  .more button{border:1px solid var(--guinda);color:var(--guinda);background:none;border-radius:40px;padding:14px 30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.35s var(--ease)}
+  .more button:hover{background:var(--guinda);color:#fff}
+  .empty{padding:70px 0;text-align:center;color:var(--gris)}
+  .empty b{font-family:var(--display);font-size:22px;color:var(--tinta);display:block;margin-bottom:8px}
+
+  /* mobile filter button */
+  .fbtn{display:none}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--guinda-900);color:#fff;padding:40px 0}
+  .fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#cf9fae;font-size:12px}
+
+  @media(max-width:1000px){
+    .cols{grid-template-columns:1fr}
+    .filters{position:fixed;inset:0;z-index:200;background:var(--papel);padding:24px;overflow:auto;transform:translateX(-100%);transition:transform .4s var(--ease);top:0}
+    .filters.open{transform:none}
+    .filters .close{display:block}
+    .fbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--guinda);color:var(--guinda);background:none;border-radius:20px;padding:8px 14px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+  }
+  @media(max-width:640px){ .wrap{padding:0 20px} .menu,.lang{display:none} }
+  .close{display:none;position:absolute;right:18px;top:18px;font-size:24px;color:var(--gris);cursor:pointer;background:none;border:none}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><img class="logo" src="Img/logo-guinda.png" alt="INBAL"> Colección Digital</a>
+    <nav class="menu">
+      <a href="colecciones.html" class="active">Colecciones</a><a href="#">Museos</a><a href="#">Fondos</a><a href="#">Curadurías</a><a href="#">Investigación</a>
+    </nav>
+    <span class="lang">ES · EN</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">Inicio</a> &nbsp;›&nbsp; <b>Colecciones</b></div>
+  <div class="head">
+    <div>
+      <h1>Colecciones</h1>
+      <p>Explora el patrimonio artístico nacional a través del acervo digitalizado de los museos del INBAL.<br>Filtra por época, museo o técnica.</p>
+    </div>
+    <button class="surprise" id="surprise">✦ Sorpréndeme</button>
+  </div>
+
+  <div class="cols">
+    <!-- ============ FILTROS ============ -->
+    <aside class="filters" id="filters">
+      <button class="close" id="closeF">✕</button>
+      <div class="ftop">
+        <h2>Filtros</h2>
+        <button class="clear" id="clear">Limpiar todo</button>
+      </div>
+
+      <div class="search">
+        <span class="mag">⌕</span>
+        <input type="search" id="q" placeholder="Buscar obra, artista, técnica…">
+      </div>
+
+      <div class="fg">
+        <h3>Período</h3>
+        <div class="chipset" id="fPeriodo"></div>
+      </div>
+
+      <div class="fg">
+        <h3>Tipo de obra</h3>
+        <div class="chipset" id="fTipo"></div>
+      </div>
+
+      <div class="fg">
+        <h3>Técnica</h3>
+        <div class="chipset" id="fTecnica"></div>
+      </div>
+
+      <div class="fg">
+        <h3>Museo</h3>
+        <div class="chipset" id="fMuseo"></div>
+      </div>
+
+      <div class="fg">
+        <div class="toggle" id="tImg"><span class="box"></span> Solo con imagen</div>
+        <div class="toggle" id="tFund"><span class="box"></span> Colección fundacional</div>
+      </div>
+    </aside>
+
+    <!-- ============ RESULTADOS ============ -->
+    <section>
+      <div class="toolbar">
+        <button class="fbtn" id="openF">⚟ Filtros</button>
+        <span class="count">Mostrando <b id="shown">0</b> de <b id="total">0</b> obras</span>
+        <div class="tb-right">
+          <label>Orden</label>
+          <select id="sort">
+            <option value="rel">Relevancia</option>
+            <option value="az">Artista (A–Z)</option>
+            <option value="anioAsc">Año ↑</option>
+            <option value="anioDesc">Año ↓</option>
+            <option value="nuevo">Añadidas recientemente</option>
+          </select>
+          <div class="size" id="size">
+            <button data-size="300">▢</button>
+            <button data-size="230" class="on">▤</button>
+            <button data-size="170">▦</button>
+          </div>
+          <div class="vtoggle" id="view">
+            <button data-view="grid" class="on">◫</button>
+            <button data-view="list">☰</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="active-chips" id="chips"></div>
+      <div class="grid" id="grid"></div>
+      <div class="more" id="moreWrap"><button id="more">Mostrar más obras</button></div>
+    </section>
+  </div>
+</div>
+
+<footer><div class="wrap fbot">
+  <span>© 2026 Instituto Nacional de Bellas Artes y Literatura · Secretaría de Cultura · Gobierno de México</span>
+  <span>Colección Digital INBAL</span>
+</div></footer>
+
+<script>
+  /* ---------------- DATOS (Fichas_obras_etiqueta_color.xlsx) ---------------- */
+  const PERIODOS = ['Arte Colonial','Siglo XIX','Arte Moderno','Arte Contemporáneo'];
+  const TIPOS = ['Pintura','Fotografía','Grabado','Escultura'];
+  const TECNICAS = ['Óleo sobre tela','Pintura','Fotografía','Xilografía','Xilografía a color','Linóleo','Madera con laca','Plata sobre gelatina','Atlcolor sobre masonite','Óleo sobre masonite','Buril','Aguafuerte','Artes decorativas','Sin especificar'];
+  const MUSEOS = ['MUNAL','MAM','MUNAE','San Carlos'];
+
+  const IMG_DIR = 'Img/obras/';
+  const DATA = [
+    {id:1,file:'MUNAL_29013',museo:'MUNAL',titulo:'Al amanecer labores',autor:'Ezequiel Negrete Lira',anio:1955,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Pintura'},
+    {id:2,file:'MUNAL_14333',museo:'MUNAL',titulo:'La Nube',autor:'Gerardo Murillo Coronado',anio:1931,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Pintura'},
+    {id:3,file:'MUNAL_16095',museo:'MUNAL',titulo:'El descubrimiento del Pulque',autor:'José María Obregón',anio:1869,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Pintura'},
+    {id:4,file:'MUNAL_15968',museo:'MUNAL',titulo:'Santo Domingo. Copia Original',autor:'Autor sin identificar',anio:null,periodo:'Siglo XIX',tipo:'Fotografía',tecnica:'Fotografía'},
+    {id:5,file:'MUNAL_52195',museo:'MUNAL',titulo:'Cuadro',autor:'Autor sin identificar',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Artes decorativas',nuevo:true},
+    {id:6,file:'MUNAE_35085',museo:'MUNAE',titulo:'El rebozo de soledad II',autor:'Leopoldo Méndez',anio:null,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Sin especificar'},
+    {id:7,file:'MUNAE_56',museo:'MUNAE',titulo:'El mil cumbres',autor:'Carlos Alvarado Lang',anio:1951,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Xilografía'},
+    {id:8,file:'MUNAE_7856',museo:'MUNAE',titulo:'Desnudo n.º3',autor:'Fernando Castro Pacheco',anio:null,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Xilografía a color'},
+    {id:9,file:'MUNAE_7506',museo:'MUNAE',titulo:'El mezquital',autor:'Adolfo Mexiac',anio:1957,periodo:'Arte Moderno',tipo:'Grabado',tecnica:'Linóleo'},
+    {id:10,file:'MAM_18030',museo:'MAM',titulo:'Soporte vital resistencia dinámica',autor:'Francisco Moyao',anio:1976,periodo:'Arte Contemporáneo',tipo:'Escultura',tecnica:'Madera con laca'},
+    {id:11,file:'MAM_59340',img:'Img/img museos/MAM_16575.jpg',museo:'MAM',titulo:'Sin Título',autor:'Graciela Iturbide',anio:1980,periodo:'Arte Contemporáneo',tipo:'Fotografía',tecnica:'Plata sobre gelatina',nuevo:true},
+    {id:12,file:'MAM_19154',museo:'MAM',titulo:'Autorretrato',autor:'Rosa Rolanda de Covarrubias',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {id:13,file:'MAM_59339',museo:'MAM',titulo:'De Esta Tierra del Cielo y los Infiernos la Tempestad',autor:'Gerardo Suter',anio:1987,periodo:'Arte Contemporáneo',tipo:'Fotografía',tecnica:'Plata sobre gelatina',nuevo:true},
+    {id:14,file:'MAM_16575',museo:'MAM',titulo:'Fuego verde en el Paricutín',autor:'Gerardo Murillo Coronado (Dr. Atl)',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Atlcolor sobre masonite'},
+    {id:15,file:'MAM_13154',museo:'MAM',titulo:'Los cocos',autor:'Frida Kahlo Calderón',anio:1951,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre masonite'},
+    {id:16,file:'MNSC_10455',museo:'San Carlos',titulo:'Dominus possedit me in initio viarum suarum',autor:'Carl Ernst Christoph Hess',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Buril',fundacional:true},
+    {id:17,file:'MNSC_19049',museo:'San Carlos',titulo:'Episodio del diluvio universal',autor:'Francesco Coghetti',anio:1852,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {id:18,file:'MNSC_10737',museo:'San Carlos',titulo:'Sin título',autor:'Autor sin identificar',anio:null,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Sin especificar'},
+    {id:19,file:'MNSC_50941',museo:'San Carlos',titulo:'Paisaje (copia Gedovius)',autor:'Germán Gedovius Huerta',anio:1908,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela',nuevo:true},
+    {id:20,file:'MNSC_50942',museo:'San Carlos',titulo:'La niña',autor:'Germán Gedovius Huerta',anio:null,periodo:'Arte Moderno',tipo:'Pintura',tecnica:'Óleo sobre tela',nuevo:true},
+    {id:21,file:'MNSC_4674',museo:'San Carlos',titulo:'El sueño de la razón produce monstruos (serie Los Caprichos)',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Aguafuerte',fundacional:true},
+    {id:22,file:'MNSC_4633',museo:'San Carlos',titulo:'Las rinde el sueño (serie Los Caprichos)',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Arte Colonial',tipo:'Grabado',tecnica:'Aguafuerte',fundacional:true},
+    {id:23,file:'MNSC_3994',museo:'San Carlos',titulo:'Bacante',autor:'Adolphe René Lefèvre',anio:null,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {id:24,file:'MNSC_3992',museo:'San Carlos',titulo:'La siega',autor:'José Blanco Coris',anio:null,periodo:'Siglo XIX',tipo:'Pintura',tecnica:'Óleo sobre tela'}
+  ];
+  DATA.forEach(o=>{ o.conImagen=true; o.fundacional=!!o.fundacional; o.nuevo=!!o.nuevo; });
+
+  /* ---------------- ESTADO ---------------- */
+  const state = {q:'',periodos:new Set(),tipos:new Set(),tecnicas:new Set(),museos:new Set(),soloImg:false,fund:false,sort:'rel',view:'grid',size:230,page:1};
+  const PER_PAGE = 12;
+
+  /* ---------------- RENDER FILTROS ---------------- */
+  const el = id => document.getElementById(id);
+  function chip(label,set,val){const b=document.createElement('div');b.className='opt';b.textContent=label;b.onclick=()=>{set.has(val)?set.delete(val):set.add(val);b.classList.toggle('on');state.page=1;render();};return b;}
+  PERIODOS.forEach(p=>el('fPeriodo').appendChild(chip(p,state.periodos,p)));
+  TIPOS.forEach(p=>el('fTipo').appendChild(chip(p,state.tipos,p)));
+  TECNICAS.forEach(p=>el('fTecnica').appendChild(chip(p,state.tecnicas,p)));
+  MUSEOS.forEach(p=>el('fMuseo').appendChild(chip(p,state.museos,p)));
+  el('tImg').onclick=function(){state.soloImg=!state.soloImg;this.classList.toggle('on');state.page=1;render();};
+  el('tFund').onclick=function(){state.fund=!state.fund;this.classList.toggle('on');state.page=1;render();};
+  el('q').oninput=e=>{state.q=e.target.value.toLowerCase().trim();state.page=1;render();};
+  el('sort').onchange=e=>{state.sort=e.target.value;render();};
+  el('size').onclick=e=>{const b=e.target.closest('button');if(!b)return;[...el('size').children].forEach(c=>c.classList.remove('on'));b.classList.add('on');state.size=+b.dataset.size;document.documentElement.style.setProperty('--tile',state.size+'px');render();};
+  el('view').onclick=e=>{const b=e.target.closest('button');if(!b)return;[...el('view').children].forEach(c=>c.classList.remove('on'));b.classList.add('on');state.view=b.dataset.view;render();};
+  el('clear').onclick=resetAll;
+  function resetAll(){state.q='';['periodos','tipos','tecnicas','museos'].forEach(k=>state[k].clear());state.soloImg=false;state.fund=false;state.page=1;
+    el('q').value='';document.querySelectorAll('.opt.on').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.toggle.on').forEach(x=>x.classList.remove('on'));render();}
+  el('openF').onclick=()=>el('filters').classList.add('open');
+  el('closeF').onclick=()=>el('filters').classList.remove('open');
+  el('surprise').onclick=()=>{resetAll();const r=DATA[Math.floor(Math.random()*DATA.length)];state.q=r.autor.toLowerCase();el('q').value=r.autor;render();};
+  el('more').onclick=()=>{state.page++;render(true);};
+
+  /* ---------------- FILTRO + ORDEN ---------------- */
+  function filtered(){
+    let r = DATA.filter(o=>{
+      if(state.q){const hay=(o.titulo+' '+o.autor+' '+o.tecnica+' '+o.museo+' '+o.tipo).toLowerCase();if(!hay.includes(state.q))return false;}
+      if(state.periodos.size && !state.periodos.has(o.periodo))return false;
+      if(state.tipos.size && !state.tipos.has(o.tipo))return false;
+      if(state.tecnicas.size && !state.tecnicas.has(o.tecnica))return false;
+      if(state.museos.size && !state.museos.has(o.museo))return false;
+      if(state.soloImg && !o.conImagen)return false;
+      if(state.fund && !o.fundacional)return false;
+      return true;
+    });
+    const s=state.sort;
+    if(s==='az') r.sort((a,b)=>a.autor.localeCompare(b.autor));
+    else if(s==='anioAsc') r.sort((a,b)=>(a.anio==null?Infinity:a.anio)-(b.anio==null?Infinity:b.anio));
+    else if(s==='anioDesc') r.sort((a,b)=>(b.anio==null?-Infinity:b.anio)-(a.anio==null?-Infinity:a.anio));
+    else if(s==='nuevo') r.sort((a,b)=>b.nuevo-a.nuevo || b.id-a.id);
+    return r;
+  }
+
+  /* ---------------- CHIPS ACTIVOS ---------------- */
+  function renderChips(){
+    const box=el('chips');box.innerHTML='';
+    const add=(txt,onDel,dotHex)=>{const c=document.createElement('span');c.className='achip';
+      c.innerHTML=(dotHex?`<span class="dot" style="background:${dotHex}"></span>`:'')+txt+' <span class="x">✕</span>';
+      c.querySelector('.x').onclick=onDel;box.appendChild(c);};
+    if(state.q) add(`“${state.q}”`,()=>{state.q='';el('q').value='';render();});
+    ['periodos','tipos','tecnicas','museos'].forEach(key=>{state[key].forEach(v=>add(v,()=>{state[key].delete(v);syncOpts();render();}));});
+    if(state.soloImg) add('Con imagen',()=>{state.soloImg=false;el('tImg').classList.remove('on');render();});
+    if(state.fund) add('Fundacional',()=>{state.fund=false;el('tFund').classList.remove('on');render();});
+  }
+  function syncOpts(){document.querySelectorAll('.opt').forEach(o=>{const on=[...state.periodos,...state.tipos,...state.tecnicas,...state.museos].includes(o.textContent);o.classList.toggle('on',on);});}
+
+  /* ---------------- RENDER PRINCIPAL ---------------- */
+  const grid=el('grid');
+  function render(append){
+    const all=filtered();
+    el('total').textContent=DATA.length.toLocaleString('es-MX');
+    const shown=Math.min(all.length,state.page*PER_PAGE);
+    el('shown').textContent=shown.toLocaleString('es-MX');
+    grid.className='grid'+(state.view==='list'?' list':'');
+    grid.innerHTML='';
+    renderChips();
+    if(all.length===0){grid.innerHTML='<div class="empty" style="grid-column:1/-1"><b>Sin resultados</b>Ajusta o limpia los filtros para ver más obras.</div>';el('moreWrap').style.display='none';return;}
+    const slice=all.slice(0,shown);
+    slice.forEach((o,idx)=>{
+      const card=document.createElement('div');card.className='card';
+      card.innerHTML=`
+        <div class="art">
+          <span class="tag">${o.tipo}</span>
+          <div class="actions"><span title="Ver ficha">ⓘ</span><span title="Citar">❝</span><span title="Compartir">↗</span></div>
+          <picture>
+            ${o.img ? '' : `<source srcset="${IMG_DIR}${o.file}.webp" type="image/webp">`}
+            <img src="${o.img ? o.img : IMG_DIR+o.file+'.jpg'}" alt="${o.titulo} — ${o.autor}" loading="lazy">
+          </picture>
+        </div>
+        <div class="meta">
+          <b>${o.titulo}</b>
+          <span class="au">${o.autor}</span>
+          <span class="mu">${o.museo} <span class="yr">${o.anio==null?'S/F':o.anio}</span></span>
+        </div>`;
+      card.onclick=()=>location.href='detalle-obra.html?obra='+o.file;
+      grid.appendChild(card);
+      requestAnimationFrame(()=>setTimeout(()=>card.classList.add('in'),(idx%PER_PAGE)*35));
+    });
+    el('moreWrap').style.display = shown<all.length ? 'flex':'none';
+  }
+
+  document.documentElement.style.setProperty('--tile',state.size+'px');
+  render();
+  window.addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(render,250);});
+</script>
+</body>
+</html>
