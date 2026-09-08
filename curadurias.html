@@ -235,12 +235,12 @@
     {id:'mujer-arte',titulo:'La mujer en el arte mexicano',acervo:'Cruzada',tema:'Género',curador:'A. Torres',n:18,destacada:true,
       cover:'Img/mujer-arte-mexicano',webp:true,
       intro:'Un recorrido por cuatro siglos y varios acervos: la mujer como creadora y como imagen, de la Nueva España al arte contemporáneo.'},
+    {id:'dr-atl',titulo:'Dr. Atl: cielo y volcanes',acervo:'MUNAL',tema:'Paisaje',curador:'Curaduría MUNAL',n:10,
+      cover:'Img/obras/MUNAL_14333',heroCover:'Img/obras/MAM_8712',webp:true,href:'curaduria_atl.html',
+      intro:'La obsesión de Gerardo Murillo por la atmósfera y la energía del paisaje mexicano, del Atlcolor a la nube monumental.'},
     {id:'siglo-xix',titulo:'El siglo XIX mexicano',acervo:'MUNAL',tema:'Historia',curador:'Curaduría MUNAL',n:16,
       cover:'Img/obras/MUNAL_15705',webp:true,
       intro:'Paisaje, retrato y pintura de historia que acompañaron la construcción de la nación moderna.'},
-    {id:'dr-atl',titulo:'Dr. Atl: cielo y volcanes',acervo:'MUNAL',tema:'Paisaje',curador:'Curaduría MUNAL',n:10,
-      cover:'Img/obras/MUNAL_14333',webp:true,
-      intro:'La obsesión de Gerardo Murillo por la atmósfera y la energía del paisaje mexicano, del Atlcolor a la nube monumental.'},
     {id:'escuela-mexicana',titulo:'Miradas de la Escuela Mexicana',acervo:'MAM',tema:'Moderno',curador:'Curaduría MAM',n:14,
       cover:'Img/obras/MAM_13154',webp:true,
       intro:'Frida Kahlo y sus contemporáneos: la consolidación de una identidad artística nacional en el siglo XX.'},
@@ -296,7 +296,7 @@
         </div>
         <div class="collage">
           <div class="c1">${pic(d.cover,d.webp,'',d.titulo)}</div>
-          <div class="c2">${pic(d2.cover,d2.webp,'',d2.titulo)}</div>
+          <div class="c2">${pic(d2.heroCover||d2.cover,d2.webp,'',d2.titulo)}</div>
         </div>
       </div>`;
   })();
@@ -321,7 +321,7 @@
     grid.innerHTML='';
     if(!list.length){grid.innerHTML='<div class="empty"><b>Sin curadurías</b>No hay curadurías con esos filtros todavía.</div>';return;}
     list.forEach((c,idx)=>{
-      const a=document.createElement('a');a.className='ccard';a.href='#';
+      const a=document.createElement('a');a.className='ccard';a.href=c.href||'#';
       a.innerHTML=`
         <div class="cover"><span class="acv">${c.acervo==='Cruzada'?'Cruzada':c.acervo}</span>${pic(c.cover,c.webp,'',c.titulo)}</div>
         <div class="tema">${c.tema}</div>

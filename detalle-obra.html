@@ -78,8 +78,8 @@
 
   /* ---------- DETALLE ---------- */
   .detail{display:grid;grid-template-columns:1.25fr .85fr;gap:44px;align-items:start;margin-bottom:20px}
-  .stage{position:relative;border-radius:6px;overflow:hidden;background:var(--papel-2);cursor:zoom-in;box-shadow:0 30px 60px -34px rgba(33,26,28,.5)}
-  .stage img{display:block;width:100%;height:auto;transition:transform .4s var(--ease)}
+  .stage{position:relative;border-radius:6px;overflow:hidden;background:var(--papel-2);cursor:zoom-in;box-shadow:0 30px 60px -34px rgba(33,26,28,.5);aspect-ratio:4/3}
+  .stage img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .4s var(--ease)}
   .stage.zoom{cursor:zoom-out}
   .stage.zoom img{transform:scale(2.1)}
   .vtools{position:absolute;right:12px;bottom:12px;display:flex;gap:8px;z-index:3}
@@ -318,27 +318,158 @@
   const INST={MUNAL:'Museo Nacional de Arte (MUNAL)',MAM:'Museo de Arte Moderno (MAM)',MUNAE:'Museo Nacional de la Estampa (MUNAE)','San Carlos':'Museo Nacional de San Carlos'};
   /* Registro del acervo (Fichas_obras_etiqueta_color.xlsx) */
   const DATA=[
-    {file:'MUNAL_29013',museo:'MUNAL',titulo:'Al amanecer labores',autor:'Ezequiel Negrete Lira',anio:1955,tipo:'Pintura',tecnica:'Pintura'},
-    {file:'MUNAL_14333',museo:'MUNAL',titulo:'La Nube',autor:'Gerardo Murillo Coronado',anio:1931,tipo:'Pintura',tecnica:'Pintura',dim:'77 cm (alto)',res:'1000 × 775 px'},
-    {file:'MUNAL_16095',museo:'MUNAL',titulo:'El descubrimiento del Pulque',autor:'José María Obregón',anio:1869,tipo:'Pintura',tecnica:'Pintura'},
-    {file:'MUNAL_15968',museo:'MUNAL',titulo:'Santo Domingo. Copia Original',autor:'Autor sin identificar',anio:null,tipo:'Fotografía',tecnica:'Fotografía'},
-    {file:'MUNAL_52195',museo:'MUNAL',titulo:'Cuadro',autor:'Autor sin identificar',anio:null,tipo:'Pintura',tecnica:'Artes decorativas'},
-    {file:'MUNAE_35085',museo:'MUNAE',titulo:'El rebozo de soledad II',autor:'Leopoldo Méndez',anio:null,tipo:'Grabado',tecnica:'Sin especificar'},
-    {file:'MUNAE_56',museo:'MUNAE',titulo:'El mil cumbres',autor:'Carlos Alvarado Lang',anio:1951,tipo:'Grabado',tecnica:'Xilografía'},
-    {file:'MUNAE_7856',museo:'MUNAE',titulo:'Desnudo n.º3',autor:'Fernando Castro Pacheco',anio:null,tipo:'Grabado',tecnica:'Xilografía a color'},
-    {file:'MUNAE_7506',museo:'MUNAE',titulo:'El mezquital',autor:'Adolfo Mexiac',anio:1957,tipo:'Grabado',tecnica:'Linóleo'},
-    {file:'MAM_18030',museo:'MAM',titulo:'Soporte vital resistencia dinámica',autor:'Francisco Moyao',anio:1976,tipo:'Escultura',tecnica:'Madera con laca'},
-    {file:'MAM_59340',museo:'MAM',titulo:'Sin Título',autor:'Graciela Iturbide',anio:1980,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
-    {file:'MAM_19154',museo:'MAM',titulo:'Autorretrato',autor:'Rosa Rolanda de Covarrubias',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
-    {file:'MAM_59339',museo:'MAM',titulo:'De Esta Tierra del Cielo y los Infiernos la Tempestad',autor:'Gerardo Suter',anio:1987,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
-    {file:'MAM_16575',museo:'MAM',titulo:'Fuego verde en el Paricutín',autor:'Gerardo Murillo Coronado (Dr. Atl)',anio:null,tipo:'Pintura',tecnica:'Atlcolor sobre masonite'},
+    {file:'MAM_10243',museo:'MAM',titulo:'La chica de la ventana',autor:'Abraham Ángel',anio:1923,tipo:'Grabado',tecnica:'Óleo sobre cartón'},
+    {file:'MAM_10252',museo:'MAM',titulo:'La espina',autor:'Raúl Anguiano',anio:1952,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_10494',museo:'MAM',titulo:'Las soldaderas',autor:'José Clemente Orozco Flores',anio:1926,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_10735',museo:'MAM',titulo:'La Ciudad de México',autor:'Juan O\'Gorman',anio:1949,tipo:'Pintura',tecnica:'Temple sobre masonite'},
+    {file:'MAM_10943',museo:'MAM',titulo:'La muerte de Zapata',autor:'Luis Arenal Bastar',anio:1937,tipo:'Pintura',tecnica:'Óleo sobre masonite'},
+    {file:'MAM_11055',museo:'MAM',titulo:'En busca de la gaviota',autor:'Manuel Felguérez',anio:1959,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_11587',museo:'MAM',titulo:'La huida',autor:'Remedios Varo Uranga',anio:1962,tipo:'Pintura',tecnica:'Óleo sobre masonite'},
+    {file:'MAM_12042',museo:'MAM',titulo:'Composición',autor:'Fernando García Ponce',anio:1973,tipo:'Pintura',tecnica:'Acrílico sobre tela'},
+    {file:'MAM_12169',museo:'MAM',titulo:'El cuadro de los cuadros',autor:'Mathias Goeritz',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_12432',museo:'MAM',titulo:'La Madre Tierra',autor:'Jesús Guerrero Galván',anio:1952,tipo:'Pintura',tecnica:'Óleo sobre masonite'},
+    {file:'MAM_12706',museo:'MAM',titulo:'Sin título (fetiche I)',autor:'Kati Horna',anio:null,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
     {file:'MAM_13154',museo:'MAM',titulo:'Los cocos',autor:'Frida Kahlo Calderón',anio:1951,tipo:'Pintura',tecnica:'Óleo sobre masonite'},
+    {file:'MAM_13157',museo:'MAM',titulo:'Las dos Fridas',autor:'Frida Kahlo Calderón',anio:1939,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_13173',museo:'MAM',titulo:'Come out (Steve Reich)',autor:'Kasuya Sakai',anio:1976,tipo:'Pintura',tecnica:'Acrílico sobre tela'},
+    {file:'MAM_13370',museo:'MAM',titulo:'Nuestra imagen actual',autor:'José David Alfaro Siqueiros',anio:1947,tipo:'Pintura',tecnica:'Piroxilina sobre celotex y fibra de vidrio'},
+    {file:'MAM_13463',museo:'MAM',titulo:'Yo por yo (autorretrato)',autor:'José David Alfaro Siqueiros',anio:1956,tipo:'Pintura',tecnica:'Piroxilina sobre masonite'},
+    {file:'MAM_14346',museo:'MAM',titulo:'Músicas dormidas',autor:'Rufino del Carmen Tamayo Arrellanes',anio:1950,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_14487',museo:'MAM',titulo:'Las futbolistas',autor:'Ángel Zárraga Argüelles',anio:1922,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_14508',museo:'MAM',titulo:'La hamaca',autor:'Francisco Zúñiga Chavarría',anio:1957,tipo:'Escultura',tecnica:'Piedra xaltocan'},
+    {file:'MAM_14673',museo:'MAM',titulo:'En la escuela',autor:'Agustín Lazo',anio:1943,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_16575',museo:'MAM',titulo:'Fuego verde en el Paricutin',autor:'José Gerardo Francisco Murillo Coronado',anio:null,tipo:'Pintura',tecnica:'Atlcolor sobre masonite'},
+    {file:'MAM_18030',museo:'MAM',titulo:'Soporte vital resistencia dinámica',autor:'Francisco Moyao',anio:1976,tipo:'Escultura',tecnica:'Madera con laca'},
+    {file:'MAM_19154',museo:'MAM',titulo:'Autorretrato',autor:'Rosa Rolanda de Covarrubias',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_21575',museo:'MAM',titulo:'Alegoría de septiembre',autor:'Ángel Zárraga Argüelles',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_29538',museo:'MAM',titulo:'El flautista',autor:'Remedios Varo Uranga',anio:1955,tipo:'Pintura',tecnica:'Óleo y nácar incrustado sobre masonite'},
+    {file:'MAM_29541',museo:'MAM',titulo:'Mujer saliendo del psicoanalista (podría ser Juliana)',autor:'Remedios Varo Uranga',anio:1960,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_29589',museo:'MAM',titulo:'Creación de las aves',autor:'Remedios Varo Uranga',anio:1957,tipo:'Pintura',tecnica:'Óleo sobre masonite'},
+    {file:'MAM_35057',museo:'MAM',titulo:'Figura recostada',autor:'Henry Spencer Moore',anio:null,tipo:'Escultura',tecnica:'Bronce'},
+    {file:'MAM_49969',museo:'MAM',titulo:'La buena fama durmiendo',autor:'Manuel Álvarez Bravo',anio:1938,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
+    {file:'MAM_52814',museo:'MAM',titulo:'Escuela mazahua (Edo. México)',autor:'Mariana Yampolsky Urbach',anio:1979,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
+    {file:'MAM_59299',museo:'MAM',titulo:'Frida Kahlo',autor:'Dolores Martínez de Anda',anio:1952,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
+    {file:'MAM_59339',museo:'MAM',titulo:'De Esta Tierra del Cielo y los Infiernos la Tempestad',autor:'Gerardo Suter',anio:1987,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
+    {file:'MAM_59340',museo:'MAM',titulo:'Sin Título',autor:'Graciela Iturbide',anio:1980,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
+    {file:'MAM_59692',museo:'MAM',titulo:'Retrato de Ruth Rivera',autor:'Dolores Martínez de Anda',anio:1950,tipo:'Fotografía',tecnica:'Plata sobre gelatina'},
+    {file:'MAM_59834',museo:'MAM',titulo:'Ciudad maya',autor:'Günther Gerzso',anio:null,tipo:'Grabado',tecnica:'Óleo sobre tela'},
+    {file:'MAM_59930',museo:'MAM',titulo:'De este famoso hipódromo en la pista no faltará ni un solo periodista',autor:'José Guadalupe Posada Aguilar',anio:null,tipo:'Grabado',tecnica:'Sin especificar'},
+    {file:'MAM_8688',museo:'MAM',titulo:'Retablo',autor:'Carlos Mérida',anio:1961,tipo:'Escultura',tecnica:'Bajo relieve en acrílico sobre madera'},
+    {file:'MAM_8712',museo:'MAM',titulo:'Cabezas religiosas',autor:'Guillermo Meza Álvarez',anio:1950,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_8883',museo:'MAM',titulo:'El Paricutín',autor:'José Gerardo Francisco Murillo Coronado',anio:1946,tipo:'Pintura',tecnica:'Atlcolor sobre asbesto'},
+    {file:'MAM_8909',museo:'MAM',titulo:'Espiga',autor:'Estanislao Contreras',anio:1966,tipo:'Escultura',tecnica:'Madera tallada'},
+    {file:'MAM_8924',museo:'MAM',titulo:'Autorretrato',autor:'Roberto Montenegro Nervo',anio:1942,tipo:'Pintura',tecnica:'Óleo sobre madera'},
+    {file:'MAM_9204',museo:'MAM',titulo:'Circunvolución en forma de cabeza',autor:'Germán Cueto',anio:1967,tipo:'Escultura',tecnica:'Bronce'},
+    {file:'MAM_9235',museo:'MAM',titulo:'La vendedora de frutas (frutas mexicanas)',autor:'Olga Costa',anio:1951,tipo:'Grabado',tecnica:'Óleo sobre tela'},
     {file:'MNSC_10455',museo:'San Carlos',titulo:'Dominus possedit me in initio viarum suarum',autor:'Carl Ernst Christoph Hess',anio:null,tipo:'Grabado',tecnica:'Buril'},
+    {file:'MNSC_10562',museo:'San Carlos',titulo:'Rebaño en reposo',autor:'Albert Jansz Klomp',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tabla'},
+    {file:'MNSC_10608',museo:'San Carlos',titulo:'Las siete virtudes',autor:'Peter de Kempeneer',anio:null,tipo:'Pintura',tecnica:'Óleo sobre madera trasladado a tela'},
+    {file:'MNSC_10725',museo:'San Carlos',titulo:'Paisaje con volcán, río y leñadora',autor:'Autor sin identificar',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_10737',museo:'San Carlos',titulo:'Sin título',autor:'Autor sin identificar',anio:null,tipo:'Pintura',tecnica:'Sin especificar'},
+    {file:'MNSC_10746',museo:'San Carlos',titulo:'Paisaje con volcán y águila',autor:'Anónimo',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_10747',museo:'San Carlos',titulo:'Campiña romana',autor:'Eugenio Landesio',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_10810',museo:'San Carlos',titulo:'San Pablo y san Antonio Abad, primeros ermitaños',autor:'Eugenio Landesio',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_19041',museo:'San Carlos',titulo:'Retrato de Angelita Armendáriz',autor:'Gil Mariano Benllure',anio:1884,tipo:'Dibujo',tecnica:'Acuarela sobre papel'},
     {file:'MNSC_19049',museo:'San Carlos',titulo:'Episodio del diluvio universal',autor:'Francesco Coghetti',anio:1852,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_34210',museo:'San Carlos',titulo:'Venecia',autor:'Anónimo',anio:null,tipo:'Grabado',tecnica:'Litografía'},
+    {file:'MNSC_34214',museo:'San Carlos',titulo:'La princesa romana en traje de vestal',autor:'Juan Cordero',anio:1844,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_3519',museo:'San Carlos',titulo:'Paisaje con gallina',autor:'A. Berchoosen',anio:1850,tipo:'Pintura',tecnica:'Óleo sobre tabla'},
+    {file:'MNSC_3992',museo:'San Carlos',titulo:'La siega',autor:'José Blanco Coris',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_3994',museo:'San Carlos',titulo:'Bacante',autor:'Adolphe René Lefèvre',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_4137',museo:'San Carlos',titulo:'El rapto de Leucothoe',autor:'Jean Lepautre',anio:null,tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4275',museo:'San Carlos',titulo:'El arco robado',autor:'P. Lightfoot',anio:null,tipo:'Grabado',tecnica:'Aguafuerte y buril'},
+    {file:'MNSC_4446',museo:'San Carlos',titulo:'Autorretrato',autor:'Francisco de Goya y Lucientes',anio:null,tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4526',museo:'San Carlos',titulo:'Que se la llevaron "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4582',museo:'San Carlos',titulo:'No hubo remedio "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4633',museo:'San Carlos',titulo:'Las rinde el sueño "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4674',museo:'San Carlos',titulo:'El sueño de la razón produce monstruos "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4771',museo:'San Carlos',titulo:'Ensayos "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4777',museo:'San Carlos',titulo:'Volaverunt "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,tipo:'Grabado',tecnica:'Aguafuerte'},
+    {file:'MNSC_4842',museo:'San Carlos',titulo:'Amanecer en el puerto',autor:'Oswald Achenbach',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_5047',museo:'San Carlos',titulo:'Aldeana contemplando un pajarillo o familia rústica',autor:'Marie Richard Alexandre Louis',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_50923',museo:'San Carlos',titulo:'Retrato de dama',autor:'Marie Louise Elisabeth Viggé Le Brun',anio:1795,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_50938',museo:'San Carlos',titulo:'Sin título',autor:'Autor sin identificar',anio:null,tipo:'Pintura',tecnica:'Sin especificar'},
     {file:'MNSC_50941',museo:'San Carlos',titulo:'Paisaje (copia Gedovius)',autor:'Germán Gedovius Huerta',anio:1908,tipo:'Pintura',tecnica:'Óleo sobre tela'},
     {file:'MNSC_50942',museo:'San Carlos',titulo:'La niña',autor:'Germán Gedovius Huerta',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
-    {file:'MNSC_3994',museo:'San Carlos',titulo:'Bacante',autor:'Adolphe René Lefèvre',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
-    {file:'MNSC_3992',museo:'San Carlos',titulo:'La siega',autor:'José Blanco Coris',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'}
+    {file:'MNSC_50943',museo:'San Carlos',titulo:'Paisaje. México, Tláhuac',autor:'Germán Gedovius Huerta',anio:1904,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_50947',museo:'San Carlos',titulo:'Barcos (copia de Escalante)',autor:'Germán Gedovius Huerta',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_5104',museo:'San Carlos',titulo:'La familia de Carlos IV',autor:'Autor sin identificar',anio:1912,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_5228',museo:'San Carlos',titulo:'Escena de caballeros',autor:'Claes Jansz Visscher',anio:null,tipo:'Grabado',tecnica:'Aguafuerte y papel'},
+    {file:'MNSC_5379',museo:'San Carlos',titulo:'La curación de un endemoniado',autor:'Károly Markó',anio:1856,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MNSC_5741',museo:'San Carlos',titulo:'Mañana de primavera',autor:'Valerius Saedeleerde',anio:1920,tipo:'Grabado',tecnica:'Carbón y témpera'},
+    {file:'MNSC_6050',museo:'San Carlos',titulo:'Cabeza de hombre',autor:'William Sharp',anio:null,tipo:'Grabado',tecnica:'Buril y papel'},
+    {file:'MNSC_6112',museo:'San Carlos',titulo:'Las huérfanas',autor:'Francisco Dumaine',anio:1873,tipo:'Escultura',tecnica:'Mármol'},
+    {file:'MNSC_6166',museo:'San Carlos',titulo:'Retablo de la Encarnación (políptico)',autor:'Pere Espallargues',anio:1465,tipo:'Pintura',tecnica:'Temple y óleo sobre tabla'},
+    {file:'MUNAE_1150',museo:'MUNAE',titulo:'La mano que crea 1/100 (sembrador)',autor:'Arturo García Bustos',anio:1955,tipo:'Grabado',tecnica:'Linóleo'},
+    {file:'MUNAE_2070',museo:'MUNAE',titulo:'Mujer',autor:'Leocadio Acosta',anio:null,tipo:'Grabado',tecnica:'Grabado sobre madera'},
+    {file:'MUNAE_2239',museo:'MUNAE',titulo:'Chalma número 5',autor:'Julio Prieto',anio:null,tipo:'Grabado',tecnica:'Litografía'},
+    {file:'MUNAE_2240',museo:'MUNAE',titulo:'Mujer de espaldas 30/30',autor:'Ignacio Aguirre Camacho',anio:1946,tipo:'Grabado',tecnica:'Litografía al carbón'},
+    {file:'MUNAE_2440',museo:'MUNAE',titulo:'Romeo y Julieta',autor:'José García Ocejo',anio:1975,tipo:'Grabado',tecnica:'Litografía a color'},
+    {file:'MUNAE_35085',museo:'MUNAE',titulo:'El rebozo de soledad II',autor:'Leopoldo Méndez',anio:null,tipo:'Grabado',tecnica:'Sin especificar'},
+    {file:'MUNAE_3978',museo:'MUNAE',titulo:'Adolescencia',autor:'Amador Lugo',anio:null,tipo:'Grabado',tecnica:'Linóleo'},
+    {file:'MUNAE_4070',museo:'MUNAE',titulo:'El mundo en que vivimos',autor:'Amador Lugo',anio:null,tipo:'Grabado',tecnica:'Linóleo'},
+    {file:'MUNAE_5172',museo:'MUNAE',titulo:'A cuál más afinado',autor:'Leopoldo Méndez',anio:null,tipo:'Grabado',tecnica:'Xilografía'},
+    {file:'MUNAE_5196',museo:'MUNAE',titulo:'La antorcha',autor:'Leopoldo Méndez',anio:null,tipo:'Grabado',tecnica:'Linóleo'},
+    {file:'MUNAE_5207',museo:'MUNAE',titulo:'Bestias',autor:'Leopoldo Méndez',anio:1948,tipo:'Grabado',tecnica:'Sin especificar'},
+    {file:'MUNAE_56',museo:'MUNAE',titulo:'El mil cumbres',autor:'Carlos Alvarado Lang',anio:1951,tipo:'Grabado',tecnica:'Xilografía'},
+    {file:'MUNAE_59724',museo:'MUNAE',titulo:'El clown mexicano, cuaderno n.º6',autor:'José Guadalupe Posada Aguilar',anio:null,tipo:'Grabado',tecnica:'Zincografía e impresión tipográfica'},
+    {file:'MUNAE_59726',museo:'MUNAE',titulo:'Calaveras del montón n.º1',autor:'José Guadalupe Posada Aguilar',anio:1910,tipo:'Grabado',tecnica:'Zincografía'},
+    {file:'MUNAE_59912',museo:'MUNAE',titulo:'Carta abierta a Emiliano Zapata',autor:'José Guadalupe Posada Aguilar',anio:1914,tipo:'Grabado',tecnica:'Sin especificar'},
+    {file:'MUNAE_6588',museo:'MUNAE',titulo:'La cosecha',autor:'Leopoldo Méndez',anio:null,tipo:'Grabado',tecnica:'Linóleo'},
+    {file:'MUNAE_7506',museo:'MUNAE',titulo:'El mezquital',autor:'Adolfo Mexiac',anio:1957,tipo:'Grabado',tecnica:'Linóleo'},
+    {file:'MUNAE_7856',museo:'MUNAE',titulo:'Desnudo n.º3',autor:'Fernando Castro Pacheco',anio:null,tipo:'Grabado',tecnica:'Xilografía a color'},
+    {file:'MUNAE_950',museo:'MUNAE',titulo:'"Las Sabinas" según J. L David a/p',autor:'Arnold Belkin',anio:1975,tipo:'Grabado',tecnica:'Sin especificar'},
+    {file:'MUNAL_11920',museo:'MUNAL',titulo:'La Molendera',autor:'Diego Rivera',anio:1924,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_11970',museo:'MUNAL',titulo:'Sin Título (Probable detalle de la Catedral de Puebla) No. 1',autor:'Everardo Rivera',anio:1978,tipo:'Fotografía',tecnica:'Fotografía'},
+    {file:'MUNAL_11994',museo:'MUNAL',titulo:'Sin Título (detalle de la Catedral de Puebla) No. 3',autor:'Everardo Rivera',anio:1978,tipo:'Fotografía',tecnica:'Fotografía'},
+    {file:'MUNAL_12005',museo:'MUNAL',titulo:'La Cubanita, Colección de Canciones para 1893',autor:'José Guadalupe Posada',anio:null,tipo:'Grabado',tecnica:'Impreso'},
+    {file:'MUNAL_12861',museo:'MUNAL',titulo:'San Sebastián',autor:'Felipe Valero',anio:1857,tipo:'Escultura',tecnica:'Escultura'},
+    {file:'MUNAL_13356',museo:'MUNAL',titulo:'La Oca, Juego Divertido',autor:'José Guadalupe Posada',anio:null,tipo:'Grabado',tecnica:'Impreso'},
+    {file:'MUNAL_13447',museo:'MUNAL',titulo:'Colección de Canciones Modernas para 1896, Los lagartijos',autor:'José Guadalupe Posada',anio:1896,tipo:'Grabado',tecnica:'Impreso'},
+    {file:'MUNAL_13727',museo:'MUNAL',titulo:'Cerro de Guadalupe en Guerrero',autor:'José María Velasco',anio:1873,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_13858',museo:'MUNAL',titulo:'Pagando la Manda',autor:'Alberto Garduño',anio:1922,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_14333',museo:'MUNAL',titulo:'La Nube',autor:'Gerardo Murillo Coronado',anio:1931,tipo:'Pintura',tecnica:'Pintura',dim:'77 cm (alto)',res:'1000 × 775 px'},
+    {file:'MUNAL_14361',museo:'MUNAL',titulo:'Sirena Tocando la Guitarra',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Ornamento'},
+    {file:'MUNAL_14519',museo:'MUNAL',titulo:'Olla',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Olla'},
+    {file:'MUNAL_14534',museo:'MUNAL',titulo:'Olla',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Olla'},
+    {file:'MUNAL_14649',museo:'MUNAL',titulo:'Platón',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Platón'},
+    {file:'MUNAL_14779',museo:'MUNAL',titulo:'Máscara de Hombre',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Máscara'},
+    {file:'MUNAL_14826',museo:'MUNAL',titulo:'Máscara de Hombre',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Máscara'},
+    {file:'MUNAL_14856',museo:'MUNAL',titulo:'Máscara de demonio',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Máscara'},
+    {file:'MUNAL_15239',museo:'MUNAL',titulo:'El Senado de Tlaxcala',autor:'Rodrigo Gutiérrez',anio:1875,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_15256',museo:'MUNAL',titulo:'La Cazadora de Los Andes',autor:'Felipe Santiago Gutiérrez',anio:1891,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_15310',museo:'MUNAL',titulo:'El Sueño del Mártir',autor:'José María Ibarrán y Ponce',anio:1877,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_15436',museo:'MUNAL',titulo:'El Puente de San Antonio en el Camino de San Ángel, Junto a Panzacola',autor:'Eugenio Landesio',anio:1855,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_15515',museo:'MUNAL',titulo:'El Árbol Genealógico de San Basilio',autor:'Autor sin identificar (Siglo XVIII)',anio:null,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_15550',museo:'MUNAL',titulo:'Ex-Voto',autor:'Autor sin identificar',anio:1917,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_15968',museo:'MUNAL',titulo:'Santo Domingo. Copia Original',autor:'Autor sin identificar',anio:null,tipo:'Fotografía',tecnica:'Fotografía'},
+    {file:'MUNAL_16095',museo:'MUNAL',titulo:'El descubrimiento del Pulque',autor:'José María Obregón',anio:1869,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_16623',museo:'MUNAL',titulo:'Muerte con Sandía',autor:'Jesús Reyes Ferreria',anio:null,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_16670',museo:'MUNAL',titulo:'El Rapto de las Sabinas',autor:'Autor sin identificar',anio:null,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_16904',museo:'MUNAL',titulo:'Mexican Folkways. Mexico City. Toor, Frances Editor. Rivera, Diego art Editor. No. 1 Vol. 4.',autor:'Autor sin identificar',anio:null,tipo:'Grabado',tecnica:'Revista'},
+    {file:'MUNAL_16930',museo:'MUNAL',titulo:'Cocina Poblana',autor:'Autor sin identificar',anio:null,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_17130',museo:'MUNAL',titulo:'Danza del Xóchitl Pitzahuac',autor:'Ramón Cano Manilla',anio:1930,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_17699',museo:'MUNAL',titulo:'La Purísima Concepción con Jesuitas',autor:'Juan Francisco de Aguilera',anio:1720,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_19399',museo:'MUNAL',titulo:'Fuentes Brotantes (Fuentes Brotantes en Otoño)',autor:'Joaquín Clausell',anio:null,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_29013',museo:'MUNAL',titulo:'Al amanecer labores',autor:'Ezequiel Negrete Lira',anio:1955,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_34919',museo:'MUNAL',titulo:'La Muerte de Bernardina Madrueño',autor:'Autor sin identificar',anio:1852,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_35148',museo:'MUNAL',titulo:'Naturaleza Muerta con Sandía',autor:'Autor sin identificar',anio:null,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_35406',museo:'MUNAL',titulo:'Sin Título',autor:'Roberto Guardia Berdecio',anio:1941,tipo:'Pintura',tecnica:'Pintura'},
+    {file:'MUNAL_36585',museo:'MUNAL',titulo:'María Asúnsolo',autor:'Manuel Álvarez Bravo',anio:null,tipo:'Fotografía',tecnica:'Fotografía'},
+    {file:'MUNAL_4297',museo:'MUNAL',titulo:'Mexican Folkways. Mexico City. Toor, Frances Editor. Charlot, Jean art Editor. No. 2 Vol. 1.',autor:'Autor sin identificar',anio:null,tipo:'Grabado',tecnica:'Revista'},
+    {file:'MUNAL_52095',museo:'MUNAL',titulo:'Platón',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Platón'},
+    {file:'MUNAL_52099',museo:'MUNAL',titulo:'Alhajero',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Utensilio'},
+    {file:'MUNAL_52195',museo:'MUNAL',titulo:'Cuadro',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Ornamento'},
+    {file:'MUNAL_52234',museo:'MUNAL',titulo:'Máscara',autor:'Autor sin identificar',anio:null,tipo:'Artes decorativas',tecnica:'Máscara'},
+    {file:'MUNAL_53944',museo:'MUNAL',titulo:'Carmela Duarte en Su estudio de Roma',autor:'Autor sin identificar',anio:1894,tipo:'Fotografía',tecnica:'Fotografía'},
+    {file:'MUNAL_59291',museo:'MUNAL',titulo:'Estudio del Modelo al Natural, Mujer',autor:'Fidencio Lucano Nava',anio:null,tipo:'Dibujo',tecnica:'Dibujo'},
+    {file:'MAM_13061',img:'Img/obras/_sin-imagen.svg',museo:'MAM',titulo:'Naturaleza muerta (con cepillo de dientes)',autor:'Izquierdo, María',anio:null,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MUNAL_15404',img:'Img/obras/_sin-imagen.svg',museo:'MUNAL',titulo:'Mis sobrinas',autor:'Izquierdo, María',anio:1940,tipo:'Pintura',tecnica:'Óleo sobre triplay'},
+    {file:'MUNAL_15417',img:'Img/obras/_sin-imagen.svg',museo:'MUNAL',titulo:'Adán y Eva',autor:'Izquierdo, María',anio:1945,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MUNAL_15412',img:'Img/obras/_sin-imagen.svg',museo:'MUNAL',titulo:'Retrato de María Asúnsolo (retrato de María Asúnsolo con caracol)',autor:'Izquierdo, María',anio:1942,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MUNAL_15421',img:'Img/obras/_sin-imagen.svg',museo:'MUNAL',titulo:'Alacena (viernes de juguetería)',autor:'Izquierdo, María',anio:1952,tipo:'Pintura',tecnica:'Óleo sobre tela'},
+    {file:'MAM_54818',img:'Img/obras/_sin-imagen.svg',museo:'MAM',titulo:'Proyecto escalera monumental departamento central',autor:'Izquierdo, María',anio:1945,tipo:'Grabado',tecnica:'Gouache sobre papel'},
+    {file:'MAM_13062',img:'Img/obras/_sin-imagen.svg',museo:'MAM',titulo:'Niñas durmiendo',autor:'Izquierdo, María',anio:1932,tipo:'Pintura',tecnica:'Óleo sobre tela'}
   ];
   const byFile=f=>DATA.find(o=>o.file===f);
   /* Años de nacimiento y muerte de los artistas (dato de referencia) */
@@ -368,9 +499,10 @@
   const reg=obra.file.split('_')[1];
 
   /* imagen */
-  document.getElementById('imgWebp').srcset=IMG_DIR+obra.file+'.webp';
+  const imgWebp=document.getElementById('imgWebp');
   const img=document.getElementById('obraImg');
-  img.src=IMG_DIR+obra.file+'.jpg';
+  if(obra.img){ imgWebp.srcset=''; img.src=obra.img; }
+  else { imgWebp.srcset=IMG_DIR+obra.file+'.webp'; img.src=IMG_DIR+obra.file+'.jpg'; }
   img.alt=obra.titulo+' — '+obra.autor;
   document.title=obra.titulo+' — Colección Digital INBAL';
   /* ficha */
@@ -451,7 +583,7 @@
   rel.forEach(o=>{
     const a=document.createElement('a');a.className='card';a.href='detalle-obra.html?obra='+o.file;
     a.innerHTML=`<div class="art"><span class="tag">${o.tipo}</span>
-      <picture><source srcset="${IMG_DIR}${o.file}.webp" type="image/webp"><img src="${IMG_DIR}${o.file}.jpg" alt="${o.titulo} — ${o.autor}" loading="lazy"></picture></div>
+      <picture>${o.img?'':`<source srcset="${IMG_DIR}${o.file}.webp" type="image/webp">`}<img src="${o.img?o.img:IMG_DIR+o.file+'.jpg'}" alt="${o.titulo} — ${o.autor}" loading="lazy"></picture></div>
       <div class="meta"><b>${o.titulo}</b><span class="au">${o.autor}</span>
       <span class="mu">${o.museo} <span class="yr">${o.anio==null?'S/F':o.anio}</span></span></div>`;
     relBox.appendChild(a);

@@ -135,7 +135,8 @@
   .card.in{opacity:1;transform:none}
   .card .art{position:relative;overflow:hidden;border-radius:4px;background:var(--papel-2)}
   .card canvas{display:block;width:100%;height:auto;transition:transform 1s var(--ease)}
-  .card:hover canvas{transform:scale(1.06)}
+  .card img{display:block;width:100%;height:auto;max-height:340px;object-fit:cover;transition:transform 1s var(--ease)}
+  .card:hover canvas,.card:hover img{transform:scale(1.06)}
   .card .tag{position:absolute;top:10px;left:10px;background:rgba(30,92,59,.92);color:var(--arena);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:3px}
   .card .meta{padding:11px 2px 0}
   .card .meta b{font-family:var(--display);font-weight:500;font-size:15.5px;display:block;line-height:1.2}
@@ -167,7 +168,7 @@
   .band .cta{display:inline-flex;align-items:center;gap:12px;margin-top:24px;background:var(--arena);color:var(--guinda-900);padding:14px 24px;border-radius:40px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:.35s var(--ease)}
   .band .cta:hover{background:#fff;transform:translateY(-2px)}
   .band .vis{position:relative;min-height:300px}
-  .band .vis canvas{position:absolute;inset:0;width:100%;height:100%}
+  .band .vis canvas,.band .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .band .vis .tg{position:absolute;left:22px;bottom:20px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--arena)}
   .cur-more{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .curc{all:unset;box-sizing:border-box;position:relative;display:block;height:320px;border-radius:20px;overflow:hidden;cursor:pointer;isolation:isolate;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
@@ -297,7 +298,7 @@
         <p id="curIntro"></p>
         <a class="cta" href="#">Ver el recorrido →</a>
       </div>
-      <div class="vis"><canvas id="curCanvas"></canvas><span class="tg" id="curMeta"></span></div>
+      <div class="vis" id="curVis"><span class="tg" id="curMeta"></span></div>
     </div>
     <div class="cur-more" id="curMore"></div>
   </div>
@@ -356,6 +357,7 @@
     {slug:'munal',nombre:'Museo Nacional de Arte',sig:'MUNAL',color:'verde',zona:'Centro Histórico, CDMX',total:5200,dig:3450,fund:1982,img:'munal',
      sem:'Resguarda el panorama del arte producido en México desde la época virreinal hasta la primera mitad del siglo XX, en un antiguo palacio del Centro Histórico. Permite leer la construcción de la identidad artística nacional.',
      dir:'Tacuba 8, Centro Histórico',cur:{t:'El siglo XIX mexicano',i:'Una lectura del paisaje, el retrato y la pintura de historia que definieron la nación moderna, en 16 obras clave del acervo.',by:'Curaduría MUNAL',n:16},
+     curBand:{file:'MUNAL_11920',alt:'La Molendera, Diego Rivera'},
      curImages:[{file:'MUNAL_16095',alt:'El descubrimiento del Pulque, José María Obregón'},{file:'MUNAL_14333',alt:'La Nube, Gerardo Murillo Coronado (Dr. Atl)'}]},
     {slug:'bellas-artes',nombre:'Museo del Palacio de Bellas Artes',sig:'MPBA',color:'guinda',zona:'Alameda Central, CDMX',total:1500,dig:945,fund:1934,img:'bellas-artes',
      sem:'En el recinto cultural más emblemático del país, custodia el muralismo mexicano en sus muros y una colección de arte de los siglos XX y XXI. Casa de la ópera, la danza y las grandes exposiciones.',
@@ -420,25 +422,191 @@
   ];
 
   /* ---------------- OBRAS MOCK (por museo) ---------------- */
-  const PERIODOS=['Arte Colonial','Siglo XIX','Arte Moderno','Arte Contemporáneo'];
-  const TIPOS=['Pintura','Escultura','Grabado','Fotografía','Dibujo'];
+  const PERIODOS=['Arte Colonial','Siglo XIX','Arte Moderno','Arte Contemporáneo','Sin fecha'];
+  const TIPOS=['Pintura','Escultura','Grabado','Fotografía','Dibujo','Artes decorativas'];
   const AUTORES=['Frida Kahlo','Diego Rivera','José María Velasco','María Izquierdo','Raúl Anguiano','J. G. Posada','Remedios Varo','Dr. Atl','Federico Silva','Saturnino Herrán'];
   const TITULOS=['La molendera','Autorretrato','Paisaje del valle','La ofrenda','Naturaleza muerta','El volcán','Composición','La espina','Vista de la ciudad','Alegoría','Sin título','El sueño'];
   const rnd=a=>a[Math.floor(Math.random()*a.length)];
+  const IMG_DIR='Img/obras/';
   const OBRAS=[];let uid=0;
   MUSEOS.forEach((m,mi)=>{
     const count=14+Math.floor(Math.random()*20);
     for(let i=0;i<count;i++){
-      const p=rnd(PERIODOS);let anio;
+      const p=rnd(PERIODOS.slice(0,4));let anio;
       if(p==='Arte Colonial')anio=1600+((i*7)%180);
       else if(p==='Siglo XIX')anio=1810+((i*5)%89);
       else if(p==='Arte Moderno')anio=1900+((i*3)%60);
       else anio=1961+((i*4)%63);
       uid++;
-      OBRAS.push({id:uid,museo:m.slug,titulo:rnd(TITULOS),autor:rnd(AUTORES),anio,periodo:p,tipo:rnd(TIPOS),
+      OBRAS.push({id:uid,museo:m.slug,titulo:rnd(TITULOS),autor:rnd(AUTORES),anio,periodo:p,tipo:rnd(TIPOS.slice(0,5)),
         color:CKEYS[(mi+i)%CKEYS.length],seed:(uid*2654435761+99)>>>0,aspect:0.82+((uid*29)%55)/100});
     }
   });
+
+  /* ---------------- OBRAS REALES (Fichas_etiqueta_verde_SIGROPAM.xlsx) ---------------- */
+  /* Para los acervos con catálogo real (MUNAL, MAM, MUNAE, San Carlos) sustituye las obras
+     simuladas por las mismas obras que aparecen en colecciones.html */
+  const REAL_SLUGS=['munal','mam','munae','san-carlos'];
+  const REAL_OBRAS=[
+    {museo:'mam',titulo:'La chica de la ventana',autor:'Abraham Ángel',anio:1923,periodo:'Arte Moderno',tipo:'Grabado',file:'MAM_10243'},
+    {museo:'mam',titulo:'La espina',autor:'Raúl Anguiano',anio:1952,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_10252'},
+    {museo:'mam',titulo:'Las soldaderas',autor:'José Clemente Orozco Flores',anio:1926,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_10494'},
+    {museo:'mam',titulo:'La Ciudad de México',autor:'Juan O\'Gorman',anio:1949,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_10735'},
+    {museo:'mam',titulo:'La muerte de Zapata',autor:'Luis Arenal Bastar',anio:1937,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_10943'},
+    {museo:'mam',titulo:'En busca de la gaviota',autor:'Manuel Felguérez',anio:1959,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_11055'},
+    {museo:'mam',titulo:'La huida',autor:'Remedios Varo Uranga',anio:1962,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_11587'},
+    {museo:'mam',titulo:'Composición',autor:'Fernando García Ponce',anio:1973,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_12042'},
+    {museo:'mam',titulo:'El cuadro de los cuadros',autor:'Mathias Goeritz',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MAM_12169'},
+    {museo:'mam',titulo:'La Madre Tierra',autor:'Jesús Guerrero Galván',anio:1952,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_12432'},
+    {museo:'mam',titulo:'Sin título (fetiche I)',autor:'Kati Horna',anio:null,periodo:'Sin fecha',tipo:'Fotografía',file:'MAM_12706'},
+    {museo:'mam',titulo:'Los cocos',autor:'Frida Kahlo Calderón',anio:1951,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_13154'},
+    {museo:'mam',titulo:'Las dos Fridas',autor:'Frida Kahlo Calderón',anio:1939,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_13157'},
+    {museo:'mam',titulo:'Come out (Steve Reich)',autor:'Kasuya Sakai',anio:1976,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_13173'},
+    {museo:'mam',titulo:'Nuestra imagen actual',autor:'José David Alfaro Siqueiros',anio:1947,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_13370'},
+    {museo:'mam',titulo:'Yo por yo (autorretrato)',autor:'José David Alfaro Siqueiros',anio:1956,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_13463'},
+    {museo:'mam',titulo:'Músicas dormidas',autor:'Rufino del Carmen Tamayo Arrellanes',anio:1950,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_14346'},
+    {museo:'mam',titulo:'Las futbolistas',autor:'Ángel Zárraga Argüelles',anio:1922,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_14487'},
+    {museo:'mam',titulo:'La hamaca',autor:'Francisco Zúñiga Chavarría',anio:1957,periodo:'Arte Contemporáneo',tipo:'Escultura',file:'MAM_14508'},
+    {museo:'mam',titulo:'En la escuela',autor:'Agustín Lazo',anio:1943,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_14673'},
+    {museo:'mam',titulo:'Fuego verde en el Paricutin',autor:'José Gerardo Francisco Murillo Coronado',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MAM_16575'},
+    {museo:'mam',titulo:'Soporte vital resistencia dinámica',autor:'Francisco Moyao',anio:1976,periodo:'Arte Contemporáneo',tipo:'Escultura',file:'MAM_18030'},
+    {museo:'mam',titulo:'Autorretrato',autor:'Rosa Rolanda de Covarrubias',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MAM_19154'},
+    {museo:'mam',titulo:'Alegoría de septiembre',autor:'Ángel Zárraga Argüelles',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MAM_21575'},
+    {museo:'mam',titulo:'El flautista',autor:'Remedios Varo Uranga',anio:1955,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_29538'},
+    {museo:'mam',titulo:'Mujer saliendo del psicoanalista (podría ser Juliana)',autor:'Remedios Varo Uranga',anio:1960,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_29541'},
+    {museo:'mam',titulo:'Creación de las aves',autor:'Remedios Varo Uranga',anio:1957,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MAM_29589'},
+    {museo:'mam',titulo:'Figura recostada',autor:'Henry Spencer Moore',anio:null,periodo:'Sin fecha',tipo:'Escultura',file:'MAM_35057'},
+    {museo:'mam',titulo:'La buena fama durmiendo',autor:'Manuel Álvarez Bravo',anio:1938,periodo:'Arte Moderno',tipo:'Fotografía',file:'MAM_49969'},
+    {museo:'mam',titulo:'Escuela mazahua (Edo. México)',autor:'Mariana Yampolsky Urbach',anio:1979,periodo:'Arte Contemporáneo',tipo:'Fotografía',file:'MAM_52814'},
+    {museo:'mam',titulo:'Frida Kahlo',autor:'Dolores Martínez de Anda',anio:1952,periodo:'Arte Contemporáneo',tipo:'Fotografía',file:'MAM_59299'},
+    {museo:'mam',titulo:'De Esta Tierra del Cielo y los Infiernos la Tempestad',autor:'Gerardo Suter',anio:1987,periodo:'Arte Contemporáneo',tipo:'Fotografía',file:'MAM_59339'},
+    {museo:'mam',titulo:'Sin Título',autor:'Graciela Iturbide',anio:1980,periodo:'Arte Contemporáneo',tipo:'Fotografía',file:'MAM_59340'},
+    {museo:'mam',titulo:'Retrato de Ruth Rivera',autor:'Dolores Martínez de Anda',anio:1950,periodo:'Arte Moderno',tipo:'Fotografía',file:'MAM_59692'},
+    {museo:'mam',titulo:'Ciudad maya',autor:'Günther Gerzso',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MAM_59834'},
+    {museo:'mam',titulo:'De este famoso hipódromo en la pista no faltará ni un solo periodista',autor:'José Guadalupe Posada Aguilar',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MAM_59930'},
+    {museo:'mam',titulo:'Retablo',autor:'Carlos Mérida',anio:1961,periodo:'Arte Contemporáneo',tipo:'Escultura',file:'MAM_8688'},
+    {museo:'mam',titulo:'Cabezas religiosas',autor:'Guillermo Meza Álvarez',anio:1950,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_8712'},
+    {museo:'mam',titulo:'El Paricutín',autor:'José Gerardo Francisco Murillo Coronado',anio:1946,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_8883'},
+    {museo:'mam',titulo:'Espiga',autor:'Estanislao Contreras',anio:1966,periodo:'Arte Contemporáneo',tipo:'Escultura',file:'MAM_8909'},
+    {museo:'mam',titulo:'Autorretrato',autor:'Roberto Montenegro Nervo',anio:1942,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_8924'},
+    {museo:'mam',titulo:'Circunvolución en forma de cabeza',autor:'Germán Cueto',anio:1967,periodo:'Arte Contemporáneo',tipo:'Escultura',file:'MAM_9204'},
+    {museo:'mam',titulo:'La vendedora de frutas (frutas mexicanas)',autor:'Olga Costa',anio:1951,periodo:'Arte Contemporáneo',tipo:'Grabado',file:'MAM_9235'},
+    {museo:'san-carlos',titulo:'Dominus possedit me in initio viarum suarum',autor:'Carl Ernst Christoph Hess',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_10455'},
+    {museo:'san-carlos',titulo:'Rebaño en reposo',autor:'Albert Jansz Klomp',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_10562'},
+    {museo:'san-carlos',titulo:'Las siete virtudes',autor:'Peter de Kempeneer',anio:null,periodo:'Arte Colonial',tipo:'Pintura',file:'MNSC_10608'},
+    {museo:'san-carlos',titulo:'Paisaje con volcán, río y leñadora',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_10725'},
+    {museo:'san-carlos',titulo:'Sin título',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_10737'},
+    {museo:'san-carlos',titulo:'Paisaje con volcán y águila',autor:'Anónimo',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_10746'},
+    {museo:'san-carlos',titulo:'Campiña romana',autor:'Eugenio Landesio',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_10747'},
+    {museo:'san-carlos',titulo:'San Pablo y san Antonio Abad, primeros ermitaños',autor:'Eugenio Landesio',anio:null,periodo:'Siglo XIX',tipo:'Pintura',file:'MNSC_10810'},
+    {museo:'san-carlos',titulo:'Retrato de Angelita Armendáriz',autor:'Gil Mariano Benllure',anio:1884,periodo:'Siglo XIX',tipo:'Dibujo',file:'MNSC_19041'},
+    {museo:'san-carlos',titulo:'Episodio del diluvio universal',autor:'Francesco Coghetti',anio:1852,periodo:'Siglo XIX',tipo:'Pintura',file:'MNSC_19049'},
+    {museo:'san-carlos',titulo:'Venecia',autor:'Anónimo',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_34210'},
+    {museo:'san-carlos',titulo:'La princesa romana en traje de vestal',autor:'Juan Cordero',anio:1844,periodo:'Siglo XIX',tipo:'Pintura',file:'MNSC_34214'},
+    {museo:'san-carlos',titulo:'Paisaje con gallina',autor:'A. Berchoosen',anio:1850,periodo:'Siglo XIX',tipo:'Pintura',file:'MNSC_3519'},
+    {museo:'san-carlos',titulo:'La siega',autor:'José Blanco Coris',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_3992'},
+    {museo:'san-carlos',titulo:'Bacante',autor:'Adolphe René Lefèvre',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_3994'},
+    {museo:'san-carlos',titulo:'El rapto de Leucothoe',autor:'Jean Lepautre',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4137'},
+    {museo:'san-carlos',titulo:'El arco robado',autor:'P. Lightfoot',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4275'},
+    {museo:'san-carlos',titulo:'Autorretrato',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4446'},
+    {museo:'san-carlos',titulo:'Que se la llevaron "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4526'},
+    {museo:'san-carlos',titulo:'No hubo remedio "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4582'},
+    {museo:'san-carlos',titulo:'Las rinde el sueño "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4633'},
+    {museo:'san-carlos',titulo:'El sueño de la razón produce monstruos "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4674'},
+    {museo:'san-carlos',titulo:'Ensayos "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4771'},
+    {museo:'san-carlos',titulo:'Volaverunt "serie los caprichos"',autor:'Francisco de Goya y Lucientes',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_4777'},
+    {museo:'san-carlos',titulo:'Amanecer en el puerto',autor:'Oswald Achenbach',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_4842'},
+    {museo:'san-carlos',titulo:'Aldeana contemplando un pajarillo o familia rústica',autor:'Marie Richard Alexandre Louis',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_5047'},
+    {museo:'san-carlos',titulo:'Retrato de dama',autor:'Marie Louise Elisabeth Viggé Le Brun',anio:1795,periodo:'Arte Colonial',tipo:'Pintura',file:'MNSC_50923'},
+    {museo:'san-carlos',titulo:'Sin título',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_50938'},
+    {museo:'san-carlos',titulo:'Paisaje (copia Gedovius)',autor:'Germán Gedovius Huerta',anio:1908,periodo:'Arte Moderno',tipo:'Pintura',file:'MNSC_50941'},
+    {museo:'san-carlos',titulo:'La niña',autor:'Germán Gedovius Huerta',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_50942'},
+    {museo:'san-carlos',titulo:'Paisaje. México, Tláhuac',autor:'Germán Gedovius Huerta',anio:1904,periodo:'Arte Moderno',tipo:'Pintura',file:'MNSC_50943'},
+    {museo:'san-carlos',titulo:'Barcos (copia de Escalante)',autor:'Germán Gedovius Huerta',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MNSC_50947'},
+    {museo:'san-carlos',titulo:'La familia de Carlos IV',autor:'Autor sin identificar',anio:1912,periodo:'Arte Moderno',tipo:'Pintura',file:'MNSC_5104'},
+    {museo:'san-carlos',titulo:'Escena de caballeros',autor:'Claes Jansz Visscher',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_5228'},
+    {museo:'san-carlos',titulo:'La curación de un endemoniado',autor:'Károly Markó',anio:1856,periodo:'Siglo XIX',tipo:'Pintura',file:'MNSC_5379'},
+    {museo:'san-carlos',titulo:'Mañana de primavera',autor:'Valerius Saedeleerde',anio:1920,periodo:'Arte Moderno',tipo:'Grabado',file:'MNSC_5741'},
+    {museo:'san-carlos',titulo:'Cabeza de hombre',autor:'William Sharp',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MNSC_6050'},
+    {museo:'san-carlos',titulo:'Las huérfanas',autor:'Francisco Dumaine',anio:1873,periodo:'Siglo XIX',tipo:'Escultura',file:'MNSC_6112'},
+    {museo:'san-carlos',titulo:'Retablo de la Encarnación (políptico)',autor:'Pere Espallargues',anio:1465,periodo:'Arte Colonial',tipo:'Pintura',file:'MNSC_6166'},
+    {museo:'munae',titulo:'La mano que crea 1/100 (sembrador)',autor:'Arturo García Bustos',anio:1955,periodo:'Arte Contemporáneo',tipo:'Grabado',file:'MUNAE_1150'},
+    {museo:'munae',titulo:'Mujer',autor:'Leocadio Acosta',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_2070'},
+    {museo:'munae',titulo:'Chalma número 5',autor:'Julio Prieto',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_2239'},
+    {museo:'munae',titulo:'Mujer de espaldas 30/30',autor:'Ignacio Aguirre Camacho',anio:1946,periodo:'Arte Moderno',tipo:'Grabado',file:'MUNAE_2240'},
+    {museo:'munae',titulo:'Romeo y Julieta',autor:'José García Ocejo',anio:1975,periodo:'Arte Contemporáneo',tipo:'Grabado',file:'MUNAE_2440'},
+    {museo:'munae',titulo:'El rebozo de soledad II',autor:'Leopoldo Méndez',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_35085'},
+    {museo:'munae',titulo:'Adolescencia',autor:'Amador Lugo',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_3978'},
+    {museo:'munae',titulo:'El mundo en que vivimos',autor:'Amador Lugo',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_4070'},
+    {museo:'munae',titulo:'A cuál más afinado',autor:'Leopoldo Méndez',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_5172'},
+    {museo:'munae',titulo:'La antorcha',autor:'Leopoldo Méndez',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_5196'},
+    {museo:'munae',titulo:'Bestias',autor:'Leopoldo Méndez',anio:1948,periodo:'Arte Moderno',tipo:'Grabado',file:'MUNAE_5207'},
+    {museo:'munae',titulo:'El mil cumbres',autor:'Carlos Alvarado Lang',anio:1951,periodo:'Arte Contemporáneo',tipo:'Grabado',file:'MUNAE_56'},
+    {museo:'munae',titulo:'El clown mexicano, cuaderno n.º6',autor:'José Guadalupe Posada Aguilar',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_59724'},
+    {museo:'munae',titulo:'Calaveras del montón n.º1',autor:'José Guadalupe Posada Aguilar',anio:1910,periodo:'Arte Moderno',tipo:'Grabado',file:'MUNAE_59726'},
+    {museo:'munae',titulo:'Carta abierta a Emiliano Zapata',autor:'José Guadalupe Posada Aguilar',anio:1914,periodo:'Arte Moderno',tipo:'Grabado',file:'MUNAE_59912'},
+    {museo:'munae',titulo:'La cosecha',autor:'Leopoldo Méndez',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_6588'},
+    {museo:'munae',titulo:'El mezquital',autor:'Adolfo Mexiac',anio:1957,periodo:'Arte Contemporáneo',tipo:'Grabado',file:'MUNAE_7506'},
+    {museo:'munae',titulo:'Desnudo n.º3',autor:'Fernando Castro Pacheco',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAE_7856'},
+    {museo:'munae',titulo:'"Las Sabinas" según J. L David a/p',autor:'Arnold Belkin',anio:1975,periodo:'Arte Contemporáneo',tipo:'Grabado',file:'MUNAE_950'},
+    {museo:'munal',titulo:'La Molendera',autor:'Diego Rivera',anio:1924,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_11920'},
+    {museo:'munal',titulo:'Sin Título (Probable detalle de la Catedral de Puebla) No. 1',autor:'Everardo Rivera',anio:1978,periodo:'Arte Contemporáneo',tipo:'Fotografía',file:'MUNAL_11970'},
+    {museo:'munal',titulo:'Sin Título (detalle de la Catedral de Puebla) No. 3',autor:'Everardo Rivera',anio:1978,periodo:'Arte Contemporáneo',tipo:'Fotografía',file:'MUNAL_11994'},
+    {museo:'munal',titulo:'La Cubanita, Colección de Canciones para 1893',autor:'José Guadalupe Posada',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAL_12005'},
+    {museo:'munal',titulo:'San Sebastián',autor:'Felipe Valero',anio:1857,periodo:'Siglo XIX',tipo:'Escultura',file:'MUNAL_12861'},
+    {museo:'munal',titulo:'La Oca, Juego Divertido',autor:'José Guadalupe Posada',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAL_13356'},
+    {museo:'munal',titulo:'Colección de Canciones Modernas para 1896, Los lagartijos',autor:'José Guadalupe Posada',anio:1896,periodo:'Siglo XIX',tipo:'Grabado',file:'MUNAL_13447'},
+    {museo:'munal',titulo:'Cerro de Guadalupe en Guerrero',autor:'José María Velasco',anio:1873,periodo:'Siglo XIX',tipo:'Pintura',file:'MUNAL_13727'},
+    {museo:'munal',titulo:'Pagando la Manda',autor:'Alberto Garduño',anio:1922,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_13858'},
+    {museo:'munal',titulo:'La Nube',autor:'Gerardo Murillo Coronado',anio:1931,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_14333'},
+    {museo:'munal',titulo:'Sirena Tocando la Guitarra',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_14361'},
+    {museo:'munal',titulo:'Olla',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_14519'},
+    {museo:'munal',titulo:'Olla',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_14534'},
+    {museo:'munal',titulo:'Platón',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_14649'},
+    {museo:'munal',titulo:'Máscara de Hombre',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_14779'},
+    {museo:'munal',titulo:'Máscara de Hombre',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_14826'},
+    {museo:'munal',titulo:'Máscara de demonio',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_14856'},
+    {museo:'munal',titulo:'El Senado de Tlaxcala',autor:'Rodrigo Gutiérrez',anio:1875,periodo:'Siglo XIX',tipo:'Pintura',file:'MUNAL_15239'},
+    {museo:'munal',titulo:'La Cazadora de Los Andes',autor:'Felipe Santiago Gutiérrez',anio:1891,periodo:'Siglo XIX',tipo:'Pintura',file:'MUNAL_15256'},
+    {museo:'munal',titulo:'El Sueño del Mártir',autor:'José María Ibarrán y Ponce',anio:1877,periodo:'Siglo XIX',tipo:'Pintura',file:'MUNAL_15310'},
+    {museo:'munal',titulo:'El Puente de San Antonio en el Camino de San Ángel, Junto a Panzacola',autor:'Eugenio Landesio',anio:1855,periodo:'Siglo XIX',tipo:'Pintura',file:'MUNAL_15436'},
+    {museo:'munal',titulo:'El Árbol Genealógico de San Basilio',autor:'Autor sin identificar (Siglo XVIII)',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MUNAL_15515'},
+    {museo:'munal',titulo:'Ex-Voto',autor:'Autor sin identificar',anio:1917,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_15550'},
+    {museo:'munal',titulo:'Santo Domingo. Copia Original',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Fotografía',file:'MUNAL_15968'},
+    {museo:'munal',titulo:'El descubrimiento del Pulque',autor:'José María Obregón',anio:1869,periodo:'Siglo XIX',tipo:'Pintura',file:'MUNAL_16095'},
+    {museo:'munal',titulo:'Muerte con Sandía',autor:'Jesús Reyes Ferreria',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MUNAL_16623'},
+    {museo:'munal',titulo:'El Rapto de las Sabinas',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MUNAL_16670'},
+    {museo:'munal',titulo:'Mexican Folkways. Mexico City. Toor, Frances Editor. Rivera, Diego art Editor. No. 1 Vol. 4.',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAL_16904'},
+    {museo:'munal',titulo:'Cocina Poblana',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MUNAL_16930'},
+    {museo:'munal',titulo:'Danza del Xóchitl Pitzahuac',autor:'Ramón Cano Manilla',anio:1930,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_17130'},
+    {museo:'munal',titulo:'La Purísima Concepción con Jesuitas',autor:'Juan Francisco de Aguilera',anio:1720,periodo:'Arte Colonial',tipo:'Pintura',file:'MUNAL_17699'},
+    {museo:'munal',titulo:'Fuentes Brotantes (Fuentes Brotantes en Otoño)',autor:'Joaquín Clausell',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MUNAL_19399'},
+    {museo:'munal',titulo:'Al amanecer labores',autor:'Ezequiel Negrete Lira',anio:1955,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MUNAL_29013'},
+    {museo:'munal',titulo:'La Muerte de Bernardina Madrueño',autor:'Autor sin identificar',anio:1852,periodo:'Siglo XIX',tipo:'Pintura',file:'MUNAL_34919'},
+    {museo:'munal',titulo:'Naturaleza Muerta con Sandía',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MUNAL_35148'},
+    {museo:'munal',titulo:'Sin Título',autor:'Roberto Guardia Berdecio',anio:1941,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_35406'},
+    {museo:'munal',titulo:'María Asúnsolo',autor:'Manuel Álvarez Bravo',anio:null,periodo:'Sin fecha',tipo:'Fotografía',file:'MUNAL_36585'},
+    {museo:'munal',titulo:'Mexican Folkways. Mexico City. Toor, Frances Editor. Charlot, Jean art Editor. No. 2 Vol. 1.',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Grabado',file:'MUNAL_4297'},
+    {museo:'munal',titulo:'Platón',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_52095'},
+    {museo:'munal',titulo:'Alhajero',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_52099'},
+    {museo:'munal',titulo:'Cuadro',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_52195'},
+    {museo:'munal',titulo:'Máscara',autor:'Autor sin identificar',anio:null,periodo:'Sin fecha',tipo:'Artes decorativas',file:'MUNAL_52234'},
+    {museo:'munal',titulo:'Carmela Duarte en Su estudio de Roma',autor:'Autor sin identificar',anio:1894,periodo:'Siglo XIX',tipo:'Fotografía',file:'MUNAL_53944'},
+    {museo:'munal',titulo:'Estudio del Modelo al Natural, Mujer',autor:'Fidencio Lucano Nava',anio:null,periodo:'Sin fecha',tipo:'Dibujo',file:'MUNAL_59291'},
+    {museo:'mam',titulo:'Naturaleza muerta (con cepillo de dientes)',autor:'Izquierdo, María',anio:null,periodo:'Sin fecha',tipo:'Pintura',file:'MAM_13061',img:'Img/obras/_sin-imagen.svg'},
+    {museo:'munal',titulo:'Mis sobrinas',autor:'Izquierdo, María',anio:1940,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_15404',img:'Img/obras/_sin-imagen.svg'},
+    {museo:'munal',titulo:'Adán y Eva',autor:'Izquierdo, María',anio:1945,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_15417',img:'Img/obras/_sin-imagen.svg'},
+    {museo:'munal',titulo:'Retrato de María Asúnsolo (retrato de María Asúnsolo con caracol)',autor:'Izquierdo, María',anio:1942,periodo:'Arte Moderno',tipo:'Pintura',file:'MUNAL_15412',img:'Img/obras/_sin-imagen.svg'},
+    {museo:'munal',titulo:'Alacena (viernes de juguetería)',autor:'Izquierdo, María',anio:1952,periodo:'Arte Contemporáneo',tipo:'Pintura',file:'MUNAL_15421',img:'Img/obras/_sin-imagen.svg'},
+    {museo:'mam',titulo:'Proyecto escalera monumental departamento central',autor:'Izquierdo, María',anio:1945,periodo:'Arte Moderno',tipo:'Grabado',file:'MAM_54818',img:'Img/obras/_sin-imagen.svg'},
+    {museo:'mam',titulo:'Niñas durmiendo',autor:'Izquierdo, María',anio:1932,periodo:'Arte Moderno',tipo:'Pintura',file:'MAM_13062',img:'Img/obras/_sin-imagen.svg'}
+  ];
+  {
+    const kept=OBRAS.filter(o=>!REAL_SLUGS.includes(o.museo));
+    OBRAS.length=0;
+    OBRAS.push(...kept);
+    REAL_OBRAS.forEach(o=>{ uid++; OBRAS.push(Object.assign({id:uid},o)); });
+  }
 
   /* ---------------- CARGA DEL ACERVO ---------------- */
   const params=new URLSearchParams(location.search);
@@ -469,7 +637,14 @@
   document.getElementById('curTitle').textContent=m.cur.t;
   document.getElementById('curIntro').textContent=m.cur.i;
   document.getElementById('curMeta').textContent=`${m.cur.n} obras · ${m.cur.by}`;
-  paintRecinto(document.getElementById('curCanvas'),m.color,23);
+  const curVis=document.getElementById('curVis');
+  const bandImg=m.curBand||(m.curImages&&m.curImages[0]);
+  if(bandImg){
+    curVis.insertAdjacentHTML('afterbegin',`<picture><source srcset="Img/obras/${bandImg.file}.webp" type="image/webp"><img src="Img/obras/${bandImg.file}.jpg" alt="${bandImg.alt}"></picture>`);
+  } else {
+    curVis.insertAdjacentHTML('afterbegin','<canvas id="curCanvas"></canvas>');
+    paintRecinto(document.getElementById('curCanvas'),m.color,23);
+  }
   renderCurMore(m);
   buildCFilters();
   renderCollection();
@@ -559,7 +734,7 @@
     const artistas=[...new Set(misObras.map(o=>o.autor))].sort((a,b)=>a.localeCompare(b));
     makeCombo('comboAutor',artistas,cState.autores,()=>{cState.page=1;renderCollection();});
 
-    const YEAR_MIN=1900,YEAR_MAX=2026;
+    const YEAR_MIN=1400,YEAR_MAX=2026;
     const fromSel=document.getElementById('cYearFrom'),toSel=document.getElementById('cYearTo');
     fromSel.innerHTML='<option value="">Desde</option>';toSel.innerHTML='<option value="">Hasta</option>';
     for(let y=YEAR_MIN;y<=YEAR_MAX;y++){fromSel.appendChild(new Option(y,y));}
@@ -637,9 +812,14 @@
     const start=(cState.page-1)*PER_PAGE;
     list.slice(start,start+PER_PAGE).forEach((o,idx)=>{
       const card=document.createElement('div');card.className='card';
-      card.innerHTML=`<div class="art"><span class="tag">${o.tipo}</span><canvas></canvas></div>
-        <div class="meta"><b>${o.titulo}</b><div class="au">${o.autor}</div><div class="yr">${o.anio}</div></div>`;
-      grid.appendChild(card);paintArt(card.querySelector('canvas'),o);
+      const artHtml=o.file
+        ? `<picture>${o.img?'':`<source srcset="${IMG_DIR}${o.file}.webp" type="image/webp">`}<img src="${o.img?o.img:IMG_DIR+o.file+'.jpg'}" alt="${o.titulo} — ${o.autor}" loading="lazy"></picture>`
+        : `<canvas></canvas>`;
+      card.innerHTML=`<div class="art"><span class="tag">${o.tipo}</span>${artHtml}</div>
+        <div class="meta"><b>${o.titulo}</b><div class="au">${o.autor}</div><div class="yr">${o.anio==null?'S/F':o.anio}</div></div>`;
+      grid.appendChild(card);
+      if(!o.file) paintArt(card.querySelector('canvas'),o);
+      card.onclick=()=>{ if(o.file) location.href='detalle-obra.html?obra='+o.file; };
       requestAnimationFrame(()=>setTimeout(()=>card.classList.add('in'),idx*30));
     });
     renderPagination(pageCount);
@@ -648,7 +828,8 @@
   window.addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(()=>{
     const heroCanvas=document.getElementById('mHeroCanvas');
     if(heroCanvas) paintRecinto(heroCanvas,m.color,11);
-    paintRecinto(document.getElementById('curCanvas'),m.color,23);
+    const curCanvas=document.getElementById('curCanvas');
+    if(curCanvas) paintRecinto(curCanvas,m.color,23);
     renderCollection();
   },250);});
 

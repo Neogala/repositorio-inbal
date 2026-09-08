@@ -362,7 +362,7 @@
         <span class="access-card__cta"><span>Explorar</span><i>→</i></span>
       </span>
     </a>
-    <a href="#" class="access-card reveal" style="--card-rgb:30,92,59">
+    <a href="curadurias.html" class="access-card reveal" style="--card-rgb:30,92,59">
       <span class="access-card__bg"><picture><source srcset="Img/obras/MAM_19154.webp" type="image/webp"><img src="Img/obras/MAM_19154.jpg" alt="Autorretrato, Rosa Rolanda de Covarrubias" loading="lazy"></picture></span>
       <span class="access-card__veil"></span>
       <span class="access-card__body">
@@ -505,6 +505,9 @@
       <div class="elastic-collapsed"><span class="elastic-vertical">Museo Nacional de Arquitectura</span><span class="elastic-short">09 · MNARQ</span></div>
     </a>
   </div>
+  <div style="text-align:center;margin-top:40px">
+    <a class="cta" href="acervos.html" style="background:var(--guinda);color:#fff">Ver todos los acervos <i>→</i></a>
+  </div>
 </div></section>
 
 <!-- ---------- RECURSOS ---------- -->
@@ -512,9 +515,9 @@
   <div class="eyebrow reveal"><span class="lbl">Para investigadores y público</span></div>
   <h2 class="h2t reveal" style="margin-bottom:34px">Recursos para investigación</h2>
   <div class="res">
-    <div class="r reveal"><div class="ic">⌕</div><h4>Búsqueda avanzada</h4><p>Cruza autor, técnica, fecha, inventario y museo con operadores booleanos. Exporta en CSV o PDF.</p></div>
-    <div class="r reveal"><div class="ic">❝</div><h4>Guía de citación</h4><p>Cita cada obra en formato APA y Chicago con un clic, con permalink permanente.</p></div>
-    <div class="r reveal"><div class="ic">◈</div><h4>Licencias y reutilización</h4><p>Metadatos abiertos bajo estándar CENCROPAM e imágenes de dominio público en alta resolución.</p></div>
+    <a class="r reveal" href="investigacion.html#busqueda"><div class="ic">⌕</div><h4>Búsqueda avanzada</h4><p>Cruza autor, técnica, fecha, inventario y museo con operadores booleanos. Exporta en CSV o PDF.</p></a>
+    <a class="r reveal" href="investigacion.html#citacion"><div class="ic">❝</div><h4>Guía de citación</h4><p>Cita cada obra en formato APA y Chicago con un clic, con permalink permanente.</p></a>
+    <a class="r reveal" href="investigacion.html#licencias"><div class="ic">◈</div><h4>Licencias y reutilización</h4><p>Metadatos abiertos bajo estándar CENCROPAM e imágenes de dominio público en alta resolución.</p></a>
   </div>
   <div class="stats">
     <div class="stat reveal"><div class="n count" data-to="70000">0</div><div class="t">Obras catalogadas</div></div>
@@ -585,7 +588,7 @@
     const arcText=document.getElementById('heroArcText');
     if(!stage||!heroSection)return;
 
-    const OBRAS=['10252','10494','12432','13157','13173','13727','24089','52814','5379','59834','8688','8712','8883','MAM_13154','MAM_18030','MAM_19154','MAM_59340','MNSC_10737','MNSC_19049','MNSC_3992','MNSC_3994','MNSC_50941','MUNAL_14333','MUNAL_16095'];
+    const OBRAS=['MAM_10252','MAM_10494','MAM_12432','MAM_13157','MAM_13173','MUNAL_13727','MUNAL_24089','MAM_52814','MNSC_5379','MAM_59834','MAM_8688','MAM_8712','MAM_8883','MAM_13154','MAM_18030','MAM_19154','MAM_59340','MNSC_10737','MNSC_19049','MNSC_3992','MNSC_3994','MNSC_50941','MUNAL_14333','MUNAL_16095'];
     const TOTAL=OBRAS.length;
     const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

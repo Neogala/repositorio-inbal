@@ -1,0 +1,84 @@
+GUION DE AUDIOGUÍA — RECORRIDO CURATORIAL
+Curaduría: «Paisaje y territorio» · Colección Digital INBAL · 2026
+Subtítulo: El paisaje como género y como identidad: una mirada al cielo, la montaña y la tierra en el acervo del INBAL.
+
+Nota de producción: los encabezados entre [corchetes] NO se leen; solo indican a qué segmento del recorrido corresponde cada audio. Se recomienda generar un archivo por segmento (00, 01, 01a, 01b, …) para que el sitio reproduzca el fragmento correcto en cada parada. Voz sugerida: español (MX o neutro), tono cálido, ritmo pausado.
+
+===================================================================
+
+[00 · BIENVENIDA]  (opcional)
+Bienvenido a «Paisaje y territorio», un recorrido curatorial de la Colección Digital INBAL. Te sugerimos avanzar sin prisa y dejar que cada obra encuentre su detalle. Comencemos.
+
+[01 · NOTA DE SALA — Una sala sin muros]
+Durante más de un siglo, los artistas mexicanos volvieron una y otra vez sobre la misma pregunta: cómo mirar la tierra que habitan. Este recorrido reúne seis obras de cuatro acervos del INBAL —el Museo Nacional de Arte, el de Arte Moderno, el de la Estampa y el de San Carlos— que hicieron del paisaje mucho más que un telón de fondo. Del cielo incandescente de Dr. Atl a la sierra tallada en madera por el grabado, el territorio aparece aquí como un sujeto vivo: a la vez objeto de estudio científico y de arrobo místico, escenario de la historia patria y refugio íntimo. No hay una sola manera de mirar el paisaje, sino muchas, y todas conviven en el acervo nacional.
+
+===================================================================
+CAPÍTULO I · EL CIELO
+===================================================================
+
+[02 · PARADA 1 — La Nube · Gerardo Murillo, Dr. Atl, 1931]
+La Nube, de Gerardo Murillo, conocido como Dr. Atl, mil novecientos treinta y uno. Dr. Atl convierte algo tan efímero como una formación de vapor en el sujeto absoluto del cuadro. La nube, monumental y casi geológica, no adorna el cielo: lo ocupa por completo, y flota sobre el valle como una presencia viva que parece respirar. Gerardo Murillo fue pintor, vulcanólogo y escritor, y esa doble mirada —la del artista y la del científico— atraviesa toda su obra: el cielo es a la vez fenómeno atmosférico y experiencia espiritual. Su obsesión por capturar la luz cambiante del paisaje mexicano lo llevó a inventar un medio propio, el Atlcolor, capaz de una intensidad luminosa que el óleo tradicional no le daba. Mira cómo la masa de vapor concentra toda la energía de la composición, mientras el valle, allá abajo, queda reducido a una franja mínima de tierra.
+
+[02a · DETALLE — La masa de vapor como sujeto]
+Fíjate en cómo Dr. Atl trabaja el volumen de la nube: no es una mancha plana, sino una arquitectura de luz con pliegues, sombras y bordes incandescentes. La pincelada gira sobre sí misma para dar la sensación de una masa que se hincha y avanza, como si el vapor tuviera peso y voluntad propia.
+
+[02b · DETALLE — El valle al pie del cielo]
+En el borde inferior, el valle apenas ocupa una franja estrecha de tierra. Esa desproporción es deliberada: al reducir el suelo al mínimo, el pintor nos obliga a levantar la vista y a entregar casi toda la superficie del cuadro al cielo, invirtiendo la jerarquía habitual del paisaje.
+
+[03 · PARADA 2 — Fuego verde en el Paricutín · Dr. Atl]
+Fuego verde en el Paricutín, de Dr. Atl. En mil novecientos cuarenta y tres, un volcán nació de la noche a la mañana en un campo de maíz michoacano. Dr. Atl —que llevaba décadas persiguiendo el fuego de la tierra— acampó durante meses al pie del Paricutín para pintarlo mientras crecía, con un riesgo que rozaba la temeridad. Aquí el paisaje deja de ser contemplación serena para volverse energía pura: lava incandescente, columnas de ceniza y ese resplandor verde imposible que da título a la obra. El Atlcolor le permite trabajar la superficie con una vibración casi fosforescente. No es un paisaje que se observa a la distancia, sino una fuerza geológica que el pintor vivió de cerca, casi como testigo de una creación del mundo.
+
+[03a · DETALLE — El resplandor de la lava]
+Acércate a la zona del cráter: el Atlcolor permite superponer capas encendidas de rojo, naranja y ese verde ácido que da nombre a la obra. La materia pictórica se vuelve casi táctil, como si conservara el calor de la lava que Dr. Atl vio correr frente a sus ojos.
+
+[04 · CONTEXTO — ¿Qué es el Atlcolor?]
+Frustrado por los límites del óleo para atrapar la luz del cielo mexicano, Gerardo Murillo inventó a inicios del siglo veinte un medio pictórico propio, al que bautizó —como a sí mismo— con la palabra náhuatl para el agua: Atlcolor. Eran barras sólidas de pigmento aglutinado con ceras y resinas que podían aplicarse casi en seco, frotarse, fundirse con calor o disolverse, sobre soportes tan diversos como el papel, la madera o el masonite. El resultado era una superficie de intensidad luminosa y textura poco habituales, capaz de sugerir el brillo del sol, el fuego de la lava o la transparencia del aire. Más que una técnica, el Atlcolor fue la herramienta con la que Dr. Atl persiguió durante toda su vida una obsesión casi imposible: pintar la atmósfera misma.
+
+===================================================================
+CAPÍTULO II · LA HISTORIA EN EL PAISAJE
+===================================================================
+
+[05 · PARADA 3 — El descubrimiento del Pulque · José María Obregón, 1869]
+El descubrimiento del Pulque, de José María Obregón, mil ochocientos sesenta y nueve. En la pintura académica del siglo diecinueve, el paisaje casi nunca aparece solo: es el escenario donde se representa la historia de la nación que se estaba inventando a sí misma. José María Obregón sitúa aquí un mito fundacional —el hallazgo del pulque y su ofrenda al soberano— en un entorno cuidadosamente idealizado, con arquitectura, vegetación y luz al servicio del relato. La naturaleza no es la protagonista, pero tampoco es neutra: ordena la composición, jerarquiza a los personajes y dignifica la escena, dándole a un origen prehispánico la solemnidad de la gran pintura de historia europea. Observa cómo el grupo de figuras se recorta contra el paisaje como sobre un telón teatral.
+
+[05a · DETALLE — Las figuras y su entorno]
+Observa cómo el grupo de personajes se dispone en friso, recortado contra la arquitectura y la vegetación. Cada gesto, cada mirada y cada objeto están calculados para narrar con claridad la escena, según las reglas de la pintura académica de historia que Obregón aprendió en la Academia de San Carlos.
+
+[06 · CITA]
+El paisaje no es un fondo: es el sujeto que aprende a mirarse a sí mismo.
+
+===================================================================
+CAPÍTULO III · LA LÍNEA Y LA TIERRA
+===================================================================
+
+[07 · PARADA 4 — El mil cumbres · Carlos Alvarado Lang, 1951]
+El mil cumbres, de Carlos Alvarado Lang, mil novecientos cincuenta y uno. El grabado obliga a traducir todo el color y la atmósfera del paisaje a un lenguaje elemental: línea, mancha y contraste. En esta vista de la sierra, Carlos Alvarado Lang construye profundidad y distancia sin un solo tono intermedio, solo con la tensión entre el blanco del papel y el negro de la tinta. Cada cumbre es literalmente un ritmo tallado en la madera, un gesto físico del buril que el artista no puede corregir. La xilografía convierte el territorio en una partitura visual, y nos recuerda que el paisaje mexicano no solo se pintó: también se imprimió y se multiplicó, para circular más allá de los muros del museo.
+
+[07a · DETALLE — El ritmo de las cumbres]
+Detente en la sucesión de montañas hacia el fondo: sin recurrir a un solo gris, Alvarado Lang crea distancia solo alternando planos de negro macizo y blanco luminoso. La profundidad no es óptica sino gráfica, construida por el ritmo de los cortes del buril sobre la madera.
+
+[08 · PARADA 5 — El mezquital · Adolfo Mexiac, 1957]
+El mezquital, de Adolfo Mexiac, mil novecientos cincuenta y siete. El territorio nunca es solo geografía: también es un espacio social, trabajado y habitado. Adolfo Mexiac, heredero de la tradición del Taller de Gráfica Popular, graba el mezquital no como una postal pintoresca sino como un paisaje vivido, donde la tierra árida del altiplano y la vida cotidiana de quienes la habitan aparecen entrelazadas. La aspereza del linóleo y del blanco y negro refuerza esa dureza: aquí el paisaje tiene textura de trabajo y de resistencia. En la gráfica mexicana del siglo veinte, mirar la tierra fue muchas veces también una manera de mirar a su gente.
+
+[08a · DETALLE — El primer plano habitado]
+En el primer término aparecen las huellas de la vida: vegetación seca, senderos y una presencia humana apenas sugerida. Mexiac no separa el paisaje de quienes lo trabajan; la aspereza del grabado es también un modo de dar dignidad a un territorio y a su gente.
+
+[09 · CITA]
+Cada cumbre es un ritmo tallado en la madera.
+
+===================================================================
+CAPÍTULO IV · EL HORIZONTE
+===================================================================
+
+[10 · PARADA 6 — Paisaje (copia Gedovius) · Germán Gedovius, 1908]
+Paisaje, copia de Gedovius, mil novecientos ocho. Para cerrar, un paisaje de pura atmósfera y horizonte. Germán Gedovius, formado entre México y Europa, trabaja aquí con la sensibilidad tonal del simbolismo, donde importa menos el detalle topográfico que el estado de ánimo de la luz. Que esta obra se resguarde en el Museo Nacional de San Carlos —la casa del arte europeo en México— no es casual: nos recuerda que la manera en que aprendimos a mirar y a pintar nuestro territorio pasó siempre por un diálogo con otras tradiciones. Mirar el paisaje, al final del recorrido, es también mirar la larga historia de cómo aprendimos a representarlo.
+
+[10a · DETALLE — El horizonte y la luz]
+Todo el sentido de la obra se juega en la línea del horizonte y en la gradación de la luz. Gedovius disuelve el detalle en atmósfera: importa menos qué vemos que cómo se siente esa hora del día, en la mejor tradición del simbolismo tonal.
+
+===================================================================
+
+[11 · NOTA CURATORIAL — Cierre]
+Mirar el paisaje es también mirar cómo aprendimos a mirarlo. Cada obra de este recorrido propone una gramática distinta para nombrar el territorio —la atmósfera incandescente de Dr. Atl, la línea tallada del grabado, el paisaje como escenario de la historia, el horizonte tonal de la pintura moderna— y, sin embargo, todas coinciden en una misma intuición: el territorio no se contempla desde afuera, como un objeto ajeno, sino que se habita, se trabaja y se sueña desde dentro. En el acervo del INBAL, ese habitar toma forma de nube monumental, de lava en erupción, de sierra impresa y de campo labrado, repartido entre museos y técnicas que rara vez se muestran juntos. Reunirlos en un solo recorrido es también proponer una lectura: la de un país que, a lo largo de más de un siglo, no dejó de preguntarse qué significa pertenecer a su tierra. Ojalá salgas de aquí con la mirada un poco más despierta hacia el paisaje que te rodea todos los días.
+
+Fin del recorrido. Curaduría INBAL, 2026.
