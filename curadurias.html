@@ -232,9 +232,9 @@
 <script>
   /* ---------------- DATOS DE CURADURÍAS ---------------- */
   const CUR=[
-    {id:'mujer-arte',titulo:'La mujer en el arte mexicano',acervo:'Cruzada',tema:'Género',curador:'A. Torres',n:18,destacada:true,
-      cover:'Img/mujer-arte-mexicano',webp:true,
-      intro:'Un recorrido por cuatro siglos y varios acervos: la mujer como creadora y como imagen, de la Nueva España al arte contemporáneo.'},
+    {id:'mujer-arte',titulo:'La mujer en el arte mexicano',acervo:'Cruzada',tema:'Género',curador:'Curaduría INBAL',n:8,destacada:true,
+      cover:'Img/mujer-arte-mexicano',heroCover:'Img/obras/MAM_13157',webp:true,href:'curaduria_mujer.html',
+      intro:'De la musa a la autora: la mujer como creadora —Frida Kahlo, Remedios Varo— y como imagen y símbolo en el arte moderno de México.'},
     {id:'dr-atl',titulo:'Dr. Atl: cielo y volcanes',acervo:'MUNAL',tema:'Paisaje',curador:'Curaduría MUNAL',n:10,
       cover:'Img/obras/MUNAL_14333',heroCover:'Img/obras/MAM_8712',webp:true,href:'curaduria_atl.html',
       intro:'La obsesión de Gerardo Murillo por la atmósfera y la energía del paisaje mexicano, del Atlcolor a la nube monumental.'},
@@ -291,7 +291,7 @@
           <p>${d.intro}</p>
           <span class="meta">${d.n} obras · ${d.curador} · Tema: ${d.tema}</span>
           <div class="ctas">
-            <a class="cta" href="#">Entrar a la curaduría <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a class="cta" href="${d.href||'#'}">Entrar a la curaduría <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </div>
         <div class="collage">

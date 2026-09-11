@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recorrido — Colección Digital INBAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --guinda:#1e5b4f; --guinda-900:#1E5C3B;
+    --verde:#1e5b4f; --verde-900:#1E5C3B;
+    --oro:#8DC2B7; --arena:#DBD3B6;
+    --tinta:#211a1c; --gris:#6f6a66;
+    --linea:#e8e3da; --papel:#ffffff; --papel-2:#faf7f2;
+    --display:"Fraunces",Georgia,serif;
+    --sans:"Noto Sans",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);font-weight:500}
+
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);padding:13px 0}
+  .nav{display:flex;align-items:center;gap:30px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--sans);font-size:19px;font-weight:500;color:var(--guinda)}
+  .logo-wrap{position:relative;width:81px;height:29px;flex:none}
+  .logo-wrap .logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:brightness(0)}
+  .brand-sep{width:1px;height:20px;background:var(--linea);flex:none}
+  .brand-text{font-style:italic;font-weight:700}
+  .menu{margin-left:auto;display:flex;gap:26px}
+  .menu a{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);position:relative;padding:4px 0}
+  .menu a.active{color:var(--guinda)}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--guinda);transition:width .35s var(--ease)}
+  .menu a:hover::after,.menu a.active::after{width:100%}
+  .menu-toggle{all:unset;box-sizing:border-box;display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;cursor:pointer;flex:none}
+  .menu-toggle span{display:block;width:20px;height:2px;background:var(--tinta);margin:0 auto}
+  @media(max-width:900px){ .menu{display:none} .menu-toggle{display:flex} }
+
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--oro);z-index:120;transition:width .1s linear}
+
+  /* ---------- PORTADA ---------- */
+  .cover{position:relative;min-height:calc(100vh - 56px);display:flex;align-items:flex-end;overflow:hidden}
+  .cover>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .cover .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,20,18,.28),rgba(0,20,18,.35) 45%,rgba(30,92,59,.92) 100%)}
+  .cover .in{position:relative;z-index:2;color:#fff;padding:0 0 116px}
+  .cover .in .lbl{color:var(--arena)}
+  .cover h1{font-family:var(--display);font-weight:500;font-size:clamp(38px,6.4vw,84px);line-height:.98;letter-spacing:-.02em;margin:12px 0 14px;max-width:16ch}
+  .cover .sub{font-size:16px;color:rgba(255,255,255,.92);max-width:52ch}
+  .cover .facts{margin-top:18px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--arena)}
+  .cover .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:26px}
+  .cover .start{display:inline-flex;align-items:center;gap:10px;background:var(--arena);color:var(--verde-900);padding:14px 26px;border-radius:40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border:none;transition:.3s var(--ease)}
+  .cover .start:hover{background:#fff;gap:14px}
+  .cover .start.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+  .cover .start.ghost:hover{background:rgba(255,255,255,.12)}
+  .scrollcue{position:absolute;right:40px;bottom:92px;z-index:2;color:rgba(255,255,255,.8);font-size:10px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scrollcue::after{content:"";width:1px;height:34px;background:linear-gradient(var(--arena),transparent);animation:cue 1.8s ease-in-out infinite}
+  @keyframes cue{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(.2);transform-origin:bottom}}
+
+  /* ---------- NOTA DE SALA (intro) ---------- */
+  .nota-sala{padding:80px 0;border-bottom:1px solid var(--linea)}
+  .nota-sala .in{max-width:60ch}
+  .nota-sala h2{font-family:var(--display);font-weight:500;font-size:clamp(24px,3.2vw,38px);line-height:1.15;margin:10px 0 14px}
+  .nota-sala p{font-size:16px;color:var(--tinta)}
+
+  /* ---------- DIVISOR DE CAPÍTULO ---------- */
+  .ch-divider{padding:70px 0 26px;display:flex;align-items:baseline;gap:20px}
+  .ch-divider .ch-num{font-family:var(--display);font-style:italic;color:var(--oro);font-size:clamp(30px,4vw,56px);line-height:1}
+  .ch-divider h2{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.6vw,46px);letter-spacing:-.01em}
+
+  /* ---------- SCROLLYTELLING ---------- */
+  .tour{display:grid;grid-template-columns:56% 44%;gap:0;align-items:start;position:relative}
+  .tour-media{position:sticky;top:56px;height:calc(100vh - 56px);display:flex;align-items:center;justify-content:center;background:var(--verde-900);overflow:hidden}
+  .frame{position:relative;width:100%;height:100%;overflow:hidden}
+  .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease),opacity .35s ease;will-change:transform}
+  .caption{position:absolute;left:22px;bottom:20px;z-index:3;background:rgba(0,20,18,.55);color:#fff;font-size:12px;letter-spacing:.02em;padding:8px 14px;border-radius:20px;max-width:70%;backdrop-filter:blur(4px)}
+  .medlabel{position:absolute;right:18px;top:16px;z-index:3;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--arena)}
+  .tour-steps{padding:0 0 0 6%}
+  .beat{min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding:40px 0;scroll-margin-top:80px}
+  .beat .num{font-family:var(--display);color:var(--oro);font-size:14px;letter-spacing:.04em}
+  .beat h3{font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,38px);line-height:1.06;margin:8px 0 4px}
+  .beat .au{font-style:italic;color:var(--gris);font-size:14px;margin-bottom:16px}
+  .beat p{font-size:15.5px;max-width:46ch;color:var(--tinta)}
+  .beat.detail p{color:var(--gris);font-size:14.5px}
+  .beat .ficha-link{margin-top:18px;font-size:12px;letter-spacing:.06em;color:var(--guinda);display:inline-flex;gap:8px;transition:gap .3s}
+  .beat .ficha-link:hover{gap:12px}
+  .beat .det-badge{display:inline-block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--oro);border:1px solid var(--linea);border-radius:20px;padding:4px 10px;margin-bottom:12px;width:fit-content}
+  .beat.detail .dt-h{font-family:var(--display);font-weight:500;font-size:clamp(20px,2.4vw,28px);line-height:1.1;margin-bottom:8px;color:var(--tinta)}
+
+  /* ---------- INTERLUDIOS ---------- */
+  .interludio{padding:76px 0}
+  .interludio.quote{background:var(--papel-2);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);text-align:center}
+  .interludio.quote p{font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(24px,3.4vw,40px);line-height:1.25;max-width:22ch;margin:0 auto;color:var(--guinda-900)}
+  .interludio.quote span{display:block;margin-top:16px;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris)}
+  .interludio.context .ctx{max-width:62ch;border-left:3px solid var(--oro);padding-left:24px}
+  .interludio.context h3{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.8vw,32px);margin:6px 0 12px}
+  .interludio.context p{font-size:15.5px;color:var(--tinta)}
+
+  /* ---------- CIERRE (nota curatorial) ---------- */
+  .closing{padding:90px 0 40px;background:var(--verde-900);color:#fff}
+  .closing .in{max-width:64ch}
+  .closing .lbl{color:var(--arena)}
+  .closing h3{font-family:var(--display);font-weight:500;font-size:clamp(28px,3.6vw,46px);line-height:1.08;margin:12px 0 16px}
+  .closing p{font-size:16px;color:rgba(255,255,255,.9)}
+  .closing .sig{margin-top:18px;font-style:italic;color:var(--arena)}
+  .closing .cta{display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:var(--arena);color:var(--verde-900);padding:13px 24px;border-radius:40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:.3s var(--ease)}
+  .closing .cta:hover{background:#fff;gap:14px}
+  .credits{background:var(--verde-900);color:#fff;padding:10px 0 70px}
+  .credits .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.2);padding-top:26px}
+  .credits h5{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--arena);margin-bottom:8px}
+  .credits p{font-size:13px;color:rgba(255,255,255,.85)}
+
+  .rel{padding:60px 0 90px}
+  .rel h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);margin-bottom:18px}
+  .relgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+  .relcard{border:1px solid var(--linea);border-radius:12px;overflow:hidden;transition:.3s var(--ease)}
+  .relcard:hover{border-color:var(--oro);transform:translateY(-4px)}
+  .relcard img{width:100%;height:150px;object-fit:cover}
+  .relcard .b{padding:16px 18px}
+  .relcard .b b{font-family:var(--display);font-weight:500;font-size:18px}
+  .relcard .b span{font-size:12px;color:var(--gris)}
+
+  .backbar{margin:20px 0 4px}
+  .back{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--guinda);cursor:pointer;background:none;border:none}
+  .back:hover{gap:12px}
+  footer{background:var(--guinda-900);color:#fff;padding:40px 0}
+  .fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#fff;font-size:12px}
+
+  /* ---------- HUD ---------- */
+  .hud{position:fixed;left:0;right:0;bottom:20px;z-index:90;display:flex;justify-content:center;pointer-events:none}
+  .hud-in{pointer-events:auto;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border:1px solid var(--linea);border-radius:40px;padding:7px 8px 7px 16px;box-shadow:0 12px 30px -16px rgba(0,0,0,.45);flex-wrap:wrap;max-width:94vw;justify-content:center}
+  .hud .cnt{font-size:13px;color:var(--tinta)}.hud .cnt b{color:var(--guinda)}
+  .hud .sep{width:1px;height:20px;background:var(--linea)}
+  .hud .idxbtn{border:none;background:none;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);cursor:pointer}
+  .hud .idxbtn:hover{color:var(--guinda)}
+  .hud .ic{all:unset;box-sizing:border-box;height:36px;min-width:36px;padding:0 10px;border-radius:20px;border:1px solid var(--linea);display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;color:var(--tinta);font-size:12px;letter-spacing:.06em;text-transform:uppercase;transition:.25s}
+  .hud .ic:hover{border-color:var(--guinda);color:var(--guinda)}
+  .hud .ic.on{background:var(--guinda);color:#fff;border-color:var(--guinda)}
+  .hud .ic svg{width:16px;height:16px}
+  .hud .nav-b{all:unset;box-sizing:border-box;width:36px;height:36px;border-radius:50%;border:1px solid var(--linea);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--tinta);transition:.25s}
+  .hud .nav-b:hover{background:var(--guinda);color:#fff;border-color:var(--guinda)}
+
+  .index{position:fixed;inset:0;z-index:150;opacity:0;pointer-events:none;transition:opacity .3s}
+  .index.open{opacity:1;pointer-events:auto}
+  .index .bd{position:absolute;inset:0;background:rgba(0,20,18,.55);backdrop-filter:blur(3px)}
+  .index .panel{position:absolute;right:0;top:0;bottom:0;width:min(90vw,420px);background:var(--papel);transform:translateX(100%);transition:transform .35s var(--ease);padding:28px;overflow:auto}
+  .index.open .panel{transform:none}
+  .index h3{font-family:var(--display);font-weight:500;font-size:24px;margin-bottom:6px}
+  .index .cl{position:absolute;right:20px;top:20px;background:none;border:none;font-size:22px;color:var(--gris);cursor:pointer}
+  .index .ch-h{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--oro);margin:16px 0 4px}
+  .index a{display:flex;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--linea)}
+  .index a img{width:56px;height:44px;object-fit:cover;border-radius:4px;flex:none}
+  .index a .t{font-family:var(--display);font-weight:500;font-size:16px}
+  .index a .m{font-size:12px;color:var(--gris)}
+  .index a .n{margin-left:auto;font-family:var(--display);color:var(--oro);font-size:13px}
+
+  .toast{position:fixed;left:50%;bottom:78px;transform:translateX(-50%) translateY(20px);background:var(--tinta);color:#fff;font-size:13px;padding:11px 18px;border-radius:30px;opacity:0;pointer-events:none;transition:.35s var(--ease);z-index:300}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:860px){
+    .tour{grid-template-columns:1fr}
+    .tour-media{height:44vh;top:56px}
+    .tour-steps{padding:0 20px}
+    .beat{min-height:70vh;padding:30px 0}
+    .hud .idxbtn,.hud .ic{font-size:0}
+    .hud .ic{padding:0;min-width:36px}
+    .scrollcue{display:none}
+    .cover .in{padding-bottom:180px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important}
+    .frame img{transition:opacity .2s ease!important;transform:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo-wrap"><img class="logo" src="Img/logo-guinda.png" alt="INBAL"></span><span class="brand-sep"></span><span class="brand-text">Colección digital</span></a>
+    <nav class="menu">
+      <a href="colecciones.html">Obras</a><a href="acervos.html">Acervos</a><a href="#">Fondos</a><a href="curadurias.html" class="active">Curadurías</a><a href="investigacion.html">Investigación</a>
+    </nav>
+    <button type="button" class="menu-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="wrap backbar">
+  <button class="back" onclick="history.length>1?history.back():location.href='curadurias.html'">← Volver a Curadurías</button>
+</div>
+
+<!-- PORTADA -->
+<section class="cover" id="cover">
+  <img id="coverImg" src="" alt="">
+  <div class="ov"></div>
+  <div class="wrap in">
+    <span class="lbl" id="cLbl">Recorrido curatorial</span>
+    <h1 id="cTitulo"></h1>
+    <p class="sub" id="cSub"></p>
+    <div class="facts" id="cFacts"></div>
+    <div class="actions">
+      <button class="start" id="startBtn">Comenzar el recorrido →</button>
+      <button class="start ghost" id="startAudio">▶ Comenzar con música y audioguía</button>
+    </div>
+  </div>
+  <div class="scrollcue">Desliza</div>
+</section>
+
+<div id="flow"></div>
+
+<footer><div class="wrap fbot">
+  <span>© 2026 Instituto Nacional de Bellas Artes y Literatura · Secretaría de Cultura · Gobierno de México</span>
+  <span>Colección Digital INBAL</span>
+</div></footer>
+
+<!-- HUD -->
+<div class="hud"><div class="hud-in">
+  <span class="cnt"><b id="curNum">01</b> / <span id="totNum">00</span></span>
+  <button class="idxbtn" id="idxBtn">Índice</button>
+  <span class="sep"></span>
+  <button class="ic" id="musicBtn" aria-label="Música"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>Música</span></button>
+  <button class="ic" id="audioBtn" aria-label="Audioguía"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h4l5 4V6L7 10H3z"/><path d="M16 8a5 5 0 0 1 0 8"/></svg><span>Audioguía</span></button>
+  <span class="sep"></span>
+  <button class="nav-b" id="prevBtn" aria-label="Anterior">↑</button>
+  <button class="nav-b" id="nextBtn" aria-label="Siguiente">↓</button>
+</div></div>
+
+<div class="index" id="index"><div class="bd" data-ixclose></div>
+  <div class="panel">
+    <button class="cl" id="idxClose" aria-label="Cerrar">✕</button>
+    <span class="lbl">Recorrido</span><h3 id="idxTitle"></h3>
+    <div id="idxList" style="margin-top:6px"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<audio id="musicEl" src="Audios/curaduria_mujer/music.mp3" loop preload="none"></audio>
+<audio id="guideEl" src="Audios/curaduria_mujer/audioguia.mp3" preload="none"></audio>
+
+<script>
+  const IMG=f=>'Img/obras/'+f+'.jpg';
+  /* ---------------- CURADURÍA DE EJEMPLO ---------------- */
+  const CURADURIAS={
+    "mujer-arte":{
+      titulo:"La mujer en el arte mexicano",
+      subtitulo:"De la musa a la autora: dos miradas que se cruzan sobre la mujer en el arte moderno de México.",
+      curador:"Curaduría INBAL", fecha:"2026",
+      intro:{titulo:"Doble mirada",
+        texto:"¿Quién mira y quién es mirada? Esta curaduría reúne obras de los acervos del INBAL para seguir el papel de la mujer en el arte moderno mexicano por dos caminos que terminan por cruzarse: el de la mujer como creadora —Frida Kahlo, Remedios Varo— y el de la mujer como imagen y símbolo en manos de otros artistas. De los autorretratos que convirtieron el dolor en lenguaje a los estudios académicos del cuerpo, el recorrido propone mirar juntas ambas tradiciones y preguntarnos qué significa, en el arte, tomar la palabra. Activa la música y la audioguía y avanza sin prisa."},
+      closing:{titulo:"Nota curatorial",
+        texto:"Recorrer «La mujer en el arte mexicano» es seguir un desplazamiento: de la mujer como imagen —madre, musa, modelo, alegoría de la patria— a la mujer como autora que se pinta a sí misma y nombra su propio mundo. Frida Kahlo y Remedios Varo no pidieron permiso para ser el centro de su obra; convirtieron el cuerpo, el sueño y el dolor en materia de creación. Frente a ellas, las imágenes de mujeres pintadas o grabadas por hombres nos recuerdan cuánto tiempo el arte habló de la mujer sin dejarla hablar. Esta sala reúne ambas orillas no para oponerlas, sino para mostrar el trayecto —todavía en curso— hacia un arte donde la mujer es, al mismo tiempo, quien mira y quien es mirada.",
+        sig:"— Curaduría INBAL, 2026"},
+      credits:{textos:"Textos curatoriales de muestra, Colección Digital INBAL.",musica:"Música ambiental y audioguía: grabaciones de muestra, Colección Digital INBAL.",imagenes:"Imágenes del acervo INBAL: Museo de Arte Moderno, Museo Nacional de la Estampa y Museo Nacional de Arte."},
+      relacionadas:[
+        {titulo:"Paisaje y territorio",file:"MUNAL_14333"},
+        {titulo:"La estampa insurgente",file:"MUNAE_7506"}
+      ],
+      chapters:[
+        {num:"I",titulo:"La creadora",
+          stops:[
+            {file:"MAM_13157",titulo:"Las dos Fridas",autor:"Frida Kahlo",anio:1939,
+              texto:"Pintado el año de su divorcio de Diego Rivera, este doble autorretrato es una de las imágenes más poderosas del arte mexicano. Dos Fridas se toman de la mano: la del vestido de tehuana, la que fue amada; la del traje europeo, la que Diego dejó de amar. Sus corazones, expuestos, se conectan por una vena que una intenta cerrar con unas pinzas mientras la otra sangra sobre su falda blanca. Frida convierte el dolor íntimo en un lenguaje universal y se pinta no como musa de nadie, sino como autora y sujeto absoluto de su obra.",
+              beats:[{x:50,y:45,zoom:1,caption:"La obra completa"},{x:50,y:52,zoom:2.1,caption:"Los dos corazones expuestos",nota:"Fíjate en el detalle casi quirúrgico con que Frida pinta los corazones y la vena que los une: vuelta enfermera de su propio cuerpo, transforma la anatomía en autobiografía. La sangre que gotea sobre el vestido blanco es a la vez herida y ornamento."},{x:50,y:70,zoom:2.2,caption:"Las manos entrelazadas",nota:"Las dos Fridas se sostienen a sí mismas. En ausencia del otro, la pintora se acompaña; darse la mano es aquí una declaración de independencia y de duelo al mismo tiempo."}]},
+            {file:"MAM_29589",titulo:"Creación de las aves",autor:"Remedios Varo",anio:1957,
+              texto:"Remedios Varo, exiliada española que hizo de México su casa, imagina a la artista como una criatura mitad mujer, mitad búho que, en su taller-laboratorio, da vida a las aves que dibuja. Con un pincel unido a su propio corazón por un cordel, y con la luz de los astros filtrada por una lente, la creación se vuelve un acto a la vez científico, alquímico y femenino. Varo no representa a la mujer: la propone como origen del mundo.",
+              beats:[{x:50,y:45,zoom:1,caption:"La obra completa"},{x:44,y:48,zoom:2.2,caption:"El pincel unido al corazón",nota:"El hilo que va del instrumento al pecho de la figura resuelve en una sola imagen toda una idea del arte: para Varo, crear no es copiar el mundo, sino dejar que pase por el cuerpo. La mujer-artista es el conducto entre el cosmos y la vida."}]},
+            {file:"MAM_13154",titulo:"Los cocos",autor:"Frida Kahlo",anio:1951,
+              texto:"En sus últimos años, confinada por la enfermedad, Frida vuelca su intensidad en la naturaleza muerta. Estos cocos partidos parecen llorar: la fruta se humaniza, sangra, mira. Lo que en apariencia es un bodegón tradicional se carga de una emoción casi autobiográfica, como si cada objeto guardara algo del cuerpo de quien lo pinta. La mirada de la artista transforma un género considerado menor en confesión.",
+              beats:[{x:50,y:50,zoom:1,caption:"La obra completa"},{x:46,y:55,zoom:2.1,caption:"La fruta que llora",nota:"Observa las gotas y las hendiduras de los cocos: Frida les da rostro y lágrima. En su pintura tardía, lo vegetal y lo humano se confunden, y el bodegón se vuelve espejo del propio cuerpo doliente."}]}
+          ],
+          outro:{type:"context",titulo:"La generación de las transgresoras",texto:"Frida Kahlo y Remedios Varo no estuvieron solas. En el México de las décadas de 1930 a 1960 confluyó una generación extraordinaria de artistas mujeres —María Izquierdo, la primera mexicana en exponer en el extranjero; las exiliadas europeas Leonora Carrington y la propia Varo; fotógrafas como Lola Álvarez Bravo— que encontraron en el país un espacio para crear con una libertad poco común para su tiempo. Su obra no fue un apéndice del muralismo ni del surrealismo europeo: fue una voz propia que reclamó el cuerpo, el sueño y lo íntimo como territorios legítimos del arte."}
+        },
+        {num:"II",titulo:"Mundos interiores",
+          stops:[
+            {file:"MAM_29541",titulo:"Mujer saliendo del psicoanalista",autor:"Remedios Varo",anio:1960,
+              texto:"Con humor afilado, Varo retrata a una mujer que abandona el consultorio del psicoanalista dejando caer a un pozo una pequeña cabeza —la figura del padre, del peso heredado—. Envuelta en un manto que apenas deja ver su rostro, avanza hacia la salida como quien se despide de una carga. Es una imagen liberadora y satírica a la vez: la mujer que decide, por fin, soltar.",
+              beats:[{x:50,y:50,zoom:1,caption:"La obra completa"},{x:38,y:60,zoom:2.3,caption:"El gesto de soltar",nota:"El detalle de la mano que arroja la cabecita al pozo condensa el chiste y la tesis de la obra: sanar es dejar caer lo que pesa. Varo ironiza sobre el psicoanálisis y, de paso, sobre la autoridad paterna."}]},
+            {file:"MAM_11587",titulo:"La huida",autor:"Remedios Varo",anio:1962,
+              texto:"Dos figuras huyen a través de un paisaje imposible, a bordo de una embarcación que es también concha, capa y refugio. La huida —motivo recurrente en Varo— habla del viaje interior, de la búsqueda y del deseo de escapar de lo establecido. La mujer aparece aquí como viajera de su propio inconsciente, protagonista de una narrativa que ella misma conduce.",
+              beats:[{x:50,y:50,zoom:1,caption:"La obra completa"},{x:55,y:52,zoom:2.1,caption:"El vehículo-refugio",nota:"Mira cómo la tela que cubre a los viajeros se transforma en el casco de la embarcación: en Varo, la ropa, el cuerpo y la máquina siempre se están volviendo una misma cosa. Escapar es, ante todo, imaginar otra manera de moverse por el mundo."}]}
+          ],
+          outro:{type:"quote",text:"Pinto mi propia realidad.",by:"Frida Kahlo"}
+        },
+        {num:"III",titulo:"La mujer representada",
+          stops:[
+            {file:"MAM_12432",titulo:"La Madre Tierra",autor:"Jesús Guerrero Galván",anio:null,
+              texto:"Desde la Escuela Mexicana, la mujer se vuelve símbolo: madre, tierra, origen. Guerrero Galván pinta una figura femenina monumental, de rasgos indígenas y volúmenes serenos, que encarna a la vez la maternidad y el suelo nacional. Es una imagen de gran fuerza y, al mismo tiempo, una convención que conviene mirar con ojos críticos: durante décadas, el arte mexicano celebró a la mujer sobre todo como alegoría, más que como individua.",
+              beats:[{x:50,y:40,zoom:1,caption:"La obra completa"},{x:50,y:30,zoom:2.1,caption:"Rostro y monumentalidad",nota:"El pintor construye el rostro con planos amplios y una quietud casi escultórica. La mujer no es el retrato de alguien, sino un ideal: la nación hecha madre. Reconocer esa operación es parte de mirar el canon con sentido crítico."}]},
+            {file:"MUNAE_2240",titulo:"Mujer de espaldas",autor:"Ignacio Aguirre",anio:null,
+              texto:"El grabado llevó la imagen de la mujer al terreno de lo popular y lo político. Ignacio Aguirre, ligado al movimiento ¡30-30! y al Taller de Gráfica Popular, graba a una mujer de espaldas con la economía de líneas propia de la estampa comprometida. Aquí la mujer no posa para ser admirada: da la espalda, ocupada en su propia vida, integrada al pueblo trabajador que la gráfica mexicana quiso representar y multiplicar.",
+              beats:[{x:50,y:45,zoom:1,caption:"La estampa completa"},{x:50,y:40,zoom:2.2,caption:"La fuerza de la línea",nota:"Sin rostro ni anécdota, la figura se sostiene solo con el ritmo del trazo y el contraste del blanco y negro. La estampa difunde y multiplica esta imagen: la mujer del pueblo entra al arte por la vía de la reproducción, no del retrato por encargo."}]},
+            {file:"MUNAL_59291",titulo:"Estudio del modelo al natural, mujer",autor:"Fidencio L. Nava",anio:null,
+              texto:"Cerramos donde empezó la formación de tantos artistas: la academia. Este estudio del natural muestra el desnudo femenino como ejercicio, como convención heredada de la tradición europea que enseñaba a construir el cuerpo. Puesto al final del recorrido, deja una pregunta abierta: durante siglos la mujer fue sobre todo modelo y musa; ¿cuánto tardó en tomar ella misma el pincel? Las Fridas y las Varos de esta curaduría son parte de esa respuesta.",
+              beats:[{x:50,y:45,zoom:1,caption:"La obra completa"},{x:50,y:48,zoom:2,caption:"El cuerpo como ejercicio",nota:"En el estudio académico, el cuerpo de la mujer es un problema de dibujo: proporción, luz y volumen. Mirarlo hoy, junto a las obras de las artistas, revela el largo camino de la mujer del otro lado del caballete."}]}
+          ]}
+      ]
+    }
+  };
+
+  const params=new URLSearchParams(location.search);
+  const CUR=CURADURIAS[params.get('cur')]||CURADURIAS["mujer-arte"];
+  const $=id=>document.getElementById(id);
+
+  /* aplanar stops con índice global */
+  const stopsFlat=[];CUR.chapters.forEach(ch=>ch.stops.forEach(s=>stopsFlat.push(s)));
+  stopsFlat.forEach((s,i)=>s.g=i);
+  const totalStops=stopsFlat.length;
+
+  /* portada */
+  $('coverImg').src=IMG(stopsFlat[0].file);$('coverImg').alt=CUR.titulo;
+  $('cTitulo').textContent=CUR.titulo;$('cSub').textContent=CUR.subtitulo;
+  $('cFacts').textContent=`${CUR.curador} · ${totalStops} paradas · ${CUR.fecha}`;
+  document.title=CUR.titulo+' — Recorrido — Colección Digital INBAL';
+  $('totNum').textContent=String(totalStops).padStart(2,'0');
+
+  /* ---------------- construir flujo ---------------- */
+  let html=`<section class="nota-sala"><div class="wrap in"><span class="lbl">Nota de sala</span><h2>${CUR.intro.titulo}</h2><p>${CUR.intro.texto}</p></div></section>`;
+  CUR.chapters.forEach(ch=>{
+    html+=`<div class="wrap ch-divider"><span class="ch-num">${ch.num}</span><h2>${ch.titulo}</h2></div>`;
+    let beats='';
+    ch.stops.forEach(s=>{
+      s.beats.forEach((b,bi)=>{
+        const data=`data-g="${s.g}" data-file="${s.file}" data-x="${b.x}" data-y="${b.y}" data-zoom="${b.zoom}" data-cap="${b.caption}"`;
+        if(bi===0){
+          beats+=`<div class="beat" ${data}><span class="num">${String(s.g+1).padStart(2,'0')} / ${String(totalStops).padStart(2,'0')}</span>
+            <h3>${s.titulo}</h3><div class="au">${s.autor}${s.anio?', '+s.anio:''}</div>
+            <p>${s.texto}</p>
+            <a class="ficha-link" href="detalle-obra.html?obra=${s.file}">Ver ficha completa →</a></div>`;
+        }else{
+          beats+=`<div class="beat detail" ${data}><span class="det-badge">Detalle</span><h4 class="dt-h">${b.caption}</h4><p>${b.nota||''}</p></div>`;
+        }
+      });
+    });
+    html+=`<section class="chapter"><div class="tour"><div class="tour-media"><div class="frame">
+      <img class="ch-img" data-file="${ch.stops[0].file}" src="${IMG(ch.stops[0].file)}" alt="">
+      <span class="medlabel"></span><span class="caption"></span></div></div>
+      <div class="tour-steps">${beats}</div></div></section>`;
+    if(ch.outro){
+      if(ch.outro.type==='quote') html+=`<section class="interludio quote"><div class="wrap"><p>“${ch.outro.text}”</p><span>${ch.outro.by}</span></div></section>`;
+      else html+=`<section class="interludio context"><div class="wrap"><div class="ctx"><span class="lbl">Contexto</span><h3>${ch.outro.titulo}</h3><p>${ch.outro.texto}</p></div></div></section>`;
+    }
+  });
+  html+=`<section class="closing"><div class="wrap in"><span class="lbl">${CUR.closing.titulo?'Cierre':''}</span><span class="lbl">${CUR.closing.titulo}</span><h3>${CUR.closing.titulo}</h3><p>${CUR.closing.texto}</p><p class="sig">${CUR.closing.sig}</p><a class="cta" href="colecciones.html">Ver estas obras en Colecciones →</a></div></section>`;
+  html+=`<section class="credits"><div class="wrap"><div class="grid"><div><h5>Textos</h5><p>${CUR.credits.textos}</p></div><div><h5>Sonido</h5><p>${CUR.credits.musica}</p></div><div><h5>Imágenes</h5><p>${CUR.credits.imagenes}</p></div></div></div></section>`;
+  html+=`<section class="rel"><div class="wrap"><h4>Otras curadurías</h4><div class="relgrid">${CUR.relacionadas.map(r=>`<a class="relcard" href="curadurias.html"><img src="${IMG(r.file)}" alt="${r.titulo}"><div class="b"><b>${r.titulo}</b><br><span>Ver en Curadurías →</span></div></a>`).join('')}</div></div></section>`;
+  $('flow').innerHTML=html;
+
+  /* limpiar doble lbl del cierre (dejar solo el título) */
+  document.querySelectorAll('.closing .lbl').forEach((el,i)=>{if(i===0)el.remove();});
+
+  /* índice */
+  $('idxTitle').textContent=CUR.titulo;
+  $('idxList').innerHTML=CUR.chapters.map(ch=>`<div class="ch-h">${ch.num} · ${ch.titulo}</div>`+ch.stops.map(s=>`<a data-go="${s.g}"><img src="${IMG(s.file)}" alt=""><div><div class="t">${s.titulo}</div><div class="m">${s.autor}</div></div><span class="n">${String(s.g+1).padStart(2,'0')}</span></a>`).join('')).join('');
+  const index=$('index');
+  $('idxBtn').onclick=()=>index.classList.add('open');
+  $('idxClose').onclick=()=>index.classList.remove('open');
+  index.querySelector('[data-ixclose]').onclick=()=>index.classList.remove('open');
+
+  /* beats */
+  const beatEls=[...document.querySelectorAll('.beat')];
+  $('idxList').querySelectorAll('[data-go]').forEach(a=>a.onclick=()=>{index.classList.remove('open');const g=+a.dataset.go;const t=beatEls.find(e=>+e.dataset.g===g);t&&t.scrollIntoView({behavior:'smooth',block:'center'});});
+
+  /* motor scrollytelling */
+  let activeIdx=0,lastStop=-1,narrOn=false;
+  function activate(el){
+    activeIdx=beatEls.indexOf(el);
+    const g=+el.dataset.g;
+    const media=el.closest('.chapter').querySelector('.ch-img');
+    const cap=el.closest('.chapter').querySelector('.caption');
+    const med=el.closest('.chapter').querySelector('.medlabel');
+    if(media.dataset.file!==el.dataset.file){media.dataset.file=el.dataset.file;media.style.opacity='0';const n=new Image();n.onload=()=>{media.src=n.src;media.style.opacity='1';};n.src=IMG(el.dataset.file);}
+    media.style.transformOrigin=el.dataset.x+'% '+el.dataset.y+'%';media.style.transform='scale('+el.dataset.zoom+')';
+    cap.textContent=el.dataset.cap;med.textContent=stopsFlat[g].titulo;
+    $('curNum').textContent=String(g+1).padStart(2,'0');
+    if(g!==lastStop){lastStop=g;if(narrOn)speakStop(g);}
+  }
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)activate(e.target);});},{rootMargin:'-45% 0px -45% 0px',threshold:0});
+  beatEls.forEach(el=>io.observe(el));
+  activate(beatEls[0]);
+
+  $('prevBtn').onclick=()=>beatEls[Math.max(0,activeIdx-1)].scrollIntoView({behavior:'smooth',block:'center'});
+  $('nextBtn').onclick=()=>beatEls[Math.min(beatEls.length-1,activeIdx+1)].scrollIntoView({behavior:'smooth',block:'center'});
+
+  /* progreso */
+  const prog=$('progress');
+  window.addEventListener('scroll',()=>{const h=document.body.scrollHeight-window.innerHeight;prog.style.width=(window.scrollY/h*100)+'%';},{passive:true});
+
+  /* ---------------- AUDIO: música (pista real) ---------------- */
+  const musicEl=$('musicEl');
+  let musicOn=false;
+  musicEl.volume=0.35;
+  function musicToggle(){
+    musicOn=!musicOn;
+    if(musicOn) musicEl.play().catch(()=>toastMsg('No se pudo reproducir la música.')); else musicEl.pause();
+    $('musicBtn').classList.toggle('on',musicOn);
+  }
+  function duck(on){ if(musicOn) musicEl.volume=on?0.12:0.35; }
+  $('musicBtn').onclick=musicToggle;
+
+  /* ---------------- AUDIO: audioguía (grabación real) ---------------- */
+  const guideEl=$('guideEl');
+  guideEl.addEventListener('play',()=>duck(true));
+  guideEl.addEventListener('pause',()=>duck(false));
+  guideEl.addEventListener('ended',()=>duck(false));
+  function speakStop(g){lastStop=g;guideEl.currentTime=0;guideEl.play().catch(()=>toastMsg('No se pudo reproducir la audioguía.'));}
+  function enableAudio(){if(!narrOn){narrOn=true;$('audioBtn').classList.add('on');}}
+  $('audioBtn').onclick=()=>{
+    narrOn=!narrOn;$('audioBtn').classList.toggle('on',narrOn);
+    if(narrOn){speakStop(+beatEls[activeIdx].dataset.g);}else{guideEl.pause();}
+  };
+
+  /* portada: comenzar con audio */
+  $('startBtn').onclick=()=>$('flow').scrollIntoView({behavior:'smooth'});
+  $('startAudio').onclick=()=>{musicToggle();enableAudio();$('flow').scrollIntoView({behavior:'smooth'});setTimeout(()=>speakStop(0),700);};
+
+  const toast=$('toast');let tt;function toastMsg(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2200);}
+</script>
+</body>
+</html>

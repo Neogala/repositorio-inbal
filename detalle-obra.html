@@ -142,8 +142,8 @@
   .relgrid::-webkit-scrollbar{display:none}
   .relgrid .card{flex:0 0 210px;scroll-snap-align:start}
   .card{cursor:pointer;display:block}
-  .card .art{position:relative;overflow:hidden;border-radius:4px;background:var(--papel-2)}
-  .card img{display:block;width:100%;height:auto;transition:transform 1s var(--ease)}
+  .card .art{position:relative;overflow:hidden;border-radius:4px;background:var(--papel-2);min-height:120px}
+  .card img{display:block;width:100%;height:auto;min-height:120px;object-fit:cover;transition:transform 1s var(--ease)}
   .card:hover img{transform:scale(1.06)}
   .card .tag{position:absolute;top:10px;left:10px;background:rgba(30,92,59,.92);color:var(--arena);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:3px}
   .card .meta{padding:12px 2px 0}
@@ -245,7 +245,7 @@
         </div>
         <picture>
           <source id="imgWebp" srcset="" type="image/webp">
-          <img id="obraImg" src="" alt="">
+          <img id="obraImg" src="" alt="" onerror="this.onerror=null;this.src=IMG_DIR+'_sin-imagen.svg'">
         </picture>
       </div>
 
@@ -583,7 +583,7 @@
   rel.forEach(o=>{
     const a=document.createElement('a');a.className='card';a.href='detalle-obra.html?obra='+o.file;
     a.innerHTML=`<div class="art"><span class="tag">${o.tipo}</span>
-      <picture>${o.img?'':`<source srcset="${IMG_DIR}${o.file}.webp" type="image/webp">`}<img src="${o.img?o.img:IMG_DIR+o.file+'.jpg'}" alt="${o.titulo} — ${o.autor}" loading="lazy"></picture></div>
+      <picture>${o.img?'':`<source srcset="${IMG_DIR}${o.file}.webp" type="image/webp">`}<img src="${o.img?o.img:IMG_DIR+o.file+'.jpg'}" alt="${o.titulo} — ${o.autor}" loading="lazy" onerror="this.onerror=null;this.src='${IMG_DIR}_sin-imagen.svg'"></picture></div>
       <div class="meta"><b>${o.titulo}</b><span class="au">${o.autor}</span>
       <span class="mu">${o.museo} <span class="yr">${o.anio==null?'S/F':o.anio}</span></span></div>`;
     relBox.appendChild(a);

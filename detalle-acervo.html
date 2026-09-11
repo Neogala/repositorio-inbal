@@ -133,9 +133,9 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px}
   .card{cursor:pointer;opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
   .card.in{opacity:1;transform:none}
-  .card .art{position:relative;overflow:hidden;border-radius:4px;background:var(--papel-2)}
+  .card .art{position:relative;overflow:hidden;border-radius:4px;background:var(--papel-2);min-height:150px}
   .card canvas{display:block;width:100%;height:auto;transition:transform 1s var(--ease)}
-  .card img{display:block;width:100%;height:auto;max-height:340px;object-fit:cover;transition:transform 1s var(--ease)}
+  .card img{display:block;width:100%;height:auto;min-height:150px;max-height:340px;object-fit:cover;transition:transform 1s var(--ease)}
   .card:hover canvas,.card:hover img{transform:scale(1.06)}
   .card .tag{position:absolute;top:10px;left:10px;background:rgba(30,92,59,.92);color:var(--arena);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:3px}
   .card .meta{padding:11px 2px 0}
@@ -813,7 +813,7 @@
     list.slice(start,start+PER_PAGE).forEach((o,idx)=>{
       const card=document.createElement('div');card.className='card';
       const artHtml=o.file
-        ? `<picture>${o.img?'':`<source srcset="${IMG_DIR}${o.file}.webp" type="image/webp">`}<img src="${o.img?o.img:IMG_DIR+o.file+'.jpg'}" alt="${o.titulo} — ${o.autor}" loading="lazy"></picture>`
+        ? `<picture>${o.img?'':`<source srcset="${IMG_DIR}${o.file}.webp" type="image/webp">`}<img src="${o.img?o.img:IMG_DIR+o.file+'.jpg'}" alt="${o.titulo} — ${o.autor}" loading="lazy" onerror="this.onerror=null;this.src='${IMG_DIR}_sin-imagen.svg'"></picture>`
         : `<canvas></canvas>`;
       card.innerHTML=`<div class="art"><span class="tag">${o.tipo}</span>${artHtml}</div>
         <div class="meta"><b>${o.titulo}</b><div class="au">${o.autor}</div><div class="yr">${o.anio==null?'S/F':o.anio}</div></div>`;
