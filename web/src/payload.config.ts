@@ -7,6 +7,7 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Obras } from './collections/Obras'
 
 function requiredEnv(name: string): string {
   const value = process.env[name]
@@ -24,7 +25,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Obras, Media, Users],
   editor: lexicalEditor(),
   secret: requiredEnv('PAYLOAD_SECRET'),
   typescript: {
