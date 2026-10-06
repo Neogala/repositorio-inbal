@@ -23,9 +23,9 @@ acceso al repo como colaborador, IVA.
 ## Semana 0 - antes del 13 oct
 
 - [ ] Estudio: Next.js App Router y Payload (plan de 8 días del anexo)
-- [ ] Revisar `recursos/9_grandes_SIGROPAM.xlsx` y `Fichas_obras_etiqueta_color.xlsx`: columnas, IDs, formatos de año y medidas
-- [ ] Listar los problemas de datos de la muestra (tipo vs técnica, años, medidas juntas)
-- [ ] Commit del `.gitignore` con `.claude/`
+- [x] Revisar `recursos/9_grandes_SIGROPAM.xlsx` y `Fichas_obras_etiqueta_color.xlsx`: columnas, IDs, formatos de año y medidas
+- [x] Listar los problemas de datos de la muestra: ver `docs/analisis-datos.md`
+- [x] Commit del `.gitignore` con `.claude/`
 
 ## Semana 1 (13 oct) - base del proyecto
 
