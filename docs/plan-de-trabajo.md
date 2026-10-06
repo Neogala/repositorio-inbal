@@ -40,10 +40,10 @@ acceso al repo como colaborador, IVA.
 
 - [ ] Colecciones: Obras, Artistas, Museos, Curadurías, Media, Usuarios; global Home
 - [ ] Roles admin y editor con access control (lectura pública)
-- [ ] Esquema Zod de una obra (años a número, medidas separadas, mayúsculas)
-- [ ] Script de importación desde Excel con upsert por `sigropam` y reporte de errores por fila
-- [ ] Importar las 145 obras del prototipo como primera prueba
-- [ ] Pruebas Vitest de las normalizaciones
+- [x] Esquema Zod de una obra (años a número, medidas separadas; títulos en mayúsculas hasta que Vania decida)
+- [x] Script de importación desde Excel con upsert por `sigropam` y reporte de errores por fila (ver `docs/importador.md`)
+- [x] Importar las obras del prototipo como primera prueba (`npm run importar:prototipo`)
+- [x] Pruebas Vitest de las normalizaciones
 
 ## Semanas 3 y 4 (27 oct a 7 nov) - Obras
 
