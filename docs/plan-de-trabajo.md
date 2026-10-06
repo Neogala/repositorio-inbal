@@ -9,11 +9,11 @@ ARCA queda para la Fase 2.
 
 | Tema | Decisión | Por qué |
 |---|---|---|
-| Ubicación del código | Carpeta `web/` en este repo | El prototipo sigue en la raíz y GitHub Pages lo sigue sirviendo mientras tanto |
+| Ubicación del código | Carpeta `web/`; el prototipo estático en `prototipo/` y los Excel en `datos/` | El prototipo queda como referencia de diseño hasta portar todas las páginas |
 | Versiones | Next 16.3.3 (la que fija la plantilla de Payload), Payload 3.90.2, Node 22 | Payload 3.90 soporta Next >=16.3.3 |
 | Gestor de paquetes | npm | Ya está instalado; evita sumar pnpm |
 | Base de datos local | PostgreSQL en Docker (`docker compose`) | No hay psql instalado; igual al de producción |
-| Estilos | CSS Modules + tokens del `:root` de `index.html` | Es la versión aprobada; `guia-estilos-inbal.md` trae la paleta guinda anterior |
+| Estilos | CSS Modules + tokens del `:root` de `prototipo/index.html` | Es la versión aprobada; `prototipo/guia-estilos-inbal.md` trae la paleta guinda anterior |
 | Imágenes en local | Carpeta local de Payload; R2 o S3 al publicar | No depender del hosting para empezar |
 
 Pendientes de la llamada con Vania (7 oct): hosting y dominio, cuántas obras
@@ -23,7 +23,7 @@ acceso al repo como colaborador, IVA.
 ## Semana 0 - antes del 13 oct
 
 - [ ] Estudio: Next.js App Router y Payload (plan de 8 días del anexo)
-- [x] Revisar `recursos/9_grandes_SIGROPAM.xlsx` y `Fichas_obras_etiqueta_color.xlsx`: columnas, IDs, formatos de año y medidas
+- [x] Revisar `datos/9_grandes_SIGROPAM.xlsx` y `Fichas_obras_etiqueta_color.xlsx`: columnas, IDs, formatos de año y medidas
 - [x] Listar los problemas de datos de la muestra: ver `docs/analisis-datos.md`
 - [x] Commit del `.gitignore` con `.claude/`
 

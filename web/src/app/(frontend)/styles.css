@@ -1,8 +1,8 @@
 /*
-  Tokens del sitio, tomados del :root de index.html del prototipo (versión aprobada).
+  Tokens del sitio, tomados del :root de prototipo/index.html (versión aprobada).
   Ojo: en el prototipo las variables --guinda y --guinda-900 tienen valores verdes;
   se conservan los nombres para que sea fácil portar el CSS de cada página.
-  guia-estilos-inbal.md tiene la paleta anterior (guinda #9b2247).
+  prototipo/guia-estilos-inbal.md tiene la paleta anterior (guinda #9b2247).
 */
 :root {
   --guinda: #1e5b4f;

@@ -1,8 +1,8 @@
 # Colección Digital INBAL: sitio y CMS
 
 Sitio público y panel de administración en un solo proyecto: Next.js (App
-Router) + Payload CMS 3 + PostgreSQL. El prototipo estático sigue en la raíz
-del repositorio como referencia de diseño.
+Router) + Payload CMS 3 + PostgreSQL. El prototipo estático está en
+`../prototipo/` como referencia de diseño.
 
 ## Requisitos
 

@@ -9,7 +9,7 @@ import { mainNav } from '@/lib/navigation'
 import styles from './SiteHeader.module.css'
 
 // En el home el encabezado va transparente sobre la portada y se vuelve sólido
-// al bajar el 72% de la pantalla, igual que en index.html del prototipo.
+// al bajar el 72% de la pantalla, igual que en prototipo/index.html.
 // En las demás páginas siempre es sólido.
 const SOLID_AFTER = 0.72
 

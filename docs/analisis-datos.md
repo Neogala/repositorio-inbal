@@ -1,6 +1,6 @@
 # Análisis de los datos de muestra
 
-Revisión del 6 de octubre de 2026 sobre los dos Excel de `recursos/`.
+Revisión del 6 de octubre de 2026 sobre los dos Excel de `datos/`.
 
 ## Archivos
 
