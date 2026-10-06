@@ -1,0 +1,53 @@
+name: web
+
+on:
+  pull_request:
+    paths: ['web/**', '.github/workflows/web.yml']
+  push:
+    branches: [main]
+    paths: ['web/**', '.github/workflows/web.yml']
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # Credenciales efímeras generadas en cada corrida; no hay secretos en el repo.
+      - name: Generar variables de entorno
+        run: |
+          PW=$(openssl rand -hex 16)
+          echo "::add-mask::$PW"
+          SECRET=$(openssl rand -hex 32)
+          echo "::add-mask::$SECRET"
+          {
+            echo "POSTGRES_USER=inbal"
+            echo "POSTGRES_PASSWORD=$PW"
+            echo "POSTGRES_DB=inbal"
+            echo "DATABASE_URL=postgres://inbal:$PW@localhost:5432/inbal"
+            echo "PAYLOAD_SECRET=$SECRET"
+          } > .env
+
+      - name: Levantar PostgreSQL
+        run: |
+          docker compose up -d postgres
+          for i in $(seq 1 30); do docker compose exec -T postgres pg_isready -U inbal && break; sleep 2; done
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npm run test:int
+
+      - name: Pruebas e2e
+        run: |
+          npx playwright install --with-deps chromium
+          npm run test:e2e

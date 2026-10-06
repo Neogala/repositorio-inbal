@@ -1,0 +1,102 @@
+/*
+  Tokens del sitio, tomados del :root de index.html del prototipo (versión aprobada).
+  Ojo: en el prototipo las variables --guinda y --guinda-900 tienen valores verdes;
+  se conservan los nombres para que sea fácil portar el CSS de cada página.
+  guia-estilos-inbal.md tiene la paleta anterior (guinda #9b2247).
+*/
+:root {
+  --guinda: #1e5b4f;
+  --guinda-900: #1e5c3b;
+  --verde: #1e5b4f;
+  --verde-900: #1e5c3b;
+  --oro: #8dc2b7;
+  --arena: #dbd3b6;
+  --tinta: #211a1c;
+  --gris: #6f6a66;
+  --linea: #e8e3da;
+  --papel: #ffffff;
+  --papel-2: #faf7f2;
+
+  --display: var(--font-fraunces), 'Fraunces', Georgia, serif;
+  --sans: var(--font-noto-sans), 'Noto Sans', system-ui, sans-serif;
+
+  --wrap: 1280px;
+  --pad-x: 40px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--tinta);
+  background: var(--papel);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+.lbl {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gris);
+  font-weight: 500;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --pad-x: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

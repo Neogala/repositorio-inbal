@@ -1,0 +1,90 @@
+.footer {
+  background: var(--guinda-900);
+  color: #fff;
+  padding: 70px 0 34px;
+  margin-top: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 19px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.logoWrap {
+  position: relative;
+  width: 81px;
+  height: 29px;
+  flex: none;
+}
+
+.logoWrap img {
+  object-fit: contain;
+}
+
+.sep {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  flex: none;
+}
+
+.brandText {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.tag {
+  color: #fff;
+  font-size: 13px;
+  max-width: 34ch;
+  margin-top: 16px;
+}
+
+.col h5 {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.col a {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 0;
+  transition: opacity 0.25s;
+}
+
+.col a:hover {
+  opacity: 0.75;
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 48px;
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #fff;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

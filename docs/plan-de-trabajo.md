@@ -10,10 +10,10 @@ ARCA queda para la Fase 2.
 | Tema | Decisión | Por qué |
 |---|---|---|
 | Ubicación del código | Carpeta `web/` en este repo | El prototipo sigue en la raíz y GitHub Pages lo sigue sirviendo mientras tanto |
-| Versiones | Next 16.4, Payload 3.90, Node 22 | Payload 3.90 soporta Next >=16.3.3 |
+| Versiones | Next 16.3.3 (la que fija la plantilla de Payload), Payload 3.90.2, Node 22 | Payload 3.90 soporta Next >=16.3.3 |
 | Gestor de paquetes | npm | Ya está instalado; evita sumar pnpm |
 | Base de datos local | PostgreSQL en Docker (`docker compose`) | No hay psql instalado; igual al de producción |
-| Estilos | CSS Modules + tokens de `guia-estilos-inbal.md` | Respeta el diseño sin rehacerlo |
+| Estilos | CSS Modules + tokens del `:root` de `index.html` | Es la versión aprobada; `guia-estilos-inbal.md` trae la paleta guinda anterior |
 | Imágenes en local | Carpeta local de Payload; R2 o S3 al publicar | No depender del hosting para empezar |
 
 Pendientes de la llamada con Vania (7 oct): hosting y dominio, cuántas obras
@@ -29,12 +29,12 @@ acceso al repo como colaborador, IVA.
 
 ## Semana 1 (13 oct) - base del proyecto
 
-- [ ] `npx create-payload-app` en `web/` con plantilla en blanco y adaptador Postgres
-- [ ] `docker-compose.yml` con PostgreSQL y `.env.example`
-- [ ] Tokens de la guía de estilos como variables CSS; fuentes con `next/font`
-- [ ] Layout compartido: encabezado y pie del prototipo como componentes
-- [ ] ESLint, Prettier, Vitest y Playwright configurados
-- [ ] GitHub Actions: lint + pruebas en cada pull request
+- [x] `npx create-payload-app` en `web/` con plantilla en blanco y adaptador Postgres
+- [x] `docker-compose.yml` con PostgreSQL y `.env.example`
+- [x] Tokens de la guía de estilos como variables CSS; fuentes con `next/font`
+- [x] Layout compartido: encabezado y pie del prototipo como componentes
+- [x] ESLint, Prettier, Vitest y Playwright configurados
+- [x] GitHub Actions: lint + pruebas en cada pull request
 
 ## Semana 2 (20 oct) - modelo de datos e importador
 
