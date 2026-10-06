@@ -1,6 +1,6 @@
 /**
  * Importa las 152 obras del prototipo (arreglo DATA de colecciones.html) con
- * sus imágenes de Img/obras. Es idempotente: actualiza por No. SIGROPAM.
+ * sus imágenes de prototipo/Img/obras. Es idempotente: actualiza por No. SIGROPAM.
  *
  * Uso: npm run importar:prototipo
  *
@@ -30,13 +30,13 @@ type ObraPrototipo = {
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 const raiz = path.resolve(dirname, '../../..')
-const html = path.join(raiz, 'colecciones.html')
-const dirImagenes = path.join(raiz, 'Img/obras')
+const html = path.join(raiz, 'prototipo/colecciones.html')
+const dirImagenes = path.join(raiz, 'prototipo/Img/obras')
 
 function leerDatos(): ObraPrototipo[] {
   const src = fs.readFileSync(html, 'utf8')
   const inicio = src.indexOf('const DATA = [')
-  if (inicio < 0) throw new Error('No se encontró el arreglo DATA en colecciones.html')
+  if (inicio < 0) throw new Error('No se encontró el arreglo DATA en prototipo/colecciones.html')
   const desde = src.indexOf('[', inicio)
   const hasta = src.indexOf('];', desde) + 1
   // El arreglo es un literal de JS del propio repositorio, no entrada externa.
