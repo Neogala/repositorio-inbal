@@ -4,7 +4,7 @@ on:
   pull_request:
     paths: ['web/**', '.github/workflows/web.yml']
   push:
-    branches: [main]
+    branches: [main, develop]
     paths: ['web/**', '.github/workflows/web.yml']
 
 jobs:
