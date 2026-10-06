@@ -19,10 +19,10 @@
 
 | Remoto | Repositorio | Uso |
 |---|---|---|
-| `privado` | `forozco/coleccion-inbal` (privado) | Respaldo y trabajo diario. Rama por defecto: `develop` |
-| `origin` | `neogala/repositorio-inbal` (público) | Solo lectura por ahora; el push está desactivado hasta la entrega |
+| `origin` | `forozco/coleccion-inbal` (privado) | Trabajo diario y respaldo. Rama por defecto: `develop` |
+| `neogala` | `neogala/repositorio-inbal` (público, GitHub Pages) | Solo lectura; el push está desactivado hasta la entrega |
 
-Para entregar: `git remote set-url --push origin https://github.com/neogala/repositorio-inbal.git`
+Para entregar: `git remote set-url --push neogala https://github.com/neogala/repositorio-inbal.git`
 y abrir el pull request desde la rama de release.
 
 ## Versiones previstas
