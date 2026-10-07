@@ -4,6 +4,9 @@
 import { z } from 'zod'
 
 import type { MUSEOS, PERIODOS, TIPOS } from '../../collections/Obras'
+import type { Medidas } from '../medidas'
+
+export { textoMedidas, type Medidas } from '../medidas'
 
 type Clave = (typeof MUSEOS)[number]['value']
 type Periodo = (typeof PERIODOS)[number]
@@ -176,12 +179,6 @@ export function leerFecha(
 
 // ---------- Medidas ----------
 
-export type Medidas = {
-  altoCm: number | null
-  anchoCm: number | null
-  profundidadCm: number | null
-}
-
 // "Obra Alto 39.5 CM Obra Ancho 48.0 CM Marco Alto ...": solo las de la obra; si no
 // hay, las del soporte (el papel en obra gráfica). Base y marco no se publican.
 export function leerMedidas(v: string): Medidas | null {
@@ -203,14 +200,6 @@ export function leerMedidas(v: string): Medidas | null {
     if (m.altoCm != null || m.anchoCm != null) return m
   }
   return null
-}
-
-const cm = (n: number) => n.toLocaleString('es-MX', { maximumFractionDigits: 1 })
-
-// "39.5 × 48 cm" para la ficha.
-export function textoMedidas(m: Partial<Medidas>): string {
-  const partes = [m.altoCm, m.anchoCm, m.profundidadCm].filter((n): n is number => n != null)
-  return partes.length ? `${partes.map(cm).join(' × ')} cm` : ''
 }
 
 // ---------- Técnica ----------
