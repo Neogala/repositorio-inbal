@@ -134,14 +134,63 @@ export interface Obra {
   fechaTexto?: string | null;
   anioInicio?: number | null;
   anioFin?: number | null;
+  fechaAproximada?: boolean | null;
   periodo?: ('Arte Colonial' | 'Siglo XIX' | 'Arte Moderno' | 'Arte Contemporáneo' | 'Sin fecha') | null;
   tipo?: ('Pintura' | 'Fotografía' | 'Grabado' | 'Escultura' | 'Dibujo' | 'Artes decorativas') | null;
-  museo: 'MUNAL' | 'MAM' | 'MUNAE' | 'MNSC';
+  museo:
+    | 'MUNAL'
+    | 'MAM'
+    | 'MUNAE'
+    | 'MNSC'
+    | 'MPBA'
+    | 'MNARQ'
+    | 'MMDR'
+    | 'SAPS'
+    | 'MTAC'
+    | 'MCEDRFK'
+    | 'SPM'
+    | 'MACG'
+    | 'MACJ'
+    | 'CAPILLA'
+    | 'CENCROPAM'
+    | 'ICC'
+    | 'IAGO'
+    | 'MAMGP'
+    | 'MCDR'
+    | 'MCA'
+    | 'MJLC';
   tecnica?: string | null;
+  altoCm?: number | null;
+  anchoCm?: number | null;
+  profundidadCm?: number | null;
+  /**
+   * Sirve para saber si la obra ya es de dominio público (muerte + 100 años).
+   */
+  autorMuerte?: number | null;
   imagen?: (number | null) | Media;
   derechos?: ('libre' | 'autorizada' | 'restringida' | 'por-confirmar') | null;
   origen?: ('prototipo' | 'excel' | 'arca') | null;
+  /**
+   * Interna: bodega, préstamo o sala. No se publica.
+   */
+  localizacion?: string | null;
+  /**
+   * Interna: oficios, inventario, conservación. No se publica.
+   */
+  observaciones?: string | null;
+  /**
+   * Como venían en el Excel, antes de normalizar. Solo lectura.
+   */
+  original?: {
+    autor?: string | null;
+    fecha?: string | null;
+    tecnica?: string | null;
+    medida?: string | null;
+    disciplina?: string | null;
+    acervo?: string | null;
+  };
   publicada?: boolean | null;
+  editadoPor?: (number | null) | User;
   updatedAt: string;
   createdAt: string;
 }
@@ -297,14 +346,32 @@ export interface ObrasSelect<T extends boolean = true> {
   fechaTexto?: T;
   anioInicio?: T;
   anioFin?: T;
+  fechaAproximada?: T;
   periodo?: T;
   tipo?: T;
   museo?: T;
   tecnica?: T;
+  altoCm?: T;
+  anchoCm?: T;
+  profundidadCm?: T;
+  autorMuerte?: T;
   imagen?: T;
   derechos?: T;
   origen?: T;
+  localizacion?: T;
+  observaciones?: T;
+  original?:
+    | T
+    | {
+        autor?: T;
+        fecha?: T;
+        tecnica?: T;
+        medida?: T;
+        disciplina?: T;
+        acervo?: T;
+      };
   publicada?: T;
+  editadoPor?: T;
   updatedAt?: T;
   createdAt?: T;
 }

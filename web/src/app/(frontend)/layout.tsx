@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Fraunces, Noto_Sans } from 'next/font/google'
 import React from 'react'
 
-import { SiteFooter } from '@/components/SiteFooter/SiteFooter'
-import { SiteHeader } from '@/components/SiteHeader/SiteHeader'
 import './styles.css'
 
 const fraunces = Fraunces({
@@ -34,9 +32,7 @@ export default function FrontendLayout({ children }: { children: React.ReactNode
   return (
     <html lang="es" className={`${fraunces.variable} ${notoSans.variable}`}>
       <body>
-        <SiteHeader />
         <main>{children}</main>
-        <SiteFooter />
       </body>
     </html>
   )

@@ -32,9 +32,3 @@
   font-size: 18px;
   color: var(--arena);
 }
-
-.body {
-  padding-top: 96px;
-  padding-bottom: 96px;
-  min-height: 60vh;
-}
