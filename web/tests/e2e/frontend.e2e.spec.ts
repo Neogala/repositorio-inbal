@@ -1,16 +1,18 @@
 import { expect, test } from '@playwright/test'
 
 test.describe('Plantilla: encabezado y pie', () => {
-  test('el home carga con título y encabezado sobre la portada', async ({ page }) => {
+  test('el home carga con título y encabezado transparente sobre la portada', async ({ page }) => {
     await page.goto('/')
     await expect(page).toHaveTitle(/Colección Digital INBAL/)
     await expect(page.locator('h1').first()).toHaveText('Colección digital')
+    await expect(page.locator('header')).toHaveAttribute('data-solid', 'false')
+  })
 
-    const header = page.locator('header')
-    await expect(header).toHaveAttribute('data-solid', 'false')
-
-    await page.mouse.wheel(0, 2000)
-    await expect(header).toHaveAttribute('data-solid', 'true')
+  test('las secciones aún no entregadas muestran Próximamente con encabezado sólido', async ({ page }) => {
+    await page.goto('/obras')
+    await expect(page.locator('h1').first()).toHaveText('Obras')
+    await expect(page.getByText('Próximamente')).toBeVisible()
+    await expect(page.locator('header')).toHaveAttribute('data-solid', 'true')
   })
 
   test('el buscador lleva a /obras con la consulta', async ({ page }) => {
