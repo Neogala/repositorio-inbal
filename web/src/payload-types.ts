@@ -69,6 +69,9 @@ export interface Config {
   collections: {
     obras: Obra;
     media: Media;
+    acervos: Acervo;
+    curadurias: Curaduria;
+    audios: Audio;
     users: User;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -79,6 +82,9 @@ export interface Config {
   collectionsSelect: {
     obras: ObrasSelect<false> | ObrasSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    acervos: AcervosSelect<false> | AcervosSelect<true>;
+    curadurias: CuraduriasSelect<false> | CuraduriasSelect<true>;
+    audios: AudiosSelect<false> | AudiosSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -89,8 +95,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    inicio: Inicio;
+  };
+  globalsSelect: {
+    inicio: InicioSelect<false> | InicioSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -120,23 +130,50 @@ export interface UserAuthOperations {
   };
 }
 /**
+ * Obras del catálogo. Lo que marques como publicado aparece en el sitio al guardar.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "obras".
  */
 export interface Obra {
   id: number;
-  sigropam: string;
-  titulo: string;
-  autor: string;
   /**
-   * Texto original: 1940, ca. 1925, S/F, Siglo XIX…
+   * Desmárcala para ocultar la obra sin borrarla.
    */
+  publicada?: boolean | null;
+  titulo: string;
+  /**
+   * Como debe aparecer en el sitio, por ejemplo: María Izquierdo.
+   */
+  autor: string;
   fechaTexto?: string | null;
+  /**
+   * Para el filtro por años.
+   */
   anioInicio?: number | null;
+  /**
+   * Si es un solo año, déjalo vacío.
+   */
   anioFin?: number | null;
   fechaAproximada?: boolean | null;
   periodo?: ('Arte Colonial' | 'Siglo XIX' | 'Arte Moderno' | 'Arte Contemporáneo' | 'Sin fecha') | null;
   tipo?: ('Pintura' | 'Fotografía' | 'Grabado' | 'Escultura' | 'Dibujo' | 'Artes decorativas') | null;
+  tecnica?: string | null;
+  altoCm?: number | null;
+  anchoCm?: number | null;
+  profundidadCm?: number | null;
+  /**
+   * Imagen en alta resolución, sin marca de agua. Las miniaturas se generan solas.
+   */
+  imagen?: (number | null) | Media;
+  /**
+   * Con "Restringida" la obra se publica sin imagen. En México los derechos duran la vida del autor más 100 años.
+   */
+  derechos?: ('libre' | 'autorizada' | 'restringida' | 'por-confirmar') | null;
+  /**
+   * Sirve para saber si la obra ya es de dominio público (muerte + 100 años).
+   */
+  autorMuerte?: number | null;
   museo:
     | 'MUNAL'
     | 'MAM'
@@ -159,16 +196,13 @@ export interface Obra {
     | 'MCDR'
     | 'MCA'
     | 'MJLC';
-  tecnica?: string | null;
-  altoCm?: number | null;
-  anchoCm?: number | null;
-  profundidadCm?: number | null;
   /**
-   * Sirve para saber si la obra ya es de dominio público (muerte + 100 años).
+   * Identificador único. También da nombre a su imagen.
    */
-  autorMuerte?: number | null;
-  imagen?: (number | null) | Media;
-  derechos?: ('libre' | 'autorizada' | 'restringida' | 'por-confirmar') | null;
+  sigropam: string;
+  /**
+   * Lo llena el importador; no se edita a mano.
+   */
   origen?: ('prototipo' | 'excel' | 'arca') | null;
   /**
    * Interna: bodega, préstamo o sala. No se publica.
@@ -189,18 +223,24 @@ export interface Obra {
     disciplina?: string | null;
     acervo?: string | null;
   };
-  publicada?: boolean | null;
+  busqueda?: string | null;
   editadoPor?: (number | null) | User;
   updatedAt: string;
   createdAt: string;
 }
 /**
+ * Imágenes de las obras y del sitio.
+ *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
 export interface Media {
   id: number;
+  /**
+   * Describe la imagen para lectores de pantalla y buscadores.
+   */
   alt: string;
+  privada?: boolean | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -222,6 +262,14 @@ export interface Media {
       filename?: string | null;
     };
     ficha?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    zoom?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -259,6 +307,190 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "acervos".
+ */
+export interface Acervo {
+  id: number;
+  nombre: string;
+  siglas: string;
+  zona?: string | null;
+  semblanza: string;
+  direccion?: string | null;
+  totalObras?: number | null;
+  digitalizadas?: number | null;
+  fundacion?: number | null;
+  imagen?: (number | null) | Media;
+  curaduria?: {
+    titulo?: string | null;
+    intro?: string | null;
+    autoria?: string | null;
+    numObras?: number | null;
+    imagen?: (number | null) | Media;
+    extras?: (number | Media)[] | null;
+  };
+  /**
+   * Parte de la URL: /acervos/<slug>.
+   */
+  slug: string;
+  /**
+   * Para mostrar sus obras. Vacío si aún no hay obras cargadas.
+   */
+  claveObras?:
+    | (
+        | 'MUNAL'
+        | 'MAM'
+        | 'MUNAE'
+        | 'MNSC'
+        | 'MPBA'
+        | 'MNARQ'
+        | 'MMDR'
+        | 'SAPS'
+        | 'MTAC'
+        | 'MCEDRFK'
+        | 'SPM'
+        | 'MACG'
+        | 'MACJ'
+        | 'CAPILLA'
+        | 'CENCROPAM'
+        | 'ICC'
+        | 'IAGO'
+        | 'MAMGP'
+        | 'MCDR'
+        | 'MCA'
+        | 'MJLC'
+      )
+    | null;
+  color?:
+    | (
+        | '155,34,71'
+        | '39,64,96'
+        | '30,91,79'
+        | '165,127,44'
+        | '176,83,47'
+        | '217,192,122'
+        | '138,131,119'
+        | '38,32,31'
+        | '30,92,59'
+        | '141,194,183'
+        | '219,211,182'
+      )
+    | null;
+  orden?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "curadurias".
+ */
+export interface Curaduria {
+  id: number;
+  titulo: string;
+  /**
+   * Aparece en la tarjeta del listado de curadurías.
+   */
+  intro: string;
+  acervo: 'MUNAL' | 'MAM' | 'MUNAE' | 'San Carlos' | 'Cruzada';
+  tema?: string | null;
+  numObras?: number | null;
+  curador?: string | null;
+  portada: number | Media;
+  portadaSecundaria?: (number | null) | Media;
+  subtitulo?: string | null;
+  fecha?: string | null;
+  notaSala?: {
+    titulo?: string | null;
+    texto?: string | null;
+  };
+  capitulos?:
+    | {
+        num: string;
+        titulo: string;
+        paradas?:
+          | {
+              obra: number | Obra;
+              /**
+               * Vacío: el de la obra.
+               */
+              titulo?: string | null;
+              /**
+               * Vacío: el de la obra.
+               */
+              autor?: string | null;
+              anio?: number | null;
+              texto: string;
+              /**
+               * El primero es la vista completa. X y Y van de 0 a 100 (% de la imagen); zoom 1 es sin acercar.
+               */
+              detalles?:
+                | {
+                    x: number;
+                    y: number;
+                    zoom: number;
+                    caption: string;
+                    nota?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[]
+          | null;
+        interludio?: {
+          tipo?: ('ninguno' | 'cita' | 'contexto') | null;
+          titulo?: string | null;
+          texto?: string | null;
+          por?: string | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  cierre?: {
+    titulo?: string | null;
+    texto?: string | null;
+    firma?: string | null;
+  };
+  creditos?: {
+    textos?: string | null;
+    musica?: string | null;
+    imagenes?: string | null;
+  };
+  musica?: (number | null) | Audio;
+  audioguia?: (number | null) | Audio;
+  relacionadas?: (number | Curaduria)[] | null;
+  publicada?: boolean | null;
+  /**
+   * Encabeza el listado de curadurías.
+   */
+  destacada?: boolean | null;
+  /**
+   * Parte de la URL: /curadurias/<slug>.
+   */
+  slug: string;
+  orden?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audios".
+ */
+export interface Audio {
+  id: number;
+  titulo: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -288,6 +520,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'acervos';
+        value: number | Acervo;
+      } | null)
+    | ({
+        relationTo: 'curadurias';
+        value: number | Curaduria;
+      } | null)
+    | ({
+        relationTo: 'audios';
+        value: number | Audio;
       } | null)
     | ({
         relationTo: 'users';
@@ -340,7 +584,7 @@ export interface PayloadMigration {
  * via the `definition` "obras_select".
  */
 export interface ObrasSelect<T extends boolean = true> {
-  sigropam?: T;
+  publicada?: T;
   titulo?: T;
   autor?: T;
   fechaTexto?: T;
@@ -349,14 +593,15 @@ export interface ObrasSelect<T extends boolean = true> {
   fechaAproximada?: T;
   periodo?: T;
   tipo?: T;
-  museo?: T;
   tecnica?: T;
   altoCm?: T;
   anchoCm?: T;
   profundidadCm?: T;
-  autorMuerte?: T;
   imagen?: T;
   derechos?: T;
+  autorMuerte?: T;
+  museo?: T;
+  sigropam?: T;
   origen?: T;
   localizacion?: T;
   observaciones?: T;
@@ -370,7 +615,7 @@ export interface ObrasSelect<T extends boolean = true> {
         disciplina?: T;
         acervo?: T;
       };
-  publicada?: T;
+  busqueda?: T;
   editadoPor?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -381,6 +626,7 @@ export interface ObrasSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  privada?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -415,7 +661,146 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
+        zoom?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "acervos_select".
+ */
+export interface AcervosSelect<T extends boolean = true> {
+  nombre?: T;
+  siglas?: T;
+  zona?: T;
+  semblanza?: T;
+  direccion?: T;
+  totalObras?: T;
+  digitalizadas?: T;
+  fundacion?: T;
+  imagen?: T;
+  curaduria?:
+    | T
+    | {
+        titulo?: T;
+        intro?: T;
+        autoria?: T;
+        numObras?: T;
+        imagen?: T;
+        extras?: T;
+      };
+  slug?: T;
+  claveObras?: T;
+  color?: T;
+  orden?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "curadurias_select".
+ */
+export interface CuraduriasSelect<T extends boolean = true> {
+  titulo?: T;
+  intro?: T;
+  acervo?: T;
+  tema?: T;
+  numObras?: T;
+  curador?: T;
+  portada?: T;
+  portadaSecundaria?: T;
+  subtitulo?: T;
+  fecha?: T;
+  notaSala?:
+    | T
+    | {
+        titulo?: T;
+        texto?: T;
+      };
+  capitulos?:
+    | T
+    | {
+        num?: T;
+        titulo?: T;
+        paradas?:
+          | T
+          | {
+              obra?: T;
+              titulo?: T;
+              autor?: T;
+              anio?: T;
+              texto?: T;
+              detalles?:
+                | T
+                | {
+                    x?: T;
+                    y?: T;
+                    zoom?: T;
+                    caption?: T;
+                    nota?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        interludio?:
+          | T
+          | {
+              tipo?: T;
+              titulo?: T;
+              texto?: T;
+              por?: T;
+            };
+        id?: T;
+      };
+  cierre?:
+    | T
+    | {
+        titulo?: T;
+        texto?: T;
+        firma?: T;
+      };
+  creditos?:
+    | T
+    | {
+        textos?: T;
+        musica?: T;
+        imagenes?: T;
+      };
+  musica?: T;
+  audioguia?: T;
+  relacionadas?: T;
+  publicada?: T;
+  destacada?: T;
+  slug?: T;
+  orden?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "audios_select".
+ */
+export interface AudiosSelect<T extends boolean = true> {
+  titulo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -479,6 +864,125 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inicio".
+ */
+export interface Inicio {
+  id: number;
+  /**
+   * Entre 8 y 30 imágenes; se acomodan en círculo y luego en arco.
+   */
+  portadaObras?: (number | Media)[] | null;
+  portadaInicial?: (number | null) | Media;
+  accesos?:
+    | {
+        titulo: string;
+        /**
+         * Vacío: "Próximamente".
+         */
+        enlace?: string | null;
+        color?:
+          | (
+              | '155,34,71'
+              | '39,64,96'
+              | '30,91,79'
+              | '165,127,44'
+              | '176,83,47'
+              | '217,192,122'
+              | '138,131,119'
+              | '38,32,31'
+              | '30,92,59'
+              | '141,194,183'
+              | '219,211,182'
+            )
+          | null;
+        descripcion?: string | null;
+        imagen: number | Media;
+        id?: string | null;
+      }[]
+    | null;
+  curaduriaInaugural?: (number | null) | Curaduria;
+  curaduriaImagen?: (number | null) | Media;
+  /**
+   * La retícula tiene 12 columnas: usa 4+4+4 y 5+7 como en el prototipo.
+   */
+  destacadas?:
+    | {
+        obra: number | Obra;
+        columnas?: number | null;
+        alto?: ('alta' | 'media') | null;
+        id?: string | null;
+      }[]
+    | null;
+  acervosGaleria?: (number | Acervo)[] | null;
+  recursos?:
+    | {
+        icono?: string | null;
+        titulo: string;
+        enlace?: string | null;
+        texto?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  cifras?:
+    | {
+        valor: number;
+        texto: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inicio_select".
+ */
+export interface InicioSelect<T extends boolean = true> {
+  portadaObras?: T;
+  portadaInicial?: T;
+  accesos?:
+    | T
+    | {
+        titulo?: T;
+        enlace?: T;
+        color?: T;
+        descripcion?: T;
+        imagen?: T;
+        id?: T;
+      };
+  curaduriaInaugural?: T;
+  curaduriaImagen?: T;
+  destacadas?:
+    | T
+    | {
+        obra?: T;
+        columnas?: T;
+        alto?: T;
+        id?: T;
+      };
+  acervosGaleria?: T;
+  recursos?:
+    | T
+    | {
+        icono?: T;
+        titulo?: T;
+        enlace?: T;
+        texto?: T;
+        id?: T;
+      };
+  cifras?:
+    | T
+    | {
+        valor?: T;
+        texto?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -8,6 +8,10 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Obras } from './collections/Obras'
+import { Acervos } from './collections/Acervos'
+import { Audios } from './collections/Audios'
+import { Curadurias } from './collections/Curadurias'
+import { Inicio } from './globals/Inicio'
 
 function requiredEnv(name: string): string {
   const value = process.env[name]
@@ -25,7 +29,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Obras, Media, Users],
+  collections: [Obras, Media, Acervos, Curadurias, Audios, Users],
+  globals: [Inicio],
   editor: lexicalEditor(),
   secret: requiredEnv('PAYLOAD_SECRET'),
   typescript: {

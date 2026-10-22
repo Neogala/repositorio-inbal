@@ -51,3 +51,6 @@ node_modules/
 
 # Reportes del importador de Excel
 /reportes
+
+# Audios subidos al CMS en desarrollo (como /media)
+/audios
