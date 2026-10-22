@@ -47,6 +47,11 @@ jobs:
       - run: npx tsc --noEmit
       - run: npm run test:int
 
+      - name: Cargar obras y contenido del prototipo
+        run: |
+          npm run importar:prototipo
+          npm run importar:contenido
+
       - name: Pruebas e2e
         run: |
           npx playwright install --with-deps chromium

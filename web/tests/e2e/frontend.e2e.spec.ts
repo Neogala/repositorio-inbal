@@ -4,7 +4,7 @@ test.describe('Plantilla: encabezado y pie', () => {
   test('el home carga con título y encabezado transparente sobre la portada', async ({ page }) => {
     await page.goto('/')
     await expect(page).toHaveTitle(/Colección Digital INBAL/)
-    await expect(page.locator('h1').first()).toHaveText('Colección digital')
+    await expect(page.locator('h1').first()).toContainText('Patrimonio')
     await expect(page.locator('header')).toHaveAttribute('data-solid', 'false')
   })
 
@@ -13,6 +13,11 @@ test.describe('Plantilla: encabezado y pie', () => {
     await expect(page.locator('h1').first()).toHaveText('Obras')
     await expect(page.getByText('Próximamente')).toBeVisible()
     await expect(page.locator('header')).toHaveAttribute('data-solid', 'true')
+  })
+
+  test('las fichas que enlaza el home también muestran Próximamente', async ({ page }) => {
+    await page.goto('/obras/13157')
+    await expect(page.getByText('Próximamente')).toBeVisible()
   })
 
   test('el buscador lleva a /obras con la consulta', async ({ page }) => {

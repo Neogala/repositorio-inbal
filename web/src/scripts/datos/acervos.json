@@ -1,0 +1,476 @@
+[
+  {
+    "slug": "munal",
+    "nombre": "Museo Nacional de Arte",
+    "siglas": "MUNAL",
+    "rgb": "30,91,79",
+    "zona": "Centro Histórico, CDMX",
+    "totalObras": 5200,
+    "digitalizadas": 3450,
+    "fundacion": 1982,
+    "imagen": "/img/acervos/munal.jpg",
+    "semblanza": "Resguarda el panorama del arte producido en México desde la época virreinal hasta la primera mitad del siglo XX, en un antiguo palacio del Centro Histórico. Permite leer la construcción de la identidad artística nacional.",
+    "direccion": "Tacuba 8, Centro Histórico",
+    "claveObras": "MUNAL",
+    "curaduria": {
+      "titulo": "El siglo XIX mexicano",
+      "intro": "Una lectura del paisaje, el retrato y la pintura de historia que definieron la nación moderna, en 16 obras clave del acervo.",
+      "autoria": "Curaduría MUNAL",
+      "numObras": 16,
+      "imagen": {
+        "src": "/img/acervos/obras/MUNAL_11920.jpg",
+        "alt": "La Molendera, Diego Rivera"
+      },
+      "extras": [
+        {
+          "src": "/img/acervos/obras/MUNAL_16095.jpg",
+          "alt": "El descubrimiento del Pulque, José María Obregón"
+        },
+        {
+          "src": "/img/acervos/obras/MUNAL_14333.jpg",
+          "alt": "La Nube, Gerardo Murillo Coronado (Dr. Atl)"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "bellas-artes",
+    "nombre": "Museo del Palacio de Bellas Artes",
+    "siglas": "MPBA",
+    "rgb": "155,34,71",
+    "zona": "Alameda Central, CDMX",
+    "totalObras": 1500,
+    "digitalizadas": 945,
+    "fundacion": 1934,
+    "imagen": "/img/acervos/bellas-artes.jpg",
+    "semblanza": "En el recinto cultural más emblemático del país, custodia el muralismo mexicano en sus muros y una colección de arte de los siglos XX y XXI. Casa de la ópera, la danza y las grandes exposiciones.",
+    "direccion": "Av. Juárez y Eje Central, Centro",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Muralismo en Bellas Artes",
+      "intro": "Rivera, Orozco, Siqueiros y Tamayo: los murales que convirtieron al Palacio en un manifiesto plástico, en documentación de alta resolución.",
+      "autoria": "Curaduría MPBA",
+      "numObras": 9,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "arquitectura",
+    "nombre": "Museo Nacional de Arquitectura",
+    "siglas": "MNA",
+    "rgb": "39,64,96",
+    "zona": "Alameda Central, CDMX",
+    "totalObras": 800,
+    "digitalizadas": 260,
+    "fundacion": 1984,
+    "imagen": "/img/acervos/arquitectura.jpg",
+    "semblanza": "Único museo del país dedicado a la arquitectura, en el último piso del Palacio de Bellas Artes. Resguarda planos, maquetas, fotografía y documentos del patrimonio arquitectónico mexicano.",
+    "direccion": "Palacio de Bellas Artes (último piso), Centro",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "La arquitectura como patrimonio",
+      "intro": "Planos, maquetas y fotografía que narran la construcción del México moderno, del funcionalismo a las utopías urbanas.",
+      "autoria": "Curaduría MNA",
+      "numObras": 10,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "mural-diego-rivera",
+    "nombre": "Museo Mural Diego Rivera",
+    "siglas": "MMDR",
+    "rgb": "165,127,44",
+    "zona": "Centro (Alameda), CDMX",
+    "totalObras": 320,
+    "digitalizadas": 210,
+    "fundacion": 1986,
+    "imagen": "/img/acervos/diego-rivera.jpg",
+    "semblanza": "Creado para albergar el mural “Sueño de una tarde dominical en la Alameda Central”, de Diego Rivera, tras los sismos de 1985. Un museo alrededor de una sola obra maestra y su contexto.",
+    "direccion": "Balderas y Colón, Centro",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Un mural, una época",
+      "intro": "Personaje por personaje: las claves históricas y simbólicas del gran mural de Rivera, con acercamientos de zoom profundo.",
+      "autoria": "Curaduría MMDR",
+      "numObras": 12,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "mam",
+    "nombre": "Museo de Arte Moderno",
+    "siglas": "MAM",
+    "rgb": "217,192,122",
+    "zona": "Bosque de Chapultepec, CDMX",
+    "totalObras": 3200,
+    "digitalizadas": 1892,
+    "fundacion": 1964,
+    "imagen": "/img/acervos/arte-moderno.jpg",
+    "semblanza": "Pintura, escultura y fotografía moderna en el Bosque de Chapultepec. Custodia obras emblemáticas de la Escuela Mexicana y de las vanguardias del siglo XX, en diálogo con el arte internacional.",
+    "direccion": "Paseo de la Reforma s/n, Bosque de Chapultepec",
+    "claveObras": "MAM",
+    "curaduria": {
+      "titulo": "Mujeres del arte moderno",
+      "intro": "Frida Kahlo, María Izquierdo, Remedios Varo y Leonora Carrington: una constelación de miradas que transformaron el arte mexicano.",
+      "autoria": "Curaduría MAM",
+      "numObras": 14,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "saps",
+    "nombre": "Sala de Arte Público Siqueiros",
+    "siglas": "SAPS",
+    "rgb": "138,131,119",
+    "zona": "Polanco, CDMX",
+    "totalObras": 1100,
+    "digitalizadas": 480,
+    "fundacion": 1969,
+    "imagen": "/img/acervos/saps.jpg",
+    "semblanza": "Antigua casa-estudio de David Alfaro Siqueiros, hoy centro dedicado al muralismo y al arte público. Conserva su archivo, su obra experimental y su legado político y plástico.",
+    "direccion": "Tres Picos 29, Polanco",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "El muralismo público",
+      "intro": "Siqueiros y la idea del arte como herramienta social: bocetos, murales portátiles y experimentos técnicos.",
+      "autoria": "Curaduría SAPS",
+      "numObras": 11,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "tamayo",
+    "nombre": "Museo Tamayo Arte Contemporáneo",
+    "siglas": "TAMAYO",
+    "rgb": "38,32,31",
+    "zona": "Bosque de Chapultepec, CDMX",
+    "totalObras": 1800,
+    "digitalizadas": 640,
+    "fundacion": 1981,
+    "imagen": "/img/acervos/tamayo.jpg",
+    "semblanza": "Dedicado al arte contemporáneo internacional, nació de la colección que Rufino Tamayo donó a México. Un diálogo entre la creación actual y los grandes maestros modernos, en Chapultepec.",
+    "direccion": "Paseo de la Reforma 51, Bosque de Chapultepec",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Tamayo y su tiempo",
+      "intro": "La colección personal del artista frente a la creación contemporánea: un puente entre generaciones y geografías.",
+      "autoria": "Curaduría Tamayo",
+      "numObras": 12,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "casa-estudio",
+    "nombre": "Museo Casa Estudio Diego Rivera y Frida Kahlo",
+    "siglas": "CASA ESTUDIO",
+    "rgb": "155,34,71",
+    "zona": "San Ángel, CDMX",
+    "totalObras": 500,
+    "digitalizadas": 300,
+    "fundacion": 1986,
+    "imagen": "/img/acervos/casa-estudio.jpg",
+    "semblanza": "Las casas-estudio funcionalistas que Juan O’Gorman diseñó para Diego Rivera y Frida Kahlo en San Ángel. Un museo de sitio sobre su vida, su obra y la arquitectura moderna mexicana.",
+    "direccion": "Diego Rivera esq. Altavista, San Ángel",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Dos casas, dos artistas",
+      "intro": "La vida cotidiana y creativa de Rivera y Kahlo a través de su espacio de trabajo y los objetos que lo habitaron.",
+      "autoria": "Curaduría Casa Estudio",
+      "numObras": 10,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "san-carlos",
+    "nombre": "Museo Nacional de San Carlos",
+    "siglas": "MNSC",
+    "rgb": "30,91,79",
+    "zona": "Tabacalera, CDMX",
+    "totalObras": 2000,
+    "digitalizadas": 1182,
+    "fundacion": 1968,
+    "imagen": "/img/acervos/san-carlos.jpg",
+    "semblanza": "Alberga la colección de arte europeo más importante de México, del gótico al siglo XX, en un palacio neoclásico. Su origen se liga a la Academia de San Carlos, cuna de la enseñanza artística nacional.",
+    "direccion": "Puente de Alvarado 50, Tabacalera",
+    "claveObras": "MNSC",
+    "curaduria": {
+      "titulo": "Europa en México",
+      "intro": "Del renacimiento al romanticismo: obras maestras que educaron la mirada de generaciones de artistas mexicanos.",
+      "autoria": "Curaduría MNSC",
+      "numObras": 13,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "munae",
+    "nombre": "Museo Nacional de la Estampa",
+    "siglas": "MUNAE",
+    "rgb": "165,127,44",
+    "zona": "Centro (Alameda), CDMX",
+    "totalObras": 12000,
+    "digitalizadas": 712,
+    "fundacion": 1986,
+    "imagen": "/img/acervos/estampa.jpg",
+    "semblanza": "Único museo del país dedicado al arte gráfico. Custodia una vasta colección de grabado, litografía y estampa, desde Posada y el Taller de Gráfica Popular hasta la gráfica contemporánea.",
+    "direccion": "Av. Hidalgo 39, Centro",
+    "claveObras": "MUNAE",
+    "curaduria": {
+      "titulo": "La estampa insurgente",
+      "intro": "De José Guadalupe Posada al Taller de Gráfica Popular: el grabado como herramienta de crítica social y memoria.",
+      "autoria": "Curaduría MUNAE",
+      "numObras": 15,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "plastica-mexicana",
+    "nombre": "Salón de la Plástica Mexicana",
+    "siglas": "SPM",
+    "rgb": "217,192,122",
+    "zona": "Roma Norte, CDMX",
+    "totalObras": 700,
+    "digitalizadas": 300,
+    "fundacion": 1949,
+    "imagen": "/img/acervos/plastica-mexicana.jpg",
+    "semblanza": "Fundado en 1949, reúne a artistas plásticos mexicanos en activo. Un espacio vivo de exposición y diálogo que ha acompañado la historia reciente del arte nacional.",
+    "direccion": "Colima 196, Roma Norte",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Generaciones vivas",
+      "intro": "La obra de artistas mexicanos en activo: un retrato del arte que se produce hoy, más allá de los grandes nombres del pasado.",
+      "autoria": "Curaduría SPM",
+      "numObras": 12,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "carrillo-gil",
+    "nombre": "Museo de Arte Carrillo Gil",
+    "siglas": "MACG",
+    "rgb": "138,131,119",
+    "zona": "San Ángel, CDMX",
+    "totalObras": 1900,
+    "digitalizadas": 1240,
+    "fundacion": 1974,
+    "imagen": "/img/acervos/carrillo-gil.jpg",
+    "semblanza": "Surgido de la colección privada de Álvar y Carmen Carrillo Gil, reúne obra de Orozco, Rivera y Siqueiros junto a arte contemporáneo. Pionero en su vocación experimental y de vanguardia.",
+    "direccion": "Av. Revolución 1608, San Ángel",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Vanguardia y experimentación",
+      "intro": "Del expresionismo de Orozco al arte conceptual: un recorrido por la vocación arriesgada de la colección.",
+      "autoria": "Curaduría MACG",
+      "numObras": 11,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "ciudad-juarez",
+    "nombre": "Museo de Arte de Ciudad Juárez",
+    "siglas": "MACJ",
+    "rgb": "38,32,31",
+    "zona": "Ciudad Juárez, Chih.",
+    "totalObras": 900,
+    "digitalizadas": 360,
+    "fundacion": 1964,
+    "imagen": "/img/acervos/ciudad-juarez.jpg",
+    "semblanza": "El museo del INBAL en la frontera norte, en un edificio de Pedro Ramírez Vázquez en la zona PRONAF. Difunde el arte contemporáneo y acerca el acervo nacional a Ciudad Juárez.",
+    "direccion": "Av. Lincoln s/n, Zona PRONAF, Ciudad Juárez",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Arte en la frontera",
+      "intro": "La creación contemporánea del norte de México y su diálogo con el arte binacional en la frontera con Estados Unidos.",
+      "autoria": "Curaduría MACJ",
+      "numObras": 10,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "capilla-alfonsina",
+    "nombre": "Capilla Alfonsina",
+    "siglas": "CAPILLA ALFONSINA",
+    "rgb": "155,34,71",
+    "zona": "Obispado, Monterrey, N.L.",
+    "totalObras": 300,
+    "digitalizadas": 120,
+    "fundacion": 1955,
+    "imagen": "/img/acervos/capilla-alfonsina.jpg",
+    "semblanza": "Antigua casa de Alfonso Reyes, hoy biblioteca y museo que resguarda su archivo personal, biblioteca y objetos de trabajo. Un homenaje vivo al humanismo mexicano del siglo XX.",
+    "direccion": "Vicente Suárez 67, Obispado, Monterrey",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "El regreso de Alfonso Reyes",
+      "intro": "Manuscritos, correspondencia y objetos personales que trazan el itinerario intelectual de uno de los grandes humanistas mexicanos.",
+      "autoria": "Curaduría Capilla Alfonsina",
+      "numObras": 8,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "cencropam",
+    "nombre": "Centro Nacional de Conservación y Registro del Patrimonio Artístico Mueble",
+    "siglas": "CENCROPAM",
+    "rgb": "39,64,96",
+    "zona": "Churubusco, CDMX",
+    "totalObras": 250,
+    "digitalizadas": 90,
+    "fundacion": 1981,
+    "imagen": "/img/acervos/cencropam.jpg",
+    "semblanza": "Centro especializado en la conservación, restauración, investigación y registro del patrimonio artístico mueble del país. El laboratorio detrás de la preservación del acervo nacional.",
+    "direccion": "General Anaya 187, Churubusco",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Detrás de la restauración",
+      "intro": "Procesos de conservación documentados obra por obra: diagnóstico, intervención y registro técnico del patrimonio mueble.",
+      "autoria": "Curaduría CENCROPAM",
+      "numObras": 9,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "cabanas",
+    "nombre": "Instituto Cultural Cabañas",
+    "siglas": "ICC",
+    "rgb": "30,91,79",
+    "zona": "Guadalajara, Jal.",
+    "totalObras": 1400,
+    "digitalizadas": 520,
+    "fundacion": 1980,
+    "imagen": "/img/acervos/cabanas.jpg",
+    "semblanza": "Alojado en el Hospicio Cabañas, Patrimonio de la Humanidad por la UNESCO. Custodia los murales de José Clemente Orozco, entre ellos el célebre Hombre de fuego, en la cúpula principal.",
+    "direccion": "Cabañas 8, Las Fresas, Guadalajara",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Orozco y el fuego",
+      "intro": "Los murales de Orozco en el Hospicio Cabañas: una lectura de su lenguaje visceral y su crítica a la deshumanización.",
+      "autoria": "Curaduría ICC",
+      "numObras": 13,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "iago",
+    "nombre": "Instituto de Artes Gráficas de Oaxaca",
+    "siglas": "IAGO",
+    "rgb": "165,127,44",
+    "zona": "Oaxaca de Juárez, Oax.",
+    "totalObras": 1800,
+    "digitalizadas": 640,
+    "fundacion": 1988,
+    "imagen": "/img/acervos/iago.jpg",
+    "semblanza": "Fundado por Francisco Toledo, reúne una vasta colección de grabado, fotografía y libros de artista de México y el mundo, con vocación de biblioteca viva y taller abierto.",
+    "direccion": "Macedonio Alcalá 507, Centro, Oaxaca",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "El taller como archivo",
+      "intro": "Grabado y libro de artista en diálogo: la gráfica oaxaqueña y sus vínculos con la tradición internacional del medio.",
+      "autoria": "Curaduría IAGO",
+      "numObras": 11,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "mam-gomez-palacio",
+    "nombre": "Museo de Arte Moderno de Gómez Palacio",
+    "siglas": "MAMGP",
+    "rgb": "176,83,47",
+    "zona": "Gómez Palacio, Dgo.",
+    "totalObras": 600,
+    "digitalizadas": 210,
+    "fundacion": 1981,
+    "imagen": "/img/acervos/mam-gomez-palacio.jpg",
+    "semblanza": "Recinto lagunero dedicado al arte moderno y contemporáneo mexicano, con especial atención a la producción artística del norte del país.",
+    "direccion": "Blvd. Miguel Alemán 200, Gómez Palacio",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Arte moderno en el norte",
+      "intro": "Una revisión de la modernidad artística mexicana desde La Laguna: pintura y escultura del siglo XX en diálogo regional.",
+      "autoria": "Curaduría MAMGP",
+      "numObras": 9,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "casa-diego-rivera-gto",
+    "nombre": "Museo Casa Diego Rivera",
+    "siglas": "MCDR",
+    "rgb": "217,192,122",
+    "zona": "Guanajuato, Gto.",
+    "totalObras": 400,
+    "digitalizadas": 180,
+    "fundacion": 1975,
+    "imagen": "/img/acervos/casa-diego-rivera-gto.jpg",
+    "semblanza": "La casa natal de Diego Rivera en Guanajuato, hoy museo que resguarda obra temprana del artista y recrea el ambiente doméstico porfiriano en que nació.",
+    "direccion": "Positos 47, Centro, Guanajuato",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Los primeros años de Rivera",
+      "intro": "Obra de juventud y documentos que narran la formación del muralista antes de su salida a Europa.",
+      "autoria": "Curaduría MCDR",
+      "numObras": 10,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "ciudad-aguascalientes",
+    "nombre": "Museo de la Ciudad de Aguascalientes",
+    "siglas": "MCA",
+    "rgb": "138,131,119",
+    "zona": "Aguascalientes, Ags.",
+    "totalObras": 700,
+    "digitalizadas": 260,
+    "fundacion": 1985,
+    "imagen": "/img/acervos/ciudad-aguascalientes.jpg",
+    "semblanza": "Instalado en un antiguo palacio del centro histórico, documenta la historia urbana y artística de Aguascalientes junto a exposiciones temporales de arte contemporáneo.",
+    "direccion": "Venustiano Carranza 118, Centro, Aguascalientes",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "Memoria de una ciudad",
+      "intro": "Pintura, fotografía y documento histórico que reconstruyen la identidad visual de Aguascalientes a través del tiempo.",
+      "autoria": "Curaduría MCA",
+      "numObras": 10,
+      "imagen": null,
+      "extras": []
+    }
+  },
+  {
+    "slug": "jose-luis-cuevas",
+    "nombre": "Museo José Luis Cuevas",
+    "siglas": "MJLC",
+    "rgb": "38,32,31",
+    "zona": "Centro Histórico, CDMX",
+    "totalObras": 900,
+    "digitalizadas": 340,
+    "fundacion": 1992,
+    "imagen": "/img/acervos/jose-luis-cuevas.jpg",
+    "semblanza": "Antiguo convento de Santa Inés convertido en museo por iniciativa del propio artista. Reúne la obra gráfica y escultórica de José Luis Cuevas junto a su colección personal de arte internacional.",
+    "direccion": "Academia 13, Centro Histórico",
+    "claveObras": null,
+    "curaduria": {
+      "titulo": "La Giganta y su tiempo",
+      "intro": "Dibujo, grabado y escultura de Cuevas en diálogo con su colección: el neofigurativismo frente a la tradición muralista.",
+      "autoria": "Curaduría MJLC",
+      "numObras": 12,
+      "imagen": null,
+      "extras": []
+    }
+  }
+]
