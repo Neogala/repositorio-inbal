@@ -1,0 +1,36 @@
+.proximamente {
+  min-height: 70vh;
+  padding-top: 180px;
+  padding-bottom: 96px;
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--verde-900);
+}
+
+.title {
+  font-family: var(--display);
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-top: 18px;
+}
+
+.lead {
+  margin-top: 24px;
+  font-size: 18px;
+  max-width: 36ch;
+}
+
+.volver {
+  display: inline-block;
+  margin-top: 32px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--verde-900);
+}
