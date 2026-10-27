@@ -1,0 +1,183 @@
+/*
+  Identidad del sitio en el panel de Payload. Por ahora solo la pantalla de acceso (login,
+  crear primer usuario, recuperar contraseña): todo va dentro de .template-minimal para no
+  cambiar el resto del panel. Estas reglas van fuera de @layer, así que ganan sobre los
+  estilos por defecto de Payload (que están en @layer payload-default).
+*/
+.template-minimal {
+  --inbal-verde: #1e5b4f;
+  --inbal-verde-900: #1e5c3b;
+  --inbal-oro: #8dc2b7;
+  --inbal-arena: #dbd3b6;
+  --inbal-tinta: #211a1c;
+  --inbal-papel-2: #faf7f2;
+  --inbal-linea: #e8e3da;
+
+  /* Fuentes cargadas con next/font en app/(payload)/layout.tsx */
+  --font-body: var(--font-noto-sans), 'Noto Sans', system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), 'Fraunces', Georgia, serif;
+
+  /* Grises cálidos del sitio en lugar de los grises neutros de Payload */
+  --color-base-0: #ffffff;
+  --color-base-50: #faf7f2;
+  --color-base-100: #f3eee6;
+  --color-base-150: #e8e3da;
+  --color-base-200: #d9d2c6;
+  --color-base-250: #c9c1b4;
+  --color-base-300: #b7aea1;
+  --color-base-350: #a59c90;
+  --color-base-400: #938a7f;
+  --color-base-450: #817970;
+  --color-base-500: #6f6a66;
+  --color-base-550: #625c58;
+  --color-base-600: #554f4c;
+  --color-base-650: #48433f;
+  --color-base-700: #3c3634;
+  --color-base-750: #312c2a;
+  --color-base-800: #282223;
+  --color-base-850: #211a1c;
+  --color-base-900: #1a1416;
+  --color-base-950: #120e0f;
+  --color-base-1000: #000000;
+
+  /* "Éxito" (avisos de guardado, selección) en el verde del sitio */
+  --color-success-50: #eef5f3;
+  --color-success-100: #dceae6;
+  --color-success-150: #c4ddd6;
+  --color-success-200: #a9cdc4;
+  --color-success-250: #8dc2b7;
+  --color-success-300: #6eab9e;
+  --color-success-350: #559585;
+  --color-success-400: #3f8070;
+  --color-success-450: #2d6d5f;
+  --color-success-500: #1e5b4f;
+  --color-success-550: #1a5146;
+  --color-success-600: #17473e;
+  --color-success-650: #143e36;
+  --color-success-700: #11352e;
+  --color-success-750: #0f2c27;
+  --color-success-800: #0d241f;
+  --color-success-850: #0b1c18;
+  --color-success-900: #081411;
+  --color-success-950: #050c0a;
+}
+
+.template-minimal h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.template-minimal .btn {
+  border-radius: 40px;
+  letter-spacing: 0.02em;
+}
+
+.template-minimal .btn--style-primary {
+  --bg-color: var(--inbal-verde);
+  --hover-bg: var(--inbal-verde-900);
+  --color: #ffffff;
+}
+
+.template-minimal .field-type input:focus {
+  border-color: var(--inbal-verde);
+  box-shadow: 0 0 0 3px rgba(30, 91, 79, 0.15);
+}
+
+/* ---------- Acceso (login, crear primer usuario, recuperar contraseña) ---------- */
+/* Safari en iOS 26 no dibuja la página debajo de sus barras: pinta las dos con un solo color
+   liso, el de fondo de la página (probado en iPhone: una tira fija arriba o abajo no lo
+   cambia). Ese color es el azul con que empieza la imagen bajo el velo (#1f4077, medido de
+   login.jpg) y la imagen se difumina hacia él arriba y abajo, así ninguna barra corta.
+   Sin rebote: la pantalla cabe completa y al jalar solo se vería ese fondo liso. */
+html:has(.template-minimal),
+html:has(.template-minimal) body {
+  background-color: #1f4077;
+  overscroll-behavior: none;
+}
+
+.template-minimal {
+  /* svh: el alto con las barras de Safari visibles; con 100vh la página quedaba más alta
+     que la pantalla y se podía bajar más allá de la imagen. */
+  min-height: 100vh;
+  min-height: 100svh;
+  background:
+    linear-gradient(180deg, #1f4077 0, rgba(31, 64, 119, 0) 140px),
+    linear-gradient(0deg, #1f4077 0, rgba(31, 64, 119, 0.85) 60px, rgba(31, 64, 119, 0) 240px),
+    linear-gradient(
+      180deg,
+      rgba(0, 20, 18, 0.35) 0%,
+      rgba(0, 20, 18, 0.15) 40%,
+      rgba(30, 92, 59, 0.85) 100%
+    ),
+    url('/img/admin/login.jpg') center / cover no-repeat #1f4077;
+}
+
+/* En el celular, centrada exacto se ve baja: más aire abajo la sube al centro óptico. */
+@media (max-width: 600px) {
+  .template-minimal {
+    padding-bottom: calc(60px + 10svh);
+  }
+}
+
+.template-minimal__wrap {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 40px 32px;
+  box-shadow: 0 30px 70px -30px rgba(0, 20, 18, 0.6);
+}
+
+.template-minimal .login__brand,
+.template-minimal h1 {
+  margin-bottom: 8px;
+}
+
+.template-minimal input {
+  border-radius: 10px;
+}
+
+.inbal-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inbal-logo__marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inbal-logo__marca img {
+  height: 30px;
+  width: auto;
+  filter: brightness(0);
+}
+
+.inbal-logo__sep {
+  width: 1px;
+  height: 22px;
+  background: var(--inbal-linea);
+}
+
+.inbal-logo__texto {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--inbal-verde);
+}
+
+.inbal-logo__sub {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-base-500);
+}
+
+@media (max-width: 900px) {
+  .template-minimal__wrap {
+    padding: 28px 22px;
+  }
+}

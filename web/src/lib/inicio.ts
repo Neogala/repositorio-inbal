@@ -19,7 +19,16 @@ export async function obtenerInicio() {
 
   const portada: ObraHero[] = (g.portadaObras ?? []).flatMap((x) => {
     const m = media(x)
-    return m ? [{ id: idDe(m), src: m.sizes?.ficha?.url ?? m.url!, alt: m.alt }] : []
+    return m
+      ? [
+          {
+            id: idDe(m),
+            src: m.sizes?.ficha?.url ?? m.url!,
+            mini: m.sizes?.miniatura?.url ?? undefined,
+            alt: m.alt,
+          },
+        ]
+      : []
   })
   const inicial = media(g.portadaInicial)
 

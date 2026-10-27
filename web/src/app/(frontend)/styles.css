@@ -21,7 +21,8 @@
   --sans: var(--font-noto-sans), 'Noto Sans', system-ui, sans-serif;
 
   --wrap: 1280px;
-  --pad-x: 40px;
+  /* En iPhone horizontal, sin meterse bajo la muesca (viewport-fit=cover). */
+  --pad-x: max(40px, env(safe-area-inset-left), env(safe-area-inset-right));
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -35,6 +36,27 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Sin rebote elástico con mouse o trackpad: al volver arriba de golpe enseñaba el fondo
+   blanco tras el encabezado transparente del home. En pantallas táctiles no, porque ahí
+   también apagaría el "jalar para recargar". */
+@media (hover: hover) and (pointer: fine) {
+  html {
+    overscroll-behavior-y: none;
+  }
+}
+
+/* Al jalar arriba del home se ve el fondo de html: con la portada arriba va en su verde
+   y no en blanco; body sigue blanco. */
+html:has([data-over-hero='true'][data-solid='false']) {
+  background: var(--verde);
+}
+
+/* Al final de la página, el verde del pie (ColorBarraPie): la barra del sistema de Android
+   y el rebote de abajo siguen al pie en lugar de quedar en blanco. */
+html[data-pie] {
+  background: var(--guinda-900);
 }
 
 body {
@@ -85,7 +107,7 @@ img {
 
 @media (max-width: 900px) {
   :root {
-    --pad-x: 22px;
+    --pad-x: max(22px, env(safe-area-inset-left), env(safe-area-inset-right));
   }
 }
 
@@ -100,3 +122,64 @@ img {
     scroll-behavior: auto;
   }
 }
+
+/* Pantallas táctiles. Con menos de 16 px Safari en iPhone hace zoom al tocar un campo y
+   descuadra la página. Safari además ignora el relleno de un select con su apariencia
+   nativa (se quedaba en 23 px de alto): se dibuja igual que los demás campos, con flecha. */
+@media (pointer: coarse) {
+  input:not([type='checkbox'], [type='radio'], [type='range']),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  select {
+    -webkit-appearance: none;
+    appearance: none;
+    min-height: 44px;
+    padding-right: 36px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%236f6a66' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 12px 8px;
+  }
+
+  main input:not([type='checkbox'], [type='radio'], [type='range']) {
+    min-height: 44px;
+  }
+}
+
+/* Esqueleto de carga: mientras una imagen no llega, su recuadro se ve en el tono del papel
+   con un brillo que lo cruza. EsqueletoImagenes la marca con data-cargada al terminar y se
+   quita (si no, quedaría detrás de las obras que no llenan su marco). Solo en el contenido:
+   el filtro del logo del encabezado lo pintaba de negro. Sin movimiento con
+   prefers-reduced-motion. */
+main img:not([data-cargada]) {
+  background-color: #ece6da;
+  background-image: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: esqueleto-brillo 1.4s ease-in-out infinite;
+}
+
+@keyframes esqueleto-brillo {
+  from {
+    background-position: 130% 0;
+  }
+  to {
+    background-position: -30% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main img:not([data-cargada]) {
+    animation: none;
+    background-image: none;
+  }
+}
+

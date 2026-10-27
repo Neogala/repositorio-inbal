@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import type { Viewport } from 'next'
 import Link from 'next/link'
 
 import { ActivarReveal, Contador, ProgresoScroll } from '@/components/home/Animaciones'
@@ -7,6 +8,9 @@ import { HeroMorph } from '@/components/home/HeroMorph'
 import styles from '@/components/home/home.module.css'
 import { obtenerInicio } from '@/lib/inicio'
 import { etiquetaCortaMuseo, imagenDe } from '@/lib/obras'
+
+// La barra del navegador empieza en el verde de la portada (--verde); SiteHeader la cambia al bajar.
+export const viewport: Viewport = { themeColor: '#1e5b4f' }
 
 // Home portado de prototipo/index.html; el contenido se edita en el global "Página de inicio".
 export default async function HomePage() {

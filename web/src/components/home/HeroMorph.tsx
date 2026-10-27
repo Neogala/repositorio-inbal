@@ -6,24 +6,27 @@
 import Image, { getImageProps } from 'next/image'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { preload } from 'react-dom'
 
 import { useTemporizador } from '@/components/useTemporizador'
 import styles from './home.module.css'
 
 // El fondo es CSS (cambia con la animación), así que no usa <Image>; getImageProps
 // lo pasa por el optimizador de Next (WebP y tamaño justo) con 1x y 2x.
+function srcSetFondo(src: string): string {
+  return getImageProps({ alt: '', src, width: 1400, height: 900, quality: 75 }).props.srcSet ?? ''
+}
+
 function fondoOptimizado(src: string): string {
-  const {
-    props: { srcSet },
-  } = getImageProps({ alt: '', src, width: 1400, height: 900, quality: 75 })
-  const opciones = (srcSet ?? '').split(', ').map((s) => {
+  const opciones = srcSetFondo(src).split(', ').filter(Boolean).map((s) => {
     const [url, densidad] = s.split(' ')
     return `url("${url}") ${densidad}`
   })
   return opciones.length ? `image-set(${opciones.join(', ')})` : `url('${src}')`
 }
 
-export type ObraHero = { id: string; alt: string; src: string }
+// `src` es el tamaño de ficha (fondo); `mini`, el de 480 px para las tarjetas.
+export type ObraHero = { id: string; alt: string; src: string; mini?: string }
 
 type Fase = 'dispersa' | 'linea' | 'circulo'
 
@@ -56,8 +59,15 @@ export function HeroMorph({ obras, inicial }: { obras: ObraHero[]; inicial: stri
     const { width: w, height: h } = el.getBoundingClientRect()
     const movil = w < 768
     const reducir = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const morph = reducir ? 1 : Math.min(Math.max(window.scrollY / 520, 0), 1)
-    setArcoVisible(morph > 0.75)
+    // En pantallas táctiles el arco no sigue al dedo: iOS desplaza la página aparte y las
+    // tarjetas siempre iban atrasadas. Se abre de una vez al empezar el scroll y la
+    // transición de 0.7 s de cada tarjeta lo anima sola.
+    const tactil = window.matchMedia('(hover: none)').matches
+    const avance = Math.min(Math.max(window.scrollY / 520, 0), 1)
+    const morph = reducir ? 1 : tactil ? (avance > 0.1 ? 1 : 0) : avance
+    // El texto del arco sale con el scroll real; con el arco abierto de una vez quedaba
+    // encimado en el encabezado.
+    setArcoVisible((tactil && !reducir ? avance : morph) > 0.75)
     setIntroOculta(reducir || morph > 0.25)
 
     const total = obras.length
@@ -203,6 +213,17 @@ export function HeroMorph({ obras, inicial }: { obras: ObraHero[]; inicial: stri
     }
   }, [render, elegir, inicial, obras])
 
+  // El fondo inicial se pide desde el HTML para que baje durante la intro y no después.
+  const srcInicial = obras.find((o) => o.id === inicial)?.src
+  if (srcInicial) {
+    const srcSet = srcSetFondo(srcInicial)
+    preload(srcSet ? srcSet.split(' ')[0] : srcInicial, {
+      as: 'image',
+      imageSrcSet: srcSet || undefined,
+      fetchPriority: 'high',
+    })
+  }
+
   const urlFondo = fondo ? obras.find((o) => o.id === fondo)?.src : null
   const fondoCss = urlFondo ? fondoOptimizado(urlFondo) : null
 
@@ -210,6 +231,7 @@ export function HeroMorph({ obras, inicial }: { obras: ObraHero[]; inicial: stri
     <section
       ref={seccion}
       className={styles.hero}
+      data-portada
       onMouseMove={(e) => {
         const r = e.currentTarget.getBoundingClientRect()
         mouseX.current = ((e.clientX - r.left) / r.width) * 2 * 60 - 60
@@ -278,7 +300,7 @@ export function HeroMorph({ obras, inicial }: { obras: ObraHero[]; inicial: stri
               tabIndex={-1}
             >
               <span className={styles.frente}>
-                <Image src={o.src} alt="" width={132} height={184} sizes="100px" />
+                <Image src={o.mini ?? o.src} alt="" width={132} height={184} sizes="100px" />
               </span>
               <span className={styles.reverso}>
                 <span>{o.id.split('_')[0]}</span>

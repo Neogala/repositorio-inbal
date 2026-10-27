@@ -32,6 +32,7 @@ import {
   type ObraImportada,
   type Problema,
 } from '../lib/importar/sigropam'
+import { avisarAlSitio } from '../lib/avisar-sitio'
 import config from '../payload.config'
 import type { Obra } from '../payload-types'
 
@@ -138,9 +139,10 @@ function internos(o: ObraImportada) {
   return { localizacion: o.localizacion, observaciones: o.observaciones, original: o.original }
 }
 
+const vacio = (v: unknown) => v == null || v === ''
+
 // Para obras del prototipo o editadas: solo lo que falta.
 function complemento(o: ObraImportada, actual: Obra) {
-  const vacio = (v: unknown) => v == null || v === ''
   const datos: Record<string, unknown> = { ...internos(o) }
   const candidatos = {
     autorMuerte: o.autorMuerte,
@@ -164,6 +166,15 @@ function complemento(o: ObraImportada, actual: Obra) {
     })
   }
   return datos
+}
+
+// Solo se escribe lo que cambia: cada update crea una versión en el historial y
+// corre los hooks, así que volver a importar el mismo Excel no debe tocar nada.
+// Por contenido: "original" es un objeto JSON y llega como objeto nuevo en cada lectura.
+const igual = (a: unknown, b: unknown) =>
+  (vacio(a) && vacio(b)) || JSON.stringify(a ?? null) === JSON.stringify(b ?? null)
+function cambia(datos: Record<string, unknown>, actual: Obra): boolean {
+  return Object.entries(datos).some(([k, v]) => !igual(actual[k as keyof Obra], v))
 }
 
 async function main() {
@@ -211,6 +222,7 @@ async function main() {
   let creadas = 0
   let reemplazadas = 0
   let completadas = 0
+  let sinCambios = 0
   for (const { fila, obra } of validas) {
     const actual = porSigropam.get(obra.sigropam)
     try {
@@ -227,17 +239,15 @@ async function main() {
             },
           })
         }
-      } else if (actual.origen === 'excel' && !actual.editadoPor) {
-        reemplazadas++
-        if (!prueba) await payload.update({ collection: 'obras', id: actual.id, data: ficha(obra) })
       } else {
-        completadas++
-        if (!prueba)
-          await payload.update({
-            collection: 'obras',
-            id: actual.id,
-            data: complemento(obra, actual),
-          })
+        const reemplazar = actual.origen === 'excel' && !actual.editadoPor
+        const datos: Record<string, unknown> = reemplazar ? ficha(obra) : complemento(obra, actual)
+        if (!cambia(datos, actual)) sinCambios++
+        else {
+          if (reemplazar) reemplazadas++
+          else completadas++
+          if (!prueba) await payload.update({ collection: 'obras', id: actual.id, data: datos })
+        }
       }
     } catch (err) {
       errores++
@@ -249,6 +259,26 @@ async function main() {
         mensaje: (err as Error).message,
       })
     }
+  }
+
+  // Los acervos con obras muestran su colección en /acervos/<slug>.
+  const vinculados: string[] = []
+  const slugs = new Map(validas.map(({ obra }) => [obra.acervoSlug, obra.museo]))
+  const { docs: acervos } = await payload.find({
+    collection: 'acervos',
+    pagination: false,
+    depth: 0,
+    where: { slug: { in: [...slugs.keys()] } },
+  })
+  for (const a of acervos) {
+    if (a.claveObras) continue
+    vinculados.push(a.nombre)
+    if (!prueba)
+      await payload.update({
+        collection: 'acervos',
+        id: a.id,
+        data: { claveObras: slugs.get(a.slug)! },
+      })
   }
 
   // Reporte por fila.
@@ -277,6 +307,7 @@ async function main() {
   console.log(
     `  ${prueba ? 'Se completarían' : 'Completadas'} (prototipo o editadas en el panel): ${completadas}`,
   )
+  console.log(`  Sin cambios: ${sinCambios}`)
   console.log(`  Descartadas (bajas): ${descartadas}`)
   console.log(
     `  Duplicadas en el archivo: ${reporte.filter((l) => l.nivel === 'duplicada').length}`,
@@ -285,7 +316,12 @@ async function main() {
   console.log(
     `  Avisos: ${avisos.length} (${[...porCampo].map(([c, n]) => `${c} ${n}`).join(', ') || 'ninguno'})`,
   )
+  if (vinculados.length)
+    console.log(
+      `Acervos ${prueba ? 'por vincular' : 'vinculados'} a sus obras: ${vinculados.join(', ')}`,
+    )
   console.log(`Reporte: ${path.relative(process.cwd(), salida)}`)
+  if (!prueba) await avisarAlSitio()
   process.exit(errores ? 1 : 0)
 }
 

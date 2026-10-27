@@ -1,0 +1,20 @@
+/* Franjas para que Safari en iOS tome el color de sus barras (ver TintesSafari.tsx).
+   Safari necesita un elemento fijo de lado a lado y de al menos 6 px; 12 px quedan
+   cubiertos por sus propias barras. Ocultas hasta que el componente decide un color. */
+.franja {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 12px;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.arriba {
+  top: 0;
+}
+
+.abajo {
+  bottom: 0;
+}

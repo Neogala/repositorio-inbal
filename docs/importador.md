@@ -28,7 +28,7 @@ Las reglas están en `web/src/lib/importar/sigropam.ts` y sus pruebas en
 | Técnica | `LÁPIZ/PAPEL` pasa a `Lápiz sobre papel`, con acentos corregidos |
 | Tipo | Por disciplina (obra gráfica, estampa → Grabado; caballete, mural → Pintura). Obra gráfica con técnica de dibujo → Dibujo. `DOCUMENTAL`, `MIXTA` y vacías quedan sin tipo con aviso |
 | Periodo | Por año: antes de 1821 Colonial, hasta 1900 Siglo XIX, hasta 1950 Moderno, después Contemporáneo. "Siglo XX" usa los 40 años del autor |
-| Acervo | Los 18 nombres del Excel van a las 21 claves de acervo del catálogo. `BAJA DEL ACERVO INBAL` se descarta |
+| Acervo | Los 18 nombres del Excel van a los 21 acervos del CMS. `BAJA DEL ACERVO INBAL` se descarta |
 | Derechos | Muerte del autor + 100 años antes de este año: libre; si no, restringida (la obra se publica sin imagen) |
 | Localización, Observaciones | Se guardan solo para el panel; la API pública no las devuelve |
 
@@ -38,6 +38,9 @@ Las reglas están en `web/src/lib/importar/sigropam.ts` y sus pruebas en
 - Si vino del prototipo o alguien la editó, solo se llena lo que falta y los
   datos internos.
 - Nunca cambia la imagen, los derechos ni si está publicada.
+
+Al terminar vincula cada acervo con sus obras para que `/acervos/<slug>` las
+muestre.
 
 ## Primera corrida (6 oct 2026, base local)
 

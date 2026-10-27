@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { footerNav } from '@/lib/navigation'
+import { ColorBarraPie } from './ColorBarraPie'
 import styles from './SiteFooter.module.css'
 
 export function SiteFooter() {
@@ -9,6 +10,7 @@ export function SiteFooter() {
 
   return (
     <footer className={styles.footer}>
+      <ColorBarraPie />
       <div className="wrap">
         <div className={styles.grid}>
           <div>
@@ -41,6 +43,10 @@ export function SiteFooter() {
             Gobierno de México
           </span>
           <span>Colección Digital INBAL</span>
+          {/* El href "#" lleva al inicio de la página (con scroll suave, por styles.css). */}
+          <a className={styles.arriba} href="#">
+            Volver arriba <i aria-hidden="true">↑</i>
+          </a>
         </div>
       </div>
     </footer>

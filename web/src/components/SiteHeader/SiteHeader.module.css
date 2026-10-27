@@ -6,10 +6,6 @@
   right: 0;
   z-index: 100;
   padding: 13px 0;
-  transition:
-    background 0.4s,
-    box-shadow 0.4s,
-    padding 0.4s;
 }
 
 .header[data-over-hero='true'] {
@@ -20,14 +16,33 @@
   position: sticky;
 }
 
-.header[data-over-hero='true'][data-solid='false'] {
-  padding: 24px 0;
+/* El fondo sólido va en una capa aparte que solo cambia de opacidad. Animar el fondo y el
+   relleno del propio encabezado fijo hacía que Chrome a veces lo dejara pintado en blanco al
+   volver arriba del home, con el texto ya en blanco encima.
+   Sin backdrop-filter: en un encabezado fijo obliga a repintar en cada cuadro del scroll. */
+.header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 1px 0 var(--linea);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
 }
 
-.header[data-solid='true'] {
-  background: rgba(255, 255, 255, 0.93);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 var(--linea);
+.header[data-solid='true']::before {
+  opacity: 1;
+}
+
+/* Sobre la portada el contenido baja un poco; se mueve con transform, sin cambiar el alto. */
+.header .nav {
+  transition: transform 0.4s;
+}
+
+.header[data-over-hero='true'][data-solid='false'] .nav {
+  transform: translateY(11px);
 }
 
 .nav {
@@ -373,7 +388,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 90px 32px 40px;
+  padding: 90px 32px calc(40px + env(safe-area-inset-bottom));
   transform: translateX(100%);
   transition: transform 0.4s var(--ease);
 }
