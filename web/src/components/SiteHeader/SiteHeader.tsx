@@ -13,10 +13,17 @@ import styles from './SiteHeader.module.css'
 // En las demás páginas siempre es sólido.
 const SOLID_AFTER = 0.72
 
+// --verde, la base de la portada; también va en el viewport del home (page.tsx).
+const COLOR_PORTADA = '#1e5b4f'
+
 export function SiteHeader() {
   const pathname = usePathname()
   const router = useRouter()
-  const overHero = pathname === '/'
+  // Al regenerar el home tras guardar en el panel, Next puede entregar la raíz como
+  // "/index", y el encabezado salía sólido y blanco sobre la portada. Por eso también
+  // se acepta "/index" y, ya en el navegador, basta con que la portada esté en la página.
+  const [hayPortada, setHayPortada] = useState(false)
+  const overHero = pathname === '/' || pathname === '/index' || hayPortada
 
   const [scrolledPastHero, setScrolledPastHero] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
@@ -30,12 +37,31 @@ export function SiteHeader() {
   const solid = !overHero || scrolledPastHero
 
   useEffect(() => {
+    const revisar = () => setHayPortada(document.querySelector('[data-portada]') !== null)
+    revisar()
+  }, [pathname])
+
+  useEffect(() => {
     if (!overHero) return
     const onScroll = () => setScrolledPastHero(window.scrollY > window.innerHeight * SOLID_AFTER)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [overHero])
+
+  // La barra del navegador (theme-color) toma el tono de la portada mientras está arriba y
+  // se pone blanca junto con el encabezado. El fondo al jalar lo cambia styles.css.
+  useEffect(() => {
+    const color = solid ? '#ffffff' : COLOR_PORTADA
+    const metas = document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')
+    if (metas.length) metas.forEach((m) => (m.content = color))
+    else {
+      const m = document.createElement('meta')
+      m.name = 'theme-color'
+      m.content = color
+      document.head.appendChild(m)
+    }
+  }, [solid])
 
   useEffect(() => {
     document.body.classList.toggle('overflow-hidden', menuOpen)

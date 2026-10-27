@@ -384,9 +384,12 @@
     box-shadow 0.5s;
 }
 
-a.acceso:hover {
-  transform: translateY(-8px) scale(1.015);
-  box-shadow: 0 28px 54px -20px rgba(var(--card-rgb), 0.55);
+/* Solo con mouse: en celular el :hover se queda pegado al tocar y movía la tarjeta. */
+@media (hover: hover) {
+  a.acceso:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 28px 54px -20px rgba(var(--card-rgb), 0.55);
+  }
 }
 
 a.acceso:focus-visible {
@@ -1090,6 +1093,10 @@ a.acceso:hover .accesoCta i {
     margin-inline: calc(-1 * var(--pad-x));
     padding: 0 var(--pad-x) 4px;
     overflow-x: auto;
+    /* Con overflow-x: auto el eje vertical también queda en auto; explícito en hidden para
+       que un gesto vertical sobre el carrusel siga moviendo la página. */
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: var(--pad-x);
     scrollbar-width: none;

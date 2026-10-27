@@ -29,8 +29,14 @@ const eslintConfig = defineConfig([
     '.next/**',
     'src/payload-types.ts',
     'src/payload-generated-schema.ts',
+    'src/migrations/**',
     'src/app/(payload)/admin/importMap.js',
     'next-env.d.ts',
+    // Reportes de Playwright: traen el visor de trazas minificado.
+    'playwright-report/**',
+    'test-results/**',
+    // Reporte HTML de npm run test:coverage.
+    'coverage/**',
   ]),
 ])
 

@@ -5,9 +5,12 @@ import { randomBytes } from 'crypto'
 
 // Usuario temporal para pruebas e2e: la contraseña se genera en cada corrida
 // para no dejar credenciales en el repositorio.
+// Correo distinto por proceso: las pruebas corren en paralelo y cada archivo
+// crea y borra su propio usuario sin pisar el de otro.
 export const testUser = {
-  email: 'e2e@coleccion-inbal.test',
+  email: `e2e-${randomBytes(4).toString('hex')}@coleccion-inbal.test`,
   password: randomBytes(16).toString('hex'),
+  rol: 'admin' as const,
 }
 
 /**

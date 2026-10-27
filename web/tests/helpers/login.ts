@@ -1,6 +1,8 @@
 import type { Page } from '@playwright/test'
 import { expect } from '@playwright/test'
 
+import { URL_E2E } from './url'
+
 export interface LoginOptions {
   page: Page
   serverURL?: string
@@ -13,11 +15,7 @@ export interface LoginOptions {
 /**
  * Logs the user into the admin panel via the login page.
  */
-export async function login({
-  page,
-  serverURL = 'http://localhost:3000',
-  user,
-}: LoginOptions): Promise<void> {
+export async function login({ page, serverURL = URL_E2E, user }: LoginOptions): Promise<void> {
   await page.goto(`${serverURL}/admin/login`)
 
   await page.fill('#field-email', user.email)
@@ -26,6 +24,6 @@ export async function login({
 
   await page.waitForURL(`${serverURL}/admin`)
 
-  const dashboardArtifact = page.locator('span[title="Dashboard"]')
-  await expect(dashboardArtifact).toBeVisible()
+  const dashboardArtifact = page.locator('span[title="Panel de Control"]')
+  await expect(dashboardArtifact).toBeVisible({ timeout: 20_000 })
 }

@@ -21,7 +21,7 @@ test.describe('Admin Panel', () => {
   test('can navigate to dashboard', async () => {
     await page.goto('/admin')
     await expect(page).toHaveURL(/\/admin$/)
-    const dashboardArtifact = page.locator('span[title="Dashboard"]').first()
+    const dashboardArtifact = page.locator('span[title="Panel de Control"]').first()
     await expect(dashboardArtifact).toBeVisible()
   })
 

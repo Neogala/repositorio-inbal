@@ -1,8 +1,9 @@
 name: web
 
 on:
+  # En todos los PR, sin filtro de rutas: develop y main exigen que "verificar" pase,
+  # y un PR que solo tocara docs/ se quedaría esperando un check que nunca corre.
   pull_request:
-    paths: ['web/**', '.github/workflows/web.yml']
   push:
     branches: [main, develop]
     paths: ['web/**', '.github/workflows/web.yml']
@@ -10,17 +11,28 @@ on:
 jobs:
   verificar:
     runs-on: ubuntu-latest
+    # Si algo se cuelga (por ejemplo, un prompt esperando respuesta) corta a los 20 min.
+    timeout-minutes: 20
     defaults:
       run:
         working-directory: web
+    # Sin push de desarrollo: el esquema sale solo de las migraciones.
+    env:
+      PAYLOAD_DB_PUSH: 'false'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      # No usan la base ni .env: van primero para fallar rápido.
+      - name: Pruebas unitarias
+        run: npm run test:unit
 
       # Credenciales efímeras generadas en cada corrida; no hay secretos en el repo.
       - name: Generar variables de entorno
@@ -42,9 +54,19 @@ jobs:
           docker compose up -d postgres
           for i in $(seq 1 30); do docker compose exec -T postgres pg_isready -U inbal && break; sleep 2; done
 
-      - run: npm ci
       - run: npm run lint
       - run: npx tsc --noEmit
+
+      - name: Tipos de Payload al día
+        run: |
+          npm run generate:types
+          git diff --exit-code src/payload-types.ts
+
+      # Valida que las migraciones creen el esquema completo en una base vacía; va
+      # antes que cualquier paso que use la base.
+      - name: Correr migraciones
+        run: npm run migrate
+
       - run: npm run test:int
 
       - name: Cargar obras y contenido del prototipo
@@ -52,7 +74,13 @@ jobs:
           npm run importar:prototipo
           npm run importar:contenido
 
+      - name: Compilar
+        run: npm run build
+
+      # Contra el build de producción (npm start, ver playwright.config.ts).
       - name: Pruebas e2e
+        env:
+          NEXT_PUBLIC_SITE_URL: http://localhost:3000
         run: |
           npx playwright install --with-deps chromium
           npm run test:e2e

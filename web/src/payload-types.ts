@@ -241,6 +241,8 @@ export interface Media {
    */
   alt: string;
   privada?: boolean | null;
+  prefix?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -477,6 +479,8 @@ export interface Curaduria {
 export interface Audio {
   id: number;
   titulo: string;
+  prefix?: string | null;
+  _objectKey?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -627,6 +631,8 @@ export interface ObrasSelect<T extends boolean = true> {
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   privada?: T;
+  prefix?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -790,6 +796,8 @@ export interface CuraduriasSelect<T extends boolean = true> {
  */
 export interface AudiosSelect<T extends boolean = true> {
   titulo?: T;
+  prefix?: T;
+  _objectKey?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
