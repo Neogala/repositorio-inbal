@@ -1,0 +1,8029 @@
+window.GRAFO_INBAL = {
+  "version": 1,
+  "nodes": [
+    {
+      "id": "obra:MAM_10243",
+      "type": "obra",
+      "label": "La chica de la ventana",
+      "artist": "Abraham Ángel",
+      "year": 1923,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_10243.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_10243",
+        "sigropam": "10243",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:abraham%20angel",
+      "type": "autor",
+      "label": "Abraham Ángel",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:oleo%20sobre%20carton",
+      "type": "técnica",
+      "label": "Óleo sobre cartón",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "disciplina:grabado",
+      "type": "disciplina",
+      "label": "Grabado"
+    },
+    {
+      "id": "acervo:mam",
+      "type": "acervo",
+      "label": "MAM"
+    },
+    {
+      "id": "década:1920%E2%80%931929",
+      "type": "década",
+      "label": "1920–1929"
+    },
+    {
+      "id": "obra:MAM_10252",
+      "type": "obra",
+      "label": "La espina",
+      "artist": "Raúl Anguiano",
+      "year": 1952,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_10252.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_10252",
+        "sigropam": "10252",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:raul%20anguiano",
+      "type": "autor",
+      "label": "Raúl Anguiano",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:oleo%20sobre%20tela",
+      "type": "técnica",
+      "label": "Óleo sobre tela",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "disciplina:pintura",
+      "type": "disciplina",
+      "label": "Pintura"
+    },
+    {
+      "id": "década:1950%E2%80%931959",
+      "type": "década",
+      "label": "1950–1959"
+    },
+    {
+      "id": "obra:MAM_10494",
+      "type": "obra",
+      "label": "Las soldaderas",
+      "artist": "José Clemente Orozco Flores",
+      "year": 1926,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_10494.webp",
+      "description": "Óleo sobre tela. La obra representa a mujeres vinculadas con el contexto de la Revolución mexicana. Orozco aborda la figura de las soldaderas desde una composición de fuerte presencia corporal, alejándose de una representación idealizada del conflicto revolucionario.",
+      "identifiers": {
+        "local": "MAM_10494",
+        "sigropam": "10494",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20clemente%20orozco%20flores",
+      "type": "autor",
+      "label": "José Clemente Orozco Flores",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_10735",
+      "type": "obra",
+      "label": "La Ciudad de México",
+      "artist": "Juan O'Gorman",
+      "year": 1949,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_10735.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_10735",
+        "sigropam": "10735",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:juan%20o'gorman",
+      "type": "autor",
+      "label": "Juan O'Gorman",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:temple%20sobre%20masonite",
+      "type": "técnica",
+      "label": "Temple sobre masonite",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "década:1940%E2%80%931949",
+      "type": "década",
+      "label": "1940–1949"
+    },
+    {
+      "id": "obra:MAM_10943",
+      "type": "obra",
+      "label": "La muerte de Zapata",
+      "artist": "Luis Arenal Bastar",
+      "year": 1937,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_10943.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_10943",
+        "sigropam": "10943",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:luis%20arenal%20bastar",
+      "type": "autor",
+      "label": "Luis Arenal Bastar",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:oleo%20sobre%20masonite",
+      "type": "técnica",
+      "label": "Óleo sobre masonite",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "década:1930%E2%80%931939",
+      "type": "década",
+      "label": "1930–1939"
+    },
+    {
+      "id": "obra:MAM_11055",
+      "type": "obra",
+      "label": "En busca de la gaviota",
+      "artist": "Manuel Felguérez",
+      "year": 1959,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_11055.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_11055",
+        "sigropam": "11055",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:manuel%20felguerez",
+      "type": "autor",
+      "label": "Manuel Felguérez",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_11587",
+      "type": "obra",
+      "label": "La huida",
+      "artist": "Remedios Varo Uranga",
+      "year": 1962,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_11587.webp",
+      "description": "La pintura muestra a una pareja en plena evasión a través de un inhóspito paisaje montañoso. Viajan a bordo de un singular vehículo flotante con forma de capullo o paraguas invertido, el cual navega sobre una densa corriente de nubes doradas. Mientras la mujer —de largo cabello rubio— conduce la embarcación con determinación, su acompañante la envuelve de manera protectora con su capa, orientando ambos la mirada hacia una gruta en la roca que promete ser su refugio final.",
+      "identifiers": {
+        "local": "MAM_11587",
+        "sigropam": "11587",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:remedios%20varo%20uranga",
+      "type": "autor",
+      "label": "Remedios Varo Uranga",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "década:1960%E2%80%931969",
+      "type": "década",
+      "label": "1960–1969"
+    },
+    {
+      "id": "obra:MAM_12042",
+      "type": "obra",
+      "label": "Composición",
+      "artist": "Fernando García Ponce",
+      "year": 1973,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_12042.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_12042",
+        "sigropam": "12042",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:fernando%20garcia%20ponce",
+      "type": "autor",
+      "label": "Fernando García Ponce",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:acrilico%20sobre%20tela",
+      "type": "técnica",
+      "label": "Acrílico sobre tela",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "década:1970%E2%80%931979",
+      "type": "década",
+      "label": "1970–1979"
+    },
+    {
+      "id": "obra:MAM_12169",
+      "type": "obra",
+      "label": "El cuadro de los cuadros",
+      "artist": "Mathias Goeritz",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_12169.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_12169",
+        "sigropam": "12169",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:mathias%20goeritz",
+      "type": "autor",
+      "label": "Mathias Goeritz",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_12432",
+      "type": "obra",
+      "label": "La Madre Tierra",
+      "artist": "Jesús Guerrero Galván",
+      "year": 1952,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_12432.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_12432",
+        "sigropam": "12432",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jesus%20guerrero%20galvan",
+      "type": "autor",
+      "label": "Jesús Guerrero Galván",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_12706",
+      "type": "obra",
+      "label": "Sin título (fetiche I)",
+      "artist": "Kati Horna",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_12706.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_12706",
+        "sigropam": "12706",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:kati%20horna",
+      "type": "autor",
+      "label": "Kati Horna",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:plata%20sobre%20gelatina",
+      "type": "técnica",
+      "label": "Plata sobre gelatina",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "disciplina:fotografia",
+      "type": "disciplina",
+      "label": "Fotografía"
+    },
+    {
+      "id": "obra:MAM_13154",
+      "type": "obra",
+      "label": "Los cocos",
+      "artist": "Frida Kahlo Calderón",
+      "year": 1951,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_13154.webp",
+      "description": "Frida Kahlo plasma de forma sutil su estado de ánimo, en un detalle que se asoma entre los tres pares de frutas que utilizó, como si el coco estuviera lagrimeando. ",
+      "identifiers": {
+        "local": "MAM_13154",
+        "sigropam": "13154",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:frida%20kahlo%20calderon",
+      "type": "autor",
+      "label": "Frida Kahlo Calderón",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_13157",
+      "type": "obra",
+      "label": "Las dos Fridas",
+      "artist": "Frida Kahlo Calderón",
+      "year": 1939,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_13157.webp",
+      "description": "Muestra a dos versiones de la artista sentadas juntas y tomadas de la mano. Una lleva un vestido tradicional de tehuana y la otra viste un traje blanco de estilo europeo. Ambas tienen el corazón visible, conectados por una vena principal que recorre desde los corazones hasta sus manos. La Frida europea sostiene unas pinzas quirúrgicas con las que corta la vena, lo que provoca una mancha de sangre en su vestido. La otra Frida sostiene un pequeño retrato de Diego Rivera.",
+      "identifiers": {
+        "local": "MAM_13157",
+        "sigropam": "13157",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MAM_13173",
+      "type": "obra",
+      "label": "Come out (Steve Reich)",
+      "artist": "Kasuya Sakai",
+      "year": 1976,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_13173.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_13173",
+        "sigropam": "13173",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:kasuya%20sakai",
+      "type": "autor",
+      "label": "Kasuya Sakai",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_13370",
+      "type": "obra",
+      "label": "Nuestra imagen actual",
+      "artist": "José David Alfaro Siqueiros",
+      "year": 1947,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_13370.webp",
+      "description": "Figura androgina mirando al frente con las manos extendas ofreciendo.",
+      "identifiers": {
+        "local": "MAM_13370",
+        "sigropam": "13370",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20david%20alfaro%20siqueiros",
+      "type": "autor",
+      "label": "José David Alfaro Siqueiros",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:piroxilina%20sobre%20celotex%20y%20fibra%20de%20vidrio",
+      "type": "técnica",
+      "label": "Piroxilina sobre celotex y fibra de vidrio",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_13463",
+      "type": "obra",
+      "label": "Yo por yo (autorretrato)",
+      "artist": "José David Alfaro Siqueiros",
+      "year": 1956,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_13463.webp",
+      "description": "El rostro parcial de Siqueiros aparece en primer plano, construido mediante formas angulosas y contrastes marcados. La figura ocupa gran parte de la superficie y se integra con un fondo de formas dinámicas.",
+      "identifiers": {
+        "local": "MAM_13463",
+        "sigropam": "13463",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:piroxilina%20sobre%20masonite",
+      "type": "técnica",
+      "label": "Piroxilina sobre masonite",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_14346",
+      "type": "obra",
+      "label": "Músicas dormidas",
+      "artist": "Rufino del Carmen Tamayo Arrellanes",
+      "year": 1950,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_14346.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_14346",
+        "sigropam": "14346",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:rufino%20del%20carmen%20tamayo%20arrellanes",
+      "type": "autor",
+      "label": "Rufino del Carmen Tamayo Arrellanes",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_14487",
+      "type": "obra",
+      "label": "Las futbolistas",
+      "artist": "Ángel Zárraga Argüelles",
+      "year": 1922,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_14487.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_14487",
+        "sigropam": "14487",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:angel%20zarraga%20arguelles",
+      "type": "autor",
+      "label": "Ángel Zárraga Argüelles",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_14508",
+      "type": "obra",
+      "label": "La hamaca",
+      "artist": "Francisco Zúñiga Chavarría",
+      "year": 1957,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_14508.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_14508",
+        "sigropam": "14508",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:francisco%20zuniga%20chavarria",
+      "type": "autor",
+      "label": "Francisco Zúñiga Chavarría",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:piedra%20xaltocan",
+      "type": "técnica",
+      "label": "Piedra xaltocan",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "disciplina:escultura",
+      "type": "disciplina",
+      "label": "Escultura"
+    },
+    {
+      "id": "obra:MAM_14673",
+      "type": "obra",
+      "label": "En la escuela",
+      "artist": "Agustín Lazo",
+      "year": 1943,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_14673.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_14673",
+        "sigropam": "14673",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:agustin%20lazo",
+      "type": "autor",
+      "label": "Agustín Lazo",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_16575",
+      "type": "obra",
+      "label": "Fuego verde en el Paricutin",
+      "artist": "José Gerardo Francisco Murillo Coronado",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_16575.webp",
+      "description": "La pintura muestra una imponente erupción volcánica donde el cono del cráter expulsa una gigantesca y densa columna de humo negro que domina la mitad superior de la composición. En el centro, resalta el resplandor de una fumarola o chorro de lava de color rojo brillante, la cual contrasta drásticamente con unas ondas concéntricas de fuego verde fosforescente que fluyen en espiral alrededor de la base de la montaña. En el primer plano inferior, se aprecian las siluetas oscuras y delgadas de algunos árboles calcinados que acentúan la atmósfera dramática del paisaje",
+      "identifiers": {
+        "local": "MAM_16575",
+        "sigropam": "16575",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20gerardo%20francisco%20murillo%20coronado",
+      "type": "autor",
+      "label": "José Gerardo Francisco Murillo Coronado",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:atlcolor%20sobre%20masonite",
+      "type": "técnica",
+      "label": "Atlcolor sobre masonite",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_18030",
+      "type": "obra",
+      "label": "Soporte vital resistencia dinámica",
+      "artist": "Francisco Moyao",
+      "year": 1976,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_18030.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_18030",
+        "sigropam": "18030",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:francisco%20moyao",
+      "type": "autor",
+      "label": "Francisco Moyao",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:madera%20con%20laca",
+      "type": "técnica",
+      "label": "Madera con laca",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_19154",
+      "type": "obra",
+      "label": "Autorretrato",
+      "artist": "Rosa Rolanda de Covarrubias",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_19154.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_19154",
+        "sigropam": "19154",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:rosa%20rolanda%20de%20covarrubias",
+      "type": "autor",
+      "label": "Rosa Rolanda de Covarrubias",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_21575",
+      "type": "obra",
+      "label": "Alegoría de septiembre",
+      "artist": "Ángel Zárraga Argüelles",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_21575.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_21575",
+        "sigropam": "21575",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MAM_29538",
+      "type": "obra",
+      "label": "El flautista",
+      "artist": "Remedios Varo Uranga",
+      "year": 1955,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_29538.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_29538",
+        "sigropam": "29538",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:oleo%20y%20nacar%20incrustado%20sobre%20masonite",
+      "type": "técnica",
+      "label": "Óleo y nácar incrustado sobre masonite",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_29541",
+      "type": "obra",
+      "label": "Mujer saliendo del psicoanalista (podría ser Juliana)",
+      "artist": "Remedios Varo Uranga",
+      "year": 1960,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_29541.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_29541",
+        "sigropam": "29541",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MAM_29589",
+      "type": "obra",
+      "label": "Creación de las aves",
+      "artist": "Remedios Varo Uranga",
+      "year": 1957,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_29589.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_29589",
+        "sigropam": "29589",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MAM_35057",
+      "type": "obra",
+      "label": "Figura recostada",
+      "artist": "Henry Spencer Moore",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_35057.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_35057",
+        "sigropam": "35057",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:henry%20spencer%20moore",
+      "type": "autor",
+      "label": "Henry Spencer Moore",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:bronce",
+      "type": "técnica",
+      "label": "Bronce",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_49969",
+      "type": "obra",
+      "label": "La buena fama durmiendo",
+      "artist": "Manuel Álvarez Bravo",
+      "year": 1938,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_49969.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_49969",
+        "sigropam": "49969",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:manuel%20alvarez%20bravo",
+      "type": "autor",
+      "label": "Manuel Álvarez Bravo",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_52814",
+      "type": "obra",
+      "label": "Escuela mazahua (Edo. México)",
+      "artist": "Mariana Yampolsky Urbach",
+      "year": 1979,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_52814.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_52814",
+        "sigropam": "52814",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:mariana%20yampolsky%20urbach",
+      "type": "autor",
+      "label": "Mariana Yampolsky Urbach",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_59299",
+      "type": "obra",
+      "label": "Frida Kahlo",
+      "artist": "Dolores Martínez de Anda",
+      "year": 1952,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_59299.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_59299",
+        "sigropam": "59299",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:dolores%20martinez%20de%20anda",
+      "type": "autor",
+      "label": "Dolores Martínez de Anda",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_59339",
+      "type": "obra",
+      "label": "De Esta Tierra del Cielo y los Infiernos la Tempestad",
+      "artist": "Gerardo Suter",
+      "year": 1987,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_59339.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_59339",
+        "sigropam": "59339",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:gerardo%20suter",
+      "type": "autor",
+      "label": "Gerardo Suter",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "década:1980%E2%80%931989",
+      "type": "década",
+      "label": "1980–1989"
+    },
+    {
+      "id": "obra:MAM_59340",
+      "type": "obra",
+      "label": "Sin Título",
+      "artist": "Graciela Iturbide",
+      "year": 1980,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_59340.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_59340",
+        "sigropam": "59340",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:graciela%20iturbide",
+      "type": "autor",
+      "label": "Graciela Iturbide",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_59692",
+      "type": "obra",
+      "label": "Retrato de Ruth Rivera",
+      "artist": "Dolores Martínez de Anda",
+      "year": 1950,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_59692.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_59692",
+        "sigropam": "59692",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MAM_59834",
+      "type": "obra",
+      "label": "Ciudad maya",
+      "artist": "Günther Gerzso",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_59834.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_59834",
+        "sigropam": "59834",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:gunther%20gerzso",
+      "type": "autor",
+      "label": "Günther Gerzso",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_59930",
+      "type": "obra",
+      "label": "De este famoso hipódromo en la pista no faltará ni un solo periodista",
+      "artist": "José Guadalupe Posada Aguilar",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_59930.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_59930",
+        "sigropam": "59930",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20guadalupe%20posada%20aguilar",
+      "type": "autor",
+      "label": "José Guadalupe Posada Aguilar",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_8688",
+      "type": "obra",
+      "label": "Retablo",
+      "artist": "Carlos Mérida",
+      "year": 1961,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_8688.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_8688",
+        "sigropam": "8688",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:carlos%20merida",
+      "type": "autor",
+      "label": "Carlos Mérida",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:bajo%20relieve%20en%20acrilico%20sobre%20madera",
+      "type": "técnica",
+      "label": "Bajo relieve en acrílico sobre madera",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_8712",
+      "type": "obra",
+      "label": "Cabezas religiosas",
+      "artist": "Guillermo Meza Álvarez",
+      "year": 1950,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_8712.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_8712",
+        "sigropam": "8712",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:guillermo%20meza%20alvarez",
+      "type": "autor",
+      "label": "Guillermo Meza Álvarez",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_8883",
+      "type": "obra",
+      "label": "El Paricutín",
+      "artist": "José Gerardo Francisco Murillo Coronado",
+      "year": 1946,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_8883.webp",
+      "description": "Gerardo Murillo instaló su campamento cerca de la zona de erupción para vivir y registrar el fenómeno del volcán y poder plasmarlo en su obra. ",
+      "identifiers": {
+        "local": "MAM_8883",
+        "sigropam": "8883",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:atlcolor%20sobre%20asbesto",
+      "type": "técnica",
+      "label": "Atlcolor sobre asbesto",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_8909",
+      "type": "obra",
+      "label": "Espiga",
+      "artist": "Estanislao Contreras",
+      "year": 1966,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_8909.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_8909",
+        "sigropam": "8909",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:estanislao%20contreras",
+      "type": "autor",
+      "label": "Estanislao Contreras",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:madera%20tallada",
+      "type": "técnica",
+      "label": "Madera tallada",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_8924",
+      "type": "obra",
+      "label": "Autorretrato",
+      "artist": "Roberto Montenegro Nervo",
+      "year": 1942,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_8924.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_8924",
+        "sigropam": "8924",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:roberto%20montenegro%20nervo",
+      "type": "autor",
+      "label": "Roberto Montenegro Nervo",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:oleo%20sobre%20madera",
+      "type": "técnica",
+      "label": "Óleo sobre madera",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_9204",
+      "type": "obra",
+      "label": "Circunvolución en forma de cabeza",
+      "artist": "Germán Cueto",
+      "year": 1967,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_9204.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_9204",
+        "sigropam": "9204",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:german%20cueto",
+      "type": "autor",
+      "label": "Germán Cueto",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_9235",
+      "type": "obra",
+      "label": "La vendedora de frutas (frutas mexicanas)",
+      "artist": "Olga Costa",
+      "year": 1951,
+      "collection": "MAM",
+      "image": "Img/obras/MAM_9235.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MAM_9235",
+        "sigropam": "9235",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:olga%20costa",
+      "type": "autor",
+      "label": "Olga Costa",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_10455",
+      "type": "obra",
+      "label": "Dominus possedit me in initio viarum suarum",
+      "artist": "Carl Ernst Christoph Hess",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_10455.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_10455",
+        "sigropam": "10455",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:carl%20ernst%20christoph%20hess",
+      "type": "autor",
+      "label": "Carl Ernst Christoph Hess",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:buril",
+      "type": "técnica",
+      "label": "Buril",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "acervo:san%20carlos",
+      "type": "acervo",
+      "label": "San Carlos"
+    },
+    {
+      "id": "obra:MNSC_10562",
+      "type": "obra",
+      "label": "Rebaño en reposo",
+      "artist": "Albert Jansz Klomp",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_10562.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_10562",
+        "sigropam": "10562",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:albert%20jansz%20klomp",
+      "type": "autor",
+      "label": "Albert Jansz Klomp",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:oleo%20sobre%20tabla",
+      "type": "técnica",
+      "label": "Óleo sobre tabla",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MNSC_10608",
+      "type": "obra",
+      "label": "Las siete virtudes",
+      "artist": "Peter de Kempeneer",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_10608.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_10608",
+        "sigropam": "10608",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:peter%20de%20kempeneer",
+      "type": "autor",
+      "label": "Peter de Kempeneer",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:oleo%20sobre%20madera%20trasladado%20a%20tela",
+      "type": "técnica",
+      "label": "Óleo sobre madera trasladado a tela",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MNSC_10725",
+      "type": "obra",
+      "label": "Paisaje con volcán, río y leñadora",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_10725.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_10725",
+        "sigropam": "10725",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_10737",
+      "type": "obra",
+      "label": "Sin título",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_10737.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_10737",
+        "sigropam": "10737",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_10746",
+      "type": "obra",
+      "label": "Paisaje con volcán y águila",
+      "artist": "Anónimo",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_10746.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_10746",
+        "sigropam": "10746",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_10747",
+      "type": "obra",
+      "label": "Campiña romana",
+      "artist": "Eugenio Landesio",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_10747.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_10747",
+        "sigropam": "10747",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:eugenio%20landesio",
+      "type": "autor",
+      "label": "Eugenio Landesio",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_10810",
+      "type": "obra",
+      "label": "San Pablo y san Antonio Abad, primeros ermitaños",
+      "artist": "Eugenio Landesio",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_10810.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_10810",
+        "sigropam": "10810",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_19041",
+      "type": "obra",
+      "label": "Retrato de Angelita Armendáriz",
+      "artist": "Gil Mariano Benllure",
+      "year": 1884,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_19041.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_19041",
+        "sigropam": "19041",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:gil%20mariano%20benllure",
+      "type": "autor",
+      "label": "Gil Mariano Benllure",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:acuarela%20sobre%20papel",
+      "type": "técnica",
+      "label": "Acuarela sobre papel",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "disciplina:dibujo",
+      "type": "disciplina",
+      "label": "Dibujo"
+    },
+    {
+      "id": "década:1880%E2%80%931889",
+      "type": "década",
+      "label": "1880–1889"
+    },
+    {
+      "id": "obra:MNSC_19049",
+      "type": "obra",
+      "label": "Episodio del diluvio universal",
+      "artist": "Francesco Coghetti",
+      "year": 1852,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_19049.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_19049",
+        "sigropam": "19049",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:francesco%20coghetti",
+      "type": "autor",
+      "label": "Francesco Coghetti",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "década:1850%E2%80%931859",
+      "type": "década",
+      "label": "1850–1859"
+    },
+    {
+      "id": "obra:MNSC_34210",
+      "type": "obra",
+      "label": "Venecia",
+      "artist": "Anónimo",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_34210.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_34210",
+        "sigropam": "34210",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:litografia",
+      "type": "técnica",
+      "label": "Litografía",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MNSC_34214",
+      "type": "obra",
+      "label": "La princesa romana en traje de vestal",
+      "artist": "Juan Cordero",
+      "year": 1844,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_34214.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_34214",
+        "sigropam": "34214",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:juan%20cordero",
+      "type": "autor",
+      "label": "Juan Cordero",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "década:1840%E2%80%931849",
+      "type": "década",
+      "label": "1840–1849"
+    },
+    {
+      "id": "obra:MNSC_3519",
+      "type": "obra",
+      "label": "Paisaje con gallina",
+      "artist": "A. Berchoosen",
+      "year": 1850,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_3519.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_3519",
+        "sigropam": "3519",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:a.%20berchoosen",
+      "type": "autor",
+      "label": "A. Berchoosen",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_3992",
+      "type": "obra",
+      "label": "La siega",
+      "artist": "José Blanco Coris",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_3992.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_3992",
+        "sigropam": "3992",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20blanco%20coris",
+      "type": "autor",
+      "label": "José Blanco Coris",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_3994",
+      "type": "obra",
+      "label": "Bacante",
+      "artist": "Adolphe René Lefèvre",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_3994.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_3994",
+        "sigropam": "3994",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:adolphe%20rene%20lefevre",
+      "type": "autor",
+      "label": "Adolphe René Lefèvre",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4137",
+      "type": "obra",
+      "label": "El rapto de Leucothoe",
+      "artist": "Jean Lepautre",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4137.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4137",
+        "sigropam": "4137",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jean%20lepautre",
+      "type": "autor",
+      "label": "Jean Lepautre",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:aguafuerte",
+      "type": "técnica",
+      "label": "Aguafuerte",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4275",
+      "type": "obra",
+      "label": "El arco robado",
+      "artist": "P. Lightfoot",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4275.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4275",
+        "sigropam": "4275",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:p.%20lightfoot",
+      "type": "autor",
+      "label": "P. Lightfoot",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:aguafuerte%20y%20buril",
+      "type": "técnica",
+      "label": "Aguafuerte y buril",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4446",
+      "type": "obra",
+      "label": "Autorretrato",
+      "artist": "Francisco de Goya y Lucientes",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4446.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4446",
+        "sigropam": "4446",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:francisco%20de%20goya%20y%20lucientes",
+      "type": "autor",
+      "label": "Francisco de Goya y Lucientes",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4526",
+      "type": "obra",
+      "label": "Que se la llevaron \"serie los caprichos\"",
+      "artist": "Francisco de Goya y Lucientes",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4526.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4526",
+        "sigropam": "4526",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4582",
+      "type": "obra",
+      "label": "No hubo remedio \"serie los caprichos\"",
+      "artist": "Francisco de Goya y Lucientes",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4582.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4582",
+        "sigropam": "4582",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4633",
+      "type": "obra",
+      "label": "Las rinde el sueño \"serie los caprichos\"",
+      "artist": "Francisco de Goya y Lucientes",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4633.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4633",
+        "sigropam": "4633",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4674",
+      "type": "obra",
+      "label": "El sueño de la razón produce monstruos \"serie los caprichos\"",
+      "artist": "Francisco de Goya y Lucientes",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4674.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4674",
+        "sigropam": "4674",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4771",
+      "type": "obra",
+      "label": "Ensayos \"serie los caprichos\"",
+      "artist": "Francisco de Goya y Lucientes",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4771.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4771",
+        "sigropam": "4771",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4777",
+      "type": "obra",
+      "label": "Volaverunt \"serie los caprichos\"",
+      "artist": "Francisco de Goya y Lucientes",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4777.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4777",
+        "sigropam": "4777",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_4842",
+      "type": "obra",
+      "label": "Amanecer en el puerto",
+      "artist": "Oswald Achenbach",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_4842.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_4842",
+        "sigropam": "4842",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:oswald%20achenbach",
+      "type": "autor",
+      "label": "Oswald Achenbach",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_5047",
+      "type": "obra",
+      "label": "Aldeana contemplando un pajarillo o familia rústica",
+      "artist": "Marie Richard Alexandre Louis",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_5047.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_5047",
+        "sigropam": "5047",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:marie%20richard%20alexandre%20louis",
+      "type": "autor",
+      "label": "Marie Richard Alexandre Louis",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_50923",
+      "type": "obra",
+      "label": "Retrato de dama",
+      "artist": "Marie Louise Elisabeth Viggé Le Brun",
+      "year": 1795,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_50923.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_50923",
+        "sigropam": "50923",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:marie%20louise%20elisabeth%20vigge%20le%20brun",
+      "type": "autor",
+      "label": "Marie Louise Elisabeth Viggé Le Brun",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "década:1790%E2%80%931799",
+      "type": "década",
+      "label": "1790–1799"
+    },
+    {
+      "id": "obra:MNSC_50938",
+      "type": "obra",
+      "label": "Sin título",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_50938.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_50938",
+        "sigropam": "50938",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_50941",
+      "type": "obra",
+      "label": "Paisaje (copia Gedovius)",
+      "artist": "Germán Gedovius Huerta",
+      "year": 1908,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_50941.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_50941",
+        "sigropam": "50941",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:german%20gedovius%20huerta",
+      "type": "autor",
+      "label": "Germán Gedovius Huerta",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "década:1900%E2%80%931909",
+      "type": "década",
+      "label": "1900–1909"
+    },
+    {
+      "id": "obra:MNSC_50942",
+      "type": "obra",
+      "label": "La niña",
+      "artist": "Germán Gedovius Huerta",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_50942.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_50942",
+        "sigropam": "50942",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_50943",
+      "type": "obra",
+      "label": "Paisaje. México, Tláhuac",
+      "artist": "Germán Gedovius Huerta",
+      "year": 1904,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_50943.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_50943",
+        "sigropam": "50943",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_50947",
+      "type": "obra",
+      "label": "Barcos (copia de Escalante)",
+      "artist": "Germán Gedovius Huerta",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_50947.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_50947",
+        "sigropam": "50947",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MNSC_5104",
+      "type": "obra",
+      "label": "La familia de Carlos IV",
+      "artist": "Autor sin identificar",
+      "year": 1912,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_5104.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_5104",
+        "sigropam": "5104",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "década:1910%E2%80%931919",
+      "type": "década",
+      "label": "1910–1919"
+    },
+    {
+      "id": "obra:MNSC_5228",
+      "type": "obra",
+      "label": "Escena de caballeros",
+      "artist": "Claes Jansz Visscher",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_5228.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_5228",
+        "sigropam": "5228",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:claes%20jansz%20visscher",
+      "type": "autor",
+      "label": "Claes Jansz Visscher",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:aguafuerte%20y%20papel",
+      "type": "técnica",
+      "label": "Aguafuerte y papel",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MNSC_5379",
+      "type": "obra",
+      "label": "La curación de un endemoniado",
+      "artist": "Károly Markó",
+      "year": 1856,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_5379.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_5379",
+        "sigropam": "5379",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:karoly%20marko",
+      "type": "autor",
+      "label": "Károly Markó",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MNSC_5741",
+      "type": "obra",
+      "label": "Mañana de primavera",
+      "artist": "Valerius Saedeleerde",
+      "year": 1920,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_5741.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_5741",
+        "sigropam": "5741",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:valerius%20saedeleerde",
+      "type": "autor",
+      "label": "Valerius Saedeleerde",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:carbon%20y%20tempera",
+      "type": "técnica",
+      "label": "Carbón y témpera",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MNSC_6050",
+      "type": "obra",
+      "label": "Cabeza de hombre",
+      "artist": "William Sharp",
+      "year": null,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_6050.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_6050",
+        "sigropam": "6050",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:william%20sharp",
+      "type": "autor",
+      "label": "William Sharp",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:buril%20y%20papel",
+      "type": "técnica",
+      "label": "Buril y papel",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MNSC_6112",
+      "type": "obra",
+      "label": "Las huérfanas",
+      "artist": "Francisco Dumaine",
+      "year": 1873,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_6112.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_6112",
+        "sigropam": "6112",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:francisco%20dumaine",
+      "type": "autor",
+      "label": "Francisco Dumaine",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:marmol",
+      "type": "técnica",
+      "label": "Mármol",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "década:1870%E2%80%931879",
+      "type": "década",
+      "label": "1870–1879"
+    },
+    {
+      "id": "obra:MNSC_6166",
+      "type": "obra",
+      "label": "Retablo de la Encarnación (políptico)",
+      "artist": "Pere Espallargues",
+      "year": 1465,
+      "collection": "San Carlos",
+      "image": "Img/obras/MNSC_6166.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MNSC_6166",
+        "sigropam": "6166",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:pere%20espallargues",
+      "type": "autor",
+      "label": "Pere Espallargues",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:temple%20y%20oleo%20sobre%20tabla",
+      "type": "técnica",
+      "label": "Temple y óleo sobre tabla",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "década:1460%E2%80%931469",
+      "type": "década",
+      "label": "1460–1469"
+    },
+    {
+      "id": "obra:MUNAE_1150",
+      "type": "obra",
+      "label": "La mano que crea 1/100 (sembrador)",
+      "artist": "Arturo García Bustos",
+      "year": 1955,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_1150.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_1150",
+        "sigropam": "1150",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:arturo%20garcia%20bustos",
+      "type": "autor",
+      "label": "Arturo García Bustos",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:linoleo",
+      "type": "técnica",
+      "label": "Linóleo",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "acervo:munae",
+      "type": "acervo",
+      "label": "MUNAE"
+    },
+    {
+      "id": "obra:MUNAE_2070",
+      "type": "obra",
+      "label": "Mujer",
+      "artist": "Leocadio Acosta",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_2070.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_2070",
+        "sigropam": "2070",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:leocadio%20acosta",
+      "type": "autor",
+      "label": "Leocadio Acosta",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:grabado%20sobre%20madera",
+      "type": "técnica",
+      "label": "Grabado sobre madera",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_2239",
+      "type": "obra",
+      "label": "Chalma número 5",
+      "artist": "Julio Prieto",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_2239.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_2239",
+        "sigropam": "2239",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:julio%20prieto",
+      "type": "autor",
+      "label": "Julio Prieto",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_2240",
+      "type": "obra",
+      "label": "Mujer de espaldas 30/30",
+      "artist": "Ignacio Aguirre Camacho",
+      "year": 1946,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_2240.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_2240",
+        "sigropam": "2240",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:ignacio%20aguirre%20camacho",
+      "type": "autor",
+      "label": "Ignacio Aguirre Camacho",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:litografia%20al%20carbon",
+      "type": "técnica",
+      "label": "Litografía al carbón",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_2440",
+      "type": "obra",
+      "label": "Romeo y Julieta",
+      "artist": "José García Ocejo",
+      "year": 1975,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_2440.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_2440",
+        "sigropam": "2440",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20garcia%20ocejo",
+      "type": "autor",
+      "label": "José García Ocejo",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:litografia%20a%20color",
+      "type": "técnica",
+      "label": "Litografía a color",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_35085",
+      "type": "obra",
+      "label": "El rebozo de soledad II",
+      "artist": "Leopoldo Méndez",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_35085.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_35085",
+        "sigropam": "35085",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:leopoldo%20mendez",
+      "type": "autor",
+      "label": "Leopoldo Méndez",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_3978",
+      "type": "obra",
+      "label": "Adolescencia",
+      "artist": "Amador Lugo",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_3978.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_3978",
+        "sigropam": "3978",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:amador%20lugo",
+      "type": "autor",
+      "label": "Amador Lugo",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_4070",
+      "type": "obra",
+      "label": "El mundo en que vivimos",
+      "artist": "Amador Lugo",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_4070.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_4070",
+        "sigropam": "4070",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_5172",
+      "type": "obra",
+      "label": "A cuál más afinado",
+      "artist": "Leopoldo Méndez",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_5172.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_5172",
+        "sigropam": "5172",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:xilografia",
+      "type": "técnica",
+      "label": "Xilografía",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_5196",
+      "type": "obra",
+      "label": "La antorcha",
+      "artist": "Leopoldo Méndez",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_5196.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_5196",
+        "sigropam": "5196",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_5207",
+      "type": "obra",
+      "label": "Bestias",
+      "artist": "Leopoldo Méndez",
+      "year": 1948,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_5207.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_5207",
+        "sigropam": "5207",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_56",
+      "type": "obra",
+      "label": "El mil cumbres",
+      "artist": "Carlos Alvarado Lang",
+      "year": 1951,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_56.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_56",
+        "sigropam": "56",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:carlos%20alvarado%20lang",
+      "type": "autor",
+      "label": "Carlos Alvarado Lang",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_59724",
+      "type": "obra",
+      "label": "El clown mexicano, cuaderno n.º6",
+      "artist": "José Guadalupe Posada Aguilar",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_59724.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_59724",
+        "sigropam": "59724",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:zincografia%20e%20impresion%20tipografica",
+      "type": "técnica",
+      "label": "Zincografía e impresión tipográfica",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_59726",
+      "type": "obra",
+      "label": "Calaveras del montón n.º1",
+      "artist": "José Guadalupe Posada Aguilar",
+      "year": 1910,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_59726.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_59726",
+        "sigropam": "59726",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:zincografia",
+      "type": "técnica",
+      "label": "Zincografía",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_59912",
+      "type": "obra",
+      "label": "Carta abierta a Emiliano Zapata",
+      "artist": "José Guadalupe Posada Aguilar",
+      "year": 1914,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_59912.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_59912",
+        "sigropam": "59912",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_6588",
+      "type": "obra",
+      "label": "La cosecha",
+      "artist": "Leopoldo Méndez",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_6588.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_6588",
+        "sigropam": "6588",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_7506",
+      "type": "obra",
+      "label": "El mezquital",
+      "artist": "Adolfo Mexiac",
+      "year": 1957,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_7506.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_7506",
+        "sigropam": "7506",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:adolfo%20mexiac",
+      "type": "autor",
+      "label": "Adolfo Mexiac",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_7856",
+      "type": "obra",
+      "label": "Desnudo n.º3",
+      "artist": "Fernando Castro Pacheco",
+      "year": null,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_7856.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_7856",
+        "sigropam": "7856",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:fernando%20castro%20pacheco",
+      "type": "autor",
+      "label": "Fernando Castro Pacheco",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:xilografia%20a%20color",
+      "type": "técnica",
+      "label": "Xilografía a color",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAE_950",
+      "type": "obra",
+      "label": "\"Las Sabinas\" según J. L David a/p",
+      "artist": "Arnold Belkin",
+      "year": 1975,
+      "collection": "MUNAE",
+      "image": "Img/obras/MUNAE_950.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAE_950",
+        "sigropam": "950",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:arnold%20belkin",
+      "type": "autor",
+      "label": "Arnold Belkin",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_11920",
+      "type": "obra",
+      "label": "La Molendera",
+      "artist": "Diego Rivera",
+      "year": 1924,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_11920.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_11920",
+        "sigropam": "11920",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:diego%20rivera",
+      "type": "autor",
+      "label": "Diego Rivera",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "acervo:munal",
+      "type": "acervo",
+      "label": "MUNAL"
+    },
+    {
+      "id": "obra:MUNAL_11970",
+      "type": "obra",
+      "label": "Sin Título (Probable detalle de la Catedral de Puebla) No. 1",
+      "artist": "Everardo Rivera",
+      "year": 1978,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_11970.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_11970",
+        "sigropam": "11970",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:everardo%20rivera",
+      "type": "autor",
+      "label": "Everardo Rivera",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_11994",
+      "type": "obra",
+      "label": "Sin Título (detalle de la Catedral de Puebla) No. 3",
+      "artist": "Everardo Rivera",
+      "year": 1978,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_11994.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_11994",
+        "sigropam": "11994",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_12005",
+      "type": "obra",
+      "label": "La Cubanita, Colección de Canciones para 1893",
+      "artist": "José Guadalupe Posada",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_12005.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_12005",
+        "sigropam": "12005",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20guadalupe%20posada",
+      "type": "autor",
+      "label": "José Guadalupe Posada",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "técnica:impreso",
+      "type": "técnica",
+      "label": "Impreso",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_12861",
+      "type": "obra",
+      "label": "San Sebastián",
+      "artist": "Felipe Valero",
+      "year": 1857,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_12861.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_12861",
+        "sigropam": "12861",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:felipe%20valero",
+      "type": "autor",
+      "label": "Felipe Valero",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_13356",
+      "type": "obra",
+      "label": "La Oca, Juego Divertido",
+      "artist": "José Guadalupe Posada",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_13356.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_13356",
+        "sigropam": "13356",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_13447",
+      "type": "obra",
+      "label": "Colección de Canciones Modernas para 1896, Los lagartijos",
+      "artist": "José Guadalupe Posada",
+      "year": 1896,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_13447.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_13447",
+        "sigropam": "13447",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "década:1890%E2%80%931899",
+      "type": "década",
+      "label": "1890–1899"
+    },
+    {
+      "id": "obra:MUNAL_13727",
+      "type": "obra",
+      "label": "Cerro de Guadalupe en Guerrero",
+      "artist": "José María Velasco",
+      "year": 1873,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_13727.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_13727",
+        "sigropam": "13727",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20maria%20velasco",
+      "type": "autor",
+      "label": "José María Velasco",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_13858",
+      "type": "obra",
+      "label": "Pagando la Manda",
+      "artist": "Alberto Garduño",
+      "year": 1922,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_13858.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_13858",
+        "sigropam": "13858",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:alberto%20garduno",
+      "type": "autor",
+      "label": "Alberto Garduño",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_14333",
+      "type": "obra",
+      "label": "La Nube",
+      "artist": "Gerardo Murillo Coronado",
+      "year": 1931,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_14333.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_14333",
+        "sigropam": "14333",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:gerardo%20murillo%20coronado",
+      "type": "autor",
+      "label": "Gerardo Murillo Coronado",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_14361",
+      "type": "obra",
+      "label": "Sirena Tocando la Guitarra",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_14361.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_14361",
+        "sigropam": "14361",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:ornamento",
+      "type": "técnica",
+      "label": "Ornamento",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "disciplina:artes%20decorativas",
+      "type": "disciplina",
+      "label": "Artes decorativas"
+    },
+    {
+      "id": "obra:MUNAL_14519",
+      "type": "obra",
+      "label": "Olla",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_14519.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_14519",
+        "sigropam": "14519",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:olla",
+      "type": "técnica",
+      "label": "Olla",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_14534",
+      "type": "obra",
+      "label": "Olla",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_14534.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_14534",
+        "sigropam": "14534",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_14649",
+      "type": "obra",
+      "label": "Platón",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_14649.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_14649",
+        "sigropam": "14649",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:platon",
+      "type": "técnica",
+      "label": "Platón",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_14779",
+      "type": "obra",
+      "label": "Máscara de Hombre",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_14779.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_14779",
+        "sigropam": "14779",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:mascara",
+      "type": "técnica",
+      "label": "Máscara",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_14826",
+      "type": "obra",
+      "label": "Máscara de Hombre",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_14826.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_14826",
+        "sigropam": "14826",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_14856",
+      "type": "obra",
+      "label": "Máscara de demonio",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_14856.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_14856",
+        "sigropam": "14856",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15239",
+      "type": "obra",
+      "label": "El Senado de Tlaxcala",
+      "artist": "Rodrigo Gutiérrez",
+      "year": 1875,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_15239.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15239",
+        "sigropam": "15239",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:rodrigo%20gutierrez",
+      "type": "autor",
+      "label": "Rodrigo Gutiérrez",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15256",
+      "type": "obra",
+      "label": "La Cazadora de Los Andes",
+      "artist": "Felipe Santiago Gutiérrez",
+      "year": 1891,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_15256.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15256",
+        "sigropam": "15256",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:felipe%20santiago%20gutierrez",
+      "type": "autor",
+      "label": "Felipe Santiago Gutiérrez",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15310",
+      "type": "obra",
+      "label": "El Sueño del Mártir",
+      "artist": "José María Ibarrán y Ponce",
+      "year": 1877,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_15310.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15310",
+        "sigropam": "15310",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20maria%20ibarran%20y%20ponce",
+      "type": "autor",
+      "label": "José María Ibarrán y Ponce",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15436",
+      "type": "obra",
+      "label": "El Puente de San Antonio en el Camino de San Ángel, Junto a Panzacola",
+      "artist": "Eugenio Landesio",
+      "year": 1855,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_15436.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15436",
+        "sigropam": "15436",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15515",
+      "type": "obra",
+      "label": "El Árbol Genealógico de San Basilio",
+      "artist": "Autor sin identificar (Siglo XVIII)",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_15515.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15515",
+        "sigropam": "15515",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15550",
+      "type": "obra",
+      "label": "Ex-Voto",
+      "artist": "Autor sin identificar",
+      "year": 1917,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_15550.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15550",
+        "sigropam": "15550",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15968",
+      "type": "obra",
+      "label": "Santo Domingo. Copia Original",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_15968.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15968",
+        "sigropam": "15968",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_16095",
+      "type": "obra",
+      "label": "El descubrimiento del Pulque",
+      "artist": "José María Obregón",
+      "year": 1869,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_16095.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_16095",
+        "sigropam": "16095",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jose%20maria%20obregon",
+      "type": "autor",
+      "label": "José María Obregón",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "década:1860%E2%80%931869",
+      "type": "década",
+      "label": "1860–1869"
+    },
+    {
+      "id": "obra:MUNAL_16623",
+      "type": "obra",
+      "label": "Muerte con Sandía",
+      "artist": "Jesús Reyes Ferreria",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_16623.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_16623",
+        "sigropam": "16623",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:jesus%20reyes%20ferreria",
+      "type": "autor",
+      "label": "Jesús Reyes Ferreria",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_16670",
+      "type": "obra",
+      "label": "El Rapto de las Sabinas",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_16670.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_16670",
+        "sigropam": "16670",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_16904",
+      "type": "obra",
+      "label": "Mexican Folkways. Mexico City. Toor, Frances Editor. Rivera, Diego art Editor. No. 1 Vol. 4.",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_16904.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_16904",
+        "sigropam": "16904",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:revista",
+      "type": "técnica",
+      "label": "Revista",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_16930",
+      "type": "obra",
+      "label": "Cocina Poblana",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_16930.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_16930",
+        "sigropam": "16930",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_17130",
+      "type": "obra",
+      "label": "Danza del Xóchitl Pitzahuac",
+      "artist": "Ramón Cano Manilla",
+      "year": 1930,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_17130.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_17130",
+        "sigropam": "17130",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:ramon%20cano%20manilla",
+      "type": "autor",
+      "label": "Ramón Cano Manilla",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_17699",
+      "type": "obra",
+      "label": "La Purísima Concepción con Jesuitas",
+      "artist": "Juan Francisco de Aguilera",
+      "year": 1720,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_17699.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_17699",
+        "sigropam": "17699",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:juan%20francisco%20de%20aguilera",
+      "type": "autor",
+      "label": "Juan Francisco de Aguilera",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "década:1720%E2%80%931729",
+      "type": "década",
+      "label": "1720–1729"
+    },
+    {
+      "id": "obra:MUNAL_19399",
+      "type": "obra",
+      "label": "Fuentes Brotantes (Fuentes Brotantes en Otoño)",
+      "artist": "Joaquín Clausell",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_19399.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_19399",
+        "sigropam": "19399",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:joaquin%20clausell",
+      "type": "autor",
+      "label": "Joaquín Clausell",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_29013",
+      "type": "obra",
+      "label": "Al amanecer labores",
+      "artist": "Ezequiel Negrete Lira",
+      "year": 1955,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_29013.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_29013",
+        "sigropam": "29013",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:ezequiel%20negrete%20lira",
+      "type": "autor",
+      "label": "Ezequiel Negrete Lira",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_34919",
+      "type": "obra",
+      "label": "La Muerte de Bernardina Madrueño",
+      "artist": "Autor sin identificar",
+      "year": 1852,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_34919.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_34919",
+        "sigropam": "34919",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_35148",
+      "type": "obra",
+      "label": "Naturaleza Muerta con Sandía",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_35148.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_35148",
+        "sigropam": "35148",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_35406",
+      "type": "obra",
+      "label": "Sin Título",
+      "artist": "Roberto Guardia Berdecio",
+      "year": 1941,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_35406.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_35406",
+        "sigropam": "35406",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:roberto%20guardia%20berdecio",
+      "type": "autor",
+      "label": "Roberto Guardia Berdecio",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_36585",
+      "type": "obra",
+      "label": "María Asúnsolo",
+      "artist": "Manuel Álvarez Bravo",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_36585.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_36585",
+        "sigropam": "36585",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_4297",
+      "type": "obra",
+      "label": "Mexican Folkways. Mexico City. Toor, Frances Editor. Charlot, Jean art Editor. No. 2 Vol. 1.",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_4297.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_4297",
+        "sigropam": "4297",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_52095",
+      "type": "obra",
+      "label": "Platón",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_52095.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_52095",
+        "sigropam": "52095",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_52099",
+      "type": "obra",
+      "label": "Alhajero",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_52099.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_52099",
+        "sigropam": "52099",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:utensilio",
+      "type": "técnica",
+      "label": "Utensilio",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_52195",
+      "type": "obra",
+      "label": "Cuadro",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_52195.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_52195",
+        "sigropam": "52195",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_52234",
+      "type": "obra",
+      "label": "Máscara",
+      "artist": "Autor sin identificar",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_52234.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_52234",
+        "sigropam": "52234",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_53944",
+      "type": "obra",
+      "label": "Carmela Duarte en Su estudio de Roma",
+      "artist": "Autor sin identificar",
+      "year": 1894,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_53944.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_53944",
+        "sigropam": "53944",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_59291",
+      "type": "obra",
+      "label": "Estudio del Modelo al Natural, Mujer",
+      "artist": "Fidencio Lucano Nava",
+      "year": null,
+      "collection": "MUNAL",
+      "image": "Img/obras/MUNAL_59291.webp",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_59291",
+        "sigropam": "59291",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:fidencio%20lucano%20nava",
+      "type": "autor",
+      "label": "Fidencio Lucano Nava",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MAM_13061",
+      "type": "obra",
+      "label": "Naturaleza muerta (con cepillo de dientes)",
+      "artist": "Izquierdo, María",
+      "year": null,
+      "collection": "MAM",
+      "image": "Img/obras/_sin-imagen.svg",
+      "description": "Obra pictórica con frutas y verduras colocadas en una mesa tipo buró junto con un cepillo de dientes. ",
+      "identifiers": {
+        "local": "MAM_13061",
+        "sigropam": "13061",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "autor:izquierdo%2C%20maria",
+      "type": "autor",
+      "label": "Izquierdo, María",
+      "authorities": {
+        "wikidata": null,
+        "ulan": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15404",
+      "type": "obra",
+      "label": "Mis sobrinas",
+      "artist": "Izquierdo, María",
+      "year": 1940,
+      "collection": "MUNAL",
+      "image": "Img/obras/_sin-imagen.svg",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15404",
+        "sigropam": "15404",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:oleo%20sobre%20triplay",
+      "type": "técnica",
+      "label": "Óleo sobre triplay",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15417",
+      "type": "obra",
+      "label": "Adán y Eva",
+      "artist": "Izquierdo, María",
+      "year": 1945,
+      "collection": "MUNAL",
+      "image": "Img/obras/_sin-imagen.svg",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15417",
+        "sigropam": "15417",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15412",
+      "type": "obra",
+      "label": "Retrato de María Asúnsolo (retrato de María Asúnsolo con caracol)",
+      "artist": "Izquierdo, María",
+      "year": 1942,
+      "collection": "MUNAL",
+      "image": "Img/obras/_sin-imagen.svg",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15412",
+        "sigropam": "15412",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MUNAL_15421",
+      "type": "obra",
+      "label": "Alacena (viernes de juguetería)",
+      "artist": "Izquierdo, María",
+      "year": 1952,
+      "collection": "MUNAL",
+      "image": "Img/obras/_sin-imagen.svg",
+      "description": "",
+      "identifiers": {
+        "local": "MUNAL_15421",
+        "sigropam": "15421",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "obra:MAM_54818",
+      "type": "obra",
+      "label": "Proyecto escalera monumental departamento central",
+      "artist": "Izquierdo, María",
+      "year": 1945,
+      "collection": "MAM",
+      "image": "Img/obras/_sin-imagen.svg",
+      "description": "Tríptico monumental adaptado a los muros de la escalera, utilizando una perspectiva arquitectónica. Predominan las figuras femeninas monumentales y alegóricas que representan las artes, la cultura y el desarrollo del país. ",
+      "identifiers": {
+        "local": "MAM_54818",
+        "sigropam": "54818",
+        "omekaS": null
+      }
+    },
+    {
+      "id": "técnica:gouache%20sobre%20papel",
+      "type": "técnica",
+      "label": "Gouache sobre papel",
+      "authorities": {
+        "wikidata": null,
+        "aat": null
+      }
+    },
+    {
+      "id": "obra:MAM_13062",
+      "type": "obra",
+      "label": "Niñas durmiendo",
+      "artist": "Izquierdo, María",
+      "year": 1932,
+      "collection": "MAM",
+      "image": "Img/obras/_sin-imagen.svg",
+      "description": "La artista retrata a su hija Amparo y a una sobrina durmiendo juntas en una cama. Las niñas muestran facciones, cabello y estilo muy similares, con vestidos de dormir de diferentes colores sobre sábanas blancas.",
+      "identifiers": {
+        "local": "MAM_13062",
+        "sigropam": "13062",
+        "omekaS": null
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "obra:MAM_10243|creada_por|autor:abraham%20angel",
+      "source": "obra:MAM_10243",
+      "target": "autor:abraham%20angel",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_10243|realizada_con|técnica:oleo%20sobre%20carton",
+      "source": "obra:MAM_10243",
+      "target": "técnica:oleo%20sobre%20carton",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_10243|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MAM_10243",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_10243|pertenece_a|acervo:mam",
+      "source": "obra:MAM_10243",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_10243|fechada_en|década:1920%E2%80%931929",
+      "source": "obra:MAM_10243",
+      "target": "década:1920%E2%80%931929",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_10252|creada_por|autor:raul%20anguiano",
+      "source": "obra:MAM_10252",
+      "target": "autor:raul%20anguiano",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_10252|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_10252",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_10252|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_10252",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_10252|pertenece_a|acervo:mam",
+      "source": "obra:MAM_10252",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_10252|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_10252",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_10494|creada_por|autor:jose%20clemente%20orozco%20flores",
+      "source": "obra:MAM_10494",
+      "target": "autor:jose%20clemente%20orozco%20flores",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_10494|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_10494",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_10494|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_10494",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_10494|pertenece_a|acervo:mam",
+      "source": "obra:MAM_10494",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_10494|fechada_en|década:1920%E2%80%931929",
+      "source": "obra:MAM_10494",
+      "target": "década:1920%E2%80%931929",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_10735|creada_por|autor:juan%20o'gorman",
+      "source": "obra:MAM_10735",
+      "target": "autor:juan%20o'gorman",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_10735|realizada_con|técnica:temple%20sobre%20masonite",
+      "source": "obra:MAM_10735",
+      "target": "técnica:temple%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_10735|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_10735",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_10735|pertenece_a|acervo:mam",
+      "source": "obra:MAM_10735",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_10735|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MAM_10735",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_10943|creada_por|autor:luis%20arenal%20bastar",
+      "source": "obra:MAM_10943",
+      "target": "autor:luis%20arenal%20bastar",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_10943|realizada_con|técnica:oleo%20sobre%20masonite",
+      "source": "obra:MAM_10943",
+      "target": "técnica:oleo%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_10943|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_10943",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_10943|pertenece_a|acervo:mam",
+      "source": "obra:MAM_10943",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_10943|fechada_en|década:1930%E2%80%931939",
+      "source": "obra:MAM_10943",
+      "target": "década:1930%E2%80%931939",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_11055|creada_por|autor:manuel%20felguerez",
+      "source": "obra:MAM_11055",
+      "target": "autor:manuel%20felguerez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_11055|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_11055",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_11055|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_11055",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_11055|pertenece_a|acervo:mam",
+      "source": "obra:MAM_11055",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_11055|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_11055",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_11587|creada_por|autor:remedios%20varo%20uranga",
+      "source": "obra:MAM_11587",
+      "target": "autor:remedios%20varo%20uranga",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_11587|realizada_con|técnica:oleo%20sobre%20masonite",
+      "source": "obra:MAM_11587",
+      "target": "técnica:oleo%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_11587|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_11587",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_11587|pertenece_a|acervo:mam",
+      "source": "obra:MAM_11587",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_11587|fechada_en|década:1960%E2%80%931969",
+      "source": "obra:MAM_11587",
+      "target": "década:1960%E2%80%931969",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_12042|creada_por|autor:fernando%20garcia%20ponce",
+      "source": "obra:MAM_12042",
+      "target": "autor:fernando%20garcia%20ponce",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_12042|realizada_con|técnica:acrilico%20sobre%20tela",
+      "source": "obra:MAM_12042",
+      "target": "técnica:acrilico%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_12042|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_12042",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_12042|pertenece_a|acervo:mam",
+      "source": "obra:MAM_12042",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_12042|fechada_en|década:1970%E2%80%931979",
+      "source": "obra:MAM_12042",
+      "target": "década:1970%E2%80%931979",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_12169|creada_por|autor:mathias%20goeritz",
+      "source": "obra:MAM_12169",
+      "target": "autor:mathias%20goeritz",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_12169|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_12169",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_12169|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_12169",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_12169|pertenece_a|acervo:mam",
+      "source": "obra:MAM_12169",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_12432|creada_por|autor:jesus%20guerrero%20galvan",
+      "source": "obra:MAM_12432",
+      "target": "autor:jesus%20guerrero%20galvan",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_12432|realizada_con|técnica:oleo%20sobre%20masonite",
+      "source": "obra:MAM_12432",
+      "target": "técnica:oleo%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_12432|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_12432",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_12432|pertenece_a|acervo:mam",
+      "source": "obra:MAM_12432",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_12432|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_12432",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_12706|creada_por|autor:kati%20horna",
+      "source": "obra:MAM_12706",
+      "target": "autor:kati%20horna",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_12706|realizada_con|técnica:plata%20sobre%20gelatina",
+      "source": "obra:MAM_12706",
+      "target": "técnica:plata%20sobre%20gelatina",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_12706|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MAM_12706",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_12706|pertenece_a|acervo:mam",
+      "source": "obra:MAM_12706",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_13154|creada_por|autor:frida%20kahlo%20calderon",
+      "source": "obra:MAM_13154",
+      "target": "autor:frida%20kahlo%20calderon",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_13154|realizada_con|técnica:oleo%20sobre%20masonite",
+      "source": "obra:MAM_13154",
+      "target": "técnica:oleo%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_13154|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_13154",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_13154|pertenece_a|acervo:mam",
+      "source": "obra:MAM_13154",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_13154|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_13154",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_13157|creada_por|autor:frida%20kahlo%20calderon",
+      "source": "obra:MAM_13157",
+      "target": "autor:frida%20kahlo%20calderon",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_13157|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_13157",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_13157|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_13157",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_13157|pertenece_a|acervo:mam",
+      "source": "obra:MAM_13157",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_13157|fechada_en|década:1930%E2%80%931939",
+      "source": "obra:MAM_13157",
+      "target": "década:1930%E2%80%931939",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_13173|creada_por|autor:kasuya%20sakai",
+      "source": "obra:MAM_13173",
+      "target": "autor:kasuya%20sakai",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_13173|realizada_con|técnica:acrilico%20sobre%20tela",
+      "source": "obra:MAM_13173",
+      "target": "técnica:acrilico%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_13173|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_13173",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_13173|pertenece_a|acervo:mam",
+      "source": "obra:MAM_13173",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_13173|fechada_en|década:1970%E2%80%931979",
+      "source": "obra:MAM_13173",
+      "target": "década:1970%E2%80%931979",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_13370|creada_por|autor:jose%20david%20alfaro%20siqueiros",
+      "source": "obra:MAM_13370",
+      "target": "autor:jose%20david%20alfaro%20siqueiros",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_13370|realizada_con|técnica:piroxilina%20sobre%20celotex%20y%20fibra%20de%20vidrio",
+      "source": "obra:MAM_13370",
+      "target": "técnica:piroxilina%20sobre%20celotex%20y%20fibra%20de%20vidrio",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_13370|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_13370",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_13370|pertenece_a|acervo:mam",
+      "source": "obra:MAM_13370",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_13370|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MAM_13370",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_13463|creada_por|autor:jose%20david%20alfaro%20siqueiros",
+      "source": "obra:MAM_13463",
+      "target": "autor:jose%20david%20alfaro%20siqueiros",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_13463|realizada_con|técnica:piroxilina%20sobre%20masonite",
+      "source": "obra:MAM_13463",
+      "target": "técnica:piroxilina%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_13463|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_13463",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_13463|pertenece_a|acervo:mam",
+      "source": "obra:MAM_13463",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_13463|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_13463",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_14346|creada_por|autor:rufino%20del%20carmen%20tamayo%20arrellanes",
+      "source": "obra:MAM_14346",
+      "target": "autor:rufino%20del%20carmen%20tamayo%20arrellanes",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_14346|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_14346",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_14346|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_14346",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_14346|pertenece_a|acervo:mam",
+      "source": "obra:MAM_14346",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_14346|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_14346",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_14487|creada_por|autor:angel%20zarraga%20arguelles",
+      "source": "obra:MAM_14487",
+      "target": "autor:angel%20zarraga%20arguelles",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_14487|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_14487",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_14487|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_14487",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_14487|pertenece_a|acervo:mam",
+      "source": "obra:MAM_14487",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_14487|fechada_en|década:1920%E2%80%931929",
+      "source": "obra:MAM_14487",
+      "target": "década:1920%E2%80%931929",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_14508|creada_por|autor:francisco%20zuniga%20chavarria",
+      "source": "obra:MAM_14508",
+      "target": "autor:francisco%20zuniga%20chavarria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_14508|realizada_con|técnica:piedra%20xaltocan",
+      "source": "obra:MAM_14508",
+      "target": "técnica:piedra%20xaltocan",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_14508|tiene_disciplina|disciplina:escultura",
+      "source": "obra:MAM_14508",
+      "target": "disciplina:escultura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_14508|pertenece_a|acervo:mam",
+      "source": "obra:MAM_14508",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_14508|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_14508",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_14673|creada_por|autor:agustin%20lazo",
+      "source": "obra:MAM_14673",
+      "target": "autor:agustin%20lazo",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_14673|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_14673",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_14673|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_14673",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_14673|pertenece_a|acervo:mam",
+      "source": "obra:MAM_14673",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_14673|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MAM_14673",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_16575|creada_por|autor:jose%20gerardo%20francisco%20murillo%20coronado",
+      "source": "obra:MAM_16575",
+      "target": "autor:jose%20gerardo%20francisco%20murillo%20coronado",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_16575|realizada_con|técnica:atlcolor%20sobre%20masonite",
+      "source": "obra:MAM_16575",
+      "target": "técnica:atlcolor%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_16575|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_16575",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_16575|pertenece_a|acervo:mam",
+      "source": "obra:MAM_16575",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_18030|creada_por|autor:francisco%20moyao",
+      "source": "obra:MAM_18030",
+      "target": "autor:francisco%20moyao",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_18030|realizada_con|técnica:madera%20con%20laca",
+      "source": "obra:MAM_18030",
+      "target": "técnica:madera%20con%20laca",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_18030|tiene_disciplina|disciplina:escultura",
+      "source": "obra:MAM_18030",
+      "target": "disciplina:escultura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_18030|pertenece_a|acervo:mam",
+      "source": "obra:MAM_18030",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_18030|fechada_en|década:1970%E2%80%931979",
+      "source": "obra:MAM_18030",
+      "target": "década:1970%E2%80%931979",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_19154|creada_por|autor:rosa%20rolanda%20de%20covarrubias",
+      "source": "obra:MAM_19154",
+      "target": "autor:rosa%20rolanda%20de%20covarrubias",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_19154|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_19154",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_19154|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_19154",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_19154|pertenece_a|acervo:mam",
+      "source": "obra:MAM_19154",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_21575|creada_por|autor:angel%20zarraga%20arguelles",
+      "source": "obra:MAM_21575",
+      "target": "autor:angel%20zarraga%20arguelles",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_21575|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_21575",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_21575|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_21575",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_21575|pertenece_a|acervo:mam",
+      "source": "obra:MAM_21575",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_29538|creada_por|autor:remedios%20varo%20uranga",
+      "source": "obra:MAM_29538",
+      "target": "autor:remedios%20varo%20uranga",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_29538|realizada_con|técnica:oleo%20y%20nacar%20incrustado%20sobre%20masonite",
+      "source": "obra:MAM_29538",
+      "target": "técnica:oleo%20y%20nacar%20incrustado%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_29538|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_29538",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_29538|pertenece_a|acervo:mam",
+      "source": "obra:MAM_29538",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_29538|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_29538",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_29541|creada_por|autor:remedios%20varo%20uranga",
+      "source": "obra:MAM_29541",
+      "target": "autor:remedios%20varo%20uranga",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_29541|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_29541",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_29541|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_29541",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_29541|pertenece_a|acervo:mam",
+      "source": "obra:MAM_29541",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_29541|fechada_en|década:1960%E2%80%931969",
+      "source": "obra:MAM_29541",
+      "target": "década:1960%E2%80%931969",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_29589|creada_por|autor:remedios%20varo%20uranga",
+      "source": "obra:MAM_29589",
+      "target": "autor:remedios%20varo%20uranga",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_29589|realizada_con|técnica:oleo%20sobre%20masonite",
+      "source": "obra:MAM_29589",
+      "target": "técnica:oleo%20sobre%20masonite",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_29589|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_29589",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_29589|pertenece_a|acervo:mam",
+      "source": "obra:MAM_29589",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_29589|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_29589",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_35057|creada_por|autor:henry%20spencer%20moore",
+      "source": "obra:MAM_35057",
+      "target": "autor:henry%20spencer%20moore",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_35057|realizada_con|técnica:bronce",
+      "source": "obra:MAM_35057",
+      "target": "técnica:bronce",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_35057|tiene_disciplina|disciplina:escultura",
+      "source": "obra:MAM_35057",
+      "target": "disciplina:escultura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_35057|pertenece_a|acervo:mam",
+      "source": "obra:MAM_35057",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_49969|creada_por|autor:manuel%20alvarez%20bravo",
+      "source": "obra:MAM_49969",
+      "target": "autor:manuel%20alvarez%20bravo",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_49969|realizada_con|técnica:plata%20sobre%20gelatina",
+      "source": "obra:MAM_49969",
+      "target": "técnica:plata%20sobre%20gelatina",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_49969|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MAM_49969",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_49969|pertenece_a|acervo:mam",
+      "source": "obra:MAM_49969",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_49969|fechada_en|década:1930%E2%80%931939",
+      "source": "obra:MAM_49969",
+      "target": "década:1930%E2%80%931939",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_52814|creada_por|autor:mariana%20yampolsky%20urbach",
+      "source": "obra:MAM_52814",
+      "target": "autor:mariana%20yampolsky%20urbach",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_52814|realizada_con|técnica:plata%20sobre%20gelatina",
+      "source": "obra:MAM_52814",
+      "target": "técnica:plata%20sobre%20gelatina",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_52814|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MAM_52814",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_52814|pertenece_a|acervo:mam",
+      "source": "obra:MAM_52814",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_52814|fechada_en|década:1970%E2%80%931979",
+      "source": "obra:MAM_52814",
+      "target": "década:1970%E2%80%931979",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_59299|creada_por|autor:dolores%20martinez%20de%20anda",
+      "source": "obra:MAM_59299",
+      "target": "autor:dolores%20martinez%20de%20anda",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_59299|realizada_con|técnica:plata%20sobre%20gelatina",
+      "source": "obra:MAM_59299",
+      "target": "técnica:plata%20sobre%20gelatina",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_59299|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MAM_59299",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_59299|pertenece_a|acervo:mam",
+      "source": "obra:MAM_59299",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_59299|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_59299",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_59339|creada_por|autor:gerardo%20suter",
+      "source": "obra:MAM_59339",
+      "target": "autor:gerardo%20suter",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_59339|realizada_con|técnica:plata%20sobre%20gelatina",
+      "source": "obra:MAM_59339",
+      "target": "técnica:plata%20sobre%20gelatina",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_59339|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MAM_59339",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_59339|pertenece_a|acervo:mam",
+      "source": "obra:MAM_59339",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_59339|fechada_en|década:1980%E2%80%931989",
+      "source": "obra:MAM_59339",
+      "target": "década:1980%E2%80%931989",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_59340|creada_por|autor:graciela%20iturbide",
+      "source": "obra:MAM_59340",
+      "target": "autor:graciela%20iturbide",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_59340|realizada_con|técnica:plata%20sobre%20gelatina",
+      "source": "obra:MAM_59340",
+      "target": "técnica:plata%20sobre%20gelatina",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_59340|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MAM_59340",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_59340|pertenece_a|acervo:mam",
+      "source": "obra:MAM_59340",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_59340|fechada_en|década:1980%E2%80%931989",
+      "source": "obra:MAM_59340",
+      "target": "década:1980%E2%80%931989",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_59692|creada_por|autor:dolores%20martinez%20de%20anda",
+      "source": "obra:MAM_59692",
+      "target": "autor:dolores%20martinez%20de%20anda",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_59692|realizada_con|técnica:plata%20sobre%20gelatina",
+      "source": "obra:MAM_59692",
+      "target": "técnica:plata%20sobre%20gelatina",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_59692|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MAM_59692",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_59692|pertenece_a|acervo:mam",
+      "source": "obra:MAM_59692",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_59692|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_59692",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_59834|creada_por|autor:gunther%20gerzso",
+      "source": "obra:MAM_59834",
+      "target": "autor:gunther%20gerzso",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_59834|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_59834",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_59834|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MAM_59834",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_59834|pertenece_a|acervo:mam",
+      "source": "obra:MAM_59834",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_59930|creada_por|autor:jose%20guadalupe%20posada%20aguilar",
+      "source": "obra:MAM_59930",
+      "target": "autor:jose%20guadalupe%20posada%20aguilar",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_59930|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MAM_59930",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_59930|pertenece_a|acervo:mam",
+      "source": "obra:MAM_59930",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_8688|creada_por|autor:carlos%20merida",
+      "source": "obra:MAM_8688",
+      "target": "autor:carlos%20merida",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_8688|realizada_con|técnica:bajo%20relieve%20en%20acrilico%20sobre%20madera",
+      "source": "obra:MAM_8688",
+      "target": "técnica:bajo%20relieve%20en%20acrilico%20sobre%20madera",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_8688|tiene_disciplina|disciplina:escultura",
+      "source": "obra:MAM_8688",
+      "target": "disciplina:escultura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_8688|pertenece_a|acervo:mam",
+      "source": "obra:MAM_8688",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_8688|fechada_en|década:1960%E2%80%931969",
+      "source": "obra:MAM_8688",
+      "target": "década:1960%E2%80%931969",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_8712|creada_por|autor:guillermo%20meza%20alvarez",
+      "source": "obra:MAM_8712",
+      "target": "autor:guillermo%20meza%20alvarez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_8712|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_8712",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_8712|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_8712",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_8712|pertenece_a|acervo:mam",
+      "source": "obra:MAM_8712",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_8712|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_8712",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_8883|creada_por|autor:jose%20gerardo%20francisco%20murillo%20coronado",
+      "source": "obra:MAM_8883",
+      "target": "autor:jose%20gerardo%20francisco%20murillo%20coronado",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_8883|realizada_con|técnica:atlcolor%20sobre%20asbesto",
+      "source": "obra:MAM_8883",
+      "target": "técnica:atlcolor%20sobre%20asbesto",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_8883|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_8883",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_8883|pertenece_a|acervo:mam",
+      "source": "obra:MAM_8883",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_8883|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MAM_8883",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_8909|creada_por|autor:estanislao%20contreras",
+      "source": "obra:MAM_8909",
+      "target": "autor:estanislao%20contreras",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_8909|realizada_con|técnica:madera%20tallada",
+      "source": "obra:MAM_8909",
+      "target": "técnica:madera%20tallada",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_8909|tiene_disciplina|disciplina:escultura",
+      "source": "obra:MAM_8909",
+      "target": "disciplina:escultura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_8909|pertenece_a|acervo:mam",
+      "source": "obra:MAM_8909",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_8909|fechada_en|década:1960%E2%80%931969",
+      "source": "obra:MAM_8909",
+      "target": "década:1960%E2%80%931969",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_8924|creada_por|autor:roberto%20montenegro%20nervo",
+      "source": "obra:MAM_8924",
+      "target": "autor:roberto%20montenegro%20nervo",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_8924|realizada_con|técnica:oleo%20sobre%20madera",
+      "source": "obra:MAM_8924",
+      "target": "técnica:oleo%20sobre%20madera",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_8924|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_8924",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_8924|pertenece_a|acervo:mam",
+      "source": "obra:MAM_8924",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_8924|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MAM_8924",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_9204|creada_por|autor:german%20cueto",
+      "source": "obra:MAM_9204",
+      "target": "autor:german%20cueto",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_9204|realizada_con|técnica:bronce",
+      "source": "obra:MAM_9204",
+      "target": "técnica:bronce",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_9204|tiene_disciplina|disciplina:escultura",
+      "source": "obra:MAM_9204",
+      "target": "disciplina:escultura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_9204|pertenece_a|acervo:mam",
+      "source": "obra:MAM_9204",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_9204|fechada_en|década:1960%E2%80%931969",
+      "source": "obra:MAM_9204",
+      "target": "década:1960%E2%80%931969",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_9235|creada_por|autor:olga%20costa",
+      "source": "obra:MAM_9235",
+      "target": "autor:olga%20costa",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_9235|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_9235",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_9235|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MAM_9235",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_9235|pertenece_a|acervo:mam",
+      "source": "obra:MAM_9235",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_9235|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MAM_9235",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_10455|creada_por|autor:carl%20ernst%20christoph%20hess",
+      "source": "obra:MNSC_10455",
+      "target": "autor:carl%20ernst%20christoph%20hess",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_10455|realizada_con|técnica:buril",
+      "source": "obra:MNSC_10455",
+      "target": "técnica:buril",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_10455|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_10455",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_10455|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_10455",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_10562|creada_por|autor:albert%20jansz%20klomp",
+      "source": "obra:MNSC_10562",
+      "target": "autor:albert%20jansz%20klomp",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_10562|realizada_con|técnica:oleo%20sobre%20tabla",
+      "source": "obra:MNSC_10562",
+      "target": "técnica:oleo%20sobre%20tabla",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_10562|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_10562",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_10562|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_10562",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_10608|creada_por|autor:peter%20de%20kempeneer",
+      "source": "obra:MNSC_10608",
+      "target": "autor:peter%20de%20kempeneer",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_10608|realizada_con|técnica:oleo%20sobre%20madera%20trasladado%20a%20tela",
+      "source": "obra:MNSC_10608",
+      "target": "técnica:oleo%20sobre%20madera%20trasladado%20a%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_10608|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_10608",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_10608|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_10608",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_10725|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_10725",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_10725|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_10725",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_10725|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_10725",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_10737|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_10737",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_10737|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_10737",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_10746|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_10746",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_10746|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_10746",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_10746|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_10746",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_10747|creada_por|autor:eugenio%20landesio",
+      "source": "obra:MNSC_10747",
+      "target": "autor:eugenio%20landesio",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_10747|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_10747",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_10747|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_10747",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_10747|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_10747",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_10810|creada_por|autor:eugenio%20landesio",
+      "source": "obra:MNSC_10810",
+      "target": "autor:eugenio%20landesio",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_10810|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_10810",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_10810|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_10810",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_10810|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_10810",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_19041|creada_por|autor:gil%20mariano%20benllure",
+      "source": "obra:MNSC_19041",
+      "target": "autor:gil%20mariano%20benllure",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_19041|realizada_con|técnica:acuarela%20sobre%20papel",
+      "source": "obra:MNSC_19041",
+      "target": "técnica:acuarela%20sobre%20papel",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_19041|tiene_disciplina|disciplina:dibujo",
+      "source": "obra:MNSC_19041",
+      "target": "disciplina:dibujo",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_19041|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_19041",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_19041|fechada_en|década:1880%E2%80%931889",
+      "source": "obra:MNSC_19041",
+      "target": "década:1880%E2%80%931889",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_19049|creada_por|autor:francesco%20coghetti",
+      "source": "obra:MNSC_19049",
+      "target": "autor:francesco%20coghetti",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_19049|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_19049",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_19049|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_19049",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_19049|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_19049",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_19049|fechada_en|década:1850%E2%80%931859",
+      "source": "obra:MNSC_19049",
+      "target": "década:1850%E2%80%931859",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_34210|realizada_con|técnica:litografia",
+      "source": "obra:MNSC_34210",
+      "target": "técnica:litografia",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_34210|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_34210",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_34210|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_34210",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_34214|creada_por|autor:juan%20cordero",
+      "source": "obra:MNSC_34214",
+      "target": "autor:juan%20cordero",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_34214|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_34214",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_34214|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_34214",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_34214|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_34214",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_34214|fechada_en|década:1840%E2%80%931849",
+      "source": "obra:MNSC_34214",
+      "target": "década:1840%E2%80%931849",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_3519|creada_por|autor:a.%20berchoosen",
+      "source": "obra:MNSC_3519",
+      "target": "autor:a.%20berchoosen",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_3519|realizada_con|técnica:oleo%20sobre%20tabla",
+      "source": "obra:MNSC_3519",
+      "target": "técnica:oleo%20sobre%20tabla",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_3519|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_3519",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_3519|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_3519",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_3519|fechada_en|década:1850%E2%80%931859",
+      "source": "obra:MNSC_3519",
+      "target": "década:1850%E2%80%931859",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_3992|creada_por|autor:jose%20blanco%20coris",
+      "source": "obra:MNSC_3992",
+      "target": "autor:jose%20blanco%20coris",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_3992|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_3992",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_3992|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_3992",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_3992|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_3992",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_3994|creada_por|autor:adolphe%20rene%20lefevre",
+      "source": "obra:MNSC_3994",
+      "target": "autor:adolphe%20rene%20lefevre",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_3994|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_3994",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_3994|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_3994",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_3994|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_3994",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4137|creada_por|autor:jean%20lepautre",
+      "source": "obra:MNSC_4137",
+      "target": "autor:jean%20lepautre",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4137|realizada_con|técnica:aguafuerte",
+      "source": "obra:MNSC_4137",
+      "target": "técnica:aguafuerte",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4137|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4137",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4137|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4137",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4275|creada_por|autor:p.%20lightfoot",
+      "source": "obra:MNSC_4275",
+      "target": "autor:p.%20lightfoot",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4275|realizada_con|técnica:aguafuerte%20y%20buril",
+      "source": "obra:MNSC_4275",
+      "target": "técnica:aguafuerte%20y%20buril",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4275|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4275",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4275|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4275",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4446|creada_por|autor:francisco%20de%20goya%20y%20lucientes",
+      "source": "obra:MNSC_4446",
+      "target": "autor:francisco%20de%20goya%20y%20lucientes",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4446|realizada_con|técnica:aguafuerte",
+      "source": "obra:MNSC_4446",
+      "target": "técnica:aguafuerte",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4446|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4446",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4446|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4446",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4526|creada_por|autor:francisco%20de%20goya%20y%20lucientes",
+      "source": "obra:MNSC_4526",
+      "target": "autor:francisco%20de%20goya%20y%20lucientes",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4526|realizada_con|técnica:aguafuerte",
+      "source": "obra:MNSC_4526",
+      "target": "técnica:aguafuerte",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4526|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4526",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4526|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4526",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4582|creada_por|autor:francisco%20de%20goya%20y%20lucientes",
+      "source": "obra:MNSC_4582",
+      "target": "autor:francisco%20de%20goya%20y%20lucientes",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4582|realizada_con|técnica:aguafuerte",
+      "source": "obra:MNSC_4582",
+      "target": "técnica:aguafuerte",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4582|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4582",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4582|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4582",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4633|creada_por|autor:francisco%20de%20goya%20y%20lucientes",
+      "source": "obra:MNSC_4633",
+      "target": "autor:francisco%20de%20goya%20y%20lucientes",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4633|realizada_con|técnica:aguafuerte",
+      "source": "obra:MNSC_4633",
+      "target": "técnica:aguafuerte",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4633|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4633",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4633|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4633",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4674|creada_por|autor:francisco%20de%20goya%20y%20lucientes",
+      "source": "obra:MNSC_4674",
+      "target": "autor:francisco%20de%20goya%20y%20lucientes",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4674|realizada_con|técnica:aguafuerte",
+      "source": "obra:MNSC_4674",
+      "target": "técnica:aguafuerte",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4674|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4674",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4674|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4674",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4771|creada_por|autor:francisco%20de%20goya%20y%20lucientes",
+      "source": "obra:MNSC_4771",
+      "target": "autor:francisco%20de%20goya%20y%20lucientes",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4771|realizada_con|técnica:aguafuerte",
+      "source": "obra:MNSC_4771",
+      "target": "técnica:aguafuerte",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4771|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4771",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4771|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4771",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4777|creada_por|autor:francisco%20de%20goya%20y%20lucientes",
+      "source": "obra:MNSC_4777",
+      "target": "autor:francisco%20de%20goya%20y%20lucientes",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4777|realizada_con|técnica:aguafuerte",
+      "source": "obra:MNSC_4777",
+      "target": "técnica:aguafuerte",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4777|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_4777",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4777|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4777",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_4842|creada_por|autor:oswald%20achenbach",
+      "source": "obra:MNSC_4842",
+      "target": "autor:oswald%20achenbach",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_4842|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_4842",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_4842|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_4842",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_4842|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_4842",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_5047|creada_por|autor:marie%20richard%20alexandre%20louis",
+      "source": "obra:MNSC_5047",
+      "target": "autor:marie%20richard%20alexandre%20louis",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_5047|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_5047",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_5047|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_5047",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_5047|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_5047",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_50923|creada_por|autor:marie%20louise%20elisabeth%20vigge%20le%20brun",
+      "source": "obra:MNSC_50923",
+      "target": "autor:marie%20louise%20elisabeth%20vigge%20le%20brun",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_50923|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_50923",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_50923|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_50923",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_50923|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_50923",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_50923|fechada_en|década:1790%E2%80%931799",
+      "source": "obra:MNSC_50923",
+      "target": "década:1790%E2%80%931799",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_50938|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_50938",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_50938|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_50938",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_50941|creada_por|autor:german%20gedovius%20huerta",
+      "source": "obra:MNSC_50941",
+      "target": "autor:german%20gedovius%20huerta",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_50941|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_50941",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_50941|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_50941",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_50941|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_50941",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_50941|fechada_en|década:1900%E2%80%931909",
+      "source": "obra:MNSC_50941",
+      "target": "década:1900%E2%80%931909",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_50942|creada_por|autor:german%20gedovius%20huerta",
+      "source": "obra:MNSC_50942",
+      "target": "autor:german%20gedovius%20huerta",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_50942|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_50942",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_50942|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_50942",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_50942|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_50942",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_50943|creada_por|autor:german%20gedovius%20huerta",
+      "source": "obra:MNSC_50943",
+      "target": "autor:german%20gedovius%20huerta",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_50943|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_50943",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_50943|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_50943",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_50943|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_50943",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_50943|fechada_en|década:1900%E2%80%931909",
+      "source": "obra:MNSC_50943",
+      "target": "década:1900%E2%80%931909",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_50947|creada_por|autor:german%20gedovius%20huerta",
+      "source": "obra:MNSC_50947",
+      "target": "autor:german%20gedovius%20huerta",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_50947|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_50947",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_50947|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_50947",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_50947|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_50947",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_5104|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_5104",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_5104|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_5104",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_5104|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_5104",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_5104|fechada_en|década:1910%E2%80%931919",
+      "source": "obra:MNSC_5104",
+      "target": "década:1910%E2%80%931919",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_5228|creada_por|autor:claes%20jansz%20visscher",
+      "source": "obra:MNSC_5228",
+      "target": "autor:claes%20jansz%20visscher",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_5228|realizada_con|técnica:aguafuerte%20y%20papel",
+      "source": "obra:MNSC_5228",
+      "target": "técnica:aguafuerte%20y%20papel",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_5228|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_5228",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_5228|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_5228",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_5379|creada_por|autor:karoly%20marko",
+      "source": "obra:MNSC_5379",
+      "target": "autor:karoly%20marko",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_5379|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MNSC_5379",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_5379|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_5379",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_5379|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_5379",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_5379|fechada_en|década:1850%E2%80%931859",
+      "source": "obra:MNSC_5379",
+      "target": "década:1850%E2%80%931859",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_5741|creada_por|autor:valerius%20saedeleerde",
+      "source": "obra:MNSC_5741",
+      "target": "autor:valerius%20saedeleerde",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_5741|realizada_con|técnica:carbon%20y%20tempera",
+      "source": "obra:MNSC_5741",
+      "target": "técnica:carbon%20y%20tempera",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_5741|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_5741",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_5741|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_5741",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_5741|fechada_en|década:1920%E2%80%931929",
+      "source": "obra:MNSC_5741",
+      "target": "década:1920%E2%80%931929",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_6050|creada_por|autor:william%20sharp",
+      "source": "obra:MNSC_6050",
+      "target": "autor:william%20sharp",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_6050|realizada_con|técnica:buril%20y%20papel",
+      "source": "obra:MNSC_6050",
+      "target": "técnica:buril%20y%20papel",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_6050|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MNSC_6050",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_6050|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_6050",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_6112|creada_por|autor:francisco%20dumaine",
+      "source": "obra:MNSC_6112",
+      "target": "autor:francisco%20dumaine",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_6112|realizada_con|técnica:marmol",
+      "source": "obra:MNSC_6112",
+      "target": "técnica:marmol",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_6112|tiene_disciplina|disciplina:escultura",
+      "source": "obra:MNSC_6112",
+      "target": "disciplina:escultura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_6112|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_6112",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_6112|fechada_en|década:1870%E2%80%931879",
+      "source": "obra:MNSC_6112",
+      "target": "década:1870%E2%80%931879",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MNSC_6166|creada_por|autor:pere%20espallargues",
+      "source": "obra:MNSC_6166",
+      "target": "autor:pere%20espallargues",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MNSC_6166|realizada_con|técnica:temple%20y%20oleo%20sobre%20tabla",
+      "source": "obra:MNSC_6166",
+      "target": "técnica:temple%20y%20oleo%20sobre%20tabla",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MNSC_6166|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MNSC_6166",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MNSC_6166|pertenece_a|acervo:san%20carlos",
+      "source": "obra:MNSC_6166",
+      "target": "acervo:san%20carlos",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MNSC_6166|fechada_en|década:1460%E2%80%931469",
+      "source": "obra:MNSC_6166",
+      "target": "década:1460%E2%80%931469",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_1150|creada_por|autor:arturo%20garcia%20bustos",
+      "source": "obra:MUNAE_1150",
+      "target": "autor:arturo%20garcia%20bustos",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_1150|realizada_con|técnica:linoleo",
+      "source": "obra:MUNAE_1150",
+      "target": "técnica:linoleo",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_1150|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_1150",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_1150|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_1150",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_1150|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MUNAE_1150",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_2070|creada_por|autor:leocadio%20acosta",
+      "source": "obra:MUNAE_2070",
+      "target": "autor:leocadio%20acosta",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_2070|realizada_con|técnica:grabado%20sobre%20madera",
+      "source": "obra:MUNAE_2070",
+      "target": "técnica:grabado%20sobre%20madera",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_2070|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_2070",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_2070|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_2070",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_2239|creada_por|autor:julio%20prieto",
+      "source": "obra:MUNAE_2239",
+      "target": "autor:julio%20prieto",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_2239|realizada_con|técnica:litografia",
+      "source": "obra:MUNAE_2239",
+      "target": "técnica:litografia",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_2239|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_2239",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_2239|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_2239",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_2240|creada_por|autor:ignacio%20aguirre%20camacho",
+      "source": "obra:MUNAE_2240",
+      "target": "autor:ignacio%20aguirre%20camacho",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_2240|realizada_con|técnica:litografia%20al%20carbon",
+      "source": "obra:MUNAE_2240",
+      "target": "técnica:litografia%20al%20carbon",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_2240|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_2240",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_2240|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_2240",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_2240|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MUNAE_2240",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_2440|creada_por|autor:jose%20garcia%20ocejo",
+      "source": "obra:MUNAE_2440",
+      "target": "autor:jose%20garcia%20ocejo",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_2440|realizada_con|técnica:litografia%20a%20color",
+      "source": "obra:MUNAE_2440",
+      "target": "técnica:litografia%20a%20color",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_2440|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_2440",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_2440|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_2440",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_2440|fechada_en|década:1970%E2%80%931979",
+      "source": "obra:MUNAE_2440",
+      "target": "década:1970%E2%80%931979",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_35085|creada_por|autor:leopoldo%20mendez",
+      "source": "obra:MUNAE_35085",
+      "target": "autor:leopoldo%20mendez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_35085|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_35085",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_35085|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_35085",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_3978|creada_por|autor:amador%20lugo",
+      "source": "obra:MUNAE_3978",
+      "target": "autor:amador%20lugo",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_3978|realizada_con|técnica:linoleo",
+      "source": "obra:MUNAE_3978",
+      "target": "técnica:linoleo",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_3978|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_3978",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_3978|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_3978",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_4070|creada_por|autor:amador%20lugo",
+      "source": "obra:MUNAE_4070",
+      "target": "autor:amador%20lugo",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_4070|realizada_con|técnica:linoleo",
+      "source": "obra:MUNAE_4070",
+      "target": "técnica:linoleo",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_4070|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_4070",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_4070|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_4070",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_5172|creada_por|autor:leopoldo%20mendez",
+      "source": "obra:MUNAE_5172",
+      "target": "autor:leopoldo%20mendez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_5172|realizada_con|técnica:xilografia",
+      "source": "obra:MUNAE_5172",
+      "target": "técnica:xilografia",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_5172|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_5172",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_5172|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_5172",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_5196|creada_por|autor:leopoldo%20mendez",
+      "source": "obra:MUNAE_5196",
+      "target": "autor:leopoldo%20mendez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_5196|realizada_con|técnica:linoleo",
+      "source": "obra:MUNAE_5196",
+      "target": "técnica:linoleo",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_5196|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_5196",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_5196|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_5196",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_5207|creada_por|autor:leopoldo%20mendez",
+      "source": "obra:MUNAE_5207",
+      "target": "autor:leopoldo%20mendez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_5207|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_5207",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_5207|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_5207",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_5207|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MUNAE_5207",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_56|creada_por|autor:carlos%20alvarado%20lang",
+      "source": "obra:MUNAE_56",
+      "target": "autor:carlos%20alvarado%20lang",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_56|realizada_con|técnica:xilografia",
+      "source": "obra:MUNAE_56",
+      "target": "técnica:xilografia",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_56|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_56",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_56|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_56",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_56|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MUNAE_56",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_59724|creada_por|autor:jose%20guadalupe%20posada%20aguilar",
+      "source": "obra:MUNAE_59724",
+      "target": "autor:jose%20guadalupe%20posada%20aguilar",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_59724|realizada_con|técnica:zincografia%20e%20impresion%20tipografica",
+      "source": "obra:MUNAE_59724",
+      "target": "técnica:zincografia%20e%20impresion%20tipografica",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_59724|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_59724",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_59724|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_59724",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_59726|creada_por|autor:jose%20guadalupe%20posada%20aguilar",
+      "source": "obra:MUNAE_59726",
+      "target": "autor:jose%20guadalupe%20posada%20aguilar",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_59726|realizada_con|técnica:zincografia",
+      "source": "obra:MUNAE_59726",
+      "target": "técnica:zincografia",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_59726|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_59726",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_59726|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_59726",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_59726|fechada_en|década:1910%E2%80%931919",
+      "source": "obra:MUNAE_59726",
+      "target": "década:1910%E2%80%931919",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_59912|creada_por|autor:jose%20guadalupe%20posada%20aguilar",
+      "source": "obra:MUNAE_59912",
+      "target": "autor:jose%20guadalupe%20posada%20aguilar",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_59912|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_59912",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_59912|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_59912",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_59912|fechada_en|década:1910%E2%80%931919",
+      "source": "obra:MUNAE_59912",
+      "target": "década:1910%E2%80%931919",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_6588|creada_por|autor:leopoldo%20mendez",
+      "source": "obra:MUNAE_6588",
+      "target": "autor:leopoldo%20mendez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_6588|realizada_con|técnica:linoleo",
+      "source": "obra:MUNAE_6588",
+      "target": "técnica:linoleo",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_6588|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_6588",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_6588|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_6588",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_7506|creada_por|autor:adolfo%20mexiac",
+      "source": "obra:MUNAE_7506",
+      "target": "autor:adolfo%20mexiac",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_7506|realizada_con|técnica:linoleo",
+      "source": "obra:MUNAE_7506",
+      "target": "técnica:linoleo",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_7506|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_7506",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_7506|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_7506",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_7506|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MUNAE_7506",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAE_7856|creada_por|autor:fernando%20castro%20pacheco",
+      "source": "obra:MUNAE_7856",
+      "target": "autor:fernando%20castro%20pacheco",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_7856|realizada_con|técnica:xilografia%20a%20color",
+      "source": "obra:MUNAE_7856",
+      "target": "técnica:xilografia%20a%20color",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAE_7856|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_7856",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_7856|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_7856",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_950|creada_por|autor:arnold%20belkin",
+      "source": "obra:MUNAE_950",
+      "target": "autor:arnold%20belkin",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAE_950|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAE_950",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAE_950|pertenece_a|acervo:munae",
+      "source": "obra:MUNAE_950",
+      "target": "acervo:munae",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAE_950|fechada_en|década:1970%E2%80%931979",
+      "source": "obra:MUNAE_950",
+      "target": "década:1970%E2%80%931979",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_11920|creada_por|autor:diego%20rivera",
+      "source": "obra:MUNAL_11920",
+      "target": "autor:diego%20rivera",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_11920|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_11920",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_11920|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_11920",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_11920|fechada_en|década:1920%E2%80%931929",
+      "source": "obra:MUNAL_11920",
+      "target": "década:1920%E2%80%931929",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_11970|creada_por|autor:everardo%20rivera",
+      "source": "obra:MUNAL_11970",
+      "target": "autor:everardo%20rivera",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_11970|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MUNAL_11970",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_11970|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_11970",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_11970|fechada_en|década:1970%E2%80%931979",
+      "source": "obra:MUNAL_11970",
+      "target": "década:1970%E2%80%931979",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_11994|creada_por|autor:everardo%20rivera",
+      "source": "obra:MUNAL_11994",
+      "target": "autor:everardo%20rivera",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_11994|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MUNAL_11994",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_11994|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_11994",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_11994|fechada_en|década:1970%E2%80%931979",
+      "source": "obra:MUNAL_11994",
+      "target": "década:1970%E2%80%931979",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_12005|creada_por|autor:jose%20guadalupe%20posada",
+      "source": "obra:MUNAL_12005",
+      "target": "autor:jose%20guadalupe%20posada",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_12005|realizada_con|técnica:impreso",
+      "source": "obra:MUNAL_12005",
+      "target": "técnica:impreso",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_12005|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAL_12005",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_12005|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_12005",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_12861|creada_por|autor:felipe%20valero",
+      "source": "obra:MUNAL_12861",
+      "target": "autor:felipe%20valero",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_12861|tiene_disciplina|disciplina:escultura",
+      "source": "obra:MUNAL_12861",
+      "target": "disciplina:escultura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_12861|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_12861",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_12861|fechada_en|década:1850%E2%80%931859",
+      "source": "obra:MUNAL_12861",
+      "target": "década:1850%E2%80%931859",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_13356|creada_por|autor:jose%20guadalupe%20posada",
+      "source": "obra:MUNAL_13356",
+      "target": "autor:jose%20guadalupe%20posada",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_13356|realizada_con|técnica:impreso",
+      "source": "obra:MUNAL_13356",
+      "target": "técnica:impreso",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_13356|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAL_13356",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_13356|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_13356",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_13447|creada_por|autor:jose%20guadalupe%20posada",
+      "source": "obra:MUNAL_13447",
+      "target": "autor:jose%20guadalupe%20posada",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_13447|realizada_con|técnica:impreso",
+      "source": "obra:MUNAL_13447",
+      "target": "técnica:impreso",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_13447|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAL_13447",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_13447|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_13447",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_13447|fechada_en|década:1890%E2%80%931899",
+      "source": "obra:MUNAL_13447",
+      "target": "década:1890%E2%80%931899",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_13727|creada_por|autor:jose%20maria%20velasco",
+      "source": "obra:MUNAL_13727",
+      "target": "autor:jose%20maria%20velasco",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_13727|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_13727",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_13727|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_13727",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_13727|fechada_en|década:1870%E2%80%931879",
+      "source": "obra:MUNAL_13727",
+      "target": "década:1870%E2%80%931879",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_13858|creada_por|autor:alberto%20garduno",
+      "source": "obra:MUNAL_13858",
+      "target": "autor:alberto%20garduno",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_13858|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_13858",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_13858|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_13858",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_13858|fechada_en|década:1920%E2%80%931929",
+      "source": "obra:MUNAL_13858",
+      "target": "década:1920%E2%80%931929",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_14333|creada_por|autor:gerardo%20murillo%20coronado",
+      "source": "obra:MUNAL_14333",
+      "target": "autor:gerardo%20murillo%20coronado",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_14333|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_14333",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_14333|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_14333",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_14333|fechada_en|década:1930%E2%80%931939",
+      "source": "obra:MUNAL_14333",
+      "target": "década:1930%E2%80%931939",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_14361|realizada_con|técnica:ornamento",
+      "source": "obra:MUNAL_14361",
+      "target": "técnica:ornamento",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_14361|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_14361",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_14361|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_14361",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_14519|realizada_con|técnica:olla",
+      "source": "obra:MUNAL_14519",
+      "target": "técnica:olla",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_14519|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_14519",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_14519|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_14519",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_14534|realizada_con|técnica:olla",
+      "source": "obra:MUNAL_14534",
+      "target": "técnica:olla",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_14534|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_14534",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_14534|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_14534",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_14649|realizada_con|técnica:platon",
+      "source": "obra:MUNAL_14649",
+      "target": "técnica:platon",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_14649|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_14649",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_14649|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_14649",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_14779|realizada_con|técnica:mascara",
+      "source": "obra:MUNAL_14779",
+      "target": "técnica:mascara",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_14779|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_14779",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_14779|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_14779",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_14826|realizada_con|técnica:mascara",
+      "source": "obra:MUNAL_14826",
+      "target": "técnica:mascara",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_14826|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_14826",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_14826|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_14826",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_14856|realizada_con|técnica:mascara",
+      "source": "obra:MUNAL_14856",
+      "target": "técnica:mascara",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_14856|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_14856",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_14856|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_14856",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15239|creada_por|autor:rodrigo%20gutierrez",
+      "source": "obra:MUNAL_15239",
+      "target": "autor:rodrigo%20gutierrez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_15239|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15239",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15239|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15239",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15239|fechada_en|década:1870%E2%80%931879",
+      "source": "obra:MUNAL_15239",
+      "target": "década:1870%E2%80%931879",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_15256|creada_por|autor:felipe%20santiago%20gutierrez",
+      "source": "obra:MUNAL_15256",
+      "target": "autor:felipe%20santiago%20gutierrez",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_15256|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15256",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15256|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15256",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15256|fechada_en|década:1890%E2%80%931899",
+      "source": "obra:MUNAL_15256",
+      "target": "década:1890%E2%80%931899",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_15310|creada_por|autor:jose%20maria%20ibarran%20y%20ponce",
+      "source": "obra:MUNAL_15310",
+      "target": "autor:jose%20maria%20ibarran%20y%20ponce",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_15310|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15310",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15310|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15310",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15310|fechada_en|década:1870%E2%80%931879",
+      "source": "obra:MUNAL_15310",
+      "target": "década:1870%E2%80%931879",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_15436|creada_por|autor:eugenio%20landesio",
+      "source": "obra:MUNAL_15436",
+      "target": "autor:eugenio%20landesio",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_15436|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15436",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15436|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15436",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15436|fechada_en|década:1850%E2%80%931859",
+      "source": "obra:MUNAL_15436",
+      "target": "década:1850%E2%80%931859",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_15515|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15515",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15515|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15515",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15550|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15550",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15550|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15550",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15550|fechada_en|década:1910%E2%80%931919",
+      "source": "obra:MUNAL_15550",
+      "target": "década:1910%E2%80%931919",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_15968|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MUNAL_15968",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15968|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15968",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_16095|creada_por|autor:jose%20maria%20obregon",
+      "source": "obra:MUNAL_16095",
+      "target": "autor:jose%20maria%20obregon",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_16095|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_16095",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_16095|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_16095",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_16095|fechada_en|década:1860%E2%80%931869",
+      "source": "obra:MUNAL_16095",
+      "target": "década:1860%E2%80%931869",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_16623|creada_por|autor:jesus%20reyes%20ferreria",
+      "source": "obra:MUNAL_16623",
+      "target": "autor:jesus%20reyes%20ferreria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_16623|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_16623",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_16623|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_16623",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_16670|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_16670",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_16670|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_16670",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_16904|realizada_con|técnica:revista",
+      "source": "obra:MUNAL_16904",
+      "target": "técnica:revista",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_16904|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAL_16904",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_16904|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_16904",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_16930|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_16930",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_16930|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_16930",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_17130|creada_por|autor:ramon%20cano%20manilla",
+      "source": "obra:MUNAL_17130",
+      "target": "autor:ramon%20cano%20manilla",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_17130|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_17130",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_17130|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_17130",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_17130|fechada_en|década:1930%E2%80%931939",
+      "source": "obra:MUNAL_17130",
+      "target": "década:1930%E2%80%931939",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_17699|creada_por|autor:juan%20francisco%20de%20aguilera",
+      "source": "obra:MUNAL_17699",
+      "target": "autor:juan%20francisco%20de%20aguilera",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_17699|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_17699",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_17699|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_17699",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_17699|fechada_en|década:1720%E2%80%931729",
+      "source": "obra:MUNAL_17699",
+      "target": "década:1720%E2%80%931729",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_19399|creada_por|autor:joaquin%20clausell",
+      "source": "obra:MUNAL_19399",
+      "target": "autor:joaquin%20clausell",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_19399|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_19399",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_19399|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_19399",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_29013|creada_por|autor:ezequiel%20negrete%20lira",
+      "source": "obra:MUNAL_29013",
+      "target": "autor:ezequiel%20negrete%20lira",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_29013|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_29013",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_29013|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_29013",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_29013|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MUNAL_29013",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_34919|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_34919",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_34919|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_34919",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_34919|fechada_en|década:1850%E2%80%931859",
+      "source": "obra:MUNAL_34919",
+      "target": "década:1850%E2%80%931859",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_35148|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_35148",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_35148|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_35148",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_35406|creada_por|autor:roberto%20guardia%20berdecio",
+      "source": "obra:MUNAL_35406",
+      "target": "autor:roberto%20guardia%20berdecio",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_35406|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_35406",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_35406|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_35406",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_35406|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MUNAL_35406",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_36585|creada_por|autor:manuel%20alvarez%20bravo",
+      "source": "obra:MUNAL_36585",
+      "target": "autor:manuel%20alvarez%20bravo",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_36585|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MUNAL_36585",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_36585|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_36585",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_4297|realizada_con|técnica:revista",
+      "source": "obra:MUNAL_4297",
+      "target": "técnica:revista",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_4297|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MUNAL_4297",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_4297|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_4297",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_52095|realizada_con|técnica:platon",
+      "source": "obra:MUNAL_52095",
+      "target": "técnica:platon",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_52095|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_52095",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_52095|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_52095",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_52099|realizada_con|técnica:utensilio",
+      "source": "obra:MUNAL_52099",
+      "target": "técnica:utensilio",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_52099|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_52099",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_52099|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_52099",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_52195|realizada_con|técnica:ornamento",
+      "source": "obra:MUNAL_52195",
+      "target": "técnica:ornamento",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_52195|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_52195",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_52195|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_52195",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_52234|realizada_con|técnica:mascara",
+      "source": "obra:MUNAL_52234",
+      "target": "técnica:mascara",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_52234|tiene_disciplina|disciplina:artes%20decorativas",
+      "source": "obra:MUNAL_52234",
+      "target": "disciplina:artes%20decorativas",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_52234|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_52234",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_53944|tiene_disciplina|disciplina:fotografia",
+      "source": "obra:MUNAL_53944",
+      "target": "disciplina:fotografia",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_53944|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_53944",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_53944|fechada_en|década:1890%E2%80%931899",
+      "source": "obra:MUNAL_53944",
+      "target": "década:1890%E2%80%931899",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_59291|creada_por|autor:fidencio%20lucano%20nava",
+      "source": "obra:MUNAL_59291",
+      "target": "autor:fidencio%20lucano%20nava",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_59291|tiene_disciplina|disciplina:dibujo",
+      "source": "obra:MUNAL_59291",
+      "target": "disciplina:dibujo",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_59291|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_59291",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_13061|creada_por|autor:izquierdo%2C%20maria",
+      "source": "obra:MAM_13061",
+      "target": "autor:izquierdo%2C%20maria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_13061|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_13061",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_13061|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_13061",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_13061|pertenece_a|acervo:mam",
+      "source": "obra:MAM_13061",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15404|creada_por|autor:izquierdo%2C%20maria",
+      "source": "obra:MUNAL_15404",
+      "target": "autor:izquierdo%2C%20maria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_15404|realizada_con|técnica:oleo%20sobre%20triplay",
+      "source": "obra:MUNAL_15404",
+      "target": "técnica:oleo%20sobre%20triplay",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_15404|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15404",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15404|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15404",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15404|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MUNAL_15404",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_15417|creada_por|autor:izquierdo%2C%20maria",
+      "source": "obra:MUNAL_15417",
+      "target": "autor:izquierdo%2C%20maria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_15417|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MUNAL_15417",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_15417|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15417",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15417|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15417",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15417|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MUNAL_15417",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_15412|creada_por|autor:izquierdo%2C%20maria",
+      "source": "obra:MUNAL_15412",
+      "target": "autor:izquierdo%2C%20maria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_15412|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MUNAL_15412",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_15412|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15412",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15412|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15412",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15412|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MUNAL_15412",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MUNAL_15421|creada_por|autor:izquierdo%2C%20maria",
+      "source": "obra:MUNAL_15421",
+      "target": "autor:izquierdo%2C%20maria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MUNAL_15421|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MUNAL_15421",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MUNAL_15421|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MUNAL_15421",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MUNAL_15421|pertenece_a|acervo:munal",
+      "source": "obra:MUNAL_15421",
+      "target": "acervo:munal",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MUNAL_15421|fechada_en|década:1950%E2%80%931959",
+      "source": "obra:MUNAL_15421",
+      "target": "década:1950%E2%80%931959",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_54818|creada_por|autor:izquierdo%2C%20maria",
+      "source": "obra:MAM_54818",
+      "target": "autor:izquierdo%2C%20maria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_54818|realizada_con|técnica:gouache%20sobre%20papel",
+      "source": "obra:MAM_54818",
+      "target": "técnica:gouache%20sobre%20papel",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_54818|tiene_disciplina|disciplina:grabado",
+      "source": "obra:MAM_54818",
+      "target": "disciplina:grabado",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_54818|pertenece_a|acervo:mam",
+      "source": "obra:MAM_54818",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_54818|fechada_en|década:1940%E2%80%931949",
+      "source": "obra:MAM_54818",
+      "target": "década:1940%E2%80%931949",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    },
+    {
+      "id": "obra:MAM_13062|creada_por|autor:izquierdo%2C%20maria",
+      "source": "obra:MAM_13062",
+      "target": "autor:izquierdo%2C%20maria",
+      "type": "creada_por",
+      "sourceField": "autor"
+    },
+    {
+      "id": "obra:MAM_13062|realizada_con|técnica:oleo%20sobre%20tela",
+      "source": "obra:MAM_13062",
+      "target": "técnica:oleo%20sobre%20tela",
+      "type": "realizada_con",
+      "sourceField": "tecnica"
+    },
+    {
+      "id": "obra:MAM_13062|tiene_disciplina|disciplina:pintura",
+      "source": "obra:MAM_13062",
+      "target": "disciplina:pintura",
+      "type": "tiene_disciplina",
+      "sourceField": "tipo"
+    },
+    {
+      "id": "obra:MAM_13062|pertenece_a|acervo:mam",
+      "source": "obra:MAM_13062",
+      "target": "acervo:mam",
+      "type": "pertenece_a",
+      "sourceField": "museo"
+    },
+    {
+      "id": "obra:MAM_13062|fechada_en|década:1930%E2%80%931939",
+      "source": "obra:MAM_13062",
+      "target": "década:1930%E2%80%931939",
+      "type": "fechada_en",
+      "sourceField": "anio"
+    }
+  ]
+};

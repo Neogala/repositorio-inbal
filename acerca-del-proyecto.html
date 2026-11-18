@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acerca del proyecto — Colección Digital INBAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --guinda:#1e5b4f; --guinda-900:#1E5C3B;
+    --verde:#1e5b4f; --verde-900:#1E5C3B;
+    --oro:#8DC2B7; --arena:#DBD3B6;
+    --tinta:#211a1c; --gris:#6f6a66;
+    --linea:#e8e3da; --papel:#ffffff; --papel-2:#faf7f2;
+    --display:"Fraunces",Georgia,serif;
+    --sans:"Noto Sans",system-ui,sans-serif;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased}
+  body.overflow-hidden{overflow:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1400px;margin:0 auto;padding:0 40px}
+  .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gris);font-weight:500}
+
+  /* ---------- ANIMACIÓN DE ENTRADA ---------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);padding:13px 0}
+  .nav{display:flex;align-items:center;gap:30px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--sans);font-size:19px;font-weight:500;color:var(--guinda)}
+  .logo-wrap{position:relative;width:81px;height:29px;flex:none}
+  .logo-wrap .logo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:brightness(0)}
+  .brand-sep{width:1px;height:20px;background:var(--linea);flex:none}
+  .brand-text{font-style:italic;font-weight:700}
+  .menu{margin-left:auto;display:flex;gap:26px}
+  .menu a{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta);position:relative;padding:4px 0}
+  .menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--guinda);transition:width .35s var(--ease)}
+  .menu a:hover::after{width:100%}
+
+  /* ---------- SEARCH DOCK ---------- */
+  .search-dock{position:relative;flex:none;height:38px}
+  .search-dock__icon{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--linea);color:var(--gris);cursor:pointer;transition:border-color .3s,color .3s,opacity .25s ease,transform .25s ease}
+  .search-dock__icon svg{width:16px;height:16px}
+  .search-dock__icon:hover{border-color:var(--oro)}
+  .search-dock.is-open .search-dock__icon{opacity:0;transform:scale(0);pointer-events:none}
+  .search-dock__form{position:absolute;top:0;right:0;display:flex;align-items:center;height:38px;width:38px;border-radius:30px;border:1px solid var(--linea);overflow:hidden;opacity:0;pointer-events:none;background:rgba(255,255,255,.9);transition:width .4s var(--ease),opacity .25s ease,border-color .3s}
+  .search-dock.is-open .search-dock__form{width:300px;opacity:1;pointer-events:auto}
+  .search-dock__form svg{flex:none;width:15px;height:15px;margin-left:14px;color:var(--gris)}
+  .search-dock__input{flex:1;min-width:0;height:100%;padding:0 8px;background:transparent;border:none;outline:none;color:var(--tinta);font-family:var(--sans);font-size:13px}
+  .search-dock__input::placeholder{color:var(--gris)}
+  .search-dock__close{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;margin-right:6px;flex:none;cursor:pointer;color:var(--gris);transition:background .25s,color .3s}
+  .search-dock__close:hover{background:var(--linea)}
+
+  /* ---------- MENÚ HAMBURGUESA (móvil) ---------- */
+  .menu-toggle{all:unset;box-sizing:border-box;display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;cursor:pointer;flex:none}
+  .menu-toggle span{display:block;width:20px;height:2px;background:var(--tinta);margin:0 auto}
+  .mobile-menu{position:fixed;inset:0;z-index:400;opacity:0;pointer-events:none;transition:opacity .35s}
+  .mobile-menu.is-open{opacity:1;pointer-events:auto}
+  .mobile-menu__backdrop{position:absolute;inset:0;background:rgba(0,20,18,.6);backdrop-filter:blur(3px)}
+  .mobile-menu__panel{position:absolute;top:0;right:0;bottom:0;width:min(78vw,340px);background:var(--verde);display:flex;flex-direction:column;gap:6px;padding:90px 32px 40px;transform:translateX(100%);transition:transform .4s var(--ease)}
+  .mobile-menu.is-open .mobile-menu__panel{transform:translateX(0)}
+  .mobile-menu__panel a{color:#fff;font-family:var(--display);font-size:22px;font-weight:500;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .mobile-menu__close{all:unset;box-sizing:border-box;position:absolute;top:24px;right:24px;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  @media(max-width:900px){ .menu{display:none} .menu-toggle{display:flex} }
+
+  /* ---------- HERO ---------- */
+  .about-hero{
+    position:relative;overflow:hidden;background-color:#1E5C3B;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"),
+      radial-gradient(circle at 18% 30%, rgba(15,38,32,1) 0%, rgba(15,38,32,.7) 30%, rgba(15,38,32,0) 62%),
+      radial-gradient(circle at 85% 80%, rgba(141,194,183,.9) 0%, rgba(141,194,183,.4) 24%, rgba(141,194,183,0) 48%);
+    background-size:120px 120px, auto, auto;
+    background-blend-mode:overlay, normal, normal;
+    padding:30px 0 56px;
+    text-align:center;
+  }
+  .about-hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;border-bottom:1px solid rgba(255,255,255,.22)}
+  .about-hero>.wrap{position:relative;z-index:1}
+  .crumbs{font-size:12px;color:rgba(255,255,255,.72);letter-spacing:.04em;margin:28px 0 36px;text-align:left}
+  .crumbs b{color:#fff;font-weight:500}
+  .about-logo{margin:0 auto 30px;max-width:300px}
+  .about-logo img{display:block;width:100%;height:auto}
+  .about-hero h1{font-family:var(--sans);font-weight:700;font-size:clamp(32px,5vw,54px);letter-spacing:-.02em;color:#fff;margin-bottom:14px}
+  .about-hero p{color:rgba(255,255,255,.82);font-size:15px;max-width:56ch;margin:0 auto}
+
+  /* ---------- CRÉDITOS ---------- */
+  .credits{padding:72px 0 90px}
+  .credit-group{margin-bottom:58px}
+  .credit-group:last-child{margin-bottom:0}
+  .credit-group__eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:20px;text-align:center}
+  .credit-group__eyebrow::after{content:"";width:34px;height:1.5px;background:var(--oro);flex:none}
+  .credit-group__eyebrow::before{content:"";width:34px;height:1.5px;background:var(--oro);flex:none}
+  .credit-group__title{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.6vw,30px);color:var(--guinda-900);letter-spacing:-.01em}
+  .credit-list{display:grid;grid-template-columns:1fr;gap:24px;border-top:1px solid var(--linea);padding-top:26px}
+  .credit{padding-bottom:4px;text-align:center}
+  .credit b{display:block;font-family:var(--display);font-weight:500;font-size:19px;color:var(--tinta);line-height:1.3}
+  .credit span{display:block;font-size:13px;color:var(--gris);margin-top:4px;line-height:1.5}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--guinda-900);color:#fff;padding:34px 0;margin-top:0}
+  .fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#fff;font-size:12px}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo-wrap"><img class="logo" src="Img/logo-guinda.png" alt="INBAL"></span><span class="brand-sep"></span><span class="brand-text">Colección digital</span></a>
+    <nav class="menu">
+      <a href="colecciones.html">Obras</a><a href="acervos.html">Acervos</a><a href="#">Fondos</a><a href="conexiones.html">Conexiones</a><a href="curadurias.html">Curadurías</a><a href="investigacion.html">Investigación</a>
+    </nav>
+    <div class="search-dock" id="searchDock">
+      <button type="button" class="search-dock__icon" id="searchDockIcon" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <form class="search-dock__form" id="searchDockForm" autocomplete="off">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-dock__input" id="searchDockInput" placeholder="Buscar obras, artistas, museos…">
+        <button type="button" class="search-dock__close" id="searchDockClose" aria-label="Cerrar búsqueda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </form>
+    </div>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu__backdrop" data-mmclose></div>
+  <nav class="mobile-menu__panel">
+    <button type="button" class="mobile-menu__close" id="mobileMenuClose" aria-label="Cerrar menú">✕</button>
+    <a href="colecciones.html">Obras</a>
+    <a href="acervos.html">Acervos</a>
+    <a href="#">Fondos</a>
+    <a href="conexiones.html">Conexiones</a>
+    <a href="curadurias.html">Curadurías</a>
+    <a href="investigacion.html">Investigación</a>
+  </nav>
+</div>
+
+<section class="about-hero">
+  <div class="wrap">
+    <div class="crumbs reveal"><a href="index.html">Inicio</a> &nbsp;›&nbsp; <b>Acerca del proyecto</b></div>
+    <div class="about-logo reveal"><img src="Img/2019_logo_inbal.png" alt="Instituto Nacional de Bellas Artes y Literatura"></div>
+    <h1 class="reveal">Acerca del proyecto</h1>
+    <p class="reveal">Colección Digital INBAL es un proyecto de la Secretaría de Cultura y el Instituto Nacional de Bellas Artes y Literatura para preservar, organizar y difundir el patrimonio artístico de México.</p>
+  </div>
+</section>
+
+<section class="credits"><div class="wrap">
+
+  <div class="credit-group reveal">
+    <div class="credit-group__eyebrow"><span class="credit-group__title">Secretaría de Cultura</span></div>
+    <div class="credit-list">
+      <div class="credit"><b>Claudia Curiel de Icaza</b><span>Secretaria de Cultura</span></div>
+      <div class="credit"><b>Marina Núñez Bespalova</b><span>Subsecretaria de Desarrollo Cultural</span></div>
+    </div>
+  </div>
+
+  <div class="credit-group reveal">
+    <div class="credit-group__eyebrow"><span class="credit-group__title">Instituto Nacional de Bellas Artes y Literatura</span></div>
+    <div class="credit-list">
+      <div class="credit"><b>Alejandra de la Paz</b><span>Directora General</span></div>
+      <div class="credit"><b>Dolores Martínez Orralde</b><span>Subdirectora General de Patrimonio Artístico Inmueble</span></div>
+      <div class="credit"><b>Aarón Polo López</b><span>Director de Difusión y Relaciones Públicas</span></div>
+      <div class="credit"><b>Gerardo Cedillo</b><span>Coordinador Nacional de Artes Visuales</span></div>
+      <div class="credit"><b>Ernesto Martínez Bermúdez</b><span>Director del Centro Nacional de Conservación y Registro del Patrimonio Artístico Mueble (CENCROPAM)</span></div>
+      <div class="credit"><b>Thomas Ritch Rocha</b><span>Enlace</span></div>
+    </div>
+  </div>
+
+  <div class="credit-group reveal">
+    <div class="credit-group__eyebrow"><span class="credit-group__title">Colección Digital INBAL</span></div>
+    <div class="credit-list">
+      <div class="credit"><b>Vania Ramírez Islas</b><span>Asesora del proyecto</span></div>
+      <div class="credit"><b>Fernando Orozco</b><span>Líder de desarrollo</span></div>
+    </div>
+  </div>
+
+</div></section>
+
+<footer><div class="wrap fbot">
+  <span>© 2026 Instituto Nacional de Bellas Artes y Literatura · Secretaría de Cultura · Gobierno de México</span>
+  <span>Colección Digital INBAL</span>
+</div></footer>
+
+<script>
+  function el(id){return document.getElementById(id);}
+
+  /* ---------------- REVEAL AL HACER SCROLL ---------------- */
+  const io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),(i%4)*70);io.unobserve(e.target);}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+
+  /* ---------------- SEARCH DOCK (header) ---------------- */
+  (function(){
+    const dock=el('searchDock');
+    const iconBtn=el('searchDockIcon');
+    const form=el('searchDockForm');
+    const input=el('searchDockInput');
+    const closeBtn=el('searchDockClose');
+    if(!dock)return;
+
+    function openDock(){ dock.classList.add('is-open'); setTimeout(()=>input.focus(),150); }
+    function closeDock(){ dock.classList.remove('is-open'); input.value=''; iconBtn.focus(); }
+    iconBtn.addEventListener('click',openDock);
+    closeBtn.addEventListener('click',e=>{ e.preventDefault(); closeDock(); });
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const q=input.value.trim();
+      if(q) window.location.href='colecciones.html?q='+encodeURIComponent(q);
+    });
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&dock.classList.contains('is-open'))closeDock();
+    });
+  })();
+
+  /* ---------------- MENÚ HAMBURGUESA (móvil) ---------------- */
+  (function(){
+    const toggle=el('menuToggle');
+    const mobileMenu=el('mobileMenu');
+    const closeBtn=el('mobileMenuClose');
+    if(!toggle||!mobileMenu)return;
+
+    function openMenu(){
+      mobileMenu.classList.add('is-open');
+      mobileMenu.setAttribute('aria-hidden','false');
+      toggle.setAttribute('aria-expanded','true');
+      document.body.classList.add('overflow-hidden');
+    }
+    function closeMenu(){
+      mobileMenu.classList.remove('is-open');
+      mobileMenu.setAttribute('aria-hidden','true');
+      toggle.setAttribute('aria-expanded','false');
+      document.body.classList.remove('overflow-hidden');
+      toggle.focus();
+    }
+    toggle.addEventListener('click',openMenu);
+    closeBtn.addEventListener('click',closeMenu);
+    mobileMenu.querySelectorAll('[data-mmclose]').forEach(e=>e.addEventListener('click',closeMenu));
+    mobileMenu.querySelectorAll('.mobile-menu__panel a').forEach(a=>a.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&mobileMenu.classList.contains('is-open'))closeMenu();
+    });
+  })();
+</script>
+</body>
+</html>

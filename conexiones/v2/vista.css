@@ -1,0 +1,35 @@
+:root{--green:#1e5b4f;--line:#e8e3da;--paper:#faf7f2;color:#211a1c;font:16px/1.55 'Noto Sans',system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper)}header,main{padding-inline:max(5vw,calc((100vw - 1320px)/2))}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;background:white;border-bottom:1px solid var(--line);padding-block:16px}
+.brand,nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.brand{text-decoration:none;font-weight:700}.brand img{width:81px;object-fit:contain}.brand em{border-left:1px solid var(--line);padding-left:16px}
+a{color:var(--green)}nav a{text-decoration:none}nav a[aria-current]{border-bottom:2px solid}main{padding-block:36px}h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;line-height:1.1}h1{font-size:clamp(36px,5vw,64px);margin:0}h2{font-size:30px;margin:12px 0}button{font:inherit;color:var(--green);cursor:pointer;background:white;border:1px solid var(--line);border-radius:8px;padding:10px 14px}button:hover{border-color:var(--green)}:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+#trail{margin:24px 0;gap:8px;font-size:14px}.layout{display:grid;grid-template-columns:minmax(230px,.8fr) minmax(0,1.6fr);gap:22px}.layout> *{background:white;border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}article{align-self:start}article img{width:100%;height:280px;object-fit:contain;background:var(--paper)}#map{height:350px;background:#f5f6ef;border-radius:8px}#links{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin-top:14px}#links button{text-align:left;display:grid;align-content:start}#links small{color:#535953}#links img{width:100%;height:88px;object-fit:contain;margin-bottom:8px}#status{color:#525b55;font-size:14px}
+@media(max-width:720px){header{flex-wrap:wrap}main{padding-block:24px}.layout{grid-template-columns:1fr}article img{height:185px}#map{display:none}#links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+#catalogSearch {
+  max-width: 58rem;
+  margin-block: 1.5rem;
+}
+#catalogSearch label { display: block; font-weight: 650; margin-bottom: .4rem; }
+#catalogQuery {
+  width: 100%;
+  padding: .85rem 1rem;
+  font: inherit;
+  color: inherit;
+  background: white;
+  border: 1px solid #808f86;
+  border-radius: 8px;
+}
+#searchCount { font-size: .875rem; margin: .4rem 0; }
+#matches {
+  max-height: 19rem;
+  overflow: auto;
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: .4rem;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+#matches button { display: grid; gap: .1rem; width: 100%; text-align: left; border-color: transparent; }
+#matches small { color: #535953; }
