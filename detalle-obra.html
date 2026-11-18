@@ -121,6 +121,9 @@
   .frow .k{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);padding-top:2px}
   .frow .v b{font-family:var(--display);font-weight:500}
   .inv{background:var(--papel-2);border:1px solid var(--linea);border-radius:6px;padding:1px 8px;font-size:12px}
+  .btn-cx{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;padding:12px 18px;border-radius:30px;background:transparent;border:1px solid var(--guinda);color:var(--guinda);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;transition:background .3s var(--ease),color .3s var(--ease)}
+  .btn-cx:hover{background:color-mix(in srgb,var(--oro) 22%,#fff)}
+  .btn-cx svg{width:16px;height:16px}
   .lic{cursor:help;border-bottom:1px dotted var(--gris)}
 
   /* prosa */
@@ -170,7 +173,7 @@
   /* ---------- IMPRESIÓN / DESCARGAR FICHA ---------- */
   @media print{
     @page{ size:letter portrait; margin:12.5mm 10mm; }
-    header,.mobile-menu,.crumbs,.back,.vtools,.vhint,.cite,.share-menu,.rel,footer,.toast,.actions2{display:none!important}
+    header,.mobile-menu,.crumbs,.back,.vtools,.vhint,.cite,.share-menu,.rel,footer,.toast,.actions2,.btn-cx{display:none!important}
     body{background:#fff;font-size:11pt}
     .reveal{opacity:1!important;transform:none!important;transition:none!important}
     .wrap{max-width:none;padding:0;margin:0}
@@ -245,12 +248,11 @@
         </div>
         <picture>
           <source id="imgWebp" srcset="" type="image/webp">
-          <img id="obraImg" src="" alt="" onerror="this.onerror=null;this.src=IMG_DIR+'_sin-imagen.svg'">
+          <img id="obraImg" src="" alt="" onerror="if(this.getAttribute('src')){this.onerror=null;this.src='Img/obras/_sin-imagen.svg'}">
         </picture>
       </div>
 
       <div class="actions2">
-        <a id="exploreConnections" href="conexiones-v3.html" style="padding:11px 18px;border:1px solid var(--linea);border-radius:30px;color:var(--guinda)">Explorar conexiones ↗</a>
         <div class="share-wrap" id="shareWrap">
           <button type="button" class="primary" id="shareBtn" aria-haspopup="true" aria-expanded="false">⤴ Compartir</button>
           <div class="share-menu" id="shareMenu" role="menu">
@@ -284,6 +286,10 @@
       <div class="frow"><span class="k">Localización</span><span class="v" id="fLoc">Ciudad de México</span></div>
       <div class="frow"><span class="k">No. Sigropam</span><span class="v"><span class="inv" id="fInv">14333</span></span></div>
       <div class="frow"><span class="k">Licencia</span><span class="v"><span class="lic" title="Obra bajo derechos vigentes. En México la protección es de la vida del autor más 100 años.">Derechos reservados · consulta la política de uso</span></span></div>
+      <a class="btn-cx" id="fConexiones" href="conexiones-v3.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="19" r="2"/><path d="M5.6 6.3 9.8 10M18.4 6.3 14.2 10M5.6 17.7 9.8 14M18.4 17.7 14.2 14"/></svg>
+        Conexiones
+      </a>
     </aside>
   </div>
 
@@ -497,11 +503,11 @@
 
   const params=new URLSearchParams(location.search);
   const obra=byFile(params.get('obra'))||byFile('MUNAL_14333');
-  document.getElementById('exploreConnections').href='conexiones.html?obra='+encodeURIComponent(obra.file);
   const reg=obra.file.split('_')[1];
 
   /* imagen */
   const imgWebp=document.getElementById('imgWebp');
+  document.getElementById('fConexiones').href='conexiones-v3.html?obra='+encodeURIComponent(obra.file);
   const img=document.getElementById('obraImg');
   if(obra.img){ imgWebp.srcset=''; img.src=obra.img; }
   else { imgWebp.srcset=IMG_DIR+obra.file+'.webp'; img.src=IMG_DIR+obra.file+'.jpg'; }
